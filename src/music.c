@@ -495,7 +495,7 @@ void sendAdlib(int regIdx, int value)
 int musicTimer = 0;
 int nextUpdateTimer = musicSync;
 
-int musicUpdate(void *udata, uint8 *stream, int len)
+int musicUpdate(void *udata, u8 *stream, int len)
 {
 #ifdef UNIX
   return 0;
@@ -515,7 +515,7 @@ int musicUpdate(void *udata, uint8 *stream, int len)
 
       if(timeBeforNextUpdate) // generate
       {
-        YM3812UpdateOne(0,(int16*)(stream+fillStatus),(timeBeforNextUpdate)/2);
+        YM3812UpdateOne(0,(s16*)(stream+fillStatus),(timeBeforNextUpdate)/2);
         fillStatus+=timeBeforNextUpdate;
         musicTimer+=timeBeforNextUpdate;
       }

@@ -1,6 +1,8 @@
 #ifndef _COMMON_H_
 #define _COMMON_H_
 
+#include <stdint.h>
+
 #ifndef _WIN32
 #include "config.h"
 #endif
@@ -17,13 +19,13 @@
 #define USE_GL
 #endif
 
-typedef unsigned char u8;
-typedef unsigned short int u16;
-typedef unsigned long int u32;
+typedef uint8_t u8;
+typedef uint16_t u16;
+typedef uint32_t u32;
 
-typedef signed char s8;
-typedef signed short int s16;
-typedef signed long int s32;
+typedef int8_t s8;
+typedef int16_t s16;
+typedef int32_t s32;
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -116,23 +118,6 @@ extern enumCVars AITD2KnownCVars[];
 extern enumCVars* currentCVarTable;
 
 int getCVarsIdx(enumCVars);
-
-typedef unsigned char uint8;
-typedef unsigned short uint16;
-typedef unsigned long uint32;
-#ifndef UNIX
-typedef unsigned int uint;
-#endif
-typedef signed char int8;
-typedef signed short int16;
-typedef signed long int32;
-
-typedef unsigned char U8;
-typedef unsigned short U16;
-typedef unsigned long U32;
-typedef signed char S8;
-typedef signed short S16;
-typedef signed long S32;
 
 #define TYPE_MASK 0x1D1
 
