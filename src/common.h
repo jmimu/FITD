@@ -229,7 +229,7 @@ int triangulate_polygon(int ncontours,int cntr[],double (*vertices)[2],int (*tri
 
 FORCEINLINE u16 READ_LE_U16(void *ptr)
 {
-#ifdef MACOSX
+#ifdef BIG_ENDIAN
   return (((u8*)ptr)[1]<<8)|((u8*)ptr)[0];
 #else
   return *(u16*)ptr;
@@ -243,7 +243,7 @@ FORCEINLINE s16 READ_LE_S16(void *ptr)
 
 FORCEINLINE u16 READ_BE_U16(void *ptr)
 {
-#ifdef MACOSX
+#ifdef BIG_ENDIAN
   return *(u16*)ptr;
 #else
   return (((u8*)ptr)[1]<<8)|((u8*)ptr)[0];
@@ -257,7 +257,7 @@ FORCEINLINE s16 READ_BE_S16(void *ptr)
 
 FORCEINLINE u32 READ_LE_U32(void *ptr)
 {
-#ifdef MACOSX
+#ifdef BIG_ENDIAN
   return (((u8*)ptr)[3]<<24)|(((u8*)ptr)[2]<<16)|(((u8*)ptr)[1]<<8)|((u8*)ptr)[0];
 #else
   return *(u32*)ptr;
@@ -271,7 +271,7 @@ FORCEINLINE s32 READ_LE_S32(void *ptr)
 
 FORCEINLINE u32 READ_BE_U32(void *ptr)
 {
-#ifdef MACOSX
+#ifdef BIG_ENDIAN
   return *(u32*)ptr;
 #else
   return (((u8*)ptr)[3]<<24)|(((u8*)ptr)[2]<<16)|(((u8*)ptr)[1]<<8)|((u8*)ptr)[0];

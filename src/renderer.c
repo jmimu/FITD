@@ -1216,10 +1216,6 @@ int renderModel(int x,int y,int z,int alpha,int beta,int gamma,void* modelPtr)
   int i;
   char* out;
 
-#ifdef MACOSX
-  return 0;
-#endif
-
 #ifndef USE_GL2
 #endif
 

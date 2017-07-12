@@ -58,6 +58,9 @@
 /* OpenBSD */
 #undef OPENBSD
 
+/* Big endian */
+#undef BIG_ENDIAN
+
 /* Name of package */
 #undef PACKAGE
 

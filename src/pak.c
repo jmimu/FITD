@@ -45,7 +45,7 @@ unsigned int PAK_getNumFiles(char* name)
 
   fseek(fileHandle,4,SEEK_CUR);
   fread(&fileOffset,4,1,fileHandle);
-#ifdef MACOSX
+#ifdef BIG_ENDIAN
   fileOffset = READ_LE_U32(&fileOffset);
 #endif
   fclose(fileHandle);
@@ -128,13 +128,13 @@ int getPakSize(char* name, int index)
     fseek(fileHandle,(index+1)*4,SEEK_SET);
 
     fread(&fileOffset,4,1,fileHandle);
-#ifdef MACOSX
+#ifdef BIG_ENDIAN
     fileOffset = READ_LE_U32(&fileOffset);
 #endif
     fseek(fileHandle,fileOffset,SEEK_SET);
 
     fread(&additionalDescriptorSize,4,1,fileHandle);
-#ifdef MACOSX
+#ifdef BIG_ENDIAN
     additionalDescriptorSize = READ_LE_U32(&additionalDescriptorSize);
 #endif
 
@@ -209,7 +209,7 @@ char* loadPak(char* name, int index)
 
     fread(&fileOffset,4,1,fileHandle);
 
-#ifdef MACOSX
+#ifdef BIG_ENDIAN
     fileOffset = READ_LE_U32(&fileOffset);
 #endif
 
@@ -217,7 +217,7 @@ char* loadPak(char* name, int index)
 
     fread(&additionalDescriptorSize,4,1,fileHandle);
 
-#ifdef MACOSX
+#ifdef BIG_ENDIAN
     additionalDescriptorSize = READ_LE_U32(&additionalDescriptorSize);
 #endif
 
