@@ -30,7 +30,8 @@ enumCVars AITD1KnownCVars[]=
   LIGHT_OBJECT,
   FOG_FLAG,
   DEAD_PERSO,
-  -1
+  
+  UNKNOWN_CVAR
 };
 
 enumCVars AITD2KnownCVars[]=
@@ -52,7 +53,8 @@ enumCVars AITD2KnownCVars[]=
   TYPE_INVENTAIRE,
   PROLOGUE,
   POIGNARD,
-  -1
+  
+  UNKNOWN_CVAR
 };
 
 enumCVars* currentCVarTable = NULL;
@@ -63,7 +65,7 @@ int getCVarsIdx(enumCVars searchedType) // TODO: optimize by reversing the table
 
   for(i=0;i<numCVars;i++)
   {
-    if(currentCVarTable[i] == -1)
+    if(currentCVarTable[i] == UNKNOWN_CVAR)
     {
       ASSERT(0);
     }
