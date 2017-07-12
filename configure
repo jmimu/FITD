@@ -8391,7 +8391,7 @@ fi
 
 done
 
-LIBS="$LIBS -lz"
+LIBS="$LIBS -lz -lm"
 
 # ------------------
 # Warning level
