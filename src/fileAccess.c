@@ -8,7 +8,7 @@ char* loadFromItd(char* name){  FILE* fHandle;  char* ptr;
   if(!fHandle)  {    theEnd(0,name);    return NULL;  }
   fseek(fHandle,0,SEEK_END);  fileSize = ftell(fHandle);  fseek(fHandle,0,SEEK_SET);
   ptr = (char*)malloc(fileSize);  if(!ptr)  {    theEnd(1,name);    return NULL;  }
-  fread(ptr,fileSize,1,fHandle);
+  if (fread(ptr,fileSize,1,fHandle)!=1)    printf("Error reading \"%s\"\n",name);  
   fclose(fHandle);
   return(ptr);}
 

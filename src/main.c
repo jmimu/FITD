@@ -499,7 +499,9 @@ void sysInit(void)
 
 ///////////////////////////////////////////////
   {
-    fread(CVars,numCVars,2,fHandle);
+    if (fread(CVars,numCVars,2,fHandle)!=2)
+      printf("Error reading DEFINES.ITD!\n");
+    
     fclose(fHandle);
     
     for(i=0;i<numCVars;i++)
@@ -1215,7 +1217,8 @@ void initEngine(void)
   pObjectDataBackup = pObjectData = (u8*)malloc(objectDataSize);
   ASSERT(pObjectData);
 
-  fread(pObjectData,objectDataSize,1,fHandle);
+  if (fread(pObjectData,objectDataSize,1,fHandle)!=1)
+    printf("Error reading OBJETS.ITD!\n");
   fclose(fHandle);
 
   maxObjects = READ_LE_U16(pObjectData);
@@ -1373,7 +1376,8 @@ void initEngine(void)
 
 ///////////////////////////////////////////////
   {
-    fread(CVars,numCVars,2,fHandle);
+    if (fread(CVars,numCVars,2,fHandle)!=2)
+      printf("Error reading DEFINES.ITD!\n");
     fclose(fHandle);
     
     for(i=0;i<numCVars;i++)

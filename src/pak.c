@@ -17,11 +17,16 @@ typedef struct pakInfoStruct pakInfoStruct;
 
 void readPakInfo(pakInfoStruct* pPakInfo, FILE* fileHandle)
 {
-  fread(&pPakInfo->discSize,4,1,fileHandle);
-  fread(&pPakInfo->uncompressedSize,4,1,fileHandle);
-  fread(&pPakInfo->compressionFlag,1,1,fileHandle);
-  fread(&pPakInfo->info5,1,1,fileHandle);
-  fread(&pPakInfo->offset,2,1,fileHandle);
+  if (fread(&pPakInfo->discSize,4,1,fileHandle)!=1)
+    printf("Error reading discSize!\n");
+  if (fread(&pPakInfo->uncompressedSize,4,1,fileHandle)!=1)
+    printf("Error reading uncompressedSize!\n");
+  if (fread(&pPakInfo->compressionFlag,1,1,fileHandle)!=1)
+    printf("Error reading compressionFlag!\n");
+  if (fread(&pPakInfo->info5,1,1,fileHandle)!=1)
+    printf("Error reading info5!\n");
+  if (fread(&pPakInfo->offset,2,1,fileHandle)!=1)
+    printf("Error reading offset!\n");
 
   pPakInfo->discSize = READ_LE_U32(&pPakInfo->discSize);
   pPakInfo->uncompressedSize = READ_LE_U32(&pPakInfo->uncompressedSize);
@@ -44,7 +49,8 @@ unsigned int PAK_getNumFiles(char* name)
   ASSERT(fileHandle);
 
   fseek(fileHandle,4,SEEK_CUR);
-  fread(&fileOffset,4,1,fileHandle);
+  if (fread(&fileOffset,4,1,fileHandle)!=1)
+    printf("Error reading fileOffset!\n");
 #ifdef BIG_ENDIAN
   fileOffset = READ_LE_U32(&fileOffset);
 #endif
@@ -71,7 +77,8 @@ int loadPakToPtr(char* name, int index, char* ptr)
   size = ftell(fHandle);
   fseek(fHandle,0L,SEEK_SET);
 
-  fread(ptr,size,1,fHandle);
+  if (fread(ptr,size,1,fHandle)!=1)
+    printf("Error reading ptr!\n");
   fclose(fHandle);
 
   return(1);
@@ -127,13 +134,15 @@ int getPakSize(char* name, int index)
   {
     fseek(fileHandle,(index+1)*4,SEEK_SET);
 
-    fread(&fileOffset,4,1,fileHandle);
+    if (fread(&fileOffset,4,1,fileHandle)!=1)
+      printf("Error reading fileOffset!\n");
 #ifdef BIG_ENDIAN
     fileOffset = READ_LE_U32(&fileOffset);
 #endif
     fseek(fileHandle,fileOffset,SEEK_SET);
 
-    fread(&additionalDescriptorSize,4,1,fileHandle);
+    if (fread(&additionalDescriptorSize,4,1,fileHandle)!=1)
+      printf("Error reading additionalDescriptorSize!\n");
 #ifdef BIG_ENDIAN
     additionalDescriptorSize = READ_LE_U32(&additionalDescriptorSize);
 #endif
@@ -183,7 +192,8 @@ char* loadPak(char* name, int index)
 
   ptr = (char*)malloc(size);
 
-  fread(ptr,size,1,fHandle);
+  if (fread(ptr,size,1,fHandle)!=1)
+    printf("Error reading ptr!\n");
   fclose(fHandle);
 
   return ptr;
@@ -207,7 +217,8 @@ char* loadPak(char* name, int index)
 
     fseek(fileHandle,(index+1)*4,SEEK_SET);
 
-    fread(&fileOffset,4,1,fileHandle);
+    if (fread(&fileOffset,4,1,fileHandle)!=1)
+      printf("Error reading fileOffset!\n");
 
 #ifdef BIG_ENDIAN
     fileOffset = READ_LE_U32(&fileOffset);
@@ -215,7 +226,8 @@ char* loadPak(char* name, int index)
 
     fseek(fileHandle,fileOffset,SEEK_SET);
 
-    fread(&additionalDescriptorSize,4,1,fileHandle);
+    if (fread(&additionalDescriptorSize,4,1,fileHandle)!=1)
+      printf("Error reading additionalDescriptorSize!\n");
 
 #ifdef BIG_ENDIAN
     additionalDescriptorSize = READ_LE_U32(&additionalDescriptorSize);
@@ -227,7 +239,8 @@ char* loadPak(char* name, int index)
     {
       ASSERT(pakInfo.offset<256);
 
-      fread(nameBuffer,pakInfo.offset,1,fileHandle);
+      if (fread(nameBuffer,pakInfo.offset,1,fileHandle)!=1)
+        printf("Error reading nameBuffer!\n");
 #ifdef INTERNAL_DEBUGGER
       printf("Loading %s/%s\n", name,nameBuffer+2);
 #endif
@@ -242,13 +255,15 @@ char* loadPak(char* name, int index)
     case 0:
       {
         ptr = (char*)malloc(pakInfo.discSize);
-        fread(ptr,pakInfo.discSize,1,fileHandle);
+        if (fread(ptr,pakInfo.discSize,1,fileHandle)!=1)
+        printf("Error reading nameBuffer!\n");
         break;
       }
     case 1:
       {
         char * compressedDataPtr = (char *) malloc(pakInfo.discSize);
-        fread(compressedDataPtr, pakInfo.discSize, 1, fileHandle);
+        if (fread(compressedDataPtr, pakInfo.discSize, 1, fileHandle)!=1)
+        printf("Error reading nameBuffer!\n");
         ptr = (char *) malloc(pakInfo.uncompressedSize);
 
         PAK_explode(compressedDataPtr, ptr, pakInfo.discSize, pakInfo.uncompressedSize, pakInfo.info5);
@@ -259,7 +274,8 @@ char* loadPak(char* name, int index)
     case 4:
       {
         char * compressedDataPtr = (char *) malloc(pakInfo.discSize);
-        fread(compressedDataPtr, pakInfo.discSize, 1, fileHandle);
+        if (fread(compressedDataPtr, pakInfo.discSize, 1, fileHandle)!=1)
+        printf("Error reading nameBuffer!\n");
         ptr = (char *) malloc(pakInfo.uncompressedSize);
 
         PAK_deflate(compressedDataPtr, ptr, pakInfo.discSize, pakInfo.uncompressedSize);
