@@ -1,0 +1,84 @@
+----------------
+FITD release 0.1
+----------------
+
+What is FITD
+------------
+
+FITD ("Free in the Dark") is an open source vesion of the
+engine used in the Alone in the Dark (AITD) and sequels.
+
+*NIX version special notice:
+----------------------------
+
+This version had music diseabled at the last second. The music is still
+enabled in the win32 build. If someone is interested to look for the
+exact issue under *nix, please drop me a mail.
+
+What is supported
+-----------------
+
+AITD1:
+      Should be completable. Saving and loading is supported,
+      but only one slot is available (the screen to select the
+      save position is not implemented). It's possible to load
+      a savegame from the original game, provided it's file is
+      named "save0.itd" (rename it if necessary). Like wise,
+      it is possible to load a FITD save in the original engine.
+      There is a big issue concerning the projectils. Basically,
+      guns, won't work, and throwing objects may produce strange
+      result. Save before throwing anything, as the object may
+      apprear in a wall...
+
+AITD2:
+      Supported but uncompletable. The introduction is buggy
+      due to a regression in the script engine. Hit 'esc' to skip
+      the intro (both parts) to bypass the bug .Save/load is
+      unsupported.
+
+JACK:
+      Supported but uncompletable.
+      Save/load is unsupported.
+
+AITD3:
+      Supported but uncompletable.
+      Save/load is unsupported.
+
+How to use FITD
+---------------
+
+Build (with configure and make) and put the binary  in the game
+data directory (where all the .pak files are) and start FITD.
+The CD version of AITD1 wasn't tested and may not work.
+
+Authors
+-------
+
+- Vincent Hamm "yaz0r" (yazoo@yaz0r.net)
+      Project leader and main programmer
+
+- Nicolas Noble "Pixel"
+      Cross platform issues. Helped understanding some
+      complex aspect of the 3d engine
+
+
+Greetings
+---------
+
+- All the Alone in the Dark 1 team:
+      Frederick Raynal
+      Yael Barroz
+      Didier Chanfray
+      Philippe Vachey
+      Franck De Girolami
+      Jean-Marc Torroella
+      Hubert Chardot
+      Franck Manzetti
+
+- Laurent Paret, you know what for ;)
+
+- Sebastien Viannay, maybe this project wouldn't
+      have existed without you...
+
+- All those I forgot....
+

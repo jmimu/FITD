@@ -1,0 +1,1 @@
+void mainLoop(int allowSystemMenu);
