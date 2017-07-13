@@ -222,9 +222,9 @@ s32 q=0;
       }
       else // not first frame
       {
-        unsigned long int frameSize;
+        u32 frameSize;
 
-        frameSize = *(unsigned long int*)screen;
+        frameSize = *(u32*)screen;
 
         if(frameSize < 64000) // key frame
         {

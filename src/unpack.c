@@ -27,51 +27,51 @@
 #define PAK_WSIZE 0x8000
 
 typedef struct {
-  unsigned long csize;
-  unsigned long ucsize;
-  unsigned char * buf_src;
-  unsigned char * buf_dst;
-  unsigned long off_src;
-  unsigned long off_dst;
-  unsigned short flags;
+  u32 csize;
+  u32 ucsize;
+  u8 * buf_src;
+  u8 * buf_dst;
+  u32 off_src;
+  u32 off_dst;
+  u16 flags;
 } PAK_stream;
 
 typedef struct PAK_huft {
-  unsigned short e;     // number of PAK_extra bits or operation
-  unsigned short b;     // number of bits in this code or subcode
+  u16 e;     // number of PAK_extra bits or operation
+  u16 b;     // number of bits in this code or subcode
   union {
-    unsigned short n;   // literal, length base, or distance base
+    u16 n;   // literal, length base, or distance base
     struct PAK_huft *t;     // pointer to next level of table
   } v;
 } PAK_huft;
 
 
-static unsigned char PAK_slide[PAK_WSIZE];
-static unsigned PAK_mask_bits[17] = { 0x0000, 0x0001, 0x0003, 0x0007, 0x000f, 0x001f, 0x003f, 0x007f, 0x00ff, 0x01ff, 0x03ff, 0x07ff, 0x0fff, 0x1fff, 0x3fff, 0x7fff, 0xffff };
+static u8 PAK_slide[PAK_WSIZE];
+static u16 PAK_mask_bits[17] = { 0x0000, 0x0001, 0x0003, 0x0007, 0x000f, 0x001f, 0x003f, 0x007f, 0x00ff, 0x01ff, 0x03ff, 0x07ff, 0x0fff, 0x1fff, 0x3fff, 0x7fff, 0xffff };
 
 /* Tables for length and distance */
-static unsigned short cplen2[] = {
+static u16 cplen2[] = {
         2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
         18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34,
         35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51,
         52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65
 };
 
-static unsigned short cplen3[] = {
+static u16 cplen3[] = {
         3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
         19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,
         36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52,
         53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66
 };
 
-static unsigned char extra[] = {
+static u8 extra[] = {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         8
 };
 
-static unsigned short cpdist4[] = {
+static u16 cpdist4[] = {
         1, 65, 129, 193, 257, 321, 385, 449, 513, 577, 641, 705,
         769, 833, 897, 961, 1025, 1089, 1153, 1217, 1281, 1345, 1409, 1473,
         1537, 1601, 1665, 1729, 1793, 1857, 1921, 1985, 2049, 2113, 2177,
@@ -80,7 +80,7 @@ static unsigned short cpdist4[] = {
         3649, 3713, 3777, 3841, 3905, 3969, 4033
 };
 
-static unsigned short cpdist8[] = {
+static u16 cpdist8[] = {
         1, 129, 257, 385, 513, 641, 769, 897, 1025, 1153, 1281,
         1409, 1537, 1665, 1793, 1921, 2049, 2177, 2305, 2433, 2561, 2689,
         2817, 2945, 3073, 3201, 3329, 3457, 3585, 3713, 3841, 3969, 4097,
@@ -92,7 +92,7 @@ static unsigned short cpdist8[] = {
 #define PAK_NEXTBYTE ((pG->off_src<pG->csize)?(pG->buf_src[pG->off_src++]):0)
 #define PAK_FLUSH(size) { memcpy(pG->buf_dst + pG->off_dst, PAK_slide, size); pG->off_dst += size; }
 
-#define PAK_NEEDBITS(n) {while(k<(n)){b|=((unsigned long)PAK_NEXTBYTE)<<k;k+=8;}}
+#define PAK_NEEDBITS(n) {while(k<(n)){b|=((u32)PAK_NEXTBYTE)<<k;k+=8;}}
 #define PAK_DUMPBITS(n) {b>>=(n);k-=(n);}
 #define PAK_DECODEHUFT(htab, bits, mask) {\
   PAK_NEEDBITS((unsigned)(bits))\

@@ -324,6 +324,11 @@ void processAnimTranslation(char** bodyPtr, int bp, int bx) // local
 
 short int setInterAnimObjet(int frame, char* animPtr, char* bodyPtr)
 {
+  printf("setInterAnimObjet: %d %p %p\n",frame,animPtr,bodyPtr);
+  if (frame==1)
+  {
+      printf("A\n");
+  }
   int numOfBonesInAnim = *(short int*)(animPtr+2);
   unsigned short int keyframeLength;
   unsigned short int timeOfKeyframeStart;
@@ -357,6 +362,12 @@ short int setInterAnimObjet(int frame, char* animPtr, char* bodyPtr)
     return(0);
   }
 
+  for (long i=0;i<100;i++)
+  {
+      printf("%u ",*(bodyPtr+i));
+  }
+  printf("\n");
+
   bodyPtr+=16;
 
   animVar3 = bodyPtr;
@@ -368,6 +379,7 @@ short int setInterAnimObjet(int frame, char* animPtr, char* bodyPtr)
   if(!animBufferPtr)
   {
     animBufferPtr = animVar1;
+    printf("Set animBufferPtr to %p\n",animVar1);
   }
 
   // animVar4 = ptr to previous key frame

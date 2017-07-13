@@ -4,11 +4,11 @@
 
 struct pakInfoStruct // warning: allignement unsafe
 {
-  long int discSize;
-  long int uncompressedSize;
+  u32 discSize;
+  u32 uncompressedSize;
   char compressionFlag;
   char info5;
-  short int offset;
+  u16 offset;
 };
 
 typedef struct pakInfoStruct pakInfoStruct;
@@ -37,9 +37,9 @@ unsigned int PAK_getNumFiles(char* name)
 {
   char bufferName[256];
   FILE* fileHandle;
-  long int fileOffset;
+  u32 fileOffset;
   char* ptr=0;
-  long int size=0;
+  u32 size=0;
 
   strcpy(bufferName, name); // temporary until makeExtention is coded
   strcat(bufferName,".PAK");
@@ -119,11 +119,11 @@ int getPakSize(char* name, int index)
 #else
   char bufferName[256];
   FILE* fileHandle;
-  long int fileOffset;
-  long int additionalDescriptorSize;
+  u32 fileOffset;
+  u32 additionalDescriptorSize;
   pakInfoStruct pakInfo;
   char* ptr=0;
-  long int size=0;
+  u32 size=0;
 
   strcpy(bufferName, name); // temporary until makeExtention is coded
   strcat(bufferName,".PAK");
@@ -200,8 +200,8 @@ char* loadPak(char* name, int index)
 #else
   char bufferName[256];
   FILE* fileHandle;
-  long int fileOffset;
-  long int additionalDescriptorSize;
+  u32 fileOffset;
+  u32 additionalDescriptorSize;
   pakInfoStruct pakInfo;
   char* ptr=0;
 

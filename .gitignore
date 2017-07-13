@@ -1,6 +1,7 @@
 *.o
 *~
 Makefile
+configure
 *.log
 *.status
 src/config.h
