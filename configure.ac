@@ -242,7 +242,7 @@ AC_CHECK_HEADERS(zlib.h,
 	for more information.
 	])
 )
-LIBS="$LIBS -lz"
+LIBS="$LIBS -lz -lm"
 
 # ------------------
 # Warning level

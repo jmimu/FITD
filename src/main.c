@@ -8,6 +8,7 @@
 
 #include "common.h"
 
+
 char scaledScreen[640*400];
 
 int input5;
@@ -5366,7 +5367,7 @@ int main(int argc, char** argv)
 
   getVersion(version);
 
-  printf(version);
+  printf("%s",version);//to avoid errors if version has a "%"
 
   osystem_init();
   osystem_initBuffer(scaledScreen,640,400);

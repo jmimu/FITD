@@ -2,155 +2,155 @@
 #include "math.h"
 // From LBA:
 int DoTrackVar1;
-int GetAngle(int X1, int Y1, int X2, int Y2)
-{
-  int newX;
-  int newY;
-  int ebp;
-  int edi;
-  int eax;
-  int tempExchange;
-  int esi;
-  int ebx;
-  int flag;
-  int difX;
-  int difY;
-  short int* tab3 = &cosTable[384];
-  short int* tab2 = &cosTable[256];
+//~ int GetAngle(int X1, int Y1, int X2, int Y2)
+//~ {
+  //~ int newX;
+  //~ int newY;
+  //~ int ebp;
+  //~ int edi;
+  //~ int eax;
+  //~ int tempExchange;
+  //~ int esi;
+  //~ int ebx;
+  //~ int flag;
+  //~ int difX;
+  //~ int difY;
+  //~ short int* tab3 = &cosTable[384];
+  //~ short int* tab2 = &cosTable[256];
 
-  int destVal;
-  int startAngle;
-  int stopAngle;
-  int finalAngle;
+  //~ int destVal;
+  //~ int startAngle;
+  //~ int stopAngle;
+  //~ int finalAngle;
 
 
-  difY = edi = Y2 - Y1;
-  newY = edi * edi;
+  //~ difY = edi = Y2 - Y1;
+  //~ newY = edi * edi;
 
-  difX = ebp = X2 - X1;
-  newX = ebp * ebp;
+  //~ difX = ebp = X2 - X1;
+  //~ newX = ebp * ebp;
 
-  if (newX < newY)    // exchange X and Y
-  {
-    tempExchange = difX;
-    difX = difY;
-    difY = tempExchange;
+  //~ if (newX < newY)    // exchange X and Y
+  //~ {
+    //~ tempExchange = difX;
+    //~ difX = difY;
+    //~ difY = tempExchange;
 
-    flag = 1;
-  }
-  else
-  {
-    flag = 0;
-  }
+    //~ flag = 1;
+  //~ }
+  //~ else
+  //~ {
+    //~ flag = 0;
+  //~ }
 
-  DoTrackVar1 = (int) sqrt(newX + newY);
+  //~ DoTrackVar1 = (int) sqrt(newX + newY);
 
-  if (!DoTrackVar1)
-    return (0);
+  //~ if (!DoTrackVar1)
+    //~ return (0);
 
-  destVal = (difY << 14) / DoTrackVar1;
+  //~ destVal = (difY << 14) / DoTrackVar1;
 
-  startAngle = 0;
-  stopAngle = 0x100;
+  //~ startAngle = 0;
+  //~ stopAngle = 0x100;
 
-  while (tab3[startAngle] > destVal)
-  {
-    startAngle++;
-     /*
-      * if (startAngle > 256) { printf ("Can't find angle %d...\n", destVal); exit (1); } 
-      */
-  }
+  //~ while (tab3[startAngle] > destVal)
+  //~ {
+    //~ startAngle++;
+     //~ /*
+      //~ * if (startAngle > 256) { printf ("Can't find angle %d...\n", destVal); exit (1); } 
+      //~ */
+  //~ }
 
-  if (tab3[startAngle] != destVal)
-  if ((tab3[startAngle - 1] + tab3[startAngle]) / 2 <= destVal)
-  {
-    startAngle--;
-  }
+  //~ if (tab3[startAngle] != destVal)
+  //~ if ((tab3[startAngle - 1] + tab3[startAngle]) / 2 <= destVal)
+  //~ {
+    //~ startAngle--;
+  //~ }
 
-  finalAngle = 128 + startAngle;
+  //~ finalAngle = 128 + startAngle;
 
-  if (difX <= 0)    // if we are going left
-  {
-    finalAngle = -finalAngle;
-  }
+  //~ if (difX <= 0)    // if we are going left
+  //~ {
+    //~ finalAngle = -finalAngle;
+  //~ }
 
-  if (flag & 1)   // X and Y are exchanged -> 90° rotation needed
-  {
-    finalAngle = -finalAngle + 0x100;
-  }
+  //~ if (flag & 1)   // X and Y are exchanged -> 90° rotation needed
+  //~ {
+    //~ finalAngle = -finalAngle + 0x100;
+  //~ }
 
-  return (finalAngle & 0x3FF);
+  //~ return (finalAngle & 0x3FF);
 
- /*
-  do
-  {
-    currentAngle=(startAngle+stopAngle)/2;
+ //~ /*
+  //~ do
+  //~ {
+    //~ currentAngle=(startAngle+stopAngle)/2;
 
-    if(destVal>tab3[currentAngle])
-    {
-      stopAngle=currentAngle;
-    }
-    else
-    {
-      startAngle=currentAngle;
-      if(destVal==tab3[currentAngle])
-      {
-        goto endCalc;
-      }
-      currentAngle=stopAngle;
-    }
-  }while(--currentAngle);
-  */
+    //~ if(destVal>tab3[currentAngle])
+    //~ {
+      //~ stopAngle=currentAngle;
+    //~ }
+    //~ else
+    //~ {
+      //~ startAngle=currentAngle;
+      //~ if(destVal==tab3[currentAngle])
+      //~ {
+        //~ goto endCalc;
+      //~ }
+      //~ currentAngle=stopAngle;
+    //~ }
+  //~ }while(--currentAngle);
+  //~ */
 
-  esi = (int) tab3;
-  edi = esi + 0x200;
+  //~ esi = (int) tab3;
+  //~ edi = esi + 0x200;
 
-  do
-  {
-    ebx = esi;
-    ebx += edi;
-    ebx >>= 1;
+  //~ do
+  //~ {
+    //~ ebx = esi;
+    //~ ebx += edi;
+    //~ ebx >>= 1;
 
-    if (eax > READ_LE_S16((void*)ebx))
-    {
-      edi = ebx;
-    }
-    else
-    {
-      esi = ebx;
-      if (eax == READ_LE_S16((void*)ebx))
-      {
-        goto endCalc;
-      }
-      ebx = edi;
-    }
-    ebx -= esi;
-  }while (--ebx > 2);
+    //~ if (eax > READ_LE_S16((void*)ebx))
+    //~ {
+      //~ edi = ebx;
+    //~ }
+    //~ else
+    //~ {
+      //~ esi = ebx;
+      //~ if (eax == READ_LE_S16((void*)ebx))
+      //~ {
+        //~ goto endCalc;
+      //~ }
+      //~ ebx = edi;
+    //~ }
+    //~ ebx -= esi;
+  //~ }while (--ebx > 2);
 
-  if ((READ_LE_S16((void*)esi) + READ_LE_S16((void*)edi)) / 2 <= eax)
-  {
-    esi = edi;
-  }
+  //~ if ((READ_LE_S16((void*)esi) + READ_LE_S16((void*)edi)) / 2 <= eax)
+  //~ {
+    //~ esi = edi;
+  //~ }
 
-  endCalc:
+  //~ endCalc:
 
-  esi -= (int) tab2;
-  eax = esi;
-  eax >>= 1;
+  //~ esi -= (int) tab2;
+  //~ eax = esi;
+  //~ eax >>= 1;
 
-  if (ebp <= 0)
-  {
-    eax = -eax;
-  }
+  //~ if (ebp <= 0)
+  //~ {
+    //~ eax = -eax;
+  //~ }
 
-  if (ebp & 1)    // (newX < newY) ie plus loin sur Y que sur X 
-  {
-    eax = -eax;
-    eax += 0x100;
-  }
+  //~ if (ebp & 1)    // (newX < newY) ie plus loin sur Y que sur X 
+  //~ {
+    //~ eax = -eax;
+    //~ eax += 0x100;
+  //~ }
 
-  return (eax & 0x3FF);
-}
+  //~ return (eax & 0x3FF);
+//~ }
 
 int makeProportional(int x1, int x2, int y1, int y2)
 {

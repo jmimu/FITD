@@ -3,6 +3,7 @@
 
 extern int input5;
 
+int fileExists(char* name);
 void menuWaitVSync();
 void printTextSub5(int x, int y, int param, char* gfx);
 void flipScreen();

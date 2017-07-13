@@ -1,3 +1,4 @@
+#include "sequence.h"
 #include "common.h"
 
 void convertPaletteIfRequired(unsigned char* lpalette)

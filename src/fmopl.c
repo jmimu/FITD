@@ -77,7 +77,7 @@ Revision History:
 # ifdef _MSC_VER
 #   define INLINE __inline
 # else
-#   define INLINE inline
+#   define INLINE static inline
 # endif
 #endif
 

@@ -2,7 +2,7 @@
 
 #include "common.h"
 
-typedef struct pakInfoStruct // warning: allignement unsafe
+struct pakInfoStruct // warning: allignement unsafe
 {
   long int discSize;
   long int uncompressedSize;

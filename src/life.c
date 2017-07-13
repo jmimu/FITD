@@ -1,4 +1,5 @@
 #include "common.h"
+#include "sequence.h"
 
 int groundLevel;
 short int specialTable[4] = {144, 192, 48, 112};

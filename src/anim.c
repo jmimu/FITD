@@ -371,6 +371,7 @@ short int setInterAnimObjet(int frame, char* animPtr, char* bodyPtr)
   }
 
   // animVar4 = ptr to previous key frame
+  printf("Set animVar4 to %p\n",animBufferPtr);
   animVar4 = animBufferPtr;
 
   bodyPtr+= *(short int*)(bodyPtr-2);

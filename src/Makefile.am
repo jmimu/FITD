@@ -10,10 +10,10 @@ floor.c floor.h fmopl.c fmopl.h font.c font.h hqr.c hqr.h input.c input.h \
 inventory.c inventory.h life.c lifeMacroTable.c life.h life_2.c life_2.h lines.c main.c main.h \
 mainLoop.c mainLoop.h music.c music.h object.c object.h \
 osystem.h osystemSDL.c osystemSDL_GL.c pak.c pak.h polys.c \
-renderer.c renderer.h room.c room.h sequence.c save.c save.h screen.c screen.h \
+renderer.c renderer.h room.c room.h sequence.c sequence.h save.c save.h screen.c screen.h \
 startupMenu.c startupMenu.h systemMenu.c systemMenu.h tatou.c tatou.h \
 threadCode.c threadCode.h \
-time.c time.h track.c track.h unpack.c unpack.h vars.c vars.h \
+freezetime.c freezetime.h track.c track.h unpack.c unpack.h vars.c vars.h \
 version.c version.h videoMode.c videoMode.h zv.c zv.h 
 
 
