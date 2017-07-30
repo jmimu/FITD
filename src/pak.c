@@ -171,6 +171,56 @@ int getPakSize(char* name, int index)
 #endif
 }
 
+
+void PAK_debug(char* name, int index,pakInfoStruct *pakInfo,char * compressedDataPtr,char * uncompressedDataPtr)
+{
+  char buffer[256];
+  FILE* fHandle;
+  
+  //info
+  sprintf(buffer,"debug/%s_%04X.txt",name,index);
+  fHandle = fopen(buffer,"w");
+  fprintf(fHandle,"PAK %s %d\n",name,index);
+  fprintf(fHandle,"pakInfo.discSize %d\n",pakInfo->discSize);
+  fprintf(fHandle,"pakInfo.uncompressedSize %d\n",pakInfo->uncompressedSize);
+  fprintf(fHandle,"pakInfo.compressionFlag %d\n",pakInfo->compressionFlag);
+  fprintf(fHandle,"pakInfo.info5 %d\n",pakInfo->info5);
+  fprintf(fHandle,"pakInfo.offset %d\n",pakInfo->offset);
+  fclose(fHandle);
+  
+  //compressed
+  sprintf(buffer,"debug/%s_%04X_pak.dat",name,index);
+  fHandle = fopen(buffer,"wb");
+  fwrite(compressedDataPtr,1,pakInfo->discSize,fHandle); 
+  fclose(fHandle);
+  
+  //uncompressed
+  sprintf(buffer,"debug/%s_%04X_unpak.dat",name,index);
+  fHandle = fopen(buffer,"wb");
+  fwrite(uncompressedDataPtr,1,pakInfo->uncompressedSize,fHandle); 
+  fclose(fHandle);
+  
+  if (pakInfo->uncompressedSize==64000)
+  {
+    //picture
+    sprintf(buffer,"debug/%s_%04X_unpak.pgm",name,index);
+    fHandle = fopen(buffer,"wb");
+    fwrite("P5 320 200 255 ",1,15,fHandle); 
+    fwrite(uncompressedDataPtr,1,64000,fHandle); 
+    fclose(fHandle);
+  }
+  
+  if (pakInfo->uncompressedSize==64770)
+  {
+    //picture
+    sprintf(buffer,"debug/%s_%04X_unpak.pgm",name,index);
+    fHandle = fopen(buffer,"wb");
+    fwrite("P5 320 200 255 ",1,15,fHandle); 
+    fwrite(uncompressedDataPtr+770,1,64000,fHandle); 
+    fclose(fHandle);
+  }
+}
+
 char* loadPak(char* name, int index)
 {
 #ifdef USE_UNPACKED_DATA
@@ -249,7 +299,7 @@ char* loadPak(char* name, int index)
     {
       fseek(fileHandle,pakInfo.offset,SEEK_CUR);
     }
-
+    
     switch(pakInfo.compressionFlag)
     {
     case 0:
@@ -267,6 +317,8 @@ char* loadPak(char* name, int index)
         ptr = (char *) malloc(pakInfo.uncompressedSize);
 
         PAK_explode(compressedDataPtr, ptr, pakInfo.discSize, pakInfo.uncompressedSize, pakInfo.info5);
+
+        PAK_debug(name, index,&pakInfo,compressedDataPtr,ptr);
 
         free(compressedDataPtr);
         break;
