@@ -14,6 +14,8 @@ renderer.c renderer.h room.c room.h sequence.c sequence.h save.c save.h screen.c
 startupMenu.c startupMenu.h systemMenu.c systemMenu.h tatou.c tatou.h \
 threadCode.c threadCode.h \
 freezetime.c freezetime.h track.c track.h unpack.c unpack.h vars.c vars.h \
-version.c version.h videoMode.c videoMode.h zv.c zv.h 
+version.c version.h videoMode.c videoMode.h zv.c zv.h \
+bmp.c bmp.h
+
 
 

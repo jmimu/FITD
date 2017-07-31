@@ -1,6 +1,7 @@
 // seg 55
 
 #include "common.h"
+#include "bmp.h"
 
 struct pakInfoStruct // warning: allignement unsafe
 {
@@ -208,6 +209,11 @@ void PAK_debug(char* name, int index,pakInfoStruct *pakInfo,char * compressedDat
     fwrite("P5 320 200 255 ",1,15,fHandle); 
     fwrite(uncompressedDataPtr,1,64000,fHandle); 
     fclose(fHandle);
+    
+    
+    //save as bmp
+    sprintf(buffer,"debug/%s_%04X_unpak.bmp",name,index);
+    saveBMP(buffer, uncompressedDataPtr, palette, 320, 200);
   }
   
   if (pakInfo->uncompressedSize==64770)
