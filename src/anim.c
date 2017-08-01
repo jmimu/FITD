@@ -259,8 +259,9 @@ s16 getAnimType(u8** bodyPtr) // local
 void processAnimRotation(u8** bodyPtr, int bp, int bx) // local
 {
     printf("animVar4: %p\n",animVar4);
-    printf("bodyPtr: %p\n",bodyPtr);
-    printf("*bodyPtr: %p\n",*bodyPtr);
+    //printf("bodyPtr: %p\n",bodyPtr);
+    //printf("*bodyPtr: %p\n",*bodyPtr);
+
   s16 oldRotation = *(s16*)animVar4;
   s16 newRotation;
   s16 diff;
@@ -327,18 +328,19 @@ void processAnimTranslation(u8** bodyPtr, int bp, int bx) // local
 
 s16 setInterAnimObjet(int frame, u8* animPtr, u8* bodyPtr)
 {
-  //~ printf("setInterAnimObjet: %d %p %p\n",frame,animPtr,bodyPtr);
+  //printf("setInterAnimObjet: %d %p %p\n",frame,animPtr,bodyPtr);
+  //printf("check bodyPtr1: %p %p\n",bodyPtr,*(u8**)(bodyPtr));
   //~ for (long i=0;i<100;i++)
   //~ {
       //~ printf("%d: %d ",i,*(bodyPtr+i));
   //~ }
 
-  printf("\n");
+  //printf("\n");
   int numOfBonesInAnim = *(s16*)(animPtr+2);
   u16 keyframeLength;
   u16 timeOfKeyframeStart;
   u8* animBufferPtr;
-  int ax;
+  u16 ax;
   u16 bx;
   u16 time;
   int bp;
@@ -366,24 +368,33 @@ s16 setInterAnimObjet(int frame, u8* animPtr, u8* bodyPtr)
   {
     return(0);
   }
+  //printf("check bodyPtr1.8: %p %p\n",bodyPtr,*(u8**)(bodyPtr));
+
 
   bodyPtr+=16;
+  //printf("check bodyPtr1.9: %p %p %p\n",bodyPtr,*(u8**)(bodyPtr),bodyPtr);
 
   animVar3 = bodyPtr;
-  printf("animVar3: %p\n",animVar3);
+  //printf("animVar3: %p\n",animVar3);
 
   timeOfKeyframeStart = *(u16*)(bodyPtr+4); // time of start of keyframe
   
+  //printf("check bodyPtr2: %p %p\n",bodyPtr,*(u8**)(bodyPtr));
+
+
+  //printf("Set animBufferPtr to %p\n",*(u8**)(bodyPtr));
   animBufferPtr = *(u8**)(bodyPtr);
+
+  animBufferPtr=(u8*)((u32)animBufferPtr);//TODO: is it the ony way to fix 64 bit crash?
 
   if(!animBufferPtr)
   {
     animBufferPtr = animVar1;
-    printf("Set animBufferPtr to %p\n",animVar1);
+    //printf("Set animBufferPtr to %p\n",animVar1);
   }
 
   // animVar4 = ptr to previous key frame
-  printf("Set animVar4 to %p\n",animBufferPtr);
+  //printf("Set animVar4 to %p\n",animBufferPtr);
   animVar4 = animBufferPtr;
 
   bodyPtr+= *(s16*)(bodyPtr-2);
@@ -523,9 +534,9 @@ s16 setInterAnimObjet(int frame, u8* animPtr, u8* bodyPtr)
       bodyPtr+=8;
 
     }while(--numOfBonesInAnim);
-    *(u8**)animVar3 = animVar1;
 
-    *(u16*)(animVar3+4) = (u16)timer;//c'est la que ca coince?
+    *(u8**)animVar3 = animVar1;
+    *(u16*)(animVar3+4) = (u16)timer;
 
     tempBx+=2;
 

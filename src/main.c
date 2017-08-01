@@ -4216,7 +4216,6 @@ void processActor1(void)
   ZVStruct zvLocal;
   ZVStruct* zvPtr;
   int j;
-
   if(var_6 != -1) // next anim ?
   {
     if(var_6 == -2) // completly stop anim
@@ -5360,11 +5359,7 @@ void detectGame(void)
 
 int main(int argc, char** argv)
 {
-  printf("short int: %lu\n",sizeof(short int));
-  printf("unsigned short int: %lu\n",sizeof(unsigned short int));
-  printf("int: %lu\n",sizeof(int));
-  printf("char*: %lu\n",sizeof(char*));
-  printf("long int: %lu\n",sizeof(long int));
+  //setbuf(stdout, NULL);//TODO: remove
 
   int startupMenuResult;
 //  int protectionToBeDone = 1;

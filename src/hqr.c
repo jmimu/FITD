@@ -120,6 +120,7 @@ void moveHqrEntry(hqrEntryStruct* hqrPtr, int index)
 
 u8* HQR_Get(hqrEntryStruct* hqrPtr, int index)
 {
+  //printf("HQR_Get from %s\n",hqrPtr->string);
   hqrSubEntryStruct* foundEntry;
   
   if(index<0)
@@ -131,7 +132,7 @@ u8* HQR_Get(hqrEntryStruct* hqrPtr, int index)
   {
     foundEntry->lastTimeUsed = timer;
     hqrVar1 = 0;
-
+    //printf("Found entry: %p\n",foundEntry->ptr);
     return(foundEntry->ptr);
   }
   else
@@ -236,7 +237,7 @@ u8* HQR_Get(hqrEntryStruct* hqrPtr, int index)
 
     //printf("HQR_Get: \n");
     //for (i=0;i<size;i++)
-    //    printf("%d ",*(ptr+i));
+    //    printf("%u ",*(ptr+i));
     //printf("\n");
 
     return(ptr);
