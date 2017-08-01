@@ -234,6 +234,11 @@ char* HQR_Get(hqrEntryStruct* hqrPtr, int index)
 
     unfreezeTime();
 
+    //printf("HQR_Get: \n");
+    //for (i=0;i<size;i++)
+    //    printf("%d ",*(ptr+i));
+    //printf("\n");
+
     return(ptr);
   }
 }

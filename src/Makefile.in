@@ -117,7 +117,7 @@ am_fitd_OBJECTS = actorList.$(OBJEXT) aitdBox.$(OBJEXT) \
 	startupMenu.$(OBJEXT) systemMenu.$(OBJEXT) tatou.$(OBJEXT) \
 	threadCode.$(OBJEXT) freezetime.$(OBJEXT) track.$(OBJEXT) \
 	unpack.$(OBJEXT) vars.$(OBJEXT) version.$(OBJEXT) \
-	videoMode.$(OBJEXT) zv.$(OBJEXT)
+	videoMode.$(OBJEXT) zv.$(OBJEXT) bmp.$(OBJEXT)
 fitd_OBJECTS = $(am_fitd_OBJECTS)
 fitd_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
@@ -306,7 +306,8 @@ renderer.c renderer.h room.c room.h sequence.c sequence.h save.c save.h screen.c
 startupMenu.c startupMenu.h systemMenu.c systemMenu.h tatou.c tatou.h \
 threadCode.c threadCode.h \
 freezetime.c freezetime.h track.c track.h unpack.c unpack.h vars.c vars.h \
-version.c version.h videoMode.c videoMode.h zv.c zv.h 
+version.c version.h videoMode.c videoMode.h zv.c zv.h \
+bmp.c bmp.h
 
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
@@ -414,6 +415,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/aitdBox.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/anim.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/animAction.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bmp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cosTable.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/debugFont.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/debugger.Po@am__quote@

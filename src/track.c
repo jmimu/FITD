@@ -74,7 +74,7 @@ int DoTrackVar1;
     //~ finalAngle = -finalAngle;
   //~ }
 
-  //~ if (flag & 1)   // X and Y are exchanged -> 90° rotation needed
+  //~ if (flag & 1)   // X and Y are exchanged -> 90 deg rotation needed
   //~ {
     //~ finalAngle = -finalAngle + 0x100;
   //~ }

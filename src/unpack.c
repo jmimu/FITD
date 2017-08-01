@@ -479,7 +479,7 @@ int PAK_explode(unsigned char * srcBuffer, unsigned char * dstBuffer, unsigned i
   G.ucsize = uncompressedSize;
 
   bl = 7;
-  bd = (compressedSize > 200000L) ? 8 : 7; // TODO : Totalement FOIREUX, à vérifier
+  bd = (compressedSize > 200000L) ? 8 : 7; // TODO : Totalement FOIREUX, a verifier
 
   if(flags & 4) {    // With literal tree--minimum match length is 3
     bb = 9;

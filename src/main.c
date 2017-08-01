@@ -5361,6 +5361,12 @@ void detectGame(void)
 
 int main(int argc, char** argv)
 {
+  printf("short int: %lu\n",sizeof(short int));
+  printf("unsigned short int: %lu\n",sizeof(unsigned short int));
+  printf("int: %lu\n",sizeof(int));
+  printf("char*: %lu\n",sizeof(char*));
+  printf("long int: %lu\n",sizeof(long int));
+
   int startupMenuResult;
 //  int protectionToBeDone = 1;
   char version[256];

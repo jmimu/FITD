@@ -58,7 +58,7 @@ typedef int32_t s32;
 //#include <gl\glaux.h>   // Header File For The Glaux Library
 #endif
 
-#include "SDL.h"
+#include <SDL.h>
 
 //////////////// GAME SPECIFIC DEFINES
 

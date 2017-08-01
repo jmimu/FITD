@@ -66,7 +66,7 @@ struct hqrSubEntryStruct
 {
 	short int key;
 	short int size;
-	unsigned int lastTimeUsed;
+    unsigned int lastTimeUsed;
   char* ptr;
 };
 
