@@ -1125,7 +1125,7 @@ int musicFade(void * param)
 
         if(dx & 0x40)
         {
-          if(!channelTable2[i].var4&0x40)
+          if(!(channelTable2[i].var4&0x40))
             channelTable2[i].var4|=0x40;
         }
 
@@ -1224,7 +1224,7 @@ int initMusicDriver(void)
   return callMusicDrv(8,NULL);
 }
 
-void loadMusic(int param, char* musicPtr)
+void loadMusic(int param, u8* musicPtr)
 {
   callMusicDrv(3,musicPtr);
   callMusicDrv(2,NULL);
@@ -1254,7 +1254,7 @@ void playMusic(int musicNumber)
   {
     if(currentMusic != musicNumber)
     {
-      char* musicPtr;
+      u8* musicPtr;
 
       currentMusic = musicNumber;
 

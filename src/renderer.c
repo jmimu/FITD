@@ -137,11 +137,11 @@ int boneRotateZCos;
 int boneRotateZSin;
 
 #ifdef USE_GL
-char primBuffer[30000];
+u8 primBuffer[30000];
 #else
-char primBuffer[8000];
+u8 primBuffer[8000];
 #endif
-char* tempOutPtr;
+u8* tempOutPtr;
 
 int renderVar3;
 
@@ -373,7 +373,7 @@ void computeBoneRotation(short int* pointPtr, int numOfPoint)
   }
 }
 
-void computeBoneRotation2(char* ptr)
+void computeBoneRotation2(u8* ptr)
 {
   if(*(ptr+7))
   {
@@ -384,7 +384,7 @@ void computeBoneRotation2(char* ptr)
   }
 }
 
-void computeRotationMatrix(char* ptr)
+void computeRotationMatrix(u8* ptr)
 {
   int baseBone = *(short int*)(ptr);
   int numPoints = *(short int*)((ptr)+2);
@@ -408,7 +408,7 @@ void computeRotationMatrix(char* ptr)
   }while(--temp2);
 }
 
-void computeTranslation1(int transX,int transY,int transZ,char* ptr)
+void computeTranslation1(int transX,int transY,int transZ,u8* ptr)
 {
   int i;
   short int* ptrSource = &pointBuffer[(*(short int*)ptr)/2];
@@ -422,11 +422,11 @@ void computeTranslation1(int transX,int transY,int transZ,char* ptr)
   }
 }
 
-void computeTranslation2(int transX,int transY,int transZ,char* ptr)
+void computeTranslation2(int transX,int transY,int transZ,u8* ptr)
 {
-  int i;
-  short int* ptrSource = &pointBuffer[(*(short int*)ptr)/2];
-  int number = *(short int*)(ptr+2);
+  s32 i;
+  s16* ptrSource = &pointBuffer[(*(s16*)ptr)/2];
+  s32 number = *(s16*)(ptr+2);
 
   for(i=0;i<number;i++)
   {
@@ -436,11 +436,11 @@ void computeTranslation2(int transX,int transY,int transZ,char* ptr)
   }
 }
 
-int computeModel(int x,int y,int z,int alpha,int beta,int gamma,void* modelPtr, char* ptr)
+int computeModel(int x,int y,int z,int alpha,int beta,int gamma,void* modelPtr, u8* ptr)
 {
-  char* tempPtr;
+  u8* tempPtr;
   int i;
-  char* si;
+  u8* si;
 
   renderX = x - translateX;
   renderY = y;
@@ -468,7 +468,7 @@ int computeModel(int x,int y,int z,int alpha,int beta,int gamma,void* modelPtr, 
     for(i=0;i<numOfBones;i++)
     {
       int boneDataOffset = bonesBuffer[i];
-      char* boneDataPtr = tempPtr + boneDataOffset;
+      u8* boneDataPtr = tempPtr + boneDataOffset;
 
       int type = *(short int*)(boneDataPtr+0x8);
 
@@ -523,7 +523,7 @@ int computeModel(int x,int y,int z,int alpha,int beta,int gamma,void* modelPtr, 
     for(i=0;i<numOfBones;i++)
     {
       int boneDataOffset = bonesBuffer[i];
-      char* boneDataPtr = tempPtr + boneDataOffset;
+      u8* boneDataPtr = tempPtr + boneDataOffset;
 
       int transX;
       int transY;
@@ -740,7 +740,7 @@ int computeModel(int x,int y,int z,int alpha,int beta,int gamma,void* modelPtr, 
   return(0);
 }
 
-int prerenderFlag0(int x,int y,int z,int alpha,int beta,int gamma,void* modelPtr, char* ptr)
+int prerenderFlag0(int x,int y,int z,int alpha,int beta,int gamma,void* modelPtr, u8* ptr)
 {
 
   int var1;
@@ -901,13 +901,13 @@ int prerenderFlag0(int x,int y,int z,int alpha,int beta,int gamma,void* modelPtr
 char* primVar1;
 char* primVar2;
 
-void primFunctionDefault(int primType,char** ptr,char** out)
+void primFunctionDefault(int primType,u8** ptr,u8** out)
 {
   printf("UnHandled primType %d\n",primType);
   exit(1);
 }
 
-void primType0(int primType, char** ptr, char** out) // line tested
+void primType0(int primType, u8** ptr, u8** out) // line tested
 {
   int i;
   u8 lineColor;
@@ -948,7 +948,7 @@ void primType0(int primType, char** ptr, char** out) // line tested
   }
 }
 
-void primType1(int primType, char** ptr, char** out) // poly
+void primType1(int primType, u8** ptr, u8** out) // poly
 {
   int i;
   int numOfPointInPoly;
@@ -1005,7 +1005,7 @@ void primType1(int primType, char** ptr, char** out) // poly
   }
 }
 
-void primType2(int primType, char** ptr, char** out) // point
+void primType2(int primType, u8** ptr, u8** out) // point
 {
   u8 pointColor;
   u16 pointIndex;
@@ -1036,7 +1036,7 @@ void primType2(int primType, char** ptr, char** out) // point
   }
 }
 
-void primType3(int primType, char** ptr, char** out) // sphere
+void primType3(int primType, u8** ptr, u8** out) // sphere
 {
   u8 discColor;
   u16 discSize;
@@ -1168,7 +1168,7 @@ renderFunction renderFunctions[]={
   defaultRenderFunction,
 };
 
-typedef void (*primFunction)(int primType,char** ptr, char** out);
+typedef void (*primFunction)(int primType,u8** ptr, u8** out);
 
 primFunction primFunctionTable[]={
   primType0,
@@ -1211,10 +1211,10 @@ primFunction primFunctionTable[]={
 
 int renderModel(int x,int y,int z,int alpha,int beta,int gamma,void* modelPtr)
 {
-  char* ptr = (char*)modelPtr;
+  u8* ptr = (u8*)modelPtr;
   int numPrim;
   int i;
-  char* out;
+  u8* out;
 
 #ifndef USE_GL2
 #endif
@@ -1378,9 +1378,9 @@ int renderModel(int x,int y,int z,int alpha,int beta,int gamma,void* modelPtr)
   return(0);
 }
 
-void computeScreenBox(int x, int y, int z, int alpha, int beta, int gamma, char* bodyPtr)
+void computeScreenBox(int x, int y, int z, int alpha, int beta, int gamma, u8* bodyPtr)
 {
-  char* ptr = (char*)bodyPtr;
+  u8* ptr = bodyPtr;
 
   BBox3D1 = 0x7FFF;
   BBox3D2 = 0x7FFF;

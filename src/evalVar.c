@@ -100,7 +100,7 @@ int calcDist(int X1, int Y1, int Z1, int X2, int Y2, int Z2)
   return(Xdist + Ydist + Zdist); // recheck overflow
 }
 
-int testZvEndAnim(actorStruct* actorPtr,char* animPtr, int param)
+int testZvEndAnim(actorStruct* actorPtr,u8* animPtr, int param)
 {
   short int var_16;
   short int var_14;

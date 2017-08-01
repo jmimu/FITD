@@ -73,7 +73,7 @@ int printTextSub1(hqrEntryStruct* hqrPtr,int size)
   return(key);
 }
 
-char* printTextSub2(hqrEntryStruct* hqrPtr, int index)
+u8* printTextSub2(hqrEntryStruct* hqrPtr, int index)
 {
   hqrSubEntryStruct* ptr;
   hqrSubEntryStruct* dataPtr;
@@ -118,7 +118,7 @@ void moveHqrEntry(hqrEntryStruct* hqrPtr, int index)
   hqrPtr->sizeFreeData += size;
 }
 
-char* HQR_Get(hqrEntryStruct* hqrPtr, int index)
+u8* HQR_Get(hqrEntryStruct* hqrPtr, int index)
 {
   hqrSubEntryStruct* foundEntry;
   
@@ -191,7 +191,7 @@ char* HQR_Get(hqrEntryStruct* hqrPtr, int index)
 
     int size;
     unsigned int time;
-    char* ptr;
+    u8* ptr;
     int i;
     
     freezeTime();

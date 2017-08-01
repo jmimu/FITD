@@ -2,6 +2,9 @@ TEMPLATE = app
 CONFIG += debug
 CONFIG -= qt
 
+QMAKE_CFLAGS += -Wno-unused-variable -Wno-unused-parameter -Wunused-but-set-parameter -Wunused-but-set-variable
+
+
 SOURCES += \
     src/zv.c \
     src/videoMode.c \

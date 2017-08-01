@@ -484,11 +484,11 @@ int loadSave(int saveNumber)
   {
     if(actorTable[i].field_0 != -1 && actorTable[i].bodyNum != -1)
     {
-      char* bodyPtr = HQR_Get(listBody,actorTable[i].bodyNum);
+      u8* bodyPtr = HQR_Get(listBody,actorTable[i].bodyNum);
 
       if(actorTable[i].ANIM != -1)
       {
-        char* animPtr = HQR_Get(listAnim,actorTable[i].ANIM);
+        u8* animPtr = HQR_Get(listAnim,actorTable[i].ANIM);
         initAnimInBody(actorTable[i].FRAME,animPtr,bodyPtr);
       }
     }
@@ -544,7 +544,10 @@ int makeSaveFile(int entry)
 
   for(i=0;i<NUM_MAX_ACTOR;i++)
   {
-    if(actorTable[i].field_0 == -1);
+    if(actorTable[i].field_0 == -1)
+    {
+        ;
+    }
 
     if(actorTable[i].ANIM == 4 )
     {

@@ -9,7 +9,7 @@
 #include "common.h"
 
 
-char scaledScreen[640*400];
+u8 scaledScreen[640*400];
 
 int input5;
 
@@ -275,7 +275,7 @@ void updateInHand(int objIdx)
   }
 }
 
-void sysInitSub1(char* var0, char* var1)
+void sysInitSub1(u8* var0, u8* var1)
 {
   screenSm1 = var0;
   screenSm2 = var0;
@@ -335,7 +335,7 @@ void allocTextes(void)
     exit(1);
   }
 
-  systemTextes = loadPakSafe(languageNameString, 0); // todo: use real language name
+  systemTextes = (s8*)loadPakSafe(languageNameString, 0); // todo: use real language name
   textLength = getPakSize(languageNameString, 0);
 
   for(currentIndex=0;currentIndex<NUM_MAX_TEXT_ENTRY;currentIndex++)
@@ -396,7 +396,7 @@ void sysInit(void)
   int i;
 
 #ifndef PCLIKE
-  unsigned long int ltime;
+  long int ltime;
 #else
   time_t ltime;
 #endif
@@ -422,13 +422,13 @@ void sysInit(void)
   // TODO: reverse sound init code
 
 
-  aux = (char*)malloc(65068);
+  aux = (u8*)malloc(65068);
   if(!aux)
   {
     theEnd(1,"Aux");
   }
 
-  aux2 = (char*)malloc(64000);
+  aux2 = (u8*)malloc(64000);
   if(!aux2)
   {
     theEnd(1,"Aux2");
@@ -438,13 +438,13 @@ void sysInit(void)
 /*  sysInitSub2(aux2);
   sysInitSub3(aux2); */
 
-  bufferAnim = (char*)malloc(4960);
+  bufferAnim = (u8*)malloc(4960);
   if(!bufferAnim)
   {
     theEnd(1,"BufferAnim");
   }
 
-  CVars = (short int*)malloc(numCVars * sizeof(short int));
+  CVars = (s16*)malloc(numCVars * sizeof(s16));
 
   switch(gameId)
   {
@@ -574,7 +574,7 @@ void fillBox(int x1, int y1, int x2, int y2, char color) // fast recode. No RE
   int width = x2 - x1 + 1;
   int height = y2 - y1 + 1;
 
-  char* dest = screen + y1*320 + x1;
+  u8* dest = screen + y1*320 + x1;
 
   int i;
   int j;
@@ -592,7 +592,7 @@ void fillBox(int x1, int y1, int x2, int y2, char color) // fast recode. No RE
 
 void preloadResource(void)
 {
-  char localPalette[768];
+  u8 localPalette[768];
 
   if(gameId == AITD2)
   {
@@ -750,7 +750,7 @@ int selectHero(void)
   return(choice);
 }
 
-void printTextSub5(int x, int y, int param, char* gfx)
+void printTextSub5(int x, int y, int param, u8* gfx)
 {
 }
 
@@ -779,7 +779,7 @@ int printText(int index, int left, int top, int right, int bottom, int mode, int
   int currentTextIdx;
   int maxStringWidth;
   int var_8;
-  char* textPtr;
+  u8* textPtr;
 
   initFont(fontData, color);
 
@@ -787,14 +787,14 @@ int printText(int index, int left, int top, int right, int bottom, int mode, int
 
   var_8 = printTextSub1(hqrUnk,getPakSize(languageNameString,index)+300);
 
-  textPtr = printTextSub2(hqrUnk, var_8);
+  textPtr = (s8*)printTextSub2(hqrUnk, var_8);
 
   if(!loadPakToPtr( languageNameString, index, textPtr))
   {
     theEnd(1, languageNameString );
   }
 
-  localTextTable[0] = textPtr;
+  localTextTable[0] = (s8*)textPtr;
 
 //  soundVar2 = -1;
 //  soundVar1 = -1;
@@ -965,7 +965,6 @@ parseSpe: while(*var_1C2 == '#')
       }
 
       currentText = textTable;
-      currentTextX;
 
       if(var_1AA & 8) // center
       {
@@ -1161,7 +1160,7 @@ pageChange: if(lastPageReached)
 
 int makeIntroScreens(void)
 {
-  char* data;
+  u8* data;
   unsigned int chrono;
 
   data = loadPak("ITD_RESS",13);
@@ -1788,7 +1787,7 @@ void zvRotSub(int X, int Y, int Z, int alpha, int beta, int gamma)
   }
 }
 
-void getZvRot(char* bodyPtr, ZVStruct* zvPtr, int alpha, int beta, int gamma)
+void getZvRot(u8* bodyPtr, ZVStruct* zvPtr, int alpha, int beta, int gamma)
 {
   int X1 = 32000;
   int Y1 = 32000;
@@ -3087,7 +3086,7 @@ void drawHardCol(int roomNumber)
 #endif
 
 
-int isBgOverlayRequired( int X1, int X2, int Z1, int Z2, char* data, int param )
+int isBgOverlayRequired( int X1, int X2, int Z1, int Z2, u8* data, int param )
 {
   int i;
   for(i=0;i<param;i++)
@@ -3096,10 +3095,10 @@ int isBgOverlayRequired( int X1, int X2, int Z1, int Z2, char* data, int param )
   //  drawOverlayZone(data, 80);
 /////////////////////////////////////
 
-    int zoneX1 = *(short int*)(data);
-    int zoneZ1 = *(short int*)(data+2);
-    int zoneX2 = *(short int*)(data+4);
-    int zoneZ2 = *(short int*)(data+6);
+    int zoneX1 = *(s16*)(data);
+    int zoneZ1 = *(s16*)(data+2);
+    int zoneX2 = *(s16*)(data+4);
+    int zoneZ2 = *(s16*)(data+6);
 
     if(X1 >= zoneX1 && Z1 >= zoneZ1 && X2 <= zoneX2 && Z2 <= zoneZ2)
     {
@@ -3122,13 +3121,13 @@ void drawBgOverlaySub2(int size)
   int tempBxPtr;
   int tempCxPtr;
 
-  char* si;
+  u8* si;
 
   int i;
   int saveDx;
   int saveAx;
 
-  char* tempBufferSE;
+  u8* tempBufferSE;
 
   int direction = 1;
 
@@ -3209,10 +3208,10 @@ void drawBgOverlaySub2(int size)
 
     if(ax != tempCxPtr)
     {
-      char* ptr1;
+      u8* ptr1;
       if(tempCxPtr == bp || tempCxPtr == cx)
       {
-        char* temp = cameraBuffer3Ptr;
+        u8* temp = cameraBuffer3Ptr;
         cameraBuffer3Ptr = tempBufferSE;
         tempBufferSE = temp;
       }
@@ -3291,8 +3290,8 @@ void drawBgOverlaySub2(int size)
 
 void drawBgOverlay(actorStruct* actorPtr)
 {
-  char* data;
-  char* data2;
+  u8* data;
+  u8* data2;
   int numEntry;
   int i;
   int numOverlayZone;
@@ -3332,7 +3331,7 @@ void drawBgOverlay(actorStruct* actorPtr)
   for(i=0;i<numOverlayZone;i++)
   {
     int numOverlay;
-    char* src = data2 + *(unsigned short int*)(data+2);
+    u8* src = data2 + *(u16*)(data+2);
 
     if(isBgOverlayRequired( actorPtr->zv.ZVX1 / 10, actorPtr->zv.ZVX2 / 10,
                 actorPtr->zv.ZVZ1 / 10, actorPtr->zv.ZVZ2 / 10,
@@ -3370,12 +3369,12 @@ void mainDrawSub2(int actorIdx) // draw flow
 {
   actorStruct* actorPtr = &actorTable[actorIdx];
 
-  char* data = printTextSub2(hqrUnk, actorPtr->FRAME);
+  u8* data = printTextSub2(hqrUnk, actorPtr->FRAME);
 
   // TODO: finish
 }
 
-void getHotPoint(int hotPointIdx, char* bodyPtr, point3dStruct* hotPoint)
+void getHotPoint(int hotPointIdx, u8* bodyPtr, point3dStruct* hotPoint)
 {
   short int flag;
 
@@ -3506,7 +3505,7 @@ void mainDraw(int mode)
       }
       else 
       {
-        char* bodyPtr = HQR_Get(listBody,actorPtr->bodyNum);
+        u8* bodyPtr = HQR_Get(listBody,actorPtr->bodyNum);
 
         if(hqrVar1)
         {

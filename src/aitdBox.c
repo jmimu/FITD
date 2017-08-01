@@ -1,9 +1,9 @@
 #include "common.h"
 
-void drawPartOfAITDBox(int left, int top, int index, char* gfxData)
+void drawPartOfAITDBox(int left, int top, int index, u8* gfxData)
 {
-  char* outPtr;
-  char* inPtr;
+  u8* outPtr;
+  u8* inPtr;
 
   int width;
   int height;

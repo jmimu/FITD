@@ -263,26 +263,26 @@ void manualRot(int param)
 
 unsigned int lastTimeForward = 0;
 
-char* getRoomLink(unsigned int room1, unsigned int room2)
+char* getRoomLink(u32 room1, u32 room2)
 {
-  int i;
-  short int numOfZones;
+  u32 i;
+  u16 numOfZones;
   char* zoneData = (char*)getRoomData(room1);  
   char* bestZone;
 
-  zoneData += *(short int*)(zoneData);
-  numOfZones = *(short int*)zoneData;
+  zoneData += *(u16*)(zoneData);
+  numOfZones = *(u16*)zoneData;
   zoneData+=2;
 
   bestZone = zoneData;
 
   for(i=0;i<numOfZones;i++)
   {
-    if(*(short int*)(zoneData+14) == 4)
+    if(*(u16*)(zoneData+14) == 4)
     {
       bestZone = zoneData;
 
-      if(*(short int*)(zoneData+12) == room2)
+      if(*(u16*)(zoneData+12) == room2)
       {
         return bestZone;
       }
@@ -393,7 +393,7 @@ void processTrack(void)
     }
   case 3: // track
     {
-      char* trackPtr = HQR_Get(listTrack,currentProcessedActorPtr->trackNumber);
+      u8* trackPtr = HQR_Get(listTrack,currentProcessedActorPtr->trackNumber);
       short int trackMacro;
       
       trackPtr+=currentProcessedActorPtr->positionInTrack * 2;
@@ -884,7 +884,7 @@ void processTrack2(void)
     }
   case 3: // track
     {
-      char* trackPtr = HQR_Get(listTrack,currentProcessedActorPtr->trackNumber);
+      u8* trackPtr = HQR_Get(listTrack,currentProcessedActorPtr->trackNumber);
       short int trackMacro;
       
       trackPtr+=currentProcessedActorPtr->positionInTrack * 2;

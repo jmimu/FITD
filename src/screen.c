@@ -4,7 +4,7 @@
 
 void setupScreen(void)
 {
-  screen = (char*)malloc(64800);
+  screen = (u8*)malloc(64800);
 
   screenBufferSize = 64800;
 
@@ -17,9 +17,9 @@ void setupScreen(void)
 void flipScreen()
 {
   int i;
-  char paletteRGBA[256*4];
-  char* outPtr = scaledScreen;
-  char* inPtr = unkScreenVar;
+  u8 paletteRGBA[256*4];
+  u8* outPtr = scaledScreen;
+  u8* inPtr = unkScreenVar;
 #ifdef USE_GL
   osystem_flip(NULL);
   return;
@@ -41,7 +41,7 @@ void flipScreen()
   for(i=0;i<200;i++)
   {
     int j;
-    char* copySource = outPtr;
+    u8* copySource = outPtr;
 
     for(j=0;j<320;j++)
     {

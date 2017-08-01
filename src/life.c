@@ -8,7 +8,7 @@ short int numObjInInventoryTable[2];
 short int inHandTable[2];
 short int currentInHand = 0;
 
-int numSequenceParam = 0;
+u32 numSequenceParam = 0;
 
 sequenceParamStruct sequenceParams[NUM_MAX_SEQUENCE_PARAM];
 
@@ -136,7 +136,7 @@ int createFlow( int mode, int X, int Y, int Z, int stage, int room, int alpha, i
   {
   case 0:
     {
-      char* flowPtr;
+      u8* flowPtr;
       int j;
       
       actorZvPtr->ZVX1 -= X;
@@ -711,8 +711,8 @@ processOpcode:
             {
               if((currentProcessedActorPtr->ANIM != -1) && (currentProcessedActorPtr->bodyNum != -1))
               {
-                char* pAnim = HQR_Get(listAnim,currentProcessedActorPtr->ANIM);
-                char* pBody;
+                u8* pAnim = HQR_Get(listAnim,currentProcessedActorPtr->ANIM);
+                u8* pBody;
 
                 if(gameId >= JACK)
                 {
@@ -754,8 +754,8 @@ processOpcode:
 
           if(currentProcessedActorPtr->flags&1)
           {
-            char* pAnim = HQR_Get(listAnim,currentProcessedActorPtr->ANIM);
-            char* pBody;
+            u8* pAnim = HQR_Get(listAnim,currentProcessedActorPtr->ANIM);
+            u8* pBody;
 
             if(gameId >= JACK)
             {
@@ -1099,7 +1099,7 @@ processOpcode:
         }
       case LM_CONTINUE_TRACK:
         {
-          char* ptr;
+          u8* ptr;
 
           ptr = HQR_Get(listTrack,currentProcessedActorPtr->trackNumber);
 

@@ -15,7 +15,7 @@ extern short int numObjInInventoryTable[2];
 extern short int inHandTable[2];
 extern short int currentInHand;
 
-extern int numSequenceParam;
+extern u32 numSequenceParam;
 
 extern sequenceParamStruct sequenceParams[NUM_MAX_SEQUENCE_PARAM];
 

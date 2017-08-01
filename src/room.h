@@ -98,8 +98,8 @@ extern cameraDataStruct* cameraDataTable[NUM_MAX_CAMERA_IN_ROOM];
 extern cameraZoneDefStruct* currentCameraZoneList[NUM_MAX_CAMERA_IN_ROOM];
 extern roomDataStruct* roomDataTable;
 
-roomDefStruct* getRoomData(int roomNumber);
+roomDefStruct* getRoomData(u32 roomNumber);
 void loadRoom(int roomNumber);
-int getNumberOfRoom();
+u32 getNumberOfRoom();
 
 #endif

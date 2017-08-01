@@ -1,8 +1,8 @@
 #ifndef _ZV_H_
 #define _ZV_H_
-void getZvCube(char* bodyPtr, ZVStruct* zvPtr);
-void getZvNormal(char* bodyPtr, ZVStruct* zvPtr);
-void getZvMax(char* bodyPtr, ZVStruct* zvPtr);
+void getZvCube(u8* bodyPtr, ZVStruct* zvPtr);
+void getZvNormal(u8 *bodyPtr, ZVStruct* zvPtr);
+void getZvMax(u8 *bodyPtr, ZVStruct* zvPtr);
 void makeDefaultZV(ZVStruct* zvPtr);
-void getZvMax(char* bodyPtr, ZVStruct* zvPtr);
+void getZvMax(u8* bodyPtr, ZVStruct* zvPtr);
 #endif

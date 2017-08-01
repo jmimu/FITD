@@ -1,12 +1,12 @@
 #include "common.h"
 
-int initAnimInBody(int frame, char* anim, char* body)
+int initAnimInBody(int frame, u8* anim, u8* body)
 {
   s16 temp;
   s16 ax;
   s16 cx;
   s16 bx;
-  char* saveAnim;
+  u8* saveAnim;
   int i;
   int flag;
 
@@ -46,7 +46,7 @@ int initAnimInBody(int frame, char* anim, char* body)
 
   body +=14;
 
-  *(char**)(body+2) = anim;
+  *(u8**)(body+2) = anim;
   *(u16*)(body+6) = timer;
 
   body+= *(s16*)body;
@@ -182,18 +182,18 @@ int anim(int animNum,int arg_2, int arg_4)
   return(1);
 }
 
-void initBufferAnim(char* buffer, char* bodyPtr)
+void initBufferAnim(u8* buffer, u8* bodyPtr)
 {
   int flag = *(s16*)bodyPtr;
   if(flag & 2)
   {
-    char* source = bodyPtr+0x10;
+    u8* source = bodyPtr+0x10;
     s16 ax;
     int cx;
     int i;
 
     *(u16*)(source+4) = (u16)timer;
-    *(char**)(source) = buffer;
+    *(u8**)(source) = buffer;
 
     source += *(s16*)(source-2);
 
@@ -237,12 +237,12 @@ void initBufferAnim(char* buffer, char* bodyPtr)
   }
 }
 
-s16 getAnimParam(char* animPtr)
+s16 getAnimParam(u8* animPtr)
 {
   return(*(s16*)animPtr);
 }
 
-s16 getAnimType(char** bodyPtr) // local
+s16 getAnimType(u8** bodyPtr) // local
 {
   s16 temp = *(s16*)animVar1;
 
@@ -256,7 +256,7 @@ s16 getAnimType(char** bodyPtr) // local
   return(temp);
 }
 
-void processAnimRotation(char** bodyPtr, int bp, int bx) // local
+void processAnimRotation(u8** bodyPtr, int bp, int bx) // local
 {
     printf("animVar4: %p\n",animVar4);
     printf("bodyPtr: %p\n",bodyPtr);
@@ -304,7 +304,7 @@ void processAnimRotation(char** bodyPtr, int bp, int bx) // local
   (*bodyPtr)+=2;
 }
 
-void processAnimTranslation(char** bodyPtr, int bp, int bx) // local
+void processAnimTranslation(u8** bodyPtr, int bp, int bx) // local
 {
   s16 cx = *(s16*)animVar4;
   s16 ax;
@@ -325,7 +325,7 @@ void processAnimTranslation(char** bodyPtr, int bp, int bx) // local
   (*bodyPtr)+=2;
 }
 
-s16 setInterAnimObjet(int frame, char* animPtr, char* bodyPtr)
+s16 setInterAnimObjet(int frame, u8* animPtr, u8* bodyPtr)
 {
   //~ printf("setInterAnimObjet: %d %p %p\n",frame,animPtr,bodyPtr);
   //~ for (long i=0;i<100;i++)
@@ -337,7 +337,7 @@ s16 setInterAnimObjet(int frame, char* animPtr, char* bodyPtr)
   int numOfBonesInAnim = *(s16*)(animPtr+2);
   u16 keyframeLength;
   u16 timeOfKeyframeStart;
-  char* animBufferPtr;
+  u8* animBufferPtr;
   int ax;
   u16 bx;
   u16 time;
@@ -374,7 +374,7 @@ s16 setInterAnimObjet(int frame, char* animPtr, char* bodyPtr)
 
   timeOfKeyframeStart = *(u16*)(bodyPtr+4); // time of start of keyframe
   
-  animBufferPtr = *(char**)(bodyPtr);
+  animBufferPtr = *(u8**)(bodyPtr);
 
   if(!animBufferPtr)
   {
@@ -410,7 +410,7 @@ s16 setInterAnimObjet(int frame, char* animPtr, char* bodyPtr)
 
   if(time<keyframeLength) // interpole keyframe
   {
-    char* animVar1Backup = animVar1;
+    u8* animVar1Backup = animVar1;
     // skip bone 0 anim
     animVar4 += 8; // anim buffer
     animVar1 += 8; // current keyframe ptr
@@ -494,8 +494,8 @@ s16 setInterAnimObjet(int frame, char* animPtr, char* bodyPtr)
   }
   else // change keyframe
   {
-    char* tempBx = animVar1;
-    char* si = animVar1;
+    u8* tempBx = animVar1;
+    u8* si = animVar1;
 
 
     si+=8;
@@ -523,7 +523,7 @@ s16 setInterAnimObjet(int frame, char* animPtr, char* bodyPtr)
       bodyPtr+=8;
 
     }while(--numOfBonesInAnim);
-    *(char**)animVar3 = animVar1;
+    *(u8**)animVar3 = animVar1;
 
     *(u16*)(animVar3+4) = (u16)timer;//c'est la que ca coince?
 

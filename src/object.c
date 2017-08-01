@@ -5,7 +5,7 @@ int copyObjectToActor(int flag2, int var1, int foundName, short int flag, int x,
   int i;
   int j;
   actorStruct* actorPtr = actorTable;
-  char* bodyPtr;
+  u8* bodyPtr;
   ZVStruct* zvPtr;
 
   for(i=0;i<NUM_MAX_ACTOR;i++)
@@ -100,7 +100,7 @@ int copyObjectToActor(int flag2, int var1, int foundName, short int flag, int x,
 
     if(var2 != -1)
     {
-      char* animPtr = HQR_Get(listAnim,var2);
+      u8* animPtr = HQR_Get(listAnim,var2);
 
       initAnimInBody(var3,animPtr,bodyPtr);
 

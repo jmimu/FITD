@@ -1466,7 +1466,7 @@ static void OPLWriteReg(FM_OPL *OPL, int r, int v)
 {
 	OPL_CH *CH;
 	int slot;
-	int block_fnum;
+    u32 block_fnum;
 
 
 	/* adjust bus to 8 bits */

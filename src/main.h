@@ -5,7 +5,7 @@ extern int input5;
 
 int fileExists(char* name);
 void menuWaitVSync();
-void printTextSub5(int x, int y, int param, char* gfx);
+void printTextSub5(int x, int y, int param, u8 *gfx);
 void flipScreen();
 void processActor1(void);
 void processActor2();
@@ -19,7 +19,7 @@ void createActorList();
 void mainDraw(int mode);
 int processActor1Sub1(int actorIdx, ZVStruct* zvPtr);
 int checkLineProjectionWithActors( int actorIdx, int X, int Y, int Z, int beta, int room, int param );
-void getZvNormal(char* bodyPtr, ZVStruct* zvPtr);
+void getZvNormal(u8* bodyPtr, ZVStruct* zvPtr);
 int checkForHardCol(ZVStruct* zvPtr, roomDataStruct* pRoomData);
 void removeObjFromInventory(int objIdx);
 void walkStep(int angle1, int angle2, int angle3);
@@ -35,7 +35,7 @@ void cleanupAndExit(void);
 void drawProjectedBox(int x1,int x2,int y1,int y2,int z1,int z2, int color, int transparency);
 void printTextSub6(hqrEntryStruct* hqrPtr, int index);
 
-extern char scaledScreen[640*400];
+extern u8 scaledScreen[640*400];
 
 void sysInit(void);
 void freeAll(void);
@@ -47,7 +47,7 @@ void take(int objIdx);
 void foundObject(int objIdx, int param);
 void hit(int animNumber,int arg_2,int arg_4,int arg_6,int hitForce,int arg_A);
 int checkZvCollision(ZVStruct* zvPtr1,ZVStruct* zvPtr2);
-void getZvCube(char* bodyPtr, ZVStruct* zvPtr);
+void getZvCube(u8* bodyPtr, ZVStruct* zvPtr);
 void putAt(int objIdx, int objIdxToPutAt);
 void setClipSize(int left, int top, int right, int bottom);
 
@@ -62,16 +62,16 @@ void setMoveMode(int trackMode, int trackNumber);
 void startActorRotation(short int beta, short int newBeta, short int param, rotateStruct* rotatePtr);
 short int updateActorRotation(rotateStruct* rotatePtr);
 int anim(int animNum,int arg_2, int arg_4);
-short int getAnimParam(char* animPtr);
-int initAnimInBody(int frame, char* anim, char* body);
+short int getAnimParam(u8* animPtr);
+int initAnimInBody(int frame, u8* anim, u8* body);
 void deleteObject(int objIdx);
 void deleteSub(int actorIdx);
 void stopAnim(int actorIdx);
 void makeMessage(int messageIdx);
 int drawTextOverlay(void);
-short int setInterAnimObjet(int frame, char* animPtr, char* bodyPtr);
+short int setInterAnimObjet(int frame, u8* animPtr, u8* bodyPtr);
 
-void getZvRot(char* bodyPtr, ZVStruct* zvPtr, int alpha, int beta, int gamma);
+void getZvRot(u8 *bodyPtr, ZVStruct* zvPtr, int alpha, int beta, int gamma);
 
 #endif
 

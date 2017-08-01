@@ -155,20 +155,20 @@ void playSequence(int sequenceIdx, int fadeStart, int fadeOutVar)
 #define SLEEP_MIN 20          /* Minimum time a sleep takes, usually 2*GRAN */
 #define SLEEP_GRAN 1         /* Granularity of sleep */
 
-int frames=0;                   /* Number of frames displayed */
+u32 frames=0;                   /* Number of frames displayed */
 s32 t_start,t_left;
 u32 t_end;
 s32 q=0; 
 
-  int var_4 = 1;
-  int var_6 = 0;
-  int var_8 = 1;
-  unsigned char localPalette[0x300];
+  u32 var_4 = 1;
+  u32 var_6 = 0;
+  u32 var_8 = 1;
+  u8 localPalette[0x300];
 
   while(!var_6)
   {
-    int si = 0;
-    int sequenceParamIdx;
+    u32 si = 0;
+    u32 sequenceParamIdx;
 
     while(si < var_8)
     {

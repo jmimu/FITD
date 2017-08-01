@@ -9,8 +9,6 @@
 #include "debugFont.h"
 #endif
 
-#define byte char
-
 #define bool char
 #define true 1
 #define false 0
@@ -26,24 +24,24 @@ class OSystem
     extern int osystem_mouseLeft;
 
     void osystem_delay(int time);
-    void osystem_crossFade(char *buffer, char *palette);
+    void osystem_crossFade(u8 *buffer, u8 *palette);
     void osystem_fadeBlackToWhite();
 	void osystem_updateImage();
-    void osystem_initBuffer(char *buffer, int width, int height);
+    void osystem_initBuffer(u8 *buffer, int width, int height);
 	void osystem_initVideoBuffer(char *buffer, int width, int height);
     void osystem_putpixel(int x, int y, int pixel);
-    void osystem_setColor(byte i, byte R, byte G, byte B);
-    void osystem_setPalette(byte * palette);
-	void osystem_setPalette320x200(byte * palette);
-    void osystem_flip(unsigned char *videoBuffer);
+    void osystem_setColor(u8 i, u8 R, u8 G, u8 B);
+    void osystem_setPalette(u8 * palette);
+    void osystem_setPalette320x200(u8 * palette);
+    void osystem_flip(u8 *videoBuffer);
 	void osystem_draw320x200BufferToScreen(unsigned char *videoBuffer);
-    void osystem_CopyBlockPhys(unsigned char *videoBuffer, int left, int top, int right, int bottom);
+    void osystem_CopyBlockPhys(u8 *videoBuffer, int left, int top, int right, int bottom);
     void osystem_drawText(int X, int Y, char *text);
     void osystem_drawTextColor(int X, int Y, char *string, unsigned char R, unsigned char G, unsigned char B);
     void osystem_drawLine(int X1,int X2,int Y1,int Y2,unsigned char color, unsigned char* palette);
-	void osystem_getPalette(char* palette);
+    void osystem_getPalette(u8 *palette);
 	void osystem_playSampleFromName(char* sampleName);
-  void osystem_playSample(char* samplePtr,int size);
+  void osystem_playSample(u8 *samplePtr, int size);
 //    void getMouseStatus(mouseStatusStruct * mouseData);
 
 	void osystem_set320x200Mode(bool mode);

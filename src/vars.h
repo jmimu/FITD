@@ -5,7 +5,7 @@
 
 #pragma pack(1)
 
-extern char* currentFoundBody;
+extern u8* currentFoundBody;
 extern int currentFoundBodyIdx;
 extern int statusVar1;
 
@@ -67,7 +67,7 @@ struct hqrSubEntryStruct
 	short int key;
 	short int size;
     unsigned int lastTimeUsed;
-  char* ptr;
+  u8* ptr;
 };
 
 typedef struct hqrSubEntryStruct hqrSubEntryStruct;
@@ -274,11 +274,11 @@ extern int videoMode;
 extern int musicConfigured;
 extern int musicEnabled;
 
-extern char* aux;
-extern char* aux2;
-extern char* bufferAnim;
+extern u8* aux;
+extern u8* aux2;
+extern u8* bufferAnim;
 
-extern char* screen;
+extern u8* screen;
 
 extern int screenBufferSize;
 extern int unkScreenVar2;
@@ -286,19 +286,19 @@ extern int unkScreenVar2;
 extern int numCVars;
 extern short int* CVars;
 
-extern char* priority;
+extern u8* priority;
 
-extern char* fontData;
+extern u8* fontData;
 
-extern char* aitdBoxGfx;
+extern u8* aitdBoxGfx;
 
-extern char palette[0x300];
+extern u8 palette[0x300];
 
 //extern OSystem osystem;
 
-extern char unkScreenVar[320*200];
+extern u8 unkScreenVar[320*200];
 
-extern char rgbaBuffer[320*200*4];
+extern u8 rgbaBuffer[320*200*4];
 
 extern unsigned int timer;
 extern volatile unsigned int timeGlobal;
@@ -327,11 +327,11 @@ extern int readVar;
 
 extern int hqrKeyGen;
 
-extern char* screenSm1;
-extern char* screenSm2;
-extern char* screenSm3;
-extern char* screenSm4;
-extern char* screenSm5;
+extern u8* screenSm1;
+extern u8* screenSm2;
+extern u8* screenSm3;
+extern u8* screenSm4;
+extern u8* screenSm5;
 
 extern actorStruct actorTable[NUM_MAX_ACTOR];
 
@@ -377,8 +377,8 @@ extern int soundVar1;
 extern int soundVar2;
 extern short int statusScreenAllowed;
 
-extern char* etageVar0;
-extern char* etageVar1;
+extern u8* etageVar0;
+extern u8* etageVar1;
 
 extern int changeFloor;
 extern short int currentCamera;
@@ -391,10 +391,10 @@ extern short int currentDisplayedRoom;
 extern int mainVar1;
 extern int numCameraInRoom;
 extern int numCameraZone;
-extern char* cameraZoneData;
+extern u8* cameraZoneData;
 extern int numRoomZone;
-extern char* roomZoneData;
-extern char* roomVar5[NUM_MAX_CAMERA_IN_ROOM];
+extern u8* roomZoneData;
+extern u8* roomVar5[NUM_MAX_CAMERA_IN_ROOM];
 extern int startGameVar1;
 
 extern int transformX;
@@ -431,7 +431,7 @@ extern int currentLifeActorIdx;
 extern actorStruct* currentLifeActorPtr;
 extern int currentLifeNum;
 
-extern char* currentLifePtr;
+extern u8* currentLifePtr;
 
 extern int setupCameraVar1;
 
@@ -458,22 +458,22 @@ extern int animMoveZ;
 extern int animRot1;
 extern int animRot2;
 extern int animRot3;
-extern char* animVar1;
-extern char* animVar3;
-extern char* animVar4;
+extern u8* animVar1;
+extern u8* animVar3;
+extern u8* animVar4;
 
 extern short int newFloor;
 
 extern int paletteVar;
 
-extern char cameraBuffer[256];
-extern char cameraBuffer2[256];
-extern char cameraBuffer3[400];
-extern char cameraBuffer4[400];
+extern u8 cameraBuffer[256];
+extern u8 cameraBuffer2[256];
+extern u8 cameraBuffer3[400];
+extern u8 cameraBuffer4[400];
 
-extern char* cameraBufferPtr;
-extern char* cameraBuffer2Ptr;
-extern char* cameraBuffer3Ptr;
+extern u8* cameraBufferPtr;
+extern u8* cameraBuffer2Ptr;
+extern u8* cameraBuffer3Ptr;
 
 extern int overlaySize1;
 extern int overlaySize2;

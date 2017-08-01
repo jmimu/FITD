@@ -60,7 +60,7 @@ unsigned int PAK_getNumFiles(char* name)
   return((fileOffset/4)-2);
 }
 
-int loadPakToPtr(char* name, int index, char* ptr)
+int loadPakToPtr(char* name, int index, u8* ptr)
 {
 #ifdef USE_UNPACKED_DATA
   char buffer[256];
@@ -84,7 +84,7 @@ int loadPakToPtr(char* name, int index, char* ptr)
 
   return(1);
 #else
-  char* lptr;
+  u8* lptr;
 
   lptr = loadPak(name,index);
 
@@ -173,7 +173,7 @@ int getPakSize(char* name, int index)
 }
 
 
-void PAK_debug(char* name, int index,pakInfoStruct *pakInfo,char * compressedDataPtr,char * uncompressedDataPtr)
+void PAK_debug(char* name, int index,pakInfoStruct *pakInfo,u8 * compressedDataPtr,u8 * uncompressedDataPtr)
 {
   char buffer[256];
   FILE* fHandle;
@@ -227,13 +227,13 @@ void PAK_debug(char* name, int index,pakInfoStruct *pakInfo,char * compressedDat
   }
 }
 
-char* loadPak(char* name, int index)
+u8* loadPak(char* name, u32 index)
 {
 #ifdef USE_UNPACKED_DATA
   char buffer[256];
   FILE* fHandle;
   int size;
-  char* ptr;
+  u8* ptr;
 
   sprintf(buffer,"%s/%04X.OUT",name,index);
 
@@ -246,7 +246,7 @@ char* loadPak(char* name, int index)
   size = ftell(fHandle);
   fseek(fHandle,0L,SEEK_SET);
 
-  ptr = (char*)malloc(size);
+  ptr = (u8*)malloc(size);
 
   if (fread(ptr,size,1,fHandle)!=1)
     printf("Error reading ptr!\n");
@@ -259,7 +259,7 @@ char* loadPak(char* name, int index)
   u32 fileOffset;
   u32 additionalDescriptorSize;
   pakInfoStruct pakInfo;
-  char* ptr=0;
+  u8* ptr=0;
 
   //makeExtention(bufferName, name, ".PAK");
   strcpy(bufferName, name); // temporary until makeExtention is coded
@@ -310,17 +310,17 @@ char* loadPak(char* name, int index)
     {
     case 0:
       {
-        ptr = (char*)malloc(pakInfo.discSize);
+        ptr = (u8*)malloc(pakInfo.discSize);
         if (fread(ptr,pakInfo.discSize,1,fileHandle)!=1)
         printf("Error reading nameBuffer!\n");
         break;
       }
     case 1:
       {
-        char * compressedDataPtr = (char *) malloc(pakInfo.discSize);
+        u8 * compressedDataPtr = (u8 *) malloc(pakInfo.discSize);
         if (fread(compressedDataPtr, pakInfo.discSize, 1, fileHandle)!=1)
         printf("Error reading nameBuffer!\n");
-        ptr = (char *) malloc(pakInfo.uncompressedSize);
+        ptr = (u8 *) malloc(pakInfo.uncompressedSize);
 
         PAK_explode(compressedDataPtr, ptr, pakInfo.discSize, pakInfo.uncompressedSize, pakInfo.info5);
 
@@ -331,10 +331,10 @@ char* loadPak(char* name, int index)
       }
     case 4:
       {
-        char * compressedDataPtr = (char *) malloc(pakInfo.discSize);
+        u8 * compressedDataPtr = (u8 *) malloc(pakInfo.discSize);
         if (fread(compressedDataPtr, pakInfo.discSize, 1, fileHandle)!=1)
         printf("Error reading nameBuffer!\n");
-        ptr = (char *) malloc(pakInfo.uncompressedSize);
+        ptr = (u8 *) malloc(pakInfo.uncompressedSize);
 
         PAK_deflate(compressedDataPtr, ptr, pakInfo.discSize, pakInfo.uncompressedSize);
 

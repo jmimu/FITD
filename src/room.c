@@ -17,15 +17,15 @@ roomDataStruct* roomDataTable = NULL;
 cameraDataStruct* cameraDataTable[NUM_MAX_CAMERA_IN_ROOM];
 cameraZoneDefStruct* currentCameraZoneList[NUM_MAX_CAMERA_IN_ROOM];
 
-roomDefStruct* getRoomData(int roomNumber)
+roomDefStruct* getRoomData(u32 roomNumber)
 {
   return (roomDefStruct*)(etageVar0 + READ_LE_U32(etageVar0 + roomNumber * 4));
 }
 
-int getNumberOfRoom()
+u32 getNumberOfRoom()
 {
-  int i;
-  int j = 0;
+  u32 i;
+  u32 j = 0;
 
   if(gameId >= AITD3)
   {
@@ -45,7 +45,7 @@ int getNumberOfRoom()
   else
   {
 
-    int numMax = (((READ_LE_U32(etageVar0))/4));
+    u32 numMax = (((READ_LE_U32(etageVar0))/4));
 
     for(i=0;i<numMax;i++)
     {
@@ -64,14 +64,14 @@ int getNumberOfRoom()
 
 void loadRoom(int roomNumber)
 {
-  int i;
-  int cameraVar0;
-  int cameraVar1;
-  int cameraVar2;
-  int oldCameraIdx;
+  s32 i;
+  s32 cameraVar0;
+  s32 cameraVar1;
+  s32 cameraVar2;
+  s32 oldCameraIdx;
   roomDefStruct* roomDataPtr;
-  int var_1A = 0;
-  int var_10 = -1;
+  s32 var_1A = 0;
+  s32 var_10 = -1;
 
   freezeTime();
 
@@ -87,7 +87,7 @@ void loadRoom(int roomNumber)
     cameraVar1 = roomDataTable[currentDisplayedRoom].worldY;
     cameraVar2 = roomDataTable[currentDisplayedRoom].worldZ;
 
-    oldCameraIdx = roomDataTable[currentDisplayedRoom].cameraIdxTable[currentCamera];
+    oldCameraIdx = (s32)roomDataTable[currentDisplayedRoom].cameraIdxTable[currentCamera];
   }
 
   if(gameId < AITD3)
@@ -118,10 +118,10 @@ void loadRoom(int roomNumber)
 
   for(i=0;i<numCameraInRoom;i++) // build all the camera list
   {
-    unsigned int currentCameraIdx;
-    unsigned int j;
+    s32 currentCameraIdx;
+    s32 j;
 
-    currentCameraIdx = roomDataTable[currentDisplayedRoom].cameraIdxTable[i]; // indexes are between the roomDefStruct and the first zone data
+    currentCameraIdx = (s32)roomDataTable[currentDisplayedRoom].cameraIdxTable[i]; // indexes are between the roomDefStruct and the first zone data
 
     ASSERT(currentCameraIdx<=numGlobalCamera);
 

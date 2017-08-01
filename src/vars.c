@@ -2,7 +2,7 @@
 
 enum gameTypeEnum gameId;
 
-char* currentFoundBody;
+u8* currentFoundBody;
 int currentFoundBodyIdx;
 int statusVar1;
 
@@ -12,11 +12,11 @@ int videoMode;
 int musicConfigured;
 int musicEnabled;
 
-char* aux;
-char* aux2;
-char* bufferAnim;
+u8* aux;
+u8* aux2;
+u8* bufferAnim;
 
-char* screen;
+u8* screen;
 
 int screenBufferSize;
 int unkScreenVar2;
@@ -24,19 +24,19 @@ int unkScreenVar2;
 int numCVars;
 short int* CVars;
 
-char* priority;
+u8* priority;
 
-char* fontData;
+u8* fontData;
 
-char* aitdBoxGfx;
+u8* aitdBoxGfx;
 
-char palette[256*3];
+u8 palette[256*3];
 
 //OSystem osystem;
 
-char unkScreenVar[320*200];
+u8 unkScreenVar[320*200];
 
-char rgbaBuffer[320*200*4];
+u8 rgbaBuffer[320*200*4];
 
 unsigned int timer;
 volatile unsigned int timeGlobal;
@@ -74,11 +74,11 @@ int readVar;
 
 int hqrKeyGen = 0;
 
-char* screenSm1;
-char* screenSm2;
-char* screenSm3;
-char* screenSm4;
-char* screenSm5;
+u8* screenSm1;
+u8* screenSm2;
+u8* screenSm3;
+u8* screenSm4;
+u8* screenSm5;
 
 actorStruct actorTable[NUM_MAX_ACTOR];
 
@@ -124,8 +124,8 @@ int soundVar1;
 int soundVar2;
 short int statusScreenAllowed;
 
-char* etageVar0 = NULL;
-char* etageVar1 = NULL;
+u8* etageVar0 = NULL;
+u8* etageVar1 = NULL;
 
 int changeFloor;
 short int currentCamera;
@@ -139,10 +139,10 @@ short int currentDisplayedRoom;
 int mainVar1;
 int numCameraInRoom;
 int numCameraZone;
-char* cameraZoneData;
+u8* cameraZoneData;
 int numRoomZone;
-char* roomZoneData;
-char* roomVar5[NUM_MAX_CAMERA_IN_ROOM];
+u8* roomZoneData;
+u8* roomVar5[NUM_MAX_CAMERA_IN_ROOM];
 int startGameVar1;
 
 int transformX;
@@ -179,7 +179,7 @@ int currentLifeActorIdx;
 actorStruct* currentLifeActorPtr;
 int currentLifeNum;
 
-char* currentLifePtr;
+u8* currentLifePtr;
 
 int setupCameraVar1;
 
@@ -206,22 +206,22 @@ int animMoveZ;
 int animRot1;
 int animRot2;
 int animRot3;
-char* animVar1;
-char* animVar3;
-char* animVar4;
+u8* animVar1;
+u8* animVar3;
+u8* animVar4;
 
 short int newFloor;
 
 int paletteVar;
 
-char cameraBuffer[256];
-char cameraBuffer2[256];
-char cameraBuffer3[400];
-char cameraBuffer4[400];
+u8 cameraBuffer[256];
+u8 cameraBuffer2[256];
+u8 cameraBuffer3[400];
+u8 cameraBuffer4[400];
 
-char* cameraBufferPtr = cameraBuffer;
-char* cameraBuffer2Ptr = cameraBuffer2;
-char* cameraBuffer3Ptr = cameraBuffer3;
+u8* cameraBufferPtr = cameraBuffer;
+u8* cameraBuffer2Ptr = cameraBuffer2;
+u8* cameraBuffer3Ptr = cameraBuffer3;
 
 int overlaySize1;
 int overlaySize2;

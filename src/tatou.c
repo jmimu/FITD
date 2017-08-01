@@ -28,7 +28,7 @@ void blitScreenTatou(void)
   }
 }
 
-void copyPalette(char* source, char* dest)
+void copyPalette(u8* source, u8* dest)
 {
   int i;
 
@@ -38,7 +38,7 @@ void copyPalette(char* source, char* dest)
   }
 }
 
-void copyToScreen(char* source, char* dest)
+void copyToScreen(u8* source, u8* dest)
 {
   int i;
 
@@ -48,11 +48,11 @@ void copyToScreen(char* source, char* dest)
   }
 }
 
-void paletteFill(void* palette, unsigned char r, unsigned char g, unsigned b)
+void paletteFill(void* palette, u8 r, u8 g, u8 b)
 {
-  unsigned char* paletteLocal = (unsigned char*) palette;
-  int offset = 0;
-  int i;
+  u8* paletteLocal = (u8*) palette;
+  s32 offset = 0;
+  s32 i;
 
   r<<=1;
   g<<=1;
@@ -67,7 +67,7 @@ void paletteFill(void* palette, unsigned char r, unsigned char g, unsigned b)
   }
 }
 
-void fadeInSub1(char* palette)
+void fadeInSub1(u8* palette)
 {
   int i;
 
@@ -79,12 +79,12 @@ void fadeInSub1(char* palette)
   }
 }
 
-void blitPalette(char* palettePtr,unsigned char startColor,unsigned char nbColor)
+void blitPalette(u8* palettePtr,u8 startColor,u8 nbColor)
 {
   int i;
-  char paletteRGBA[256*4];
-  char* outPtr = scaledScreen;
-  char* inPtr = unkScreenVar;
+  u8 paletteRGBA[256*4];
+  u8* outPtr = scaledScreen;
+  u8* inPtr = unkScreenVar;
 
   osystem_getPalette(paletteRGBA);
 
@@ -99,7 +99,7 @@ void blitPalette(char* palettePtr,unsigned char startColor,unsigned char nbColor
   for(i=0;i<200;i++)
   {
     int j;
-    char* copySource = outPtr;
+    u8* copySource = outPtr;
 
     for(j=0;j<320;j++)
     {
@@ -119,12 +119,12 @@ void blitPalette(char* palettePtr,unsigned char startColor,unsigned char nbColor
   osystem_flip((unsigned char*)scaledScreen);
 }
 
-void flipOtherPalette(char* palettePtr)
+void flipOtherPalette(u8* palettePtr)
 {
   int i;
-  char paletteRGBA[256*4];
-  char* outPtr = scaledScreen;
-  char* inPtr = unkScreenVar;
+  u8 paletteRGBA[256*4];
+  u8* outPtr = scaledScreen;
+  u8* inPtr = unkScreenVar;
 
   osystem_getPalette(paletteRGBA);
 
@@ -139,7 +139,7 @@ void flipOtherPalette(char* palettePtr)
   for(i=0;i<200;i++)
   {
     int j;
-    char* copySource = outPtr;
+    u8* copySource = outPtr;
 
     for(j=0;j<320;j++)
     {
@@ -171,10 +171,10 @@ void computeProportionalPalette(unsigned char* inPalette, unsigned char* outPale
   }
 }
 
-void make3dTatouUnk1(int var1,int var2)
+void make3dTatouUnk1(s32 var1,s32 var2)
 {
-  char localPalette[0x300];
-  int i;
+  u8 localPalette[0x300];
+  s32 i;
   
   freezeTime();
 
@@ -198,10 +198,10 @@ void make3dTatouUnk1(int var1,int var2)
   unfreezeTime();
 }
 
-void fadeOut(int var1, int var2)
+void fadeOut(s32 var1, s32 var2)
 {
-  char localPalette[0x300];
-  int i;
+  u8 localPalette[0x300];
+  s32 i;
   
   freezeTime();
 
@@ -217,9 +217,9 @@ void fadeOut(int var1, int var2)
 
 void fadeIn(void* sourcePal)
 {
-  char localPalette[0x300];
+  u8 localPalette[0x300];
 
-  copyPalette((char*)sourcePal,localPalette);
+  copyPalette((u8*)sourcePal,localPalette);
 
   fadeInSub1(localPalette);
 
@@ -228,10 +228,10 @@ void fadeIn(void* sourcePal)
 
 void flip()
 {
-  char* outPtr = scaledScreen;
-  char* inPtr = unkScreenVar;
-  int i;
-  char paletteRGBA[256*4];
+  u8* outPtr = scaledScreen;
+  u8* inPtr = unkScreenVar;
+  s32 i;
+  u8 paletteRGBA[256*4];
 
 #ifdef USE_GL
   osystem_flip(NULL);
@@ -248,8 +248,8 @@ void flip()
 
   for(i=0;i<200;i++)
   {
-    int j;
-    char* copySource = outPtr;
+    s32 j;
+    u8* copySource = outPtr;
 
     for(j=0;j<320;j++)
     {
@@ -266,7 +266,7 @@ void flip()
   }
 
   osystem_setPalette(paletteRGBA);
-  osystem_flip((unsigned char*)scaledScreen);
+  osystem_flip(scaledScreen);
 }
 
 #ifdef PCLIKE
@@ -345,7 +345,7 @@ void rotateModel(int x,int y,int z,int alpha,int beta,int gamma,int time)
 void playSound(int num)
 {
   int size = getPakSize("listsamp",num);
-  char* ptr = HQR_Get(listSamp,num);
+  u8* ptr = HQR_Get(listSamp,num);
 
 #ifndef NO_SOUND
   osystem_playSample(ptr,size);
@@ -356,14 +356,14 @@ void playSound(int num)
 
 int make3dTatou(void)
 {
-  char* tatou2d;
-  char* tatou3d;
-  char* tatouPal;
+  u8* tatou2d;
+  u8* tatou3d;
+  u8* tatouPal;
   int time;
   int deltaTime;
   int rotation;
   int unk1;
-  char paletteBackup[768];
+  u8 paletteBackup[768];
   unsigned int localChrono;
 
   tatou2d = loadPakSafe("ITD_RESS",2);

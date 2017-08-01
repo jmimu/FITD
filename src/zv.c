@@ -1,6 +1,6 @@
 #include "common.h"
 
-void getZvCube(char* bodyPtr, ZVStruct* zvPtr)
+void getZvCube(u8 *bodyPtr, ZVStruct* zvPtr)
 {
   short int* ptr;
 
@@ -17,7 +17,7 @@ void getZvCube(char* bodyPtr, ZVStruct* zvPtr)
   zvPtr->ZVX1 = zvPtr->ZVZ1 = -zvPtr->ZVZ2;
 }
 
-void getZvNormal(char* bodyPtr, ZVStruct* zvPtr)
+void getZvNormal(u8* bodyPtr, ZVStruct* zvPtr)
 {
   short int* ptr;
 
@@ -43,7 +43,7 @@ void makeDefaultZV(ZVStruct* zvPtr)
   zvPtr->ZVZ2 = 100;
 }
 
-void getZvMax(char* bodyPtr, ZVStruct* zvPtr)
+void getZvMax(u8* bodyPtr, ZVStruct* zvPtr)
 {
   int x1;
   int x2;

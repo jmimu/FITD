@@ -1,12 +1,10 @@
 #include "common.h"
 
-char* fontVar1 = NULL;
+u8* fontVar1 = NULL;
 short int fontSm1 = 0;
 short int fontSm2 = 0x1234;
-char* fontVar4 = NULL;
-extern char* fontVar4;
-char* fontVar5 = NULL;
-extern char* fontVar5;
+u8* fontVar4 = NULL;
+u8* fontVar5 = NULL;
 short int currentFontColor = 0;
 extern short int currentFontColor;
 short int fontSm4 = 2;
@@ -19,7 +17,7 @@ short int fontSm9 = 0x80;
 
 unsigned char flagTable[]= {0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x01};
 
-void initFont(char* fontData, int color)
+void initFont(u8* fontData, int color)
 {
   short int tempDx;
   short int tempAxFlip;
@@ -66,7 +64,7 @@ int computeStringWidth(char* string)
 
   while((character = ((unsigned char)(*(string++)))))
   {
-    char* dataPtr;
+    u8* dataPtr;
     unsigned short int data;
 
     dataPtr = fontVar5 + character*2;
@@ -88,7 +86,7 @@ int computeStringWidth(char* string)
   return(width);
 }
 
-void renderText(int x, int y, char* surface, char* string)
+void renderText(int x, int y, u8* surface, char* string)
 {
   unsigned char character;
 
@@ -102,7 +100,7 @@ void renderText(int x, int y, char* surface, char* string)
 
   while((character = *((unsigned char*)(string++))))
   {
-    char* dataPtr;
+    u8* dataPtr;
     unsigned short int data;
     unsigned short int dx;
 
@@ -117,7 +115,7 @@ void renderText(int x, int y, char* surface, char* string)
 
     if(data&0xF) // real character (width != 0)
     {
-      char* characterPtr;
+      u8* characterPtr;
       int bp;
       int ch;
 
@@ -131,11 +129,9 @@ void renderText(int x, int y, char* surface, char* string)
 
       fontSm8 = fontVar6;
 
-      ch;
-
       for(ch = fontSm1; ch>0; ch--)
       {
-        char* outPtr = screen + bp*320 + fontSm8;
+        u8* outPtr = screen + bp*320 + fontSm8;
         
 
         int dh = fontSm9;

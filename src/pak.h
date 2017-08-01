@@ -2,8 +2,8 @@
 #define _PAK_
 
 
-char* loadPak(char* name, int index);
-int loadPakToPtr(char* name, int index, char* ptr);
+u8 *loadPak(char* name, u32 index);
+int loadPakToPtr(char* name, int index, u8 *ptr);
 int getPakSize(char* name, int index);
 unsigned int PAK_getNumFiles(char* name);
 

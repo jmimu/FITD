@@ -1,7 +1,7 @@
 #include "common.h"
 
-unsigned long int etageVar0Size = 0;
-unsigned long int numGlobalCamera = 0;
+u32 etageVar0Size = 0;
+u32 numGlobalCamera = 0;
 cameraDataStruct* globalCameraDataTable = NULL;
 
 void loadFloor(int floorNumber)
@@ -199,9 +199,9 @@ void loadFloor(int floorNumber)
 
   for(i=0;i<expectedNumberOfCamera;i++)
   {
-    int k;
-    unsigned int offset;
-    unsigned char* currentCameraData;
+    u32 k;
+    u32 offset;
+    u8* currentCameraData;
 
     if(gameId >= AITD3)
     {

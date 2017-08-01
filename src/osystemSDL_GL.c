@@ -346,7 +346,7 @@ void osystem_init()  // that's the constructor of the system dependent
   sphere = gluNewQuadric();
 }
 
-void osystem_setPalette(byte * palette)
+void osystem_setPalette(u8 * palette)
 {
 
   int i;
@@ -375,7 +375,7 @@ void osystem_setPalette(byte * palette)
   glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void osystem_getPalette(char* palette)
+void osystem_getPalette(u8* palette)
 {
   memcpy(palette,RGBA_Pal,256*4);
 }
@@ -392,7 +392,7 @@ float fov = 0;
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-void osystem_flip(unsigned char *videoBuffer)
+void osystem_flip(u8 *videoBuffer)
 {
   int i;
   int j;
@@ -413,7 +413,7 @@ void osystem_flip(unsigned char *videoBuffer)
   glLoadIdentity(); 
   gluPerspective((((float)cameraY)/((float)cameraZ))*60,1.6f,nearVal,farVal);
   glTranslatef(0,0,cameraZoom);
-
+*/
  /* glFrustum(-160, 159, -99, 100, nearVal, farVal);
 
   glGetDoublev(GL_PROJECTION_MATRIX,matProj);
@@ -593,7 +593,7 @@ void osystem_startFrame()
 
 char tempBuffer3[320*200*3];
 
-void osystem_CopyBlockPhys(unsigned char *videoBuffer, int left, int top, int right, int bottom)
+void osystem_CopyBlockPhys(u8 *videoBuffer, int left, int top, int right, int bottom)
 {
   char* out = tempBuffer3;
   char* in = (char*)videoBuffer + left + top * 320;
@@ -630,7 +630,7 @@ void osystem_CopyBlockPhys(unsigned char *videoBuffer, int left, int top, int ri
   glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void osystem_initBuffer(char *buffer, int width, int height)
+void osystem_initBuffer(u8 *buffer, int width, int height)
 {   
   memset(tempBuffer2,0,1024*512*3);
   glGenTextures(1, &backTexture);
@@ -640,7 +640,7 @@ void osystem_initBuffer(char *buffer, int width, int height)
   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
 }
 
-void osystem_crossFade(char *buffer, char *palette)
+void osystem_crossFade(u8 *buffer, u8 *palette)
 {
 }
 
@@ -685,7 +685,7 @@ void osystem_playSampleFromName(char* sampleName)
   }
 }
 #else
-void osystem_playSample(char* samplePtr,int size)
+void osystem_playSample(u8* samplePtr,int size)
 {
   
   Mix_Chunk *sample;

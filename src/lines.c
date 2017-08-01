@@ -19,7 +19,7 @@ void swapFunc(int* a, int* b)
 #define MAX(a,b) (a>b?a:b)
 #define SWAP(a,b) (swapFunc(&a,&b))
 
-extern char* screen;
+extern u8* screen;
 
 void pixel(int x,int y, ColorP c)
 {

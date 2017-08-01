@@ -459,7 +459,7 @@ int PAK_explode_nolit(PAK_stream * pG, PAK_huft * tl, PAK_huft * td, unsigned bl
 // Wrapper to explode
 // --------------------------------------------------------------
 
-int PAK_explode(unsigned char * srcBuffer, unsigned char * dstBuffer, unsigned int compressedSize, unsigned int uncompressedSize, unsigned short flags)
+int PAK_explode(u8 * srcBuffer, u8 * dstBuffer, u32 compressedSize, u32 uncompressedSize, u16 flags)
 {
   PAK_huft * tb;        /* literal code table */
   PAK_huft * tl;        /* length code table */
@@ -520,7 +520,7 @@ int PAK_explode(unsigned char * srcBuffer, unsigned char * dstBuffer, unsigned i
 // ZLIB wrapper to deflate
 // --------------------------------------------------------------
 
-int PAK_deflate(unsigned char * srcBuffer, unsigned char * dstBuffer, unsigned int compressedSize, unsigned int uncompressedSize) {
+int PAK_deflate(u8 *srcBuffer, u8 *dstBuffer, u32 compressedSize, u32 uncompressedSize) {
   z_stream G;
   G.next_in = srcBuffer;
   G.avail_in = compressedSize;
