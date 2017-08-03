@@ -10,6 +10,8 @@
  - Detect BIG_ENDIAN
  - remove version.c and version.h
  - move many functions from main.c
+ - READ_LE_U32 is sometimes in ifdef, but there is already an ifdef in READ_LE_U32
+ - 
 
 ** Crashs
 

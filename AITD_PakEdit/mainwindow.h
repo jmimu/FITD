@@ -18,6 +18,12 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QString mPAKFilename;
+    int numberOfFiles;
+
+public slots:
+    bool openPAK();
+
 };
 
 #endif // MAINWINDOW_H

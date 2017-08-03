@@ -21,7 +21,7 @@ void readPakInfo(pakInfoStruct* pPakInfo, FILE* fileHandle)
   pPakInfo->offset = READ_LE_U16(&pPakInfo->offset);
 }
 
-unsigned int PAK_getNumFiles(char* name)
+unsigned int PAK_getNumFiles(const char *name)
 {
   char bufferName[256];
   FILE* fileHandle;
@@ -37,17 +37,17 @@ unsigned int PAK_getNumFiles(char* name)
   ASSERT(fileHandle);
 
   fseek(fileHandle,4,SEEK_CUR);
-  if (fread(&fileOffset,4,1,fileHandle)!=1)
+  if (fread(&fileOffset,4,1,fileHandle)!=1) //read 1st file data offset
     printf("Error reading fileOffset!\n");
 #ifdef BIG_ENDIAN
   fileOffset = READ_LE_U32(&fileOffset);
 #endif
   fclose(fileHandle);
 
-  return((fileOffset/4)-2);
+  return((fileOffset/4)-1); //all files pointers must be before 1st file data
 }
 
-int loadPakToPtr(char* name, int index, u8* ptr)
+int loadPakToPtr(const char* name, int index, u8* ptr)
 {
 #ifdef USE_UNPACKED_DATA
   char buffer[256];
@@ -83,7 +83,7 @@ int loadPakToPtr(char* name, int index, u8* ptr)
 #endif
 }
 
-int getPakSize(char* name, int index)
+int getPakSize(const char* name, int index)
 {
 #ifdef USE_UNPACKED_DATA
   char buffer[256];
@@ -160,7 +160,7 @@ int getPakSize(char* name, int index)
 }
 
 
-void PAK_debug(char* name, int index,pakInfoStruct *pakInfo,u8 * compressedDataPtr,u8 * uncompressedDataPtr)
+void PAK_debug(const char* name, int index,pakInfoStruct *pakInfo,u8 * compressedDataPtr,u8 * uncompressedDataPtr)
 {
   char buffer[256];
   FILE* fHandle;
@@ -214,7 +214,7 @@ void PAK_debug(char* name, int index,pakInfoStruct *pakInfo,u8 * compressedDataP
   }
 }
 
-u8* loadPak(char* name, u32 index)
+u8* loadPak(const char* name, u32 index)
 {
 #ifdef USE_UNPACKED_DATA
   char buffer[256];
