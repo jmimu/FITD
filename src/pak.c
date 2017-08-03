@@ -3,19 +3,6 @@
 #include "common.h"
 #include "bmp.h"
 
-struct pakInfoStruct // warning: allignement unsafe
-{
-  u32 discSize;
-  u32 uncompressedSize;
-  char compressionFlag;
-  char info5;
-  u16 offset;
-};
-
-typedef struct pakInfoStruct pakInfoStruct;
-
-//#define USE_UNPACKED_DATA
-
 void readPakInfo(pakInfoStruct* pPakInfo, FILE* fileHandle)
 {
   if (fread(&pPakInfo->discSize,4,1,fileHandle)!=1)
