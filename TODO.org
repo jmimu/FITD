@@ -1,0 +1,46 @@
+* Free in the dark TODO
+
+** Improvements
+
+*** High priority
+ - change all unsigned to uXX?
+ - minimize includes (not everything in common.h)
+
+*** Low priority
+ - Detect BIG_ENDIAN
+ - remove version.c and version.h
+ - move many functions from main.c
+
+** Crashs
+
+*** Demo AITD1
+    Thread 1 "fitd" received signal SIGSEGV, Segmentation fault.
+    processAnimRotation (bodyPtr=bodyPtr@entry=0x7fffffffd948, bp=bp@entry=1, bx=bx@entry=15) at anim.c:261
+    261	  short int oldRotation = *(short int*)animVar4;
+
+    on demo, only if 64 bits
+    
+    Due to *bodyPtr taken as a pointer when looking 4 bytes later?
+    Bad fix : animBufferPtr=(u8*)((u32)animBufferPtr)
+    
+    When is bodyPtr filled with 32 pointers? How is it working in 64 bits?
+
+*** selectHero
+    Crash in
+    printText(CVars[getCVarsIdx(INTRO_HERITIERE)]+1,165,5,314,194,2,15);
+    The text is well uncompressed...
+
+** Bugs
+    Now that the crash is fixed, on 64 bits the walking animation starts with a teleportation...
+    
+    Some 3d models are blinking.
+
+*** High priority
+ - Fix warnings
+ - Fix crash
+
+*** Low priority
+ - sdlmixer not checked in configure
+
+
+

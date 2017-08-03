@@ -321,6 +321,7 @@ void allocTextes(void)
 
       if(fileExists(tempString))
       {
+        printf("Detected language: %s\n",languageNameTable[i]);
         strcpy(languageNameString,languageNameTable[i]);
         break;
       }
@@ -719,7 +720,7 @@ int selectHero(void)
         loadPakToPtr("ITD_RESS",14,aux);
         selectHeroSub1(160,0,319,199);
         copyToScreen(screen,aux);
-        printText(CVars[getCVarsIdx(INTRO_HERITIERE)]+1,165,5,314,194,2,15);
+        //printText(CVars[getCVarsIdx(INTRO_HERITIERE)]+1,165,5,314,194,2,15); //TODO: crash
         CVars[getCVarsIdx(CHOOSE_PERSO)] = 1;
         break;
       }
@@ -730,7 +731,7 @@ int selectHero(void)
         loadPakToPtr("ITD_RESS",14,aux);
         selectHeroSub1(0,0,159,199);
         copyToScreen(screen,aux);
-        printText(CVars[getCVarsIdx(INTRO_DETECTIVE)]+1,5,5,154,194,2,15);
+        //printText(CVars[getCVarsIdx(INTRO_DETECTIVE)]+1,5,5,154,194,2,15); //TODO: crash
         CVars[getCVarsIdx(CHOOSE_PERSO)] = 0;
         break;
       }
@@ -5359,7 +5360,7 @@ void detectGame(void)
 
 int main(int argc, char** argv)
 {
-  //setbuf(stdout, NULL);//TODO: remove
+  setbuf(stdout, NULL);//TODO: remove
 
   int startupMenuResult;
 //  int protectionToBeDone = 1;
@@ -5445,16 +5446,16 @@ int main(int argc, char** argv)
           protectionToBeDone = 0;
         }*/
 
-        //if(selectHero()!=-1)
+        /*if(gameId == AITD1)  //trick if not using selectHero
+        {
+          CVars[getCVarsIdx(CHOOSE_PERSO)] = 0;
+        }*/
+
+        if(selectHero()!=-1)
         {
           readKeyboard();
           while(input2)
             readKeyboard();
-
-          if(gameId == AITD1)
-          {
-            CVars[getCVarsIdx(CHOOSE_PERSO)] = 0;
-          }
 
           switch(gameId)
           {

@@ -258,7 +258,7 @@ s16 getAnimType(u8** bodyPtr) // local
 
 void processAnimRotation(u8** bodyPtr, int bp, int bx) // local
 {
-    printf("animVar4: %p\n",animVar4);
+    //printf("animVar4: %p\n",animVar4);
     //printf("bodyPtr: %p\n",bodyPtr);
     //printf("*bodyPtr: %p\n",*bodyPtr);
 
