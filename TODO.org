@@ -9,9 +9,10 @@
 *** Low priority
  - Detect BIG_ENDIAN
  - remove version.c and version.h
- - move many functions from main.c
+ - move many functions out of main.c
  - READ_LE_U32 is sometimes in ifdef, but there is already an ifdef in READ_LE_U32
- - 
+ - loadPakToPtr and loadPak very similar?
+ - harmonize and minimalize pak.c (files fullnames? handles?)
 
 ** Crashs
 

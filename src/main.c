@@ -5360,6 +5360,9 @@ void detectGame(void)
 
 int main(int argc, char** argv)
 {
+#ifdef INTERNAL_DEBUGGER
+    printf("INTERNAL_DEBUGGER on.\n");
+#endif
   setbuf(stdout, NULL);//TODO: remove
 
   int startupMenuResult;

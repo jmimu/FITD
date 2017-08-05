@@ -16,7 +16,33 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QTableView" name="tableView"/>
+     <widget class="QLineEdit" name="lineEditPAKName">
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::NoSelection</enum>
+      </property>
+      <property name="wordWrap">
+       <bool>false</bool>
+      </property>
+      <attribute name="horizontalHeaderCascadingSectionResizes">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>100</number>
+      </attribute>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>false</bool>
+      </attribute>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -35,6 +61,7 @@
     </property>
     <addaction name="actionOpenPAK"/>
     <addaction name="actionSavePAK"/>
+    <addaction name="actionOverwrite_PAK_uncompressed"/>
     <addaction name="actionExit"/>
    </widget>
    <addaction name="menu_File"/>
@@ -61,6 +88,11 @@
   <action name="actionExit">
    <property name="text">
     <string>E&amp;xit</string>
+   </property>
+  </action>
+  <action name="actionOverwrite_PAK_uncompressed">
+   <property name="text">
+    <string>Over&amp;write PAK uncompressed</string>
    </property>
   </action>
  </widget>

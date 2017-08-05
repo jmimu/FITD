@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <vector>
+#include "pakfile.h"
 
 namespace Ui {
 class MainWindow;
@@ -19,10 +21,11 @@ public:
 private:
     Ui::MainWindow *ui;
     QString mPAKFilename;
-    int numberOfFiles;
+    PakFile mPakFile;
 
 public slots:
     bool openPAK();
+    bool overwritePAKUncompressed();
 
 };
 

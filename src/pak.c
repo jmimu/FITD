@@ -288,10 +288,10 @@ u8* loadPak(const char* name, u32 index)
       printf("Loading %s/%s\n", name,nameBuffer+2);
 #endif
     }
-    else
+    /*else //useless
     {
       fseek(fileHandle,pakInfo.offset,SEEK_CUR);
-    }
+    }*/
     
     switch(pakInfo.compressionFlag)
     {

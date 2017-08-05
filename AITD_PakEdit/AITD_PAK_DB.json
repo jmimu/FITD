@@ -1,0 +1,24 @@
+{
+	"Date" : "01/01/2017",
+	"all_PAKs" : 
+	{
+		"FRANCAIS.PAK" :
+		{
+			"0" :
+			{
+				"info" : "All French ingame messages",
+				"type" : "text"
+			},
+			"14" :
+			{
+				"info" : "French Edward intro text",
+				"type" : "text"
+			},
+			"15" :
+			{
+				"info" : "French Emily intro text",
+				"type" : "text"
+			}
+		},
+	},
+}

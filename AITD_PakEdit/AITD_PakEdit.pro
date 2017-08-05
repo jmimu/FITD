@@ -17,13 +17,20 @@ SOURCES += main.cpp \
         ../src/pak.c \
         ../src/unpack.c \
         ../src/bmp.c \
-        mainwindow.cpp
+        mainwindow.cpp \
+    alonefile.cpp \
+    pakfile.cpp \
+    jsoncpp.cpp
 
 HEADERS  += mainwindow.h \
         ../src/pak.h \
         ../src/unpack.h \
         ../src/bmp.h \
-        ../src/vars.h
+        ../src/vars.h \
+    alonefile.h \
+    pakfile.h \
+    json/json-forwards.h \
+    json/json.h
 
 FORMS    += mainwindow.ui
 
