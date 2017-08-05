@@ -177,10 +177,13 @@ void PAK_debug(const char* name, int index,pakInfoStruct *pakInfo,u8 * compresse
   fclose(fHandle);
   
   //compressed
-  sprintf(buffer,"debug/%s_%04X_pak.dat",name,index);
-  fHandle = fopen(buffer,"wb");
-  fwrite(compressedDataPtr,1,pakInfo->discSize,fHandle); 
-  fclose(fHandle);
+  if (compressedDataPtr)
+  {
+      sprintf(buffer,"debug/%s_%04X_pak.dat",name,index);
+      fHandle = fopen(buffer,"wb");
+      fwrite(compressedDataPtr,1,pakInfo->discSize,fHandle);
+      fclose(fHandle);
+  }
   
   //uncompressed
   sprintf(buffer,"debug/%s_%04X_unpak.dat",name,index);
@@ -300,6 +303,8 @@ u8* loadPak(const char* name, u32 index)
         ptr = (u8*)malloc(pakInfo.discSize);
         if (fread(ptr,pakInfo.discSize,1,fileHandle)!=1)
         printf("Error reading data!\n");
+
+        PAK_debug(name, index,&pakInfo,0,ptr);
         break;
       }
     case 1:

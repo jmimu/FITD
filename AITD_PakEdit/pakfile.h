@@ -12,7 +12,7 @@ public:
     bool read(const char* filename);
     std::vector<AloneFile> & getAllFiles(){return mAllFiles;}
     const char* getPaKFilename(){return mPAKFilename;}
-    bool saveUncompressed();
+    bool overwrite(bool forceUncompressed);
 protected:
     std::vector<AloneFile> mAllFiles;
     char mPAKFilename[256];

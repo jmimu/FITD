@@ -31,7 +31,7 @@ public:
     u8* mComprData;
     u8* mDecomprData;
 
-    u8 mTailingBytes[0x10];
+    u8 mTailingBytes[0x10];//what is it? Seems not mandatory...
 };
 
 #endif // ALONEFILE_H

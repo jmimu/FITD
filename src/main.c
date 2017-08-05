@@ -1485,6 +1485,8 @@ void loadCamera(int cameraIdx)
   sprintf(name,"CAMERA%02d",currentEtage);
   //strcat(name,".PAK");
 
+  printf("Loading camera %s\n",name);
+
   if(gameId == AITD1)
   {
     if(CVars[getCVarsIdx(LIGHT_OBJECT)]==1)
@@ -1523,6 +1525,7 @@ void loadCamera(int cameraIdx)
 
   if(!loadPakToPtr(name,cameraIdx,aux))
   {
+    printf("Error loading %s:%d\n",name,cameraIdx);
     theEnd(0,name);
   }
 

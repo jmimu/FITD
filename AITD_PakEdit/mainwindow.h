@@ -25,6 +25,7 @@ private:
 
 public slots:
     bool openPAK();
+    bool overwritePAK();
     bool overwritePAKUncompressed();
 
 };

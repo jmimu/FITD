@@ -61,6 +61,7 @@
     </property>
     <addaction name="actionOpenPAK"/>
     <addaction name="actionSavePAK"/>
+    <addaction name="actionOverwrite_PAK"/>
     <addaction name="actionOverwrite_PAK_uncompressed"/>
     <addaction name="actionExit"/>
    </widget>
@@ -92,7 +93,12 @@
   </action>
   <action name="actionOverwrite_PAK_uncompressed">
    <property name="text">
-    <string>Over&amp;write PAK uncompressed</string>
+    <string>Overwrite PAK &amp;uncompressed</string>
+   </property>
+  </action>
+  <action name="actionOverwrite_PAK">
+   <property name="text">
+    <string>Over&amp;write PAK</string>
    </property>
   </action>
  </widget>

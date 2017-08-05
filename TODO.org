@@ -13,7 +13,8 @@
  - READ_LE_U32 is sometimes in ifdef, but there is already an ifdef in READ_LE_U32
  - loadPakToPtr and loadPak very similar?
  - harmonize and minimalize pak.c (files fullnames? handles?)
- - what are the 10 "tailing bytes" after each file in PAK?
+ - what are the 10 "tailing bytes" after each file in PAK? => seems to be just margin
+ - why is the background not fully drawn when using uncompressed data?
 
 ** Crashs
 
@@ -36,6 +37,7 @@
     Crash in
     printText(CVars[getCVarsIdx(INTRO_HERITIERE)]+1,165,5,314,194,2,15);
     The text is well uncompressed...
+    No portrait drawn.
 
 ** Bugs
     Now that the crash is fixed, on 64 bits the walking animation starts with a teleportation...

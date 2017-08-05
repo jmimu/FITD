@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     connect(this->ui->actionExit,SIGNAL(triggered()),this,SLOT(close()));
     connect(this->ui->actionOpenPAK,SIGNAL(triggered()),this,SLOT(openPAK()));
+    connect(this->ui->actionOverwrite_PAK,SIGNAL(triggered()),this,SLOT(overwritePAK()));
     connect(this->ui->actionOverwrite_PAK_uncompressed,SIGNAL(triggered()),this,SLOT(overwritePAKUncompressed()));
 
 }
@@ -69,7 +70,12 @@ bool MainWindow::openPAK()
     return true;
 }
 
+bool MainWindow::overwritePAK()
+{
+    return mPakFile.overwrite(false);
+}
+
 bool MainWindow::overwritePAKUncompressed()
 {
-    return mPakFile.saveUncompressed();
+    return mPakFile.overwrite(true);
 }

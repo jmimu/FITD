@@ -44,7 +44,7 @@ bool PakFile::read(const char* filename)
 }
 
 
-bool PakFile::saveUncompressed()
+bool PakFile::overwrite(bool forceUncompressed)
 {
     char bufferNameBak[256+4];
     strcpy(bufferNameBak, mPAKFilename);
@@ -60,8 +60,10 @@ bool PakFile::saveUncompressed()
         currentOffset+=sizeof(mAllFiles[index].mAdditionalDescriptorSize);
         currentOffset+=sizeof(mAllFiles[index].mInfo);
 
-        currentOffset+=mAllFiles[index].mInfo.uncompressedSize;
-        //currentOffset+=mAllFiles[index].mInfo.discSize;
+        if ((forceUncompressed)||(mAllFiles[index].mInfo.compressionFlag==0))
+            currentOffset+=mAllFiles[index].mInfo.uncompressedSize;
+        else
+            currentOffset+=mAllFiles[index].mInfo.discSize;
 
         currentOffset+=mAllFiles[index].mAdditionalDescriptorSize;//TODO: how is it working?
         currentOffset+=mAllFiles[index].mInfo.offset;//TODO: how is it working?
@@ -84,11 +86,17 @@ bool PakFile::saveUncompressed()
     {
         fwrite(&mAllFiles[index].mAdditionalDescriptorSize,4,1,fileHandle);
         pakInfoStruct newInfo=mAllFiles[index].mInfo;
-        newInfo.compressionFlag=0;
+        if (forceUncompressed)
+        {
+            newInfo.compressionFlag=0;
+            newInfo.discSize=newInfo.uncompressedSize;
+        }
         fwrite(&newInfo,sizeof(newInfo),1,fileHandle);
 
-        fwrite(mAllFiles[index].mDecomprData,newInfo.uncompressedSize,1,fileHandle);
-        //fwrite(mAllFiles[index].mComprData,newInfo.discSize,1,fileHandle);
+        if ((forceUncompressed)||(mAllFiles[index].mInfo.compressionFlag==0))
+            fwrite(mAllFiles[index].mDecomprData,newInfo.uncompressedSize,1,fileHandle);
+        else
+            fwrite(mAllFiles[index].mComprData,newInfo.discSize,1,fileHandle);
 
         //TODO: add AdditionalDescriptor?
         fwrite(mAllFiles[index].mNameBuffer,newInfo.offset,1,fileHandle);
