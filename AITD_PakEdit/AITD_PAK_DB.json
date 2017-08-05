@@ -7,17 +7,20 @@
 			"0" :
 			{
 				"info" : "All French ingame messages",
-				"type" : "text"
+				"type" : "text",
+				"defalut_compr" : 1
 			},
 			"14" :
 			{
 				"info" : "French Edward intro text",
-				"type" : "text"
+				"type" : "text",
+				"defalut_compr" : 1
 			},
 			"15" :
 			{
 				"info" : "French Emily intro text",
-				"type" : "text"
+				"type" : "text",
+				"defalut_compr" : 1
 			}
 		},
 	},

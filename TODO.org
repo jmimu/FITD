@@ -13,10 +13,11 @@
  - READ_LE_U32 is sometimes in ifdef, but there is already an ifdef in READ_LE_U32
  - loadPakToPtr and loadPak very similar?
  - harmonize and minimalize pak.c (files fullnames? handles?)
+ - what are the 10 "tailing bytes" after each file in PAK?
 
 ** Crashs
 
-*** Demo AITD1
+*** Demo AITD1 64 bits
     Thread 1 "fitd" received signal SIGSEGV, Segmentation fault.
     processAnimRotation (bodyPtr=bodyPtr@entry=0x7fffffffd948, bp=bp@entry=1, bx=bx@entry=15) at anim.c:261
     261	  short int oldRotation = *(short int*)animVar4;
@@ -26,7 +27,10 @@
     Due to *bodyPtr taken as a pointer when looking 4 bytes later?
     Bad fix : animBufferPtr=(u8*)((u32)animBufferPtr)
     
-    When is bodyPtr filled with 32 pointers? How is it working in 64 bits?
+    When is bodyPtr filled with 32 pointers? How is it working in 64 bits? 
+
+*** Demo AITD1 32 bit
+    Unsupported ZV type in copyObjectToActor
 
 *** selectHero
     Crash in

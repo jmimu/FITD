@@ -19,7 +19,7 @@ public:
     void print();
 
 
-protected:
+//protected:
     pakInfoStruct mInfo;
     u32 mFileOffset;
     u32 mAdditionalDescriptorSize;
@@ -30,6 +30,8 @@ protected:
 
     u8* mComprData;
     u8* mDecomprData;
+
+    u8 mTailingBytes[0x10];
 };
 
 #endif // ALONEFILE_H

@@ -90,6 +90,11 @@ bool AloneFile::read(FILE* pakfile,const char* filename,unsigned int index)
       }
     }
 
+
+    if (fread(&mTailingBytes,sizeof(mTailingBytes),1,pakfile)!=1) //what are these bytes???
+        printf("Error reading tailing bytes!\n");
+
+
     return true;
 }
 

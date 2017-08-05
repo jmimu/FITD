@@ -52,5 +52,49 @@ bool PakFile::saveUncompressed()
     printf("Copy %s into %s\n",mPAKFilename, bufferNameBak);
     QFile::copy(mPAKFilename, bufferNameBak);
 
+    //compute offsets
+    u32 currentOffset=4*(mAllFiles.size()+1);
+    for (unsigned int index=0;index<mAllFiles.size();index++)
+    {
+        mAllFiles[index].mFileOffset=currentOffset;
+        currentOffset+=sizeof(mAllFiles[index].mAdditionalDescriptorSize);
+        currentOffset+=sizeof(mAllFiles[index].mInfo);
+
+        currentOffset+=mAllFiles[index].mInfo.uncompressedSize;
+        //currentOffset+=mAllFiles[index].mInfo.discSize;
+
+        currentOffset+=mAllFiles[index].mAdditionalDescriptorSize;//TODO: how is it working?
+        currentOffset+=mAllFiles[index].mInfo.offset;//TODO: how is it working?
+
+        currentOffset+=sizeof(mAllFiles[index].mTailingBytes);//tailing bytes
+    }
+
+    //write offsets
+    FILE* fileHandle;
+    fileHandle = fopen(mPAKFilename,"wb");
+    u32 dummy=0;
+    fwrite(&dummy,4,1,fileHandle);
+    for (unsigned int index=0;index<mAllFiles.size();index++)
+    {
+        fwrite(&mAllFiles[index].mFileOffset,4,1,fileHandle);
+    }
+
+    //write info and uncompressed data
+    for (unsigned int index=0;index<mAllFiles.size();index++)
+    {
+        fwrite(&mAllFiles[index].mAdditionalDescriptorSize,4,1,fileHandle);
+        pakInfoStruct newInfo=mAllFiles[index].mInfo;
+        newInfo.compressionFlag=0;
+        fwrite(&newInfo,sizeof(newInfo),1,fileHandle);
+
+        fwrite(mAllFiles[index].mDecomprData,newInfo.uncompressedSize,1,fileHandle);
+        //fwrite(mAllFiles[index].mComprData,newInfo.discSize,1,fileHandle);
+
+        //TODO: add AdditionalDescriptor?
+        fwrite(mAllFiles[index].mNameBuffer,newInfo.offset,1,fileHandle);
+
+        fwrite(mAllFiles[index].mTailingBytes,sizeof(mAllFiles[index].mTailingBytes),1,fileHandle);
+    }
+
     return true;
 }
