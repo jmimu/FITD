@@ -7,8 +7,10 @@
 extern "C" {
 #include "../src/pak.h"
 #include "../src/unpack.h"
-
+#include "../src/bmp.h"
 }
+
+
 
 class AloneFile
 {
@@ -18,6 +20,10 @@ public:
     bool read(FILE* pakfile, const char *filename, unsigned int index);
     void print();
 
+    bool exportAsBMP(u32 offset, u32 width, u8* palette);
+
+
+    static u8 palette[];
 
 //protected:
     pakInfoStruct mInfo;

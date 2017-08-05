@@ -63,6 +63,7 @@
     <addaction name="actionSavePAK"/>
     <addaction name="actionOverwrite_PAK"/>
     <addaction name="actionOverwrite_PAK_uncompressed"/>
+    <addaction name="actionExport_all_as_BMP"/>
     <addaction name="actionExit"/>
    </widget>
    <addaction name="menu_File"/>
@@ -99,6 +100,11 @@
   <action name="actionOverwrite_PAK">
    <property name="text">
     <string>Over&amp;write PAK</string>
+   </property>
+  </action>
+  <action name="actionExport_all_as_BMP">
+   <property name="text">
+    <string>Export all as &amp;BMP</string>
    </property>
   </action>
  </widget>

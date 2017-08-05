@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->ui->actionOpenPAK,SIGNAL(triggered()),this,SLOT(openPAK()));
     connect(this->ui->actionOverwrite_PAK,SIGNAL(triggered()),this,SLOT(overwritePAK()));
     connect(this->ui->actionOverwrite_PAK_uncompressed,SIGNAL(triggered()),this,SLOT(overwritePAKUncompressed()));
+    connect(this->ui->actionExport_all_as_BMP,SIGNAL(triggered()),this,SLOT(exportAllAsBmp()));
 
 }
 
@@ -78,4 +79,18 @@ bool MainWindow::overwritePAK()
 bool MainWindow::overwritePAKUncompressed()
 {
     return mPakFile.overwrite(true);
+}
+
+
+bool MainWindow::exportAllAsBmp()
+{
+    /*    QString outDir;
+        outDir=QFileDialog::getExistingDirectory(this, tr("Output directory"),mPAKFilename);
+        if (outDir=="")
+            return false;*/
+
+    for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
+        mPakFile.getAllFiles().at(i).exportAsBMP(0,320,AloneFile::palette);
+
+    return true;
 }

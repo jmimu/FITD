@@ -1,12 +1,21 @@
 #ifndef _BMP_
 #define _BMP_
 
-#include "common.h"
+#include <stdint.h>
+
+typedef uint8_t u8;
+typedef uint16_t u16;
+typedef uint32_t u32;
+
+typedef int8_t s8;
+typedef int16_t s16;
+typedef int32_t s32;
+
 
 //info from http://www.dragonwins.com/domains/getteched/bmp/bmpfileformat.htm
 struct BMPHeader
 {
-    char bfType[2];
+    //char bfType[2];//not in the structure for alignment
     u32 bfSize;//The size of the file in bytes
     u16 bfReserved1;//Unused - must be zero
     u16 bfReserved2;//Unused - must be zero

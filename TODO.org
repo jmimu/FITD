@@ -5,6 +5,7 @@
 *** High priority
  - change all unsigned to uXX?
  - minimize includes (not everything in common.h)
+ - make types.h instead of redefining u8 in each h of PakEdit
 
 *** Low priority
  - Detect BIG_ENDIAN
