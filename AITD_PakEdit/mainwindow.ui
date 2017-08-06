@@ -28,7 +28,10 @@
        <bool>true</bool>
       </property>
       <property name="selectionMode">
-       <enum>QAbstractItemView::NoSelection</enum>
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
       </property>
       <property name="wordWrap">
        <bool>false</bool>
@@ -37,7 +40,7 @@
        <bool>false</bool>
       </attribute>
       <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>100</number>
+       <number>70</number>
       </attribute>
       <attribute name="horizontalHeaderStretchLastSection">
        <bool>false</bool>
@@ -57,7 +60,7 @@
    </property>
    <widget class="QMenu" name="menu_File">
     <property name="title">
-     <string>&amp;File</string>
+     <string>&amp;PAK</string>
     </property>
     <addaction name="actionOpenPAK"/>
     <addaction name="actionSavePAK"/>
@@ -66,7 +69,15 @@
     <addaction name="actionExport_all_as_BMP"/>
     <addaction name="actionExit"/>
    </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="action_Export"/>
+    <addaction name="action_Import"/>
+   </widget>
    <addaction name="menu_File"/>
+   <addaction name="menuFile"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -79,7 +90,7 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionOpenPAK">
    <property name="text">
-    <string>Open &amp;PAK file</string>
+    <string>&amp;Open PAK file</string>
    </property>
   </action>
   <action name="actionSavePAK">
@@ -105,6 +116,16 @@
   <action name="actionExport_all_as_BMP">
    <property name="text">
     <string>Export all as &amp;BMP</string>
+   </property>
+  </action>
+  <action name="action_Export">
+   <property name="text">
+    <string>&amp;Export</string>
+   </property>
+  </action>
+  <action name="action_Import">
+   <property name="text">
+    <string>&amp;Import</string>
    </property>
   </action>
  </widget>

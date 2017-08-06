@@ -29,6 +29,7 @@ public slots:
     bool overwritePAKUncompressed();
     bool exportAllAsBmp();
 
+    bool importFile();
 };
 
 #endif // MAINWINDOW_H
