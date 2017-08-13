@@ -17,7 +17,7 @@
 
 #define _WINDOWS
 //#define ZLIB_DLL
-#include "zlib.h"
+#include <zlib.h>
 
 // --------------------------------------------------------------
 // Explode unpacking functions & types

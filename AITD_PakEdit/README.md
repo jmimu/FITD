@@ -15,6 +15,7 @@ License, or (at your option) any later version. A copy of this license
 an be found in the file COPYING included with the source code of this
 program.
 
+Uses jsoncpp (github.com/open-source-parsers/jsoncpp).
 
 Compiling
 ---------
