@@ -94,7 +94,8 @@ HEADERS += \
     src/animAction.h \
     src/anim.h \
     src/aitdBox.h \
-    src/actorList.h
+    src/actorList.h \
+    src/types.h
 
 LIBS += -lSDL -lSDL_mixer -lGL -lGLU -lz
 INCLUDEPATH += "/usr/include/SDL"

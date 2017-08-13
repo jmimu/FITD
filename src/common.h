@@ -1,7 +1,7 @@
 #ifndef _COMMON_H_
 #define _COMMON_H_
 
-#include <stdint.h>
+#include "types.h"
 
 #ifndef _WIN32
 #include "config.h"
@@ -18,14 +18,6 @@
 #ifndef USE_GL
 #define USE_GL
 #endif
-
-typedef uint8_t u8;
-typedef uint16_t u16;
-typedef uint32_t u32;
-
-typedef int8_t s8;
-typedef int16_t s16;
-typedef int32_t s32;
 
 #include <stdlib.h>
 #include <stdio.h>

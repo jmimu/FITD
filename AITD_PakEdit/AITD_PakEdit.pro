@@ -30,7 +30,8 @@ HEADERS  += mainwindow.h \
     alonefile.h \
     pakfile.h \
     json/json-forwards.h \
-    json/json.h
+    json/json.h \
+    ../src/types.h
 
 FORMS    += mainwindow.ui
 
