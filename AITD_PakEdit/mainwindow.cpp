@@ -19,7 +19,7 @@ u8 palette[256*3];
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    mPAKFilename("."),mPakFile()
+    mPAKPath("."),mPakFile(),mDB("AITD_PAK_DB.json")
 {
     setbuf(stdout, NULL);
     ui->setupUi(this);
@@ -29,7 +29,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->ui->actionOverwrite_PAK_uncompressed,SIGNAL(triggered()),this,SLOT(overwritePAKUncompressed()));
     connect(this->ui->actionExport_all_as_BMP,SIGNAL(triggered()),this,SLOT(exportAllAsBmp()));
     connect(this->ui->action_Import,SIGNAL(triggered()),this,SLOT(importFile()));
-
 }
 
 MainWindow::~MainWindow()
@@ -41,31 +40,38 @@ bool MainWindow::openPAK()
 {
     QString tmpfilename;
     tmpfilename=QFileDialog::getOpenFileName(this, tr("Open PAK file"),
-                                                 mPAKFilename+".PAK",
+                                                 mPAKPath+".PAK",
                                                  tr("PAK (*.PAK)"));
     if (tmpfilename=="")
         return false;
 
-    mPAKFilename=tmpfilename;
+    mPAKPath=tmpfilename;
 
-    std::cout<<"Opening "<<mPAKFilename.toStdString()<<std::endl;
+    std::cout<<"Opening "<<mPAKPath.toStdString()<<std::endl;
+
+    QFileInfo fileInfo(mPAKPath);
+    mPAKname=fileInfo.fileName();
+    std::cout<<"PAK name: "<<mPAKname.toStdString()<<std::endl;
 
 
-    mPAKFilename.remove(mPAKFilename.size()-4,4);//TODO: change file name usage (with .PAK or not)
+    mPAKPath.remove(mPAKPath.size()-4,4);//TODO: change file name usage (with .PAK or not)
 
-    if (!mPakFile.read(mPAKFilename.toStdString().c_str()))
+    if (!mPakFile.read(mPAKPath.toStdString().c_str()))
         return false;
 
-    ui->lineEditPAKName->setText(mPAKFilename+".PAK");
+    ui->lineEditPAKName->setText(mPAKPath+".PAK");
     ui->tableWidget->setRowCount(mPakFile.getAllFiles().size());
     ui->tableWidget->setColumnCount(6);
-    QStringList hzlabels={"Offset","Name","NameDB","Compr","diskSize","realSize"};
+    QStringList hzlabels={"Offset","Name","InfoDB","Compr","diskSize","realSize"};
     QStringList vertlabels;
     for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
     {
         ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mFileOffset, 16)));
         ui->tableWidget->setItem(i,1,new QTableWidgetItem(mPakFile.getAllFiles()[i].mNameBuffer));
-        ui->tableWidget->setItem(i,2,new QTableWidgetItem("Unknown"));
+
+        DBFile file=mDB.get(mPAKname.toStdString(),i);
+        ui->tableWidget->setItem(i,2,new QTableWidgetItem(file.info.c_str()));
+
         ui->tableWidget->setItem(i,3,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.compressionFlag, 16)));
         ui->tableWidget->setItem(i,4,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.discSize, 16)));
         ui->tableWidget->setItem(i,5,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.uncompressedSize, 16)));
@@ -124,7 +130,7 @@ bool MainWindow::importFile()
     printf("Import file %d\n",index);
     QString filename;
     filename=QFileDialog::getOpenFileName(this, tr("Open BMP file"),
-                                                 mPAKFilename,
+                                                 mPAKPath,
                                                  tr("BMP (*.BMP)"));
     if (filename=="")
         return false;
@@ -174,3 +180,4 @@ bool MainWindow::importFile()
 
     return true;
 }
+

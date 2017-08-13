@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <vector>
 #include "pakfile.h"
+#include "db.h"
 
 namespace Ui {
 class MainWindow;
@@ -20,8 +21,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QString mPAKFilename;
+    QString mPAKPath;
+    QString mPAKname;
     PakFile mPakFile;
+    DB mDB;
 
 public slots:
     bool openPAK();

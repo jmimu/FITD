@@ -20,7 +20,8 @@ SOURCES += main.cpp \
         mainwindow.cpp \
     alonefile.cpp \
     pakfile.cpp \
-    jsoncpp.cpp
+    jsoncpp.cpp \
+    db.cpp
 
 HEADERS  += mainwindow.h \
         ../src/pak.h \
@@ -31,7 +32,8 @@ HEADERS  += mainwindow.h \
     pakfile.h \
     json/json-forwards.h \
     json/json.h \
-    ../src/types.h
+    ../src/types.h \
+    db.h
 
 FORMS    += mainwindow.ui
 

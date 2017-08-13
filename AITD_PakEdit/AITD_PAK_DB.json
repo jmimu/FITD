@@ -1,5 +1,5 @@
 {
-	"Date" : "01/01/2017",
+	"date" : "01/01/2017",
 	"file_types" : ["unknown","text","image"],
 	"all_PAKs" : 
 	{
@@ -9,20 +9,20 @@
 			{
 				"info" : "All French ingame messages",
 				"type" : 1,
-				"defalut_compr" : 1
+				"default_compr" : 1
 			},
 			"14" :
 			{
 				"info" : "French Edward intro text",
 				"type" : 1,
-				"defalut_compr" : 1
+				"default_compr" : 1
 			},
 			"15" :
 			{
 				"info" : "French Emily intro text",
 				"type" : 1,
-				"defalut_compr" : 1
+				"default_compr" : 1
 			}
-		},
-	},
+		}
+	}
 }
