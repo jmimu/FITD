@@ -39,9 +39,7 @@ unsigned int PAK_getNumFiles(const char *name)
   fseek(fileHandle,4,SEEK_CUR);
   if (fread(&fileOffset,4,1,fileHandle)!=1) //read 1st file data offset
     printf("Error reading fileOffset!\n");
-#ifdef BIG_ENDIAN
   fileOffset = READ_LE_U32(&fileOffset);
-#endif
   fclose(fileHandle);
 
   return((fileOffset/4)-1); //all files pointers must be before 1st file data
@@ -124,16 +122,12 @@ int getPakSize(const char* name, int index)
 
     if (fread(&fileOffset,4,1,fileHandle)!=1)
       printf("Error reading fileOffset!\n");
-#ifdef BIG_ENDIAN
     fileOffset = READ_LE_U32(&fileOffset);
-#endif
     fseek(fileHandle,fileOffset,SEEK_SET);
 
     if (fread(&additionalDescriptorSize,4,1,fileHandle)!=1)
       printf("Error reading additionalDescriptorSize!\n");
-#ifdef BIG_ENDIAN
     additionalDescriptorSize = READ_LE_U32(&additionalDescriptorSize);
-#endif
 
     readPakInfo(&pakInfo,fileHandle);
 
@@ -266,18 +260,14 @@ u8* loadPak(const char* name, u32 index)
     if (fread(&fileOffset,4,1,fileHandle)!=1)
       printf("Error reading fileOffset!\n");
 
-#ifdef BIG_ENDIAN
     fileOffset = READ_LE_U32(&fileOffset);
-#endif
 
     fseek(fileHandle,fileOffset,SEEK_SET);
 
     if (fread(&additionalDescriptorSize,4,1,fileHandle)!=1)
       printf("Error reading additionalDescriptorSize!\n");
 
-#ifdef BIG_ENDIAN
     additionalDescriptorSize = READ_LE_U32(&additionalDescriptorSize);
-#endif
 
     readPakInfo(&pakInfo,fileHandle);
 
@@ -287,9 +277,7 @@ u8* loadPak(const char* name, u32 index)
 
       if (fread(nameBuffer,pakInfo.offset,1,fileHandle)!=1)
         printf("Error reading nameBuffer!\n");
-#ifdef INTERNAL_DEBUGGER
       printf("Loading %s/%s\n", name,nameBuffer+2);
-#endif
     }
     /*else //useless
     {

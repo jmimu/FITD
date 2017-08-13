@@ -88,7 +88,6 @@ HEADERS += \
     src/debugger.h \
     src/debugFont.h \
     src/cosTable.h \
-    src/config.h \
     src/common.h \
     src/bmp.h \
     src/animAction.h \

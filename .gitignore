@@ -1,10 +1,4 @@
 *.o
 *~
-Makefile
-configure
 *.log
 *.status
-src/config.h
-src/fitd
-src/stamp-h1
-src/.deps
