@@ -1,11 +1,13 @@
 #include "db.h"
 
 #include <iostream>
+#include <ctime>
+#include <sstream>
 
 DBFile defaultDBFile;
 
 
-DBFile::DBFile():info("?"),type(0),default_compr(0)
+DBFile::DBFile():info("?"),type(0),default_compr(UNKNOWN_COMPR)
 {
 
 }
@@ -33,9 +35,9 @@ bool DBFile::set(Json::Value v)
     return true;
 }
 
-DB::DB(std::string filename):mFilename(filename)
+DB::DB():mFilename("noname.json")
 {
-    read(filename);
+
 }
 
 //from http://insanecoding.blogspot.fr/2011/11/how-to-read-in-file-in-c.html
@@ -55,9 +57,41 @@ std::string get_file_contents(const char *filename)
   throw(errno);
 }
 
+bool DB::overwrite()
+{
+    Json::Value js_root;
+    time_t t = time(0);
+    struct tm * now = localtime(&t);
+    std::ostringstream oss;
+    oss<<(now->tm_year + 1900)<<'/'<<(now->tm_mon+1)<<'/'<<now->tm_mday;
+    js_root["date"]=oss.str();
+
+    for (int i = 0; i < (int)mFileTypes.size(); i++)
+        js_root["file_types"].append(mFileTypes[i]);
+
+    for (auto & itPAK:mPAKs)
+    {
+        for (int i=0; i<(int)itPAK.second.size(); ++i)
+        {
+            js_root["all_PAKs"][itPAK.first][std::to_string(i)]["info"]=itPAK.second[i].info;
+            js_root["all_PAKs"][itPAK.first][std::to_string(i)]["type"]=itPAK.second[i].type;
+            js_root["all_PAKs"][itPAK.first][std::to_string(i)]["default_compr"]=itPAK.second[i].default_compr;
+        }
+    }
+
+
+    std::ofstream fileout(mFilename);
+    fileout << js_root<<std::endl;
+    fileout.close();
+    return true;
+}
 
 bool DB::read(std::string filename)
 {
+    mFilename=filename;
+    mFileTypes.clear();
+    mPAKs.clear();
+
     Json::Value root;
     Json::Reader reader;
     std::string jsondata;
@@ -108,7 +142,7 @@ bool DB::read(std::string filename)
     try
     {
         js_types=root["file_types"];
-        for (size_t i = 0; i < js_types.size(); i++)
+        for (int i = 0; i < (int)js_types.size(); i++)
             mFileTypes.push_back(js_types[i].asString());
     }catch (std::exception& e){
         std::cout<<"Exception: "<<e.what()<<std::endl;
@@ -156,8 +190,16 @@ DBFile& DB::get(std::string namePAK,int numFile)
     auto FileIt = mPAKs.find(namePAK);
     if (FileIt!=mPAKs.end())
     {
-        if ((int)FileIt->second.size()>numFile)
-            return FileIt->second.at(numFile);
+        if ((int)FileIt->second.size()<=numFile)
+        {
+            //file not in DB
+            FileIt->second.resize(numFile+1);
+        }
+        return FileIt->second.at(numFile);
     }
-    return defaultDBFile;
+    //PAK not in DB
+    std::vector<DBFile> files;
+    files.resize(numFile+1);
+    mPAKs.insert ( std::pair<std::string,std::vector<DBFile> >(namePAK,files) );
+    return get(namePAK,numFile);
 }

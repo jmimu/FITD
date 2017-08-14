@@ -33,6 +33,8 @@ public slots:
     bool exportAllAsBmp();
 
     bool importFile();
+
+    bool writeDB();
 };
 
 #endif // MAINWINDOW_H

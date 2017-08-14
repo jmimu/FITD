@@ -67,6 +67,7 @@
     <addaction name="actionOverwrite_PAK"/>
     <addaction name="actionOverwrite_PAK_uncompressed"/>
     <addaction name="actionExport_all_as_BMP"/>
+    <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuFile">
@@ -76,8 +77,16 @@
     <addaction name="action_Export"/>
     <addaction name="action_Import"/>
    </widget>
+   <widget class="QMenu" name="menuDataBAse">
+    <property name="title">
+     <string>&amp;DataBase</string>
+    </property>
+    <addaction name="action_OpenDB"/>
+    <addaction name="action_WriteDB"/>
+   </widget>
    <addaction name="menu_File"/>
    <addaction name="menuFile"/>
+   <addaction name="menuDataBAse"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -126,6 +135,16 @@
   <action name="action_Import">
    <property name="text">
     <string>&amp;Import</string>
+   </property>
+  </action>
+  <action name="action_OpenDB">
+   <property name="text">
+    <string>&amp;OpenDB</string>
+   </property>
+  </action>
+  <action name="action_WriteDB">
+   <property name="text">
+    <string>&amp;WriteDB</string>
    </property>
   </action>
  </widget>

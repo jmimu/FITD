@@ -1,0 +1,144 @@
+{
+	"all_PAKs" : 
+	{
+		"CAMERA00.PAK" : 
+		{
+			"0" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"1" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"2" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"3" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"4" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			}
+		},
+		"FRANCAIS.PAK" : 
+		{
+			"0" : 
+			{
+				"default_compr" : 1,
+				"info" : "All French ingame messages",
+				"type" : 1
+			},
+			"1" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"10" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"11" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"12" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"13" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"14" : 
+			{
+				"default_compr" : 1,
+				"info" : "French Edward intro text",
+				"type" : 1
+			},
+			"15" : 
+			{
+				"default_compr" : 1,
+				"info" : "French Emily intro text",
+				"type" : 1
+			},
+			"2" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"3" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"4" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"5" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"6" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"7" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"8" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			},
+			"9" : 
+			{
+				"default_compr" : 99,
+				"info" : "?",
+				"type" : 0
+			}
+		}
+	},
+	"date" : "2017/8/14",
+	"file_types" : 
+	[
+		"unknown",
+		"text",
+		"image"
+	]
+}

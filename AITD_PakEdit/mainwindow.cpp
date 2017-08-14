@@ -19,7 +19,7 @@ u8 palette[256*3];
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    mPAKPath("."),mPakFile(),mDB("AITD_PAK_DB.json")
+    mPAKPath("."),mPakFile(),mDB()
 {
     setbuf(stdout, NULL);
     ui->setupUi(this);
@@ -29,11 +29,18 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->ui->actionOverwrite_PAK_uncompressed,SIGNAL(triggered()),this,SLOT(overwritePAKUncompressed()));
     connect(this->ui->actionExport_all_as_BMP,SIGNAL(triggered()),this,SLOT(exportAllAsBmp()));
     connect(this->ui->action_Import,SIGNAL(triggered()),this,SLOT(importFile()));
+    connect(this->ui->action_WriteDB,SIGNAL(triggered()),this,SLOT(writeDB()));
+    mDB.read("AITD1_PAK_DB.json");
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+bool MainWindow::writeDB()
+{
+    return mDB.overwrite();
 }
 
 bool MainWindow::openPAK()

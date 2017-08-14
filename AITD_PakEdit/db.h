@@ -8,6 +8,7 @@
 
 #include "json/json.h"
 
+#define UNKNOWN_COMPR 99
 
 struct DBFile
 {
@@ -23,11 +24,13 @@ struct DBFile
 class DB
 {
 public:
-    DB(std::string filename);
+    DB();
     bool read(std::string filename);
+    bool overwrite();
     DBFile& get(std::string namePAK,int numFile);
     std::vector<std::string> mFileTypes;
     std::map<std::string,std::vector<DBFile> > mPAKs;
+
 private:
     std::string mFilename;
 };
