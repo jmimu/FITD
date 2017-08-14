@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QPushButton>
 #include <QMessageBox>
+#include <QComboBox>
 #include <cstdint>
 
 extern "C" {
@@ -40,6 +41,17 @@ MainWindow::~MainWindow()
 
 bool MainWindow::writeDB()
 {
+    //read data from tableWidget
+    for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
+    {
+        DBFile &file=mDB.get(mPAKname.toStdString(),i);
+
+        QLineEdit* lineEdit=(QLineEdit*)ui->tableWidget->cellWidget(i,6);
+        file.info=lineEdit->text().toStdString();
+
+        QComboBox* cbox=(QComboBox*)ui->tableWidget->cellWidget(i,2);
+        file.type=cbox->currentIndex();
+    }
     return mDB.overwrite();
 }
 
@@ -78,15 +90,23 @@ bool MainWindow::openPAK()
         ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mFileOffset, 16)));
         ui->tableWidget->setItem(i,1,new QTableWidgetItem(mPakFile.getAllFiles()[i].mNameBuffer));
 
-        DBFile file=mDB.get(mPAKname.toStdString(),i);
+        DBFile &file=mDB.get(mPAKname.toStdString(),i);
 
-        ui->tableWidget->setItem(i,2,new QTableWidgetItem(mDB.mFileTypes[file.type].c_str()));
+        QComboBox * cbox=new QComboBox(ui->tableWidget);
+        for (unsigned int j=0;j<mDB.mFileTypes.size();j++)
+            cbox->addItem(mDB.mFileTypes[j].c_str());
+        cbox->setCurrentIndex(file.type);
+        //ui->tableWidget->setItem(i,2,new QTableWidgetItem(mDB.mFileTypes[file.type].c_str()));
+        ui->tableWidget->setCellWidget(i,2,cbox);
 
         ui->tableWidget->setItem(i,3,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.compressionFlag, 16)));
         ui->tableWidget->setItem(i,4,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.discSize, 16)));
         ui->tableWidget->setItem(i,5,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.uncompressedSize, 16)));
 
-        ui->tableWidget->setItem(i,6,new QTableWidgetItem(file.info.c_str()));
+        //ui->tableWidget->setItem(i,6,new QTableWidgetItem(file.info.c_str()));
+
+        QLineEdit *lineEdit=new QLineEdit(file.info.c_str(),ui->tableWidget);
+        ui->tableWidget->setCellWidget(i, 6, lineEdit);
 
         vertlabels.push_back(QString("%1").arg(i));
     }
