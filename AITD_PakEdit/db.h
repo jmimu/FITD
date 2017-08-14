@@ -28,6 +28,7 @@ public:
     bool read(std::string filename);
     bool overwrite();
     DBFile& get(std::string namePAK,int numFile);
+    void setDefaultCompr(std::string namePAK,int numFile,int _default_compr,bool force=false);
     std::vector<std::string> mFileTypes;
     std::map<std::string,std::vector<DBFile> > mPAKs;
 

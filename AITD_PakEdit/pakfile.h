@@ -9,13 +9,14 @@ class PakFile
 {
 public:
     PakFile();
-    bool read(const char* filename);
+    bool read(const char* filepath, std::string filename);
     std::vector<AloneFile> & getAllFiles(){return mAllFiles;}
-    const char* getPaKFilename(){return mPAKFilename;}
+    const char* getPaKPath(){return mPAKPath;}
     bool overwrite(bool forceUncompressed);
 protected:
     std::vector<AloneFile> mAllFiles;
-    char mPAKFilename[256];
+    char mPAKPath[256];
+    std::string mPAKFilename;
 };
 
 #endif // PAKFILE_H

@@ -63,33 +63,41 @@ bool MainWindow::openPAK()
 
     mPAKPath.remove(mPAKPath.size()-4,4);//TODO: change file name usage (with .PAK or not)
 
-    if (!mPakFile.read(mPAKPath.toStdString().c_str()))
+    if (!mPakFile.read(mPAKPath.toStdString().c_str(),mPAKname.toStdString()))
         return false;
 
     ui->lineEditPAKName->setText(mPAKPath+".PAK");
     ui->tableWidget->setRowCount(mPakFile.getAllFiles().size());
-    ui->tableWidget->setColumnCount(6);
-    QStringList hzlabels={"Offset","Name","InfoDB","Compr","diskSize","realSize"};
+    ui->tableWidget->setColumnCount(7);
+    QStringList hzlabels={"Offset","Name","Type","Compr","diskSize","realSize","InfoDB"};
     QStringList vertlabels;
     for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
     {
+        mDB.setDefaultCompr(mPAKname.toStdString(),i,mPakFile.getAllFiles()[i].mInfo.compressionFlag);
+
         ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mFileOffset, 16)));
         ui->tableWidget->setItem(i,1,new QTableWidgetItem(mPakFile.getAllFiles()[i].mNameBuffer));
 
         DBFile file=mDB.get(mPAKname.toStdString(),i);
-        ui->tableWidget->setItem(i,2,new QTableWidgetItem(file.info.c_str()));
+
+        ui->tableWidget->setItem(i,2,new QTableWidgetItem(mDB.mFileTypes[file.type].c_str()));
 
         ui->tableWidget->setItem(i,3,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.compressionFlag, 16)));
         ui->tableWidget->setItem(i,4,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.discSize, 16)));
         ui->tableWidget->setItem(i,5,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.uncompressedSize, 16)));
+
+        ui->tableWidget->setItem(i,6,new QTableWidgetItem(file.info.c_str()));
+
         vertlabels.push_back(QString("%1").arg(i));
     }
 
     ui->tableWidget->setHorizontalHeaderLabels(hzlabels);
     ui->tableWidget->setVerticalHeaderLabels(vertlabels);
-    ui->tableWidget->setColumnWidth(1,150);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->tableWidget->horizontalHeader()->setStretchLastSection(true);
+    /*ui->tableWidget->setColumnWidth(1,50);
     ui->tableWidget->setColumnWidth(2,150);
-    ui->tableWidget->setColumnWidth(3,50);
+    ui->tableWidget->setColumnWidth(3,50);*/
 
 
     return true;

@@ -86,6 +86,13 @@ bool DB::overwrite()
     return true;
 }
 
+void DB::setDefaultCompr(std::string namePAK,int numFile,int _default_compr,bool force)
+{
+    DBFile& file=get(namePAK,numFile);
+    if ((file.default_compr==UNKNOWN_COMPR)||force)
+        file.default_compr=_default_compr;
+}
+
 bool DB::read(std::string filename)
 {
     mFilename=filename;

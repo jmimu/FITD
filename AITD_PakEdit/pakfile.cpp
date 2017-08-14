@@ -4,19 +4,20 @@
 #include <cstring>
 #include <QFile>
 
-PakFile::PakFile() : mAllFiles(),mPAKFilename()
+PakFile::PakFile() : mAllFiles(),mPAKPath()
 {
 
 }
 
-bool PakFile::read(const char* filename)
+bool PakFile::read(const char* filepath, std::__cxx11::string filename)
 {
+    mPAKFilename=filename;
     mAllFiles.clear();
 
     char bufferName[256];
-    strcpy(bufferName, filename);
+    strcpy(bufferName, filepath);
     strcat(bufferName,".PAK");
-    strcpy(mPAKFilename, bufferName);
+    strcpy(mPAKPath, bufferName);
 
     FILE* fileHandle = fopen(bufferName,"rb");
 
@@ -26,13 +27,13 @@ bool PakFile::read(const char* filename)
         return false;
     }
 
-    unsigned int numberOfFiles=PAK_getNumFiles(filename);
+    unsigned int numberOfFiles=PAK_getNumFiles(filepath);
     printf("Num files: %d\n",numberOfFiles);
 
     mAllFiles.resize(numberOfFiles);
     for (unsigned int index=0;index<numberOfFiles;index++)
     {
-        if (!mAllFiles[index].read(fileHandle,mPAKFilename,index))
+        if (!mAllFiles[index].read(fileHandle,mPAKPath,index))
         {
             printf("Error reading file %d!\n",index);
             mAllFiles.resize(index);
@@ -47,10 +48,10 @@ bool PakFile::read(const char* filename)
 bool PakFile::overwrite(bool forceUncompressed)
 {
     char bufferNameBak[256+4];
-    strcpy(bufferNameBak, mPAKFilename);
+    strcpy(bufferNameBak, mPAKPath);
     strcat(bufferNameBak,".BAK");
-    printf("Copy %s into %s\n",mPAKFilename, bufferNameBak);
-    QFile::copy(mPAKFilename, bufferNameBak);
+    printf("Copy %s into %s\n",mPAKPath, bufferNameBak);
+    QFile::copy(mPAKPath, bufferNameBak);
 
     //compute offsets
     u32 currentOffset=4*(mAllFiles.size()+1);
@@ -73,7 +74,7 @@ bool PakFile::overwrite(bool forceUncompressed)
 
     //write offsets
     FILE* fileHandle;
-    fileHandle = fopen(mPAKFilename,"wb");
+    fileHandle = fopen(mPAKPath,"wb");
     u32 dummy=0;
     fwrite(&dummy,4,1,fileHandle);
     for (unsigned int index=0;index<mAllFiles.size();index++)

@@ -5,33 +5,33 @@
 		{
 			"0" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 2
 			},
 			"1" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 2
 			},
 			"2" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 2
 			},
 			"3" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 2
 			},
 			"4" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 2
 			}
 		},
 		"FRANCAIS.PAK" : 
@@ -44,33 +44,33 @@
 			},
 			"1" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 1
 			},
 			"10" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 1
 			},
 			"11" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 1
 			},
 			"12" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 1
 			},
 			"13" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 1
 			},
 			"14" : 
 			{
@@ -84,53 +84,89 @@
 				"info" : "French Emily intro text",
 				"type" : 1
 			},
+			"16" : 
+			{
+				"default_compr" : 1,
+				"info" : "?",
+				"type" : 1
+			},
+			"17" : 
+			{
+				"default_compr" : 1,
+				"info" : "?",
+				"type" : 1
+			},
+			"18" : 
+			{
+				"default_compr" : 1,
+				"info" : "?",
+				"type" : 1
+			},
+			"19" : 
+			{
+				"default_compr" : 1,
+				"info" : "?",
+				"type" : 1
+			},
 			"2" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 1
+			},
+			"20" : 
+			{
+				"default_compr" : 1,
+				"info" : "?",
+				"type" : 1
+			},
+			"21" : 
+			{
+				"default_compr" : 1,
+				"info" : "?",
+				"type" : 1
 			},
 			"3" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 1
 			},
 			"4" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 1
 			},
 			"5" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 1
 			},
 			"6" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 1
 			},
 			"7" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 1
 			},
 			"8" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 1
 			},
 			"9" : 
 			{
-				"default_compr" : 99,
+				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 1
 			}
 		}
 	},
