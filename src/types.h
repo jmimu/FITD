@@ -2,6 +2,7 @@
 #define TYPES_H
 
 #include <stdint.h>
+#include <stdbool.h>
 
 typedef uint8_t u8;
 typedef uint16_t u16;
@@ -11,8 +12,5 @@ typedef int8_t s8;
 typedef int16_t s16;
 typedef int32_t s32;
 
-#define bool char
-#define true 1
-#define false 0
 
 #endif // TYPES_H

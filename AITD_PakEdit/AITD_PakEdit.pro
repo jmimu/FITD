@@ -38,6 +38,5 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui
 
 
-LIBS += -lSDL -lSDL_mixer -lGL -lGLU -lz
-INCLUDEPATH += "/usr/include/SDL"
+LIBS += -lz
 QMAKE_CXXFLAGS += -std=gnu++11
