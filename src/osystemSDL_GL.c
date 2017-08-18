@@ -1,4 +1,5 @@
 #include "common.h"
+#include "vars.h"
 
 #ifdef USE_GL
 
@@ -23,6 +24,7 @@
 #include "SDL_thread.h"
 #include "SDL_mixer.h"
 #include "osystem.h"
+#include "music.h"
 
 #include <GL/gl.h>      // Header File For The OpenGL32 Library
 #include <GL/glu.h>     // Header File For The GLu32 Library

@@ -1,7 +1,9 @@
 // seg 55
 
+#include "pak.h"
 #include "common.h"
 #include "bmp.h"
+#include "unpack.h"
 
 void readPakInfo(pakInfoStruct* pPakInfo, FILE* fileHandle)
 {
@@ -153,7 +155,7 @@ int getPakSize(const char* name, int index)
 #endif
 }
 
-
+/*
 void PAK_debug(const char* name, int index,pakInfoStruct *pakInfo,u8 * compressedDataPtr,u8 * uncompressedDataPtr)
 {
   char buffer[256];
@@ -209,7 +211,7 @@ void PAK_debug(const char* name, int index,pakInfoStruct *pakInfo,u8 * compresse
     fwrite(uncompressedDataPtr+770,1,64000,fHandle); 
     fclose(fHandle);
   }
-}
+}*/
 
 u8* loadPak(const char* name, u32 index)
 {
@@ -292,7 +294,7 @@ u8* loadPak(const char* name, u32 index)
         if (fread(ptr,pakInfo.discSize,1,fileHandle)!=1)
         printf("Error reading data!\n");
 
-        PAK_debug(name, index,&pakInfo,0,ptr);
+        //PAK_debug(name, index,&pakInfo,0,ptr);
         break;
       }
     case 1:
@@ -304,7 +306,7 @@ u8* loadPak(const char* name, u32 index)
 
         PAK_explode(compressedDataPtr, ptr, pakInfo.discSize, pakInfo.uncompressedSize, pakInfo.info5);
 
-        PAK_debug(name, index,&pakInfo,compressedDataPtr,ptr);
+        //PAK_debug(name, index,&pakInfo,compressedDataPtr,ptr);
 
         free(compressedDataPtr);
         break;

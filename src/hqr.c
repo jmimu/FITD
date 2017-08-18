@@ -1,4 +1,8 @@
+#include "hqr.h"
 #include "common.h"
+#include "freezetime.h"
+#include "fileAccess.h"
+#include "pak.h"
 
 hqrSubEntryStruct* quickFindEntry(int index, int numMax, hqrSubEntryStruct* ptr) // no RE. Original was probably faster
 {

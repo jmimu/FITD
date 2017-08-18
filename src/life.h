@@ -1,6 +1,8 @@
 #ifndef _LIFE_
 #define _LIFE_
 
+#include "vars.h"
+
 enum enumLifeMacro
 {
     LM_DO_MOVE = 0,

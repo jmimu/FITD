@@ -1,4 +1,6 @@
+#include "renderer.h"
 #include "common.h"
+#include "vars.h"
 
 struct rendererPointStruct
 {

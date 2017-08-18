@@ -45,6 +45,7 @@
 #define ASSERT_PTR(exp)
 #endif
 
+/*
 #ifdef USE_GL
 #include <GL/gl.h>      // Header File For The OpenGL32 Library
 #include <GL/glu.h>     // Header File For The GLu32 Library
@@ -52,10 +53,10 @@
 #endif
 
 #include <SDL.h>
-
+*/
 //////////////// GAME SPECIFIC DEFINES
 
-//#define NUM_MAX_OBJ         300
+#define NUM_MAX_OBJ         300
 #define NUM_MAX_ACTOR       50
 #define NUM_MAX_TEXT        40
 #define NUM_MAX_MESSAGE     5
@@ -122,7 +123,7 @@ int getCVarsIdx(enumCVars);
 // temp triangulation stuff
 //#include <bool.h>
 //#include <geometry.h>
-int triangulate_polygon(int ncontours,int cntr[],double (*vertices)[2],int (*triangles)[3]);
+/*int triangulate_polygon(int ncontours,int cntr[],double (*vertices)[2],int (*triangles)[3]);
 #include "room.h"
 #include "vars.h"
 #include "main.h"
@@ -136,7 +137,6 @@ int triangulate_polygon(int ncontours,int cntr[],double (*vertices)[2],int (*tri
 #include "renderer.h"
 #include "input.h"
 #include "version.h"
-#include "cosTable.h"
 #include "hqr.h"
 #include "freezetime.h"
 #include "freezetime.h"
@@ -168,7 +168,7 @@ int triangulate_polygon(int ncontours,int cntr[],double (*vertices)[2],int (*tri
 #include "evalVar.h"
 
 #include "osystem.h"
-
+*/
 
 ////
 

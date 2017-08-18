@@ -1,5 +1,9 @@
-#include "common.h"
+#include "input.h"
 #include <SDL.h>
+#include "vars.h"
+#include "common.h"
+#include "debugger.h"
+#include "main.h"
 
 extern float nearVal;
 extern float farVal;

@@ -1,4 +1,5 @@
 #include "common.h"
+#include "life.h"
 
 enumLifeMacro AITD2LifeMacroTable[] = 
 {

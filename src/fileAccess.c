@@ -1,4 +1,8 @@
 #include "common.h"
+#include "vars.h"
+#include "main.h"
+#include "pak.h"
+
 // seg 20
 void theEnd(int type, char* name)
 {

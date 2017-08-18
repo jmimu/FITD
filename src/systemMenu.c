@@ -1,4 +1,13 @@
+#include "systemMenu.h"
 #include "common.h"
+#include "vars.h"
+#include "font.h"
+#include "aitdBox.h"
+#include "freezetime.h"
+#include "save.h"
+#include "main.h"
+#include "input.h"
+#include "tatou.h"
 
 void printString(int index, int textIndex, int selectedIndex)
 {

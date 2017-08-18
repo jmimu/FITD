@@ -9,9 +9,7 @@
 #include "debugFont.h"
 #endif
 
-#define bool char
-#define true 1
-#define false 0
+#include "types.h"
 
 /*
 class OSystem

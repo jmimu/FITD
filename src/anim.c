@@ -1,4 +1,8 @@
+#include "anim.h"
 #include "common.h"
+#include "vars.h"
+#include "main.h"
+#include "hqr.h"
 
 int initAnimInBody(int frame, u8* anim, u8* body)
 {

@@ -1,7 +1,9 @@
 #ifndef _MAIN_
 #define _MAIN_
 
-extern int input5;
+#include "common.h"
+#include "vars.h"
+#include "room.h"
 
 int fileExists(char* name);
 void menuWaitVSync();
@@ -19,7 +21,6 @@ void createActorList();
 void mainDraw(int mode);
 int processActor1Sub1(int actorIdx, ZVStruct* zvPtr);
 int checkLineProjectionWithActors( int actorIdx, int X, int Y, int Z, int beta, int room, int param );
-void getZvNormal(u8* bodyPtr, ZVStruct* zvPtr);
 int checkForHardCol(ZVStruct* zvPtr, roomDataStruct* pRoomData);
 void removeObjFromInventory(int objIdx);
 void walkStep(int angle1, int angle2, int angle3);
@@ -35,7 +36,6 @@ void cleanupAndExit(void);
 void drawProjectedBox(int x1,int x2,int y1,int y2,int z1,int z2, int color, int transparency);
 void printTextSub6(hqrEntryStruct* hqrPtr, int index);
 
-extern u8 scaledScreen[640*400];
 
 void sysInit(void);
 void freeAll(void);
@@ -47,7 +47,6 @@ void take(int objIdx);
 void foundObject(int objIdx, int param);
 void hit(int animNumber,int arg_2,int arg_4,int arg_6,int hitForce,int arg_A);
 int checkZvCollision(ZVStruct* zvPtr1,ZVStruct* zvPtr2);
-void getZvCube(u8* bodyPtr, ZVStruct* zvPtr);
 void putAt(int objIdx, int objIdxToPutAt);
 void setClipSize(int left, int top, int right, int bottom);
 

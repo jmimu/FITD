@@ -1,4 +1,8 @@
 #include "common.h"
+#include "vars.h"
+#include "music.h"
+#include "hqr.h"
+#include "fmopl.h"
 
 int musicVolume = 0x7F;
 

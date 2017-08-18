@@ -4,7 +4,6 @@
 
 *** High priority
  - change all unsigned to uXX?
- - minimize includes (not everything in common.h)
  - make types.h instead of redefining u8 in each h of PakEdit
 
 *** Low priority
@@ -19,6 +18,7 @@
 
 ** Crashs
 
+
 *** Demo AITD1 64 bits
     Thread 1 "fitd" received signal SIGSEGV, Segmentation fault.
     processAnimRotation (bodyPtr=bodyPtr@entry=0x7fffffffd948, bp=bp@entry=1, bx=bx@entry=15) at anim.c:261
@@ -31,8 +31,10 @@
     
     When is bodyPtr filled with 32 pointers? How is it working in 64 bits? 
 
-*** Demo AITD1 32 bit
+*** Demo AITD1 64/32 bits : Fixed
     Unsupported ZV type in copyObjectToActor
+    if was a problem in initEngine when fixing maxObjects = 300 for AITD1.
+    only 291 objects where read in file, I initialized 300 objects before reading
 
 *** selectHero
     Crash in

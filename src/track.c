@@ -1,5 +1,11 @@
 #include "common.h"
+#include "vars.h"
 #include "math.h"
+#include "room.h"
+#include "tatou.h"
+#include "main.h"
+#include "hqr.h"
+
 // From LBA:
 int DoTrackVar1;
 //~ int GetAngle(int X1, int Y1, int X2, int Y2)

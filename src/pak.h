@@ -1,6 +1,7 @@
 #ifndef _PAK_
 #define _PAK_
 
+#include <stdio.h>
 #include "types.h"
 
 struct pakInfoStruct // warning: allignement unsafe
@@ -19,7 +20,7 @@ void readPakInfo(pakInfoStruct* pPakInfo, FILE* fileHandle);
 unsigned int PAK_getNumFiles(const char* name);
 int loadPakToPtr(const char* name, int index, u8* ptr);
 int getPakSize(const char* name, int index);
-void PAK_debug(const char* name, int index,pakInfoStruct *pakInfo,u8 * compressedDataPtr,u8 * uncompressedDataPtr);
+//void PAK_debug(const char* name, int index,pakInfoStruct *pakInfo,u8 * compressedDataPtr,u8 * uncompressedDataPtr);
 u8* loadPak(const char* name, u32 index);
 
 #endif

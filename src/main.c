@@ -6,8 +6,29 @@
 
 // seg002
 
-#include "common.h"
-
+#include "main.h"
+#include "anim.h"
+#include "font.h"
+#include "hqr.h"
+#include "life.h"
+#include "life_2.h"
+#include "fileAccess.h"
+#include "pak.h"
+#include "screen.h"
+#include "music.h"
+#include "tatou.h"
+#include "input.h"
+#include "aitdBox.h"
+#include "object.h"
+#include "freezetime.h"
+#include "renderer.h"
+#include "debugger.h"
+#include "mainLoop.h"
+#include "version.h"
+#include "threadCode.h"
+#include "startupMenu.h"
+#include "save.h"
+#include "zv.h"
 
 u8 scaledScreen[640*400];
 
@@ -336,7 +357,7 @@ void allocTextes(void)
     exit(1);
   }
 
-  systemTextes = (s8*)loadPakSafe(languageNameString, 0); // todo: use real language name
+  systemTextes = (char*)loadPakSafe(languageNameString, 0); // todo: use real language name
   textLength = getPakSize(languageNameString, 0);
 
   for(currentIndex=0;currentIndex<NUM_MAX_TEXT_ENTRY;currentIndex++)
@@ -788,7 +809,7 @@ int printText(int index, int left, int top, int right, int bottom, int mode, int
 
   var_8 = printTextSub1(hqrUnk,getPakSize(languageNameString,index)+300);
 
-  textPtr = (s8*)printTextSub2(hqrUnk, var_8);
+  textPtr = printTextSub2(hqrUnk, var_8);
 
   if(!loadPakToPtr( languageNameString, index, textPtr))
   {
@@ -1215,7 +1236,12 @@ void initEngine(void)
   objectDataSize= ftell(fHandle);
   fseek(fHandle,0,SEEK_SET);
 
-  pObjectDataBackup = pObjectData = (u8*)malloc(objectDataSize);
+  //pObjectDataBackup = pObjectData = (u8*)malloc(objectDataSize); //original
+  //fix to work with maxObjects=300 :
+  pObjectDataBackup = pObjectData = (u8*)malloc(NUM_MAX_OBJ*sizeof(objectStruct));
+  memset(pObjectDataBackup,0,NUM_MAX_OBJ*sizeof(objectStruct));
+  memset(pObjectData,0,NUM_MAX_OBJ*sizeof(objectStruct));
+
   ASSERT(pObjectData);
 
   if (fread(pObjectData,objectDataSize,1,fHandle)!=1)
@@ -3445,7 +3471,7 @@ void getHotPoint(int hotPointIdx, u8* bodyPtr, point3dStruct* hotPoint)
 
 void mainDraw(int mode)
 {
-  int i;
+  u32 i;
 #ifdef USE_GL
   if(mode == 2)
     osystem_CopyBlockPhys((unsigned char*)screen,0,0,320,200);
@@ -3516,7 +3542,9 @@ void mainDraw(int mode)
 //          initAnimInBody(actorPtr->FRAME, HQR_Get(listAnim, actorPtr->ANIM), bodyPtr);
         }
 
-        renderModel(actorPtr->worldX + actorPtr->modX, actorPtr->worldY + actorPtr->modY, actorPtr->worldZ + actorPtr->modZ,
+        renderModel(actorPtr->worldX + actorPtr->modX,
+                    actorPtr->worldY + actorPtr->modY,
+                    actorPtr->worldZ + actorPtr->modZ,
               actorPtr->alpha, actorPtr->beta, actorPtr->gamma, bodyPtr); 
        
 
@@ -4206,20 +4234,20 @@ int processActor1Sub2(rotateStruct* data)
 
 void processActor1(void)
 {
-  int var_42 = 0;
-  int var_6 = currentProcessedActorPtr->field_44;
-  int var_40;
-  int var_48=0;
-  int var_4A=0;
-  int var_4C=0;
-  int var_4E;
-  int var_50=0;
-  int var_52=0;
-  int var_56;
-  short int localTable[3];
+  s32 var_42 = 0;
+  s32 var_6 = currentProcessedActorPtr->field_44;
+  s32 var_40;
+  s32 var_48=0;
+  s32 var_4A=0;
+  s32 var_4C=0;
+  s32 var_4E;
+  s32 var_50=0;
+  s32 var_52=0;
+  s32 var_56;
+  s16 localTable[3];
   ZVStruct zvLocal;
   ZVStruct* zvPtr;
-  int j;
+  s32 j;
   if(var_6 != -1) // next anim ?
   {
     if(var_6 == -2) // completly stop anim

@@ -1,6 +1,9 @@
 #ifndef _RENDERER_H_
 #define _RENDERER_H_
 
+#include "common.h"
+
+
 extern int BBox3D1;
 extern int BBox3D2;
 extern int BBox3D3;

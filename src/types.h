@@ -11,5 +11,8 @@ typedef int8_t s8;
 typedef int16_t s16;
 typedef int32_t s32;
 
+#define bool char
+#define true 1
+#define false 0
 
 #endif // TYPES_H

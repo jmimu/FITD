@@ -1,17 +1,7 @@
 #ifndef _ROOM_H_
 #define _ROOM_H_
 
-struct hardColStruct;
-typedef struct hardColStruct hardColStruct;
-
-#include "vars.h" // temporary fix to cross include
-
-struct hardColStruct
-{
-  ZVStruct zv;
-  u32 type;
-  u32 parameter;
-};
+#include "vars.h"
 
 struct sceZoneStruct
 {

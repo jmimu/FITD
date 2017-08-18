@@ -1,4 +1,9 @@
+#include "floor.h"
 #include "common.h"
+#include "vars.h"
+#include "hqr.h"
+#include "pak.h"
+#include "fileAccess.h"
 
 u32 etageVar0Size = 0;
 u32 numGlobalCamera = 0;

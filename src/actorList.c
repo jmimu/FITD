@@ -1,4 +1,7 @@
+#include "actorList.h"
 #include "common.h"
+#include "vars.h"
+#include "main.h"
 
 int sortCompareFunction(const void* param1, const void* param2)
 {

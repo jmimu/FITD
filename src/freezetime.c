@@ -1,4 +1,5 @@
 #include "common.h"
+#include "vars.h"
 
 bool timerSaved = false;
 unsigned int timerSavedValue = 0;

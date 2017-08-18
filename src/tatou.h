@@ -1,6 +1,8 @@
 #ifndef _TATOU_H_
 #define _TATOU_H_
 
+#include "types.h"
+
 int make3dTatou(void);
 //////////////// to mode
 void paletteFill(void* palette, u8 r, u8 g, u8 b);

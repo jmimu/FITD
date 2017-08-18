@@ -1,9 +1,16 @@
 #ifndef _VARS_
 #define _VARS_
 
+#include "common.h"
 #include "osystem.h"
 
 #pragma pack(1)
+
+extern u8 scaledScreen[640*400];
+
+extern s16 cosTable[];
+
+extern int input5;
 
 extern u8* currentFoundBody;
 extern int currentFoundBodyIdx;
@@ -95,6 +102,16 @@ struct ZVStruct
 };
 
 typedef struct ZVStruct ZVStruct;
+
+struct hardColStruct
+{
+  ZVStruct zv;
+  u32 type;
+  u32 parameter;
+};
+
+typedef struct hardColStruct hardColStruct;
+
 
 struct rotateStruct
 {
@@ -355,7 +372,6 @@ extern int varSize;
 
 extern messageStruct messageTable[5];
 
-extern short int currentMusic;
 extern int action;
 
 extern boxStruct genVar2[15]; // recheckSize
@@ -366,7 +382,6 @@ extern boxStruct *genVar3;
 extern int genVar5;
 extern int genVar6;
 extern int genVar7;
-extern int nextMusic;
 extern short int genVar9;
 extern short int giveUp;
 extern short int inHand;
@@ -441,30 +456,30 @@ extern float renderPointList[6400];
 extern short int renderPointList[6400];
 #endif
 
-extern int numActorInList;
-extern int sortedActorTable[NUM_MAX_ACTOR];
+extern s32 numActorInList;
+extern s32 sortedActorTable[NUM_MAX_ACTOR];
 
-extern int angleCompX;
-extern int angleCompZ;
-extern int angleCompBeta;
+extern s32 angleCompX;
+extern s32 angleCompZ;
+extern s32 angleCompBeta;
 
-extern int bufferAnimCounter;
+extern s32 bufferAnimCounter;
 
-extern int animCurrentTime;
-extern int animKeyframeLength;
-extern int animMoveX;
-extern int animMoveY;
-extern int animMoveZ;
-extern int animRot1;
-extern int animRot2;
-extern int animRot3;
+extern s32 animCurrentTime;
+extern s32 animKeyframeLength;
+extern s32 animMoveX;
+extern s32 animMoveY;
+extern s32 animMoveZ;
+extern s32 animRot1;
+extern s32 animRot2;
+extern s32 animRot3;
 extern u8* animVar1;
 extern u8* animVar3;
 extern u8* animVar4;
 
-extern short int newFloor;
+extern s16 newFloor;
 
-extern int paletteVar;
+extern s32 paletteVar;
 
 extern u8 cameraBuffer[256];
 extern u8 cameraBuffer2[256];
@@ -475,39 +490,39 @@ extern u8* cameraBufferPtr;
 extern u8* cameraBuffer2Ptr;
 extern u8* cameraBuffer3Ptr;
 
-extern int overlaySize1;
-extern int overlaySize2;
+extern s32 overlaySize1;
+extern s32 overlaySize2;
 
-extern int bgOverlayVar1;
+extern s32 bgOverlayVar1;
 
-extern short int newRoom;
+extern s16 newRoom;
 
 extern char* listBodySelect[];
 extern char* listAnimSelect[];
 
-extern short int inventory[30];
+extern s16 inventory[30];
 
-extern short int shakeVar1;
-extern short int shakingAmplitude;
-extern unsigned int timerFreeze1;
+extern s16 shakeVar1;
+extern s16 shakingAmplitude;
+extern u32 timerFreeze1;
 
 extern hardColStruct* hardColTable[10];
 
-extern short int hardColVar1;
-extern short int hardColVar2;
+extern s16 hardColVar1;
+extern s16 hardColVar2;
 
 extern ZVStruct hardClip;
 
 extern saveEntry saveTable[];
 
-extern int hqrVar1;
-extern int mainVar3;
-extern int mainVar2;
+extern s32 hqrVar1;
+extern s32 mainVar3;
+extern s32 mainVar2;
 
-extern int clipLeft;
-extern int clipTop;
-extern int clipRight;
-extern int clipBottom;
+extern s32 clipLeft;
+extern s32 clipTop;
+extern s32 clipRight;
+extern s32 clipBottom;
 
 #ifdef INTERNAL_DEBUGGER
 enum backgroundModeEnum

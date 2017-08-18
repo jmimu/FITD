@@ -1,4 +1,8 @@
+#include "room.h"
 #include "common.h"
+#include "floor.h"
+#include "pak.h"
+#include "freezetime.h"
 
 /*
 Room data:

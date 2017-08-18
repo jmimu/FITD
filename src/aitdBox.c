@@ -1,4 +1,7 @@
+#include "aitdBox.h"
 #include "common.h"
+#include "vars.h"
+#include "main.h"
 
 void drawPartOfAITDBox(int left, int top, int index, u8* gfxData)
 {

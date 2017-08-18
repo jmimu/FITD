@@ -1,6 +1,7 @@
 // seg 048
 
 #include "common.h"
+#include "vars.h"
 
 void setupScreen(void)
 {

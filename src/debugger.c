@@ -1,4 +1,5 @@
 #include "common.h"
+#include "osystem.h"
 
 #ifdef INTERNAL_DEBUGGER
 

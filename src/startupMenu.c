@@ -1,4 +1,11 @@
 #include "common.h"
+#include "vars.h"
+#include "aitdBox.h"
+#include "font.h"
+#include "main.h"
+#include "tatou.h"
+#include "input.h"
+
 
 void drawStartupMenu(int selectedEntry)
 {

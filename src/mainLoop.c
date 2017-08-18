@@ -1,5 +1,20 @@
 #include "common.h"
 
+#include <SDL.h>
+
+#include "vars.h"
+#include "music.h"
+#include "life.h"
+#include "life_2.h"
+#include "debugger.h"
+#include "actorList.h"
+#include "main.h"
+#include "tatou.h"
+#include "input.h"
+#include "systemMenu.h"
+#include "inventory.h"
+#include "animAction.h"
+
 int mainLoopSwitch = 0;
 
 void updatePendingEvents(void)

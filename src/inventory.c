@@ -1,4 +1,14 @@
 #include "common.h"
+#include "vars.h"
+#include "aitdBox.h"
+#include "font.h"
+#include "main.h"
+#include "renderer.h"
+#include "main.h"
+#include "freezetime.h"
+#include "tatou.h"
+#include "hqr.h"
+#include "input.h"
 
 int statusLeft;
 int statusTop;

@@ -1,4 +1,5 @@
 #include "common.h"
+#include "vars.h"
 
 enum gameTypeEnum gameId;
 

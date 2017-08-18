@@ -1,4 +1,12 @@
+#include "save.h"
+
 #include "common.h"
+#include "vars.h"
+#include "music.h"
+#include "tatou.h"
+#include "main.h"
+#include "hqr.h"
+
 
 unsigned int currentSaveEntrySize;
 

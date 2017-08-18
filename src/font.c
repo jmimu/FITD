@@ -1,4 +1,7 @@
+#include "font.h"
 #include "common.h"
+#include "vars.h"
+#include "main.h"
 
 u8* fontVar1 = NULL;
 short int fontSm1 = 0;

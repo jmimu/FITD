@@ -1,5 +1,15 @@
 #include "sequence.h"
+
+#include <SDL.h>
+
 #include "common.h"
+#include "vars.h"
+#include "life_2.h"
+#include "pak.h"
+#include "fileAccess.h"
+#include "tatou.h"
+#include "input.h"
+#include "main.h"
 
 void convertPaletteIfRequired(unsigned char* lpalette)
 {

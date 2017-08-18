@@ -1,4 +1,10 @@
+#include "evalVar.h"
+
 #include "common.h"
+#include "vars.h"
+#include "hqr.h"
+#include "main.h"
+#include "tatou.h"
 
 int getPosRelTable[] = {4,1,8,2,4,1,8,0};
 

@@ -1,6 +1,6 @@
 #include "common.h"
 
-short int cosTable[]={
+s16 cosTable[]={
   4,
   201,
   402,

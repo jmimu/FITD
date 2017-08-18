@@ -1,5 +1,19 @@
 #include "common.h"
 #include "sequence.h"
+#include "life.h"
+#include "life_2.h"
+#include "room.h"
+#include "main.h"
+#include "renderer.h"
+#include "hqr.h"
+#include "track.h"
+#include "music.h"
+#include "evalVar.h"
+#include "tatou.h"
+#include "pak.h"
+#include "input.h"
+#include "freezetime.h"
+#include "zv.h"
 
 int groundLevel;
 short int specialTable[4] = {144, 192, 48, 112};

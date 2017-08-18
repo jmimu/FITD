@@ -1,6 +1,15 @@
 // seg 4
 
+#include "tatou.h"
 #include "common.h"
+#include "vars.h"
+#include "freezetime.h"
+#include "main.h"
+#include "pak.h"
+#include "hqr.h"
+#include "input.h"
+#include "fileAccess.h"
+#include "renderer.h"
 
 #ifdef PCLIKE
 #include "SDL.h"

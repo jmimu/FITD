@@ -1,4 +1,11 @@
+#include "animAction.h"
 #include "common.h"
+#include "vars.h"
+#include "main.h"
+#include "life.h"
+#include "hqr.h"
+#include "tatou.h"
+#include "zv.h"
 
 void processAnimAction(void)
 {

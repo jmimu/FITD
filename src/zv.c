@@ -1,4 +1,6 @@
+#include "zv.h"
 #include "common.h"
+#include "vars.h"
 
 void getZvCube(u8 *bodyPtr, ZVStruct* zvPtr)
 {

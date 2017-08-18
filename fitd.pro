@@ -87,7 +87,6 @@ HEADERS += \
     src/evalVar.h \
     src/debugger.h \
     src/debugFont.h \
-    src/cosTable.h \
     src/common.h \
     src/bmp.h \
     src/animAction.h \
