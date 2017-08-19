@@ -104,6 +104,7 @@ bool PakFile::overwrite(bool forceUncompressed)
 
         fwrite(mAllFiles[index].mTailingBytes,sizeof(mAllFiles[index].mTailingBytes),1,fileHandle);
     }
+    fclose(fileHandle);
 
     return true;
 }

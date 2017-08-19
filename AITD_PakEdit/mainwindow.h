@@ -27,6 +27,7 @@ private:
     DB mDB;
     void updateTable();
     bool importBMP(int index);
+    bool importRaw(int index);
 
 public slots:
     bool openPAK();

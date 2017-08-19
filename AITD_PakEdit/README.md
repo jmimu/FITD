@@ -39,10 +39,6 @@ re-import it.
 
 TODO
 ----
-  * export raw
-  * export text
-  * import raw
-  * import text
   * make user choose offset and width for bmp export
   * how to import bmp with offset?
   * export and import other types of files

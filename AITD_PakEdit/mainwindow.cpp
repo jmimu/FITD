@@ -186,22 +186,36 @@ bool MainWindow::exportFile()
     std::cout<<"Export "<<mPAKname.toStdString()<<":"<<index
        <<" as "<<mDB.mFileTypes[(int)file.type]<<std::endl;
 
+
+    char bufferNameOut[256+9];
+    bool result=true;
+
     switch (file.type)
     {
     case FileType::unknown:
         //export raw
-        //TODO
+        sprintf(bufferNameOut,"%s_%d.dat",mPAKPath.toStdString().c_str(),index);
+        result=mPakFile.getAllFiles().at(index).exportUncompressed(bufferNameOut);
         break;
     case FileType::text:
         //export txt
-        //TODO
+        sprintf(bufferNameOut,"%s_%d.txt",mPAKPath.toStdString().c_str(),index);
+        result=mPakFile.getAllFiles().at(index).exportUncompressed(bufferNameOut);
         break;
     case FileType::image:
         //export bmp
-        mPakFile.getAllFiles().at(index).exportAsBMP(0,320,AloneFile::palette);
+        result=mPakFile.getAllFiles().at(index).exportAsBMP(0,320,AloneFile::palette);
         break;
     }
 
+    if (result)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Done!");
+        msgBox.exec();
+    }
+
+    return result;
 }
 
 bool MainWindow::importFile()
@@ -225,11 +239,11 @@ bool MainWindow::importFile()
     {
     case FileType::unknown:
         //import raw
-        //TODO
+        result=importRaw(index);
         break;
     case FileType::text:
         //import txt
-        //TODO
+        result=importRaw(index);
         break;
     case FileType::image:
         //import bmp
@@ -252,7 +266,7 @@ bool MainWindow::importBMP(int index)
 {
     printf("Import file %d\n",index);
     QString filename;
-    filename=QFileDialog::getOpenFileName(this, tr("Open BMP file"),
+    filename=QFileDialog::getOpenFileName(this, tr("Select BMP file"),
                                                  mPAKPath,
                                                  tr("BMP (*.BMP)"));
     if (filename=="")
@@ -307,5 +321,43 @@ bool MainWindow::importBMP(int index)
     info.discSize=info.uncompressedSize;
     info.compressionFlag=0;
 
+    return true;
+}
+
+
+
+bool MainWindow::importRaw(int index)
+{
+    printf("Import file %d\n",index);
+    QString filename;
+    filename=QFileDialog::getOpenFileName(this, tr("Select raw file"),
+                                                 mPAKPath,
+                                                 tr("RAW (*.txt *.dat)"));
+
+    if (filename=="")
+        return false;
+
+    FILE* fileHandle=fopen(filename.toStdString().c_str(),"rb");
+    fseek(fileHandle,0L,SEEK_END);
+    u32 size = ftell(fileHandle);
+    fseek(fileHandle,0L,SEEK_SET);
+
+    AloneFile &file=mPakFile.getAllFiles().at(index);
+    pakInfoStruct &info=file.mInfo;
+
+    delete file.mDecomprData;
+    info.uncompressedSize=size;
+    file.mDecomprData = (u8*)malloc(info.uncompressedSize);
+    fread(file.mDecomprData,size,1,fileHandle);
+
+    //tell to use decompressed data
+
+    delete file.mComprData;
+    file.mComprData = (u8*)malloc(info.uncompressedSize);
+    strncpy((char*)file.mComprData,(char*)file.mDecomprData,info.uncompressedSize);
+    info.discSize=info.uncompressedSize;
+    info.compressionFlag=0;
+
+    fclose(fileHandle);
     return true;
 }

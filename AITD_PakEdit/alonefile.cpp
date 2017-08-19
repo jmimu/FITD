@@ -178,3 +178,15 @@ bool AloneFile::exportAsBMP(u32 offset, u32 width, u8* palette)
 
     return true;
 }
+
+bool AloneFile::exportUncompressed(const char *outfilename)
+{
+    printf("Export into %s\n",outfilename);
+    FILE* fileHandle;
+    fileHandle = fopen(outfilename,"wb");
+
+    fwrite(mDecomprData,mInfo.uncompressedSize,1,fileHandle);
+
+    fclose(fileHandle);
+    return true;
+}
