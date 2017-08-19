@@ -19,7 +19,15 @@ Uses jsoncpp (github.com/open-source-parsers/jsoncpp).
 
 Compiling
 ---------
+Windows:
+get qtCreator for mingw
+get zlib source and complied there http://www.winimage.com/zLibDll/
+Copy zlib.h and zlib_bor.lib in C:\libs\
+Open .pro file
+compile
 
+Linux :
+sudo apt install qtcreator zlib
 qmake
 make
 

@@ -9,7 +9,7 @@ PakFile::PakFile() : mAllFiles(),mPAKPath()
 
 }
 
-bool PakFile::read(const char* filepath, std::__cxx11::string filename)
+bool PakFile::read(const char* filepath, std::string filename)
 {
     mPAKFilename=filename;
     mAllFiles.clear();

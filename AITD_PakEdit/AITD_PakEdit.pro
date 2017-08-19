@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
-CONFIG += debug
+#CONFIG += debug
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -36,6 +36,9 @@ HEADERS  += mainwindow.h \
     db.h
 
 FORMS    += mainwindow.ui
+
+win32:INCLUDEPATH = C:\libs\
+win32:LIBS =        C:\libs\
 
 
 LIBS += -lz

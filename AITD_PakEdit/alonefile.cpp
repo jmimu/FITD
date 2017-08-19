@@ -55,10 +55,10 @@ u8 AloneFile::palette[]={0x00, 0x00, 0x00, 0xff, 0xff, 0xff, 0x33, 0x33, 0x3b, 0
 
 
 AloneFile::AloneFile():
-    mInfo({0,0,0,0,0}),mFileOffset(0),mAdditionalDescriptorSize(0),mNameBuffer("?"),
+    mInfo({0,0,0,0,0}),mFileOffset(0),mAdditionalDescriptorSize(0),mNameBuffer(),
     mPAKFilename(0),mIndex(-1),mComprData(0),mDecomprData(0)
 {
-
+	strcpy(mNameBuffer,"?");
 }
 
 AloneFile::~AloneFile()
