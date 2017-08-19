@@ -10,13 +10,21 @@
 
 #define UNKNOWN_COMPR 99
 
+//be sure to initialize DB::mFileTypes with those names
+enum class FileType
+{
+    unknown=0,
+    text,
+    image
+};
+
 struct DBFile
 {
     DBFile();
     DBFile(const DBFile &o);
     bool set(Json::Value);
     std::string info;
-    int type;//in mFileTypes
+    FileType type;//in mFileTypes
     int default_compr;
 };
 

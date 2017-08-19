@@ -25,5 +25,17 @@ make
 
 Usage
 -----
-Open a PAK, then choose one of the file, export it, modify it and
+Open a database (AITD1_PAK_DB.json), open a PAK,
+then choose one of the file, export it, modify it and
 re-import it.
+
+TODO
+----
+  * export raw
+  * export text
+  * import raw
+  * import text
+  * make user choose offset and width for bmp export
+  * how to import bmp with offset?
+  * export and import other types of files
+  

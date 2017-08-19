@@ -70,8 +70,8 @@
     </property>
     <addaction name="actionOpenPAK"/>
     <addaction name="actionSavePAK"/>
-    <addaction name="actionOverwrite_PAK"/>
     <addaction name="actionOverwrite_PAK_uncompressed"/>
+    <addaction name="separator"/>
     <addaction name="actionExport_all_as_BMP"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
@@ -105,12 +105,12 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionOpenPAK">
    <property name="text">
-    <string>&amp;Open PAK file</string>
+    <string>&amp;Open PAK</string>
    </property>
   </action>
   <action name="actionSavePAK">
    <property name="text">
-    <string>&amp;Save PAK file as...</string>
+    <string>Over&amp;write PAK</string>
    </property>
   </action>
   <action name="actionExit">
@@ -123,14 +123,9 @@
     <string>Overwrite PAK &amp;uncompressed</string>
    </property>
   </action>
-  <action name="actionOverwrite_PAK">
-   <property name="text">
-    <string>Over&amp;write PAK</string>
-   </property>
-  </action>
   <action name="actionExport_all_as_BMP">
    <property name="text">
-    <string>Export all as &amp;BMP</string>
+    <string>Try to export all as &amp;BMP</string>
    </property>
   </action>
   <action name="action_Export">

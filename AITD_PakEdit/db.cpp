@@ -7,7 +7,7 @@
 DBFile defaultDBFile;
 
 
-DBFile::DBFile():info("?"),type(0),default_compr(UNKNOWN_COMPR)
+DBFile::DBFile():info("?"),type(FileType::unknown),default_compr(UNKNOWN_COMPR)
 {
 
 }
@@ -23,7 +23,7 @@ bool DBFile::set(Json::Value v)
     try
     {
         info=v.get("info", "UTF-8").asString();
-        type=v.get("type", "UTF-8").asInt();
+        type=(FileType)v.get("type", "UTF-8").asInt();
         default_compr=v.get("default_compr", "UTF-8").asInt();
     }
     catch (std::exception& e)
@@ -35,9 +35,8 @@ bool DBFile::set(Json::Value v)
     return true;
 }
 
-DB::DB():mFilename("noname.json")
+DB::DB():mFileTypes({"Unknown","Text","Image"}),mFilename("noname.json")
 {
-
 }
 
 //from http://insanecoding.blogspot.fr/2011/11/how-to-read-in-file-in-c.html
@@ -74,7 +73,7 @@ bool DB::overwrite()
         for (int i=0; i<(int)itPAK.second.size(); ++i)
         {
             js_root["all_PAKs"][itPAK.first][std::to_string(i)]["info"]=itPAK.second[i].info;
-            js_root["all_PAKs"][itPAK.first][std::to_string(i)]["type"]=itPAK.second[i].type;
+            js_root["all_PAKs"][itPAK.first][std::to_string(i)]["type"]=(int)itPAK.second[i].type;
             js_root["all_PAKs"][itPAK.first][std::to_string(i)]["default_compr"]=itPAK.second[i].default_compr;
         }
     }
@@ -96,7 +95,7 @@ void DB::setDefaultCompr(std::string namePAK,int numFile,int _default_compr,bool
 bool DB::read(std::string filename)
 {
     mFilename=filename;
-    mFileTypes.clear();
+    //mFileTypes.clear();
     mPAKs.clear();
 
     Json::Value root;
@@ -145,7 +144,7 @@ bool DB::read(std::string filename)
     }
     std::cout<<"Date DB: "<<js_date.asString()<<std::endl;
 
-    Json::Value js_types;
+    /*Json::Value js_types;
     try
     {
         js_types=root["file_types"];
@@ -155,7 +154,7 @@ bool DB::read(std::string filename)
         std::cout<<"Exception: "<<e.what()<<std::endl;
         std::cout<<"Error reading \"file_types\" node."<<std::endl;
         conversionOK=false;
-    }
+    }*/
 
     Json::Value js_PAKs;
     try

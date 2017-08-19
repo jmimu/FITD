@@ -87,7 +87,7 @@ bool PakFile::overwrite(bool forceUncompressed)
     {
         fwrite(&mAllFiles[index].mAdditionalDescriptorSize,4,1,fileHandle);
         pakInfoStruct newInfo=mAllFiles[index].mInfo;
-        if (forceUncompressed)
+        if ((forceUncompressed)||(mAllFiles[index].mInfo.compressionFlag==0))
         {
             newInfo.compressionFlag=0;
             newInfo.discSize=newInfo.uncompressedSize;

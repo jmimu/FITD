@@ -26,17 +26,36 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     connect(this->ui->actionExit,SIGNAL(triggered()),this,SLOT(close()));
     connect(this->ui->actionOpenPAK,SIGNAL(triggered()),this,SLOT(openPAK()));
-    connect(this->ui->actionOverwrite_PAK,SIGNAL(triggered()),this,SLOT(overwritePAK()));
-    connect(this->ui->actionOverwrite_PAK_uncompressed,SIGNAL(triggered()),this,SLOT(overwritePAKUncompressed()));
+    connect(this->ui->actionSavePAK,SIGNAL(triggered()),this,SLOT(savePAK()));
+    connect(this->ui->actionOverwrite_PAK_uncompressed,SIGNAL(triggered()),this,SLOT(savePAKUncompressed()));
     connect(this->ui->actionExport_all_as_BMP,SIGNAL(triggered()),this,SLOT(exportAllAsBmp()));
+    connect(this->ui->action_Export,SIGNAL(triggered()),this,SLOT(exportFile()));
     connect(this->ui->action_Import,SIGNAL(triggered()),this,SLOT(importFile()));
     connect(this->ui->action_WriteDB,SIGNAL(triggered()),this,SLOT(writeDB()));
-    mDB.read("AITD1_PAK_DB.json");
+    connect(this->ui->action_OpenDB,SIGNAL(triggered()),this,SLOT(openDB()));
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+bool MainWindow::openDB()
+{
+    QString tmpfilename;
+    tmpfilename=QFileDialog::getOpenFileName(this, tr("Open database file"),
+                                                 "",
+                                                 tr("json (*.json)"));
+    if (tmpfilename=="")
+        return false;
+
+    if (mDB.read(tmpfilename.toStdString()))
+    {
+        updateTable();
+        return true;
+    }
+    return false;
 }
 
 bool MainWindow::writeDB()
@@ -50,9 +69,50 @@ bool MainWindow::writeDB()
         file.info=lineEdit->text().toStdString();
 
         QComboBox* cbox=(QComboBox*)ui->tableWidget->cellWidget(i,2);
-        file.type=cbox->currentIndex();
+        file.type=(FileType)cbox->currentIndex();
     }
     return mDB.overwrite();
+}
+
+void MainWindow::updateTable()
+{
+    ui->lineEditPAKName->setText(mPAKPath+".PAK");
+    ui->tableWidget->setRowCount(mPakFile.getAllFiles().size());
+    ui->tableWidget->setColumnCount(7);
+    QStringList hzlabels={"Offset","Name","Type","Compr","diskSize","realSize","InfoDB"};
+    QStringList vertlabels;
+    for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
+    {
+        mDB.setDefaultCompr(mPAKname.toStdString(),i,mPakFile.getAllFiles()[i].mInfo.compressionFlag);
+
+        ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mFileOffset, 16)));
+        ui->tableWidget->setItem(i,1,new QTableWidgetItem(mPakFile.getAllFiles()[i].mNameBuffer));
+
+        DBFile &file=mDB.get(mPAKname.toStdString(),i);
+
+        QComboBox * cbox=new QComboBox(ui->tableWidget);
+        for (unsigned int j=0;j<mDB.mFileTypes.size();j++)
+            cbox->addItem(mDB.mFileTypes[j].c_str());
+        cbox->setCurrentIndex((int)file.type);
+        //ui->tableWidget->setItem(i,2,new QTableWidgetItem(mDB.mFileTypes[file.type].c_str()));
+        ui->tableWidget->setCellWidget(i,2,cbox);
+
+        ui->tableWidget->setItem(i,3,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.compressionFlag, 16)));
+        ui->tableWidget->setItem(i,4,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.discSize, 16)));
+        ui->tableWidget->setItem(i,5,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.uncompressedSize, 16)));
+
+        //ui->tableWidget->setItem(i,6,new QTableWidgetItem(file.info.c_str()));
+
+        QLineEdit *lineEdit=new QLineEdit(file.info.c_str(),ui->tableWidget);
+        ui->tableWidget->setCellWidget(i, 6, lineEdit);
+
+        vertlabels.push_back(QString("%1").arg(i));
+    }
+
+    ui->tableWidget->setHorizontalHeaderLabels(hzlabels);
+    ui->tableWidget->setVerticalHeaderLabels(vertlabels);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->tableWidget->horizontalHeader()->setStretchLastSection(true);
 }
 
 bool MainWindow::openPAK()
@@ -78,57 +138,17 @@ bool MainWindow::openPAK()
     if (!mPakFile.read(mPAKPath.toStdString().c_str(),mPAKname.toStdString()))
         return false;
 
-    ui->lineEditPAKName->setText(mPAKPath+".PAK");
-    ui->tableWidget->setRowCount(mPakFile.getAllFiles().size());
-    ui->tableWidget->setColumnCount(7);
-    QStringList hzlabels={"Offset","Name","Type","Compr","diskSize","realSize","InfoDB"};
-    QStringList vertlabels;
-    for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
-    {
-        mDB.setDefaultCompr(mPAKname.toStdString(),i,mPakFile.getAllFiles()[i].mInfo.compressionFlag);
-
-        ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mFileOffset, 16)));
-        ui->tableWidget->setItem(i,1,new QTableWidgetItem(mPakFile.getAllFiles()[i].mNameBuffer));
-
-        DBFile &file=mDB.get(mPAKname.toStdString(),i);
-
-        QComboBox * cbox=new QComboBox(ui->tableWidget);
-        for (unsigned int j=0;j<mDB.mFileTypes.size();j++)
-            cbox->addItem(mDB.mFileTypes[j].c_str());
-        cbox->setCurrentIndex(file.type);
-        //ui->tableWidget->setItem(i,2,new QTableWidgetItem(mDB.mFileTypes[file.type].c_str()));
-        ui->tableWidget->setCellWidget(i,2,cbox);
-
-        ui->tableWidget->setItem(i,3,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.compressionFlag, 16)));
-        ui->tableWidget->setItem(i,4,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.discSize, 16)));
-        ui->tableWidget->setItem(i,5,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.uncompressedSize, 16)));
-
-        //ui->tableWidget->setItem(i,6,new QTableWidgetItem(file.info.c_str()));
-
-        QLineEdit *lineEdit=new QLineEdit(file.info.c_str(),ui->tableWidget);
-        ui->tableWidget->setCellWidget(i, 6, lineEdit);
-
-        vertlabels.push_back(QString("%1").arg(i));
-    }
-
-    ui->tableWidget->setHorizontalHeaderLabels(hzlabels);
-    ui->tableWidget->setVerticalHeaderLabels(vertlabels);
-    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-    ui->tableWidget->horizontalHeader()->setStretchLastSection(true);
-    /*ui->tableWidget->setColumnWidth(1,50);
-    ui->tableWidget->setColumnWidth(2,150);
-    ui->tableWidget->setColumnWidth(3,50);*/
-
+    updateTable();
 
     return true;
 }
 
-bool MainWindow::overwritePAK()
+bool MainWindow::savePAK()
 {
     return mPakFile.overwrite(false);
 }
 
-bool MainWindow::overwritePAKUncompressed()
+bool MainWindow::savePAKUncompressed()
 {
     return mPakFile.overwrite(true);
 }
@@ -147,7 +167,7 @@ bool MainWindow::exportAllAsBmp()
     return true;
 }
 
-bool MainWindow::importFile()
+bool MainWindow::exportFile()
 {
     QItemSelectionModel *select = ui->tableWidget->selectionModel();
 
@@ -157,11 +177,79 @@ bool MainWindow::importFile()
         msgBox.setText("Please select a row!");
         msgBox.exec();
         return false;
+    }
+
+    int index=select->selectedRows()[0].row();
+
+    //use DB type
+    DBFile &file=mDB.get(mPAKname.toStdString(),index);
+    std::cout<<"Export "<<mPAKname.toStdString()<<":"<<index
+       <<" as "<<mDB.mFileTypes[(int)file.type]<<std::endl;
+
+    switch (file.type)
+    {
+    case FileType::unknown:
+        //export raw
+        //TODO
+        break;
+    case FileType::text:
+        //export txt
+        //TODO
+        break;
+    case FileType::image:
+        //export bmp
+        mPakFile.getAllFiles().at(index).exportAsBMP(0,320,AloneFile::palette);
+        break;
+    }
+
+}
+
+bool MainWindow::importFile()
+{
+    bool result;
+    QItemSelectionModel *select = ui->tableWidget->selectionModel();
+
+    if (select->selectedRows().size()==0)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Please select a row!");
+        msgBox.exec();
         return false;
     }
 
     int index=select->selectedRows()[0].row();
 
+    //use DB type
+    DBFile &file=mDB.get(mPAKname.toStdString(),index);
+    switch (file.type)
+    {
+    case FileType::unknown:
+        //import raw
+        //TODO
+        break;
+    case FileType::text:
+        //import txt
+        //TODO
+        break;
+    case FileType::image:
+        //import bmp
+        result=importBMP(index);
+        break;
+    }
+
+    if (!result) return false;
+
+    QMessageBox msgBox;
+    msgBox.setText("Done!");
+    msgBox.exec();
+
+    updateTable();
+
+    return true;
+}
+
+bool MainWindow::importBMP(int index)
+{
     printf("Import file %d\n",index);
     QString filename;
     filename=QFileDialog::getOpenFileName(this, tr("Open BMP file"),
@@ -209,10 +297,15 @@ bool MainWindow::importFile()
             ptr++;
         }
 
-    QMessageBox msgBox;
-    msgBox.setText("Done!");
-    msgBox.exec();
+    //tell to use decompressed data
+    AloneFile &file=mPakFile.getAllFiles().at(index);
+    pakInfoStruct &info=file.mInfo;
+
+    delete file.mComprData;
+    file.mComprData = (u8*)malloc(info.uncompressedSize);
+    strncpy((char*)file.mComprData,(char*)file.mDecomprData,info.uncompressedSize);
+    info.discSize=info.uncompressedSize;
+    info.compressionFlag=0;
 
     return true;
 }
-

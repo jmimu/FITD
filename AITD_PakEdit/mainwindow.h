@@ -25,15 +25,19 @@ private:
     QString mPAKname;
     PakFile mPakFile;
     DB mDB;
+    void updateTable();
+    bool importBMP(int index);
 
 public slots:
     bool openPAK();
-    bool overwritePAK();
-    bool overwritePAKUncompressed();
+    bool savePAK();
+    bool savePAKUncompressed();
     bool exportAllAsBmp();
 
     bool importFile();
+    bool exportFile();
 
+    bool openDB();
     bool writeDB();
 };
 
