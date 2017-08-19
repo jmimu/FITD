@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>AITD PAK Editor</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="data.qrc">
+    <normaloff>:/logo.png</normaloff>:/logo.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
@@ -61,7 +65,7 @@
      <x>0</x>
      <y>0</y>
      <width>586</width>
-     <height>19</height>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -145,11 +149,13 @@
   </action>
   <action name="action_WriteDB">
    <property name="text">
-    <string>&amp;WriteDB</string>
+    <string>Over&amp;writeDB</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="data.qrc"/>
+ </resources>
  <connections/>
 </ui>

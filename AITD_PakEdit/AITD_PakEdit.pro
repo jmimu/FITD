@@ -43,3 +43,6 @@ win32:LIBS =        C:\libs\
 
 LIBS += -lz
 QMAKE_CXXFLAGS += -std=gnu++11
+
+RESOURCES += \
+    data.qrc
