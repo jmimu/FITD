@@ -5,7 +5,7 @@
 
 #define NAME "FITD"
 
-#define VERSION "0.1"
+#define VERSION "0.101"
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
 #else

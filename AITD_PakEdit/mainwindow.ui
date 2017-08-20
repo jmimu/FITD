@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>AITD PAK Editor</string>
+   <string>AITD PAK Editor v0.01</string>
   </property>
   <property name="windowIcon">
    <iconset resource="data.qrc">
@@ -108,11 +108,17 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionOpenPAK">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>&amp;Open PAK</string>
    </property>
   </action>
   <action name="actionSavePAK">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Over&amp;write PAK</string>
    </property>
@@ -123,13 +129,19 @@
    </property>
   </action>
   <action name="actionOverwrite_PAK_uncompressed">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Overwrite PAK &amp;uncompressed</string>
    </property>
   </action>
   <action name="actionExport_all_as_BMP">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
-    <string>Try to export all as &amp;BMP</string>
+    <string>Try to export all as &amp;picture</string>
    </property>
   </action>
   <action name="action_Export">
@@ -148,6 +160,9 @@
    </property>
   </action>
   <action name="action_WriteDB">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Over&amp;writeDB</string>
    </property>

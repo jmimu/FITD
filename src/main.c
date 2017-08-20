@@ -5396,6 +5396,8 @@ int main(int argc, char** argv)
 #endif
   setbuf(stdout, NULL);//TODO: remove
 
+  printf("%s %s\n",NAME,VERSION);
+
   int startupMenuResult;
 //  int protectionToBeDone = 1;
   char version[256];

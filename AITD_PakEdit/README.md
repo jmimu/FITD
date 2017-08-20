@@ -1,5 +1,5 @@
-AITD_PakEdit
-============
+AITD_PakEdit v0.01
+==================
 
 
 Alone in the Dark PakEdit allows to modify PAK file for AITD and FITD.
@@ -31,15 +31,25 @@ sudo apt install qtcreator zlib
 qmake
 make
 
-Usage
------
-Open a database (AITD1_PAK_DB.json), open a PAK,
-then choose one of the file, export it, modify it and
-re-import it.
+Getting Started
+---------------
+Make a copy of your original PAK files.
+Run AITD_PakEdit.
+Open a database corresponding to the game (AITD1_PAK_DB.json for AITD1).
+Open a PAK.
+You see every file in the PAK, with there description and type from the database.
+You can modify them and overwrite database (and send it to me for next release!).
+When selecting a file, you can export it depending of its type.
+For now only pictures and texts can be exported.
+You can then modify the exported files, and re-import them.
+Overwrite the PAK file (a .PAK.BAK file will be created to save previous version).
+Run the game with the new PAK.
+
+
 
 TODO
 ----
-  * make user choose offset and width for bmp export
+  * make user choose offset, width and palette for bmp export
   * how to import bmp with offset?
   * export and import other types of files
   

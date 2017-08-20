@@ -53,6 +53,8 @@ bool MainWindow::openDB()
     if (mDB.read(tmpfilename.toStdString()))
     {
         updateTable();
+        ui->actionOpenPAK->setEnabled(true);
+        ui->action_WriteDB->setEnabled(true);
         return true;
     }
     return false;
@@ -139,6 +141,9 @@ bool MainWindow::openPAK()
         return false;
 
     updateTable();
+    ui->actionOverwrite_PAK_uncompressed->setEnabled(true);
+    ui->actionSavePAK->setEnabled(true);
+    ui->actionExport_all_as_BMP->setEnabled(true);
 
     return true;
 }

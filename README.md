@@ -62,8 +62,8 @@ Build (with qmake and make) and put the binary in the game
 data directory (where all the .pak files are) and start FITD.
 The CD version of AITD1 wasn't tested and may not work.
 
-Original Authors
-----------------
+Version 0.1 Authors
+-------------------
 
 - Vincent Hamm "yaz0r" (yazoo@yaz0r.net)
       Project leader and main programmer
