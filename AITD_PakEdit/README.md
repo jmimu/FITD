@@ -1,6 +1,8 @@
 AITD_PakEdit v0.01
 ==================
 
+https://github.com/jmimu/FITD/tree/master/AITD_PakEdit
+
 
 Alone in the Dark PakEdit allows to modify PAK file for AITD and FITD.
 It is based on yaz0r's FITD PAK reading implementation.

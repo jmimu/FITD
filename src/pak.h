@@ -16,6 +16,8 @@ typedef struct pakInfoStruct pakInfoStruct;
 
 //#define USE_UNPACKED_DATA
 
+void makeExtention(char* bufferName,const char* name,const char* extension);
+
 void readPakInfo(pakInfoStruct* pPakInfo, FILE* fileHandle);
 unsigned int PAK_getNumFiles(const char* name);
 int loadPakToPtr(const char* name, int index, u8* ptr);

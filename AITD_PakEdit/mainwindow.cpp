@@ -8,6 +8,8 @@
 #include <QComboBox>
 #include <cstdint>
 
+#include "alonefloor.h"
+
 extern "C" {
 #include "../src/pak.h"
 #include "../src/types.h"
@@ -33,7 +35,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->ui->action_Import,SIGNAL(triggered()),this,SLOT(importFile()));
     connect(this->ui->action_WriteDB,SIGNAL(triggered()),this,SLOT(writeDB()));
     connect(this->ui->action_OpenDB,SIGNAL(triggered()),this,SLOT(openDB()));
-
 }
 
 MainWindow::~MainWindow()
@@ -59,8 +60,7 @@ bool MainWindow::openDB()
     }
     return false;
 }
-
-bool MainWindow::writeDB()
+void MainWindow::updateDB()
 {
     //read data from tableWidget
     for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
@@ -68,17 +68,25 @@ bool MainWindow::writeDB()
         DBFile &file=mDB.get(mPAKname.toStdString(),i);
 
         QLineEdit* lineEdit=(QLineEdit*)ui->tableWidget->cellWidget(i,6);
+        if (!lineEdit) return;//table not full
         file.info=lineEdit->text().toStdString();
 
         QComboBox* cbox=(QComboBox*)ui->tableWidget->cellWidget(i,2);
+        if (!cbox) return;//table not full
         file.type=(FileType)cbox->currentIndex();
     }
+    std::cout<<"DB updated."<<std::endl;
+}
+
+bool MainWindow::writeDB()
+{
+    updateDB();
     return mDB.overwrite();
 }
 
 void MainWindow::updateTable()
 {
-    ui->lineEditPAKName->setText(mPAKPath+".PAK");
+    ui->lineEditPAKName->setText(mPAKPath);
     ui->tableWidget->setRowCount(mPakFile.getAllFiles().size());
     ui->tableWidget->setColumnCount(7);
     QStringList hzlabels={"Offset","Name","Type","Compr","diskSize","realSize","InfoDB"};
@@ -98,6 +106,7 @@ void MainWindow::updateTable()
         cbox->setCurrentIndex((int)file.type);
         //ui->tableWidget->setItem(i,2,new QTableWidgetItem(mDB.mFileTypes[file.type].c_str()));
         ui->tableWidget->setCellWidget(i,2,cbox);
+        connect(cbox,SIGNAL(currentIndexChanged(int)),this,SLOT(updateDB()));
 
         ui->tableWidget->setItem(i,3,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.compressionFlag, 16)));
         ui->tableWidget->setItem(i,4,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mInfo.discSize, 16)));
@@ -107,6 +116,7 @@ void MainWindow::updateTable()
 
         QLineEdit *lineEdit=new QLineEdit(file.info.c_str(),ui->tableWidget);
         ui->tableWidget->setCellWidget(i, 6, lineEdit);
+        connect(lineEdit,SIGNAL(editingFinished()),this,SLOT(updateDB()));
 
         vertlabels.push_back(QString("%1").arg(i));
     }
@@ -121,7 +131,7 @@ bool MainWindow::openPAK()
 {
     QString tmpfilename;
     tmpfilename=QFileDialog::getOpenFileName(this, tr("Open PAK file"),
-                                                 mPAKPath+".PAK",
+                                                 mPAKPath,
                                                  tr("PAK (*.PAK)"));
     if (tmpfilename=="")
         return false;
@@ -133,9 +143,6 @@ bool MainWindow::openPAK()
     QFileInfo fileInfo(mPAKPath);
     mPAKname=fileInfo.fileName();
     std::cout<<"PAK name: "<<mPAKname.toStdString()<<std::endl;
-
-
-    mPAKPath.remove(mPAKPath.size()-4,4);//TODO: change file name usage (with .PAK or not)
 
     if (!mPakFile.read(mPAKPath.toStdString().c_str(),mPAKname.toStdString()))
         return false;
@@ -211,6 +218,29 @@ bool MainWindow::exportFile()
         //export bmp
         result=mPakFile.getAllFiles().at(index).exportAsBMP(0,320,AloneFile::palette);
         break;
+    case FileType::rooms:
+    case FileType::cams:
+        //check that we have a rooms for file 0, and a cams for file 1
+        if ((mDB.get(mPAKname.toStdString(),0).type!=FileType::rooms)
+                ||(mDB.get(mPAKname.toStdString(),1).type!=FileType::cams))
+        {
+            QMessageBox msgBox;
+            msgBox.setText("ERROR! For a floor, file 0 must be a \"Rooms\", and file 1 a \"Cameras\"!");
+            msgBox.exec();
+            result=false;
+        }else{
+            AloneFloor floor;
+            floor.load(&mPakFile.getAllFiles().at(0),&mPakFile.getAllFiles().at(1));
+            //TODO: save COLLADA
+            result=true;
+        }
+        break;
+    default:
+        QMessageBox msgBox;
+        msgBox.setText(QString("File type %1 export not implemented!").arg(mDB.mFileTypes[(int)file.type].c_str()));
+        msgBox.exec();
+        result=false;
+        break;
     }
 
     if (result)
@@ -254,6 +284,12 @@ bool MainWindow::importFile()
         //import bmp
         result=importBMP(index);
         break;
+    default:
+        QMessageBox msgBox;
+        msgBox.setText(QString("File type %1 import not implemented!").arg(mDB.mFileTypes[(int)file.type].c_str()));
+        msgBox.exec();
+        return false;
+
     }
 
     if (!result) return false;

@@ -13,4 +13,13 @@ typedef int16_t s16;
 typedef int32_t s32;
 
 
+enum gameTypeEnum
+{
+  AITD1,
+  JACK,
+  AITD2,
+  AITD3,
+  TIMEGATE,
+};
+
 #endif // TYPES_H

@@ -19,7 +19,7 @@ hqrSubEntryStruct* quickFindEntry(int index, int numMax, hqrSubEntryStruct* ptr)
   return(NULL);
 }
 
-hqrEntryStruct* HQR_InitRessource(char* name, int size, int numEntries)
+hqrEntryStruct* HQR_InitRessource(const char* name, int size, int numEntries)
 {
   int i;
   hqrEntryStruct* dest;

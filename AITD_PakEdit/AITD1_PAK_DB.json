@@ -1090,13 +1090,13 @@
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 3
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 4
 			}
 		},
 		"ETAGE01.PAK" : 
@@ -1105,13 +1105,13 @@
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 3
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 4
 			}
 		},
 		"ETAGE02.PAK" : 
@@ -1120,13 +1120,13 @@
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 3
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 4
 			}
 		},
 		"ETAGE03.PAK" : 
@@ -1135,13 +1135,13 @@
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 3
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 4
 			}
 		},
 		"ETAGE04.PAK" : 
@@ -1150,13 +1150,13 @@
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 3
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 4
 			}
 		},
 		"ETAGE05.PAK" : 
@@ -1165,13 +1165,13 @@
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 3
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 4
 			}
 		},
 		"ETAGE06.PAK" : 
@@ -1180,13 +1180,13 @@
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 3
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 4
 			}
 		},
 		"ETAGE07.PAK" : 
@@ -1195,13 +1195,13 @@
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 3
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 4
 			}
 		},
 		"FRANCAIS.PAK" : 

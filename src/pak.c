@@ -5,6 +5,24 @@
 #include "bmp.h"
 #include "unpack.h"
 
+void makeExtention(char* bufferName,const char* name,const char* extension)
+{
+  int i=0;
+  const char* name_char;
+  strcpy(bufferName, name);
+  if (strlen(bufferName)<strlen(extension))
+  {
+    strcat(bufferName,".PAK");
+    return;
+  }
+  //check if extension already given
+  name_char=bufferName;
+  name_char+=strlen(bufferName)-strlen(extension);
+  if (strcmp(name_char,extension)!=0)
+    strcat(bufferName,".PAK");
+
+}
+
 void readPakInfo(pakInfoStruct* pPakInfo, FILE* fileHandle)
 {
   if (fread(&pPakInfo->discSize,4,1,fileHandle)!=1)
@@ -31,8 +49,7 @@ unsigned int PAK_getNumFiles(const char *name)
   char* ptr=0;
   u32 size=0;
 
-  strcpy(bufferName, name); // temporary until makeExtention is coded
-  strcat(bufferName,".PAK");
+  makeExtention(bufferName, name, ".PAK");
 
   fileHandle = fopen(bufferName,"rb");
 
@@ -113,8 +130,7 @@ int getPakSize(const char* name, int index)
   char* ptr=0;
   u32 size=0;
 
-  strcpy(bufferName, name); // temporary until makeExtention is coded
-  strcat(bufferName,".PAK");
+  makeExtention(bufferName, name, ".PAK");
 
   fileHandle = fopen(bufferName,"rb");
 
@@ -213,6 +229,7 @@ void PAK_debug(const char* name, int index,pakInfoStruct *pakInfo,u8 * compresse
   }
 }*/
 
+
 u8* loadPak(const char* name, u32 index)
 {
 #ifdef USE_UNPACKED_DATA
@@ -247,9 +264,7 @@ u8* loadPak(const char* name, u32 index)
   pakInfoStruct pakInfo;
   u8* ptr=0;
 
-  //makeExtention(bufferName, name, ".PAK");
-  strcpy(bufferName, name); // temporary until makeExtention is coded
-  strcat(bufferName,".PAK");
+  makeExtention(bufferName, name, ".PAK");
 
   fileHandle = fopen(bufferName,"rb");
 

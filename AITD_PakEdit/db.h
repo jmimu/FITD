@@ -15,7 +15,9 @@ enum class FileType
 {
     unknown=0,
     text,
-    image
+    image,
+    rooms,
+    cams
 };
 
 struct DBFile

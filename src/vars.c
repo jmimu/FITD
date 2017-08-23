@@ -271,3 +271,33 @@ hqrEntryStruct* listSamp;
 #ifdef INTERNAL_DEBUGGER
 backgroundModeEnum backgroundMode = backgroundModeEnum_2D;
 #endif
+
+void freeAll(void)
+{
+/*  HQR_Free(hqrUnk);
+
+  HQR_Free(listSamp);
+
+  HQR_Free(listMus);
+
+  free(languageData);
+
+  free(tabTextes);
+
+  free(priority);
+
+  free(aitdBoxGfx);
+
+  free(fontData);
+
+  free(bufferAnim);
+
+  if(aux != aux3)
+  {
+    free(aux);
+  }
+
+  free(aux2);*/
+
+  //TODO: implement all the code that restore the interrupts & all
+}

@@ -38,7 +38,6 @@ void printTextSub6(hqrEntryStruct* hqrPtr, int index);
 
 
 void sysInit(void);
-void freeAll(void);
 void startGame(int startupEtage, int startupRoom, int allowSystemMenu);
 void fillBox(int x1, int y1, int x2, int y2, char color); // fast recode. No RE
 void copyZv(ZVStruct* source, ZVStruct* dest);

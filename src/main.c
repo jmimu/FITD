@@ -546,35 +546,6 @@ void sysInit(void)
   hqrUnk = HQR_Init(10000,50);
 }
 
-void freeAll(void)
-{
-/*  HQR_Free(hqrUnk);
-
-  HQR_Free(listSamp);
-
-  HQR_Free(listMus);
-
-  free(languageData);
-
-  free(tabTextes);
-
-  free(priority);
-
-  free(aitdBoxGfx);
-
-  free(fontData);
-
-  free(bufferAnim);
-
-  if(aux != aux3)
-  {
-    free(aux);
-  }
-
-  free(aux2);*/
-
-  //TODO: implement all the code that restore the interrupts & all
-}
 
 textEntryStruct* getTextFromIdx(int index)
 {

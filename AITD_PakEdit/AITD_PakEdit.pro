@@ -21,7 +21,14 @@ SOURCES += main.cpp \
     alonefile.cpp \
     pakfile.cpp \
     jsoncpp.cpp \
-    db.cpp
+    db.cpp \
+    alonefloor.cpp \
+    ../src/room.c \
+    ../src/vars.c \
+    ../src/floor.c \
+    ../src/freezetime.c \
+    ../src/hqr.c \
+    ../src/fileAccess.c
 
 HEADERS  += mainwindow.h \
         ../src/pak.h \
@@ -33,7 +40,13 @@ HEADERS  += mainwindow.h \
     json/json-forwards.h \
     json/json.h \
     ../src/types.h \
-    db.h
+    db.h \
+    alonefloor.h \
+    ../src/room.h \
+    ../src/floor.h \
+    ../src/freezetime.h \
+    ../src/hqr.h \
+    ../src/fileAccess.h
 
 FORMS    += mainwindow.ui
 

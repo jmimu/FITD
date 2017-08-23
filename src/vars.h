@@ -16,15 +16,6 @@ extern u8* currentFoundBody;
 extern int currentFoundBodyIdx;
 extern int statusVar1;
 
-enum gameTypeEnum
-{
-  AITD1,
-  JACK,
-  AITD2,
-  AITD3,
-  TIMEGATE,
-};
-
 extern enum gameTypeEnum gameId;
 
 struct point3dStruct
@@ -535,5 +526,8 @@ typedef enum backgroundModeEnum backgroundModeEnum;
 
 extern backgroundModeEnum backgroundMode;
 #endif
+
+void freeAll(void);
+
 
 #endif

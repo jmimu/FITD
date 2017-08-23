@@ -39,6 +39,7 @@ public slots:
     bool exportFile();
 
     bool openDB();
+    void updateDB();
     bool writeDB();
 };
 

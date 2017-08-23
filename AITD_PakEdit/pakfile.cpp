@@ -14,16 +14,13 @@ bool PakFile::read(const char* filepath, std::string filename)
     mPAKFilename=filename;
     mAllFiles.clear();
 
-    char bufferName[256];
-    strcpy(bufferName, filepath);
-    strcat(bufferName,".PAK");
-    strcpy(mPAKPath, bufferName);
+    strcpy(mPAKPath, filepath);
 
-    FILE* fileHandle = fopen(bufferName,"rb");
+    FILE* fileHandle = fopen(filepath,"rb");
 
     if(!fileHandle)
     {
-        printf("Error opening file %s\n",bufferName);
+        printf("Error opening file %s\n",filepath);
         return false;
     }
 

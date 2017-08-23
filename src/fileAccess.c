@@ -1,3 +1,5 @@
+#include "fileAccess.h"
+
 #include "common.h"
 #include "vars.h"
 #include "main.h"

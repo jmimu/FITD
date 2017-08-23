@@ -1,6 +1,8 @@
 FITD
 ====
 
+https://github.com/jmimu/FITD
+
 What is FITD
 ------------
 
