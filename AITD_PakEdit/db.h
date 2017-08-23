@@ -17,7 +17,8 @@ enum class FileType
     text,
     image,
     rooms,
-    cams
+    cams,
+    sounds
 };
 
 struct DBFile

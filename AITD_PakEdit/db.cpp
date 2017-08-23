@@ -35,7 +35,7 @@ bool DBFile::set(Json::Value v)
     return true;
 }
 
-DB::DB():mFileTypes({"Unknown","Text","Image","Rooms","Cameras"}),mFilename("noname.json")
+DB::DB():mFileTypes({"Unknown","Text","Image","Rooms","Cameras","Sounds"}),mFilename("noname.json")
 {
 }
 

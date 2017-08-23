@@ -235,6 +235,11 @@ bool MainWindow::exportFile()
             result=true;
         }
         break;
+    case FileType::sounds:
+        //export VOX
+        sprintf(bufferNameOut,"%s_%d.VOX",mPAKPath.toStdString().c_str(),index);
+        result=mPakFile.getAllFiles().at(index).exportUncompressed(bufferNameOut);
+        break;
     default:
         QMessageBox msgBox;
         msgBox.setText(QString("File type %1 export not implemented!").arg(mDB.mFileTypes[(int)file.type].c_str()));
