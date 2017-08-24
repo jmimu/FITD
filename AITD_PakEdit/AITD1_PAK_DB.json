@@ -895,7 +895,7 @@
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"1" : 
 			{
@@ -1375,7 +1375,7 @@
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"14" : 
 			{
@@ -1417,7 +1417,7 @@
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"3" : 
 			{
@@ -1441,19 +1441,19 @@
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 2
 			},
 			"7" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 2
 			},
 			"8" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 2
 			},
 			"9" : 
 			{
@@ -12736,93 +12736,97 @@
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"10" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"11" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"12" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"13" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"5" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"6" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"7" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"8" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			},
 			"9" : 
 			{
 				"default_compr" : 1,
 				"info" : "?",
-				"type" : 0
+				"type" : 6
 			}
 		}
 	},
-	"date" : "2017/8/19",
+	"date" : "2017/8/24",
 	"file_types" : 
 	[
 		"Unknown",
 		"Text",
-		"Image"
+		"Image",
+		"Rooms",
+		"Cameras",
+		"Sounds",
+		"Palette+Image"
 	]
 }

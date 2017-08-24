@@ -28,15 +28,17 @@ private:
     void updateTable();
     bool importBMP(int index);
     bool importRaw(int index);
+    bool exportFile(int index);
 
 public slots:
     bool openPAK();
     bool savePAK();
     bool savePAKUncompressed();
+    void exportAll();
     bool exportAllAsBmp();
 
     bool importFile();
-    bool exportFile();
+    bool exportSelectedFile();
 
     bool openDB();
     void updateDB();

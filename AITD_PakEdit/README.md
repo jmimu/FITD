@@ -51,7 +51,8 @@ Run the game with the new PAK.
 
 TODO
 ----
-  * make user choose offset, width and palette for bmp export
-  * how to import bmp with offset?
+  * import VOX
+  * export all files according to their type
+  * export music?
   * export and import other types of files
   

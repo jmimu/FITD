@@ -76,6 +76,7 @@
     <addaction name="actionSavePAK"/>
     <addaction name="actionOverwrite_PAK_uncompressed"/>
     <addaction name="separator"/>
+    <addaction name="actionExport_All"/>
     <addaction name="actionExport_all_as_BMP"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
@@ -165,6 +166,14 @@
    </property>
    <property name="text">
     <string>Over&amp;writeDB</string>
+   </property>
+  </action>
+  <action name="actionExport_All">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Export &amp;All</string>
    </property>
   </action>
  </widget>

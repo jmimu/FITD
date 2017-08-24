@@ -30,8 +30,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->ui->actionOpenPAK,SIGNAL(triggered()),this,SLOT(openPAK()));
     connect(this->ui->actionSavePAK,SIGNAL(triggered()),this,SLOT(savePAK()));
     connect(this->ui->actionOverwrite_PAK_uncompressed,SIGNAL(triggered()),this,SLOT(savePAKUncompressed()));
+    connect(this->ui->actionExport_All,SIGNAL(triggered()),this,SLOT(exportAll()));
     connect(this->ui->actionExport_all_as_BMP,SIGNAL(triggered()),this,SLOT(exportAllAsBmp()));
-    connect(this->ui->action_Export,SIGNAL(triggered()),this,SLOT(exportFile()));
+    connect(this->ui->action_Export,SIGNAL(triggered()),this,SLOT(exportSelectedFile()));
     connect(this->ui->action_Import,SIGNAL(triggered()),this,SLOT(importFile()));
     connect(this->ui->action_WriteDB,SIGNAL(triggered()),this,SLOT(writeDB()));
     connect(this->ui->action_OpenDB,SIGNAL(triggered()),this,SLOT(openDB()));
@@ -150,6 +151,7 @@ bool MainWindow::openPAK()
     updateTable();
     ui->actionOverwrite_PAK_uncompressed->setEnabled(true);
     ui->actionSavePAK->setEnabled(true);
+    ui->actionExport_All->setEnabled(true);
     ui->actionExport_all_as_BMP->setEnabled(true);
 
     return true;
@@ -165,6 +167,19 @@ bool MainWindow::savePAKUncompressed()
     return mPakFile.overwrite(true);
 }
 
+void MainWindow::exportAll()
+{
+    for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
+    {
+        if (mDB.get(mPAKname.toStdString(),i).type==FileType::cams)
+            continue;//export only rooms, cams will go with it
+        exportFile(i);
+    }
+
+    QMessageBox msgBox;
+    msgBox.setText("Done!");
+    msgBox.exec();
+}
 
 bool MainWindow::exportAllAsBmp()
 {
@@ -176,10 +191,13 @@ bool MainWindow::exportAllAsBmp()
     for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
         mPakFile.getAllFiles().at(i).exportAsBMP(0,320,AloneFile::palette);
 
+    QMessageBox msgBox;
+    msgBox.setText("Done!");
+    msgBox.exec();
     return true;
 }
 
-bool MainWindow::exportFile()
+bool MainWindow::exportSelectedFile()
 {
     QItemSelectionModel *select = ui->tableWidget->selectionModel();
 
@@ -193,6 +211,18 @@ bool MainWindow::exportFile()
 
     int index=select->selectedRows()[0].row();
 
+    if (exportFile(index))
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Done!");
+        msgBox.exec();
+        return true;
+    }
+    return false;
+}
+
+bool MainWindow::exportFile(int index)
+{
     //use DB type
     DBFile &file=mDB.get(mPAKname.toStdString(),index);
     std::cout<<"Export "<<mPAKname.toStdString()<<":"<<index
@@ -201,22 +231,28 @@ bool MainWindow::exportFile()
 
     char bufferNameOut[256+9];
     bool result=true;
+    AloneFile &alonefile=mPakFile.getAllFiles().at(index);
 
     switch (file.type)
     {
     case FileType::unknown:
         //export raw
         sprintf(bufferNameOut,"%s_%d.dat",mPAKPath.toStdString().c_str(),index);
-        result=mPakFile.getAllFiles().at(index).exportUncompressed(bufferNameOut);
+        result=alonefile.exportUncompressed(bufferNameOut);
         break;
     case FileType::text:
         //export txt
         sprintf(bufferNameOut,"%s_%d.txt",mPAKPath.toStdString().c_str(),index);
-        result=mPakFile.getAllFiles().at(index).exportUncompressed(bufferNameOut);
+        result=alonefile.exportUncompressed(bufferNameOut);
         break;
     case FileType::image:
         //export bmp
-        result=mPakFile.getAllFiles().at(index).exportAsBMP(0,320,AloneFile::palette);
+        result=alonefile.exportAsBMP(0,320,AloneFile::palette);
+        break;
+    case FileType::palimage:
+        //export bmp with own palette
+        printf("Two first bytes: %X %X\n",alonefile.mDecomprData[0],alonefile.mDecomprData[1]);
+        result=alonefile.exportAsBMP(770,320,alonefile.mDecomprData+2);
         break;
     case FileType::rooms:
     case FileType::cams:
@@ -238,7 +274,7 @@ bool MainWindow::exportFile()
     case FileType::sounds:
         //export VOX
         sprintf(bufferNameOut,"%s_%d.VOX",mPAKPath.toStdString().c_str(),index);
-        result=mPakFile.getAllFiles().at(index).exportUncompressed(bufferNameOut);
+        result=alonefile.exportUncompressed(bufferNameOut);
         break;
     default:
         QMessageBox msgBox;
@@ -246,13 +282,6 @@ bool MainWindow::exportFile()
         msgBox.exec();
         result=false;
         break;
-    }
-
-    if (result)
-    {
-        QMessageBox msgBox;
-        msgBox.setText("Done!");
-        msgBox.exec();
     }
 
     return result;
@@ -278,11 +307,9 @@ bool MainWindow::importFile()
     switch (file.type)
     {
     case FileType::unknown:
-        //import raw
-        result=importRaw(index);
-        break;
     case FileType::text:
-        //import txt
+    case FileType::sounds:
+        //import raw
         result=importRaw(index);
         break;
     case FileType::image:
@@ -376,9 +403,9 @@ bool MainWindow::importRaw(int index)
 {
     printf("Import file %d\n",index);
     QString filename;
-    filename=QFileDialog::getOpenFileName(this, tr("Select raw file"),
+    filename=QFileDialog::getOpenFileName(this, tr("Select file"),
                                                  mPAKPath,
-                                                 tr("RAW (*.txt *.dat)"));
+                                                 tr("RAW (*.txt *.dat *.VOX)"));
 
     if (filename=="")
         return false;
