@@ -51,8 +51,12 @@ Run the game with the new PAK.
 
 TODO
 ----
+  * text export: remove last char, convert to iso-8859-1 with dos2unix -850
+  * text import: add last char, convert to dos page 850
+  * remove try to export all as pic
+  * autoexport for tests
   * import pal+pic
-  * export floor
+  * export floor : cam orient, metadata...
   * where is the musics?
   * export and import other types of files
   

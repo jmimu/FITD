@@ -1,6 +1,9 @@
 #include "alonefloor.h"
 
-AloneFloor::AloneFloor():roomDataTable(0)
+#include <fstream>
+#include <sstream>
+
+AloneFloor::AloneFloor():roomDataTable(0),mRooms(0),mCams(0)
 {
 
 }
@@ -12,14 +15,16 @@ AloneFloor::~AloneFloor()
 
 bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
 {
+    mRooms=rooms;
+    mCams=cams;
+
     gameTypeEnum gameId=AITD1;
     u8* etageVar0=rooms->mDecomprData;
     u8* etageVar1=cams->mDecomprData;
     printf("DATA: %x %x %x %x\n",etageVar0[0],etageVar0[1],etageVar0[2],etageVar0[3]);
     printf("VAL: %u\n",*((u32*)etageVar0));
 
-    int expectedNumberOfRoom;
-    int expectedNumberOfCamera;
+
     etageVar0Size=rooms->mInfo.uncompressedSize;
     unsigned int cameraDataSize=cams->mInfo.uncompressedSize;
     u32 i;
@@ -321,5 +326,159 @@ bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
       }
     }
 
+    exportCollada();
     return true;
+}
+
+std::string AloneFloor::hardCol2collada(ZVStruct* zvData, int index, float roomX, float roomY, float roomZ)
+{
+    std::ostringstream oss;
+    float x=(zvData->ZVX1)/256.0+roomX/25.6;
+    float y=(zvData->ZVY1)/256.0+roomY/25.6;
+    float z=(zvData->ZVZ1)/256.0-roomZ/25.6;
+    float sx=(zvData->ZVX2-zvData->ZVX1)/256.0;
+    float sy=(zvData->ZVY2-zvData->ZVY1)/256.0;
+    float sz=(zvData->ZVZ2-zvData->ZVZ1)/256.0;
+    oss<<"      <node id=\"Col"<<index<<"\" name=\"Col"<<index<<"\" type=\"NODE\">\n";
+    oss<<"        <matrix sid=\"transform\">"<<sx<<" 0 0 "<<x<<" 0 "<<sy<<" 0 "<<y<<" 0 0 "<<sz<<" "<<z<<" 0 0 0 1</matrix>\n";
+    oss<<"        <instance_geometry url=\"#Cube-mesh\"/>\n";
+    oss<<"      </node>\n";
+    //TODO: add parameter and type
+    return oss.str();
+}
+
+std::string AloneFloor::sceZone2collada(ZVStruct* zvData, int index, float roomX, float roomY, float roomZ)
+{
+    std::ostringstream oss;
+    float x=(zvData->ZVX1)/256.0+roomX/25.6;
+    float y=(zvData->ZVY2)/256.0+roomY/25.6;
+    float z=(zvData->ZVZ1)/256.0-roomZ/25.6;
+    float sx=(zvData->ZVX2-zvData->ZVX1)/256.0;
+    float sy=1;//(zvData->ZVY2-zvData->ZVY1)/256.0;
+    float sz=(zvData->ZVZ2-zvData->ZVZ1)/256.0;
+    oss<<"      <node id=\"Sce"<<index<<"\" name=\"Sce"<<index<<"\" type=\"NODE\">\n";
+    oss<<"        <matrix sid=\"transform\">"<<sx<<" 0 0 "<<x<<" 0 "<<sy<<" 0 "<<y<<" 0 0 "<<sz<<" "<<z<<" 0 0 0 1</matrix>\n";
+    oss<<"        <instance_geometry url=\"#Cube-mesh\"/>\n";
+    oss<<"      </node>\n";
+    //TODO: add parameter and type
+    return oss.str();
+}
+
+std::string AloneFloor::cam2collada_lib(cameraDataStruct* cam, int index)
+{
+    std::ostringstream oss;
+    oss<<"    <camera id=\"Camera-camera"<<index<<"\">\n";
+    oss<<"      <optics>\n";
+    oss<<"        <technique_common>\n";
+    oss<<"          <perspective>\n";
+    oss<<"            <xfov sid=\"xfov\">49.13434</xfov>\n";
+    oss<<"            <aspect_ratio>1.777778</aspect_ratio>\n";
+    oss<<"            <znear sid=\"znear\">0.1</znear>\n";
+    oss<<"            <zfar sid=\"zfar\">100</zfar>\n";
+    oss<<"          </perspective>\n";
+    oss<<"        </technique_common>\n";
+    oss<<"      </optics>\n";
+    oss<<"    </camera>\n";
+    return oss.str();
+}
+
+std::string AloneFloor::cam2collada_node(cameraDataStruct* cam, int index)
+{
+    std::ostringstream oss;
+    float x=cam->x/25.6;
+    float y=-cam->y/25.6;
+    float z=cam->z/25.6;
+    oss<<"      <node id=\"Cam"<<index<<"\" name=\"Cam"<<index<<"\" type=\"NODE\">\n";
+    oss<<"        <matrix sid=\"transform\">1 0 0 "<<x<<" 0 1 0 "<<y<<" 0 0 1 "<<z<<" 0 0 0 1</matrix>\n";
+    oss<<"        <instance_camera url=\"#Camera-camera"<<index<<"\"/>\n";
+    oss<<"      </node>\n";
+    return oss.str();
+}
+
+void AloneFloor::exportCollada()
+{
+    std::ofstream outFile;
+    char filename[256];
+    strcpy(filename,mRooms->mPAKFilename);
+    strcat(filename,".dae");
+    outFile.open(filename);
+
+    outFile<<"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+    outFile<<"<COLLADA xmlns=\"http://www.collada.org/2005/11/COLLADASchema\" version=\"1.4.1\">\n";
+    outFile<<"  <asset>\n";
+    outFile<<"    <contributor>\n";
+    outFile<<"      <author>Blender User</author>\n";
+    outFile<<"      <authoring_tool>Blender 2.78.0 commit date:2017-02-24, commit time:14:33, hash:e92f2352830</authoring_tool>\n";
+    outFile<<"    </contributor>\n";
+    outFile<<"    <created>2017-08-21T17:33:59</created>\n";
+    outFile<<"    <modified>2017-08-21T17:33:59</modified>\n";
+    outFile<<"    <unit name=\"meter\" meter=\"1\"/>\n";
+    outFile<<"    <up_axis>Z_UP</up_axis>\n";
+    outFile<<"  </asset>\n";
+    outFile<<"  <library_cameras>\n";
+
+    for(int i=0;i<expectedNumberOfCamera;i++)
+        outFile<<cam2collada_lib(&globalCameraDataTable[i],i);
+
+    outFile<<"  </library_cameras>\n";
+    outFile<<"  <library_images/>\n";
+    outFile<<"  <library_geometries>\n";
+    outFile<<"    <geometry id=\"Cube-mesh\">\n";
+    outFile<<"      <mesh>\n";
+    outFile<<"        <source id=\"Cube-mesh-positions\">\n";
+    outFile<<"          <float_array id=\"Cube-mesh-positions-array\" count=\"24\">1 1 0 1 0 0 0 0 0 0 1 0 1 1 1 1 0 1 0 0 1 0 1 1</float_array>\n";
+    outFile<<"          <technique_common>\n";
+    outFile<<"            <accessor source=\"#Cube-mesh-positions-array\" count=\"8\" stride=\"3\">\n";
+    outFile<<"              <param name=\"X\" type=\"float\"/>\n";
+    outFile<<"              <param name=\"Y\" type=\"float\"/>\n";
+    outFile<<"              <param name=\"Z\" type=\"float\"/>\n";
+    outFile<<"            </accessor>\n";
+    outFile<<"          </technique_common>\n";
+    outFile<<"        </source>\n";
+    outFile<<"        <vertices id=\"Cube-mesh-vertices\">\n";
+    outFile<<"          <input semantic=\"POSITION\" source=\"#Cube-mesh-positions\"/>\n";
+    outFile<<"        </vertices>\n";
+    outFile<<"        <polylist count=\"6\">\n";
+    outFile<<"          <input semantic=\"VERTEX\" source=\"#Cube-mesh-vertices\" offset=\"0\"/>\n";
+    outFile<<"          <vcount>4 4 4 4 4 4 </vcount>\n";
+    outFile<<"          <p>0 1 2 3 4 7 6 5 0 4 5 1 1 5 6 2 2 6 7 3 4 0 3 7</p>\n";
+    outFile<<"        </polylist>\n";
+    outFile<<"      </mesh>\n";
+    outFile<<"    </geometry>\n";
+    outFile<<"  </library_geometries>\n";
+    outFile<<"  <library_controllers/>\n";
+    outFile<<"  <library_visual_scenes>\n";
+    outFile<<"    <visual_scene id=\"Scene\" name=\"Scene\">\n";
+
+    for(int i=0;i<expectedNumberOfCamera;i++)
+        outFile<<cam2collada_node(&globalCameraDataTable[i],i);
+
+    for (int i=0;i<expectedNumberOfRoom;i++)
+    {
+        roomDataStruct* currentRoomDataPtr = &roomDataTable[i];
+        for (int j=0;j<currentRoomDataPtr->numHardCol;j++)
+        {
+            ZVStruct* zvData;
+            zvData = &currentRoomDataPtr->hardColTable[j].zv;
+            outFile<<hardCol2collada(zvData,j,currentRoomDataPtr->worldX,currentRoomDataPtr->worldY,currentRoomDataPtr->worldZ);
+        }
+        for (int j=0;j<currentRoomDataPtr->numSceZone;j++)
+        {
+            ZVStruct* zvData;
+            zvData = &currentRoomDataPtr->sceZoneTable[j].zv;
+            outFile<<sceZone2collada(zvData,j,currentRoomDataPtr->worldX,currentRoomDataPtr->worldY,currentRoomDataPtr->worldZ);
+        }
+    }
+    outFile<<"      <node id=\"Cube0\" name=\"Cube0\" type=\"NODE\">\n";
+    outFile<<"        <matrix sid=\"transform\">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>\n";
+    outFile<<"        <instance_geometry url=\"#Cube-mesh\"/>\n";
+    outFile<<"      </node>\n";
+
+    outFile<<"    </visual_scene>\n";
+    outFile<<"  </library_visual_scenes>\n";
+    outFile<<"  <scene>\n";
+    outFile<<"    <instance_visual_scene url=\"#Scene\"/>\n";
+    outFile<<"  </scene>\n";
+    outFile<<"</COLLADA>\n";
+    outFile.close();
 }
