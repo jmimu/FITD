@@ -18,7 +18,7 @@ enum class FileType
     image,
     rooms,
     cams,
-    sounds,
+    sound,
     palimage
 };
 

@@ -271,7 +271,7 @@ bool MainWindow::exportFile(int index)
             result=true;
         }
         break;
-    case FileType::sounds:
+    case FileType::sound:
         //export VOX
         sprintf(bufferNameOut,"%s_%d.VOX",mPAKPath.toStdString().c_str(),index);
         result=alonefile.exportUncompressed(bufferNameOut);
@@ -308,7 +308,7 @@ bool MainWindow::importFile()
     {
     case FileType::unknown:
     case FileType::text:
-    case FileType::sounds:
+    case FileType::sound:
         //import raw
         result=importRaw(index);
         break;
@@ -410,18 +410,38 @@ bool MainWindow::importRaw(int index)
     if (filename=="")
         return false;
 
+    DBFile &dbfile=mDB.get(mPAKname.toStdString(),index);
+    AloneFile &file=mPakFile.getAllFiles().at(index);
+    pakInfoStruct &info=file.mInfo;
+
     FILE* fileHandle=fopen(filename.toStdString().c_str(),"rb");
     fseek(fileHandle,0L,SEEK_END);
     u32 size = ftell(fileHandle);
     fseek(fileHandle,0L,SEEK_SET);
 
-    AloneFile &file=mPakFile.getAllFiles().at(index);
-    pakInfoStruct &info=file.mInfo;
+    char* data=(char*)malloc(size);
+    fread(data,size,1,fileHandle);
+    fclose(fileHandle);
+
+
+    if (dbfile.type==FileType::sound)
+    {
+        //check VOX header
+        if (strncmp("Creative Voice File",data,19)!=0)
+        {
+            QMessageBox msgBox;
+            msgBox.setText("Sound file must be in VOX format!");
+            msgBox.exec();
+            free(data);
+            return false;
+        }
+    }
+
 
     delete file.mDecomprData;
     info.uncompressedSize=size;
     file.mDecomprData = (u8*)malloc(info.uncompressedSize);
-    fread(file.mDecomprData,size,1,fileHandle);
+    memcpy(file.mDecomprData,(u8*)data,size);
 
     //tell to use decompressed data
 
@@ -431,6 +451,6 @@ bool MainWindow::importRaw(int index)
     info.discSize=info.uncompressedSize;
     info.compressionFlag=0;
 
-    fclose(fileHandle);
+    free(data);
     return true;
 }

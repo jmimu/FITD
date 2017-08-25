@@ -51,8 +51,8 @@ Run the game with the new PAK.
 
 TODO
 ----
-  * import VOX
-  * export all files according to their type
-  * export music?
+  * import pal+pic
+  * export floor
+  * where is the musics?
   * export and import other types of files
   
