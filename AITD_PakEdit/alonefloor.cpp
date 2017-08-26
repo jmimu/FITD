@@ -333,12 +333,12 @@ bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
 std::string AloneFloor::hardCol2collada(ZVStruct* zvData, int index, float roomX, float roomY, float roomZ)
 {
     std::ostringstream oss;
-    float x=(zvData->ZVX1)/256.0+roomX/25.6;
-    float y=(zvData->ZVY1)/256.0+roomY/25.6;
-    float z=(zvData->ZVZ1)/256.0-roomZ/25.6;
-    float sx=(zvData->ZVX2-zvData->ZVX1)/256.0;
-    float sy=(zvData->ZVY2-zvData->ZVY1)/256.0;
-    float sz=(zvData->ZVZ2-zvData->ZVZ1)/256.0;
+    float x=(zvData->ZVX1)/1000.0+roomX/100.0;
+    float y=(zvData->ZVY1)/1000.0+roomY/100.0;
+    float z=(zvData->ZVZ1)/1000.0-roomZ/100.0;
+    float sx=(zvData->ZVX2-zvData->ZVX1)/1000.0;
+    float sy=(zvData->ZVY2-zvData->ZVY1)/1000.0;
+    float sz=(zvData->ZVZ2-zvData->ZVZ1)/1000.0;
     oss<<"      <node id=\"Col"<<index<<"\" name=\"Col"<<index<<"\" type=\"NODE\">\n";
     oss<<"        <matrix sid=\"transform\">"<<sx<<" 0 0 "<<x<<" 0 "<<sy<<" 0 "<<y<<" 0 0 "<<sz<<" "<<z<<" 0 0 0 1</matrix>\n";
     oss<<"        <instance_geometry url=\"#Cube-mesh\"/>\n";
@@ -350,12 +350,12 @@ std::string AloneFloor::hardCol2collada(ZVStruct* zvData, int index, float roomX
 std::string AloneFloor::sceZone2collada(ZVStruct* zvData, int index, float roomX, float roomY, float roomZ)
 {
     std::ostringstream oss;
-    float x=(zvData->ZVX1)/256.0+roomX/25.6;
-    float y=(zvData->ZVY2)/256.0+roomY/25.6;
-    float z=(zvData->ZVZ1)/256.0-roomZ/25.6;
-    float sx=(zvData->ZVX2-zvData->ZVX1)/256.0;
-    float sy=1;//(zvData->ZVY2-zvData->ZVY1)/256.0;
-    float sz=(zvData->ZVZ2-zvData->ZVZ1)/256.0;
+    float x=(zvData->ZVX1)/1000.0+roomX/100.0;
+    float y=(zvData->ZVY2)/1000.0+roomY/100.0;
+    float z=(zvData->ZVZ1)/1000.0-roomZ/100.0;
+    float sx=(zvData->ZVX2-zvData->ZVX1)/1000.0;
+    float sy=1;//(zvData->ZVY2-zvData->ZVY1)/100.0;
+    float sz=(zvData->ZVZ2-zvData->ZVZ1)/1000.0;
     oss<<"      <node id=\"Sce"<<index<<"\" name=\"Sce"<<index<<"\" type=\"NODE\">\n";
     oss<<"        <matrix sid=\"transform\">"<<sx<<" 0 0 "<<x<<" 0 "<<sy<<" 0 "<<y<<" 0 0 "<<sz<<" "<<z<<" 0 0 0 1</matrix>\n";
     oss<<"        <instance_geometry url=\"#Cube-mesh\"/>\n";
@@ -382,16 +382,20 @@ std::string AloneFloor::cam2collada_lib(cameraDataStruct* cam, int index)
     return oss.str();
 }
 
-std::string AloneFloor::cam2collada_node(cameraDataStruct* cam, int index)
+std::string AloneFloor::cam2collada_node(cameraDataStruct* cam, int index, float roomX, float roomY, float roomZ)
 {
     std::ostringstream oss;
-    float x=cam->x/25.6;
-    float y=-cam->y/25.6;
-    float z=cam->z/25.6;
+    float x=(cam->x-roomX)/100.0;
+    float y=(roomY-cam->y)/100.0;
+    float z=(roomZ-cam->z)/100.0;
     oss<<"      <node id=\"Cam"<<index<<"\" name=\"Cam"<<index<<"\" type=\"NODE\">\n";
     oss<<"        <matrix sid=\"transform\">1 0 0 "<<x<<" 0 1 0 "<<y<<" 0 0 1 "<<z<<" 0 0 0 1</matrix>\n";
     oss<<"        <instance_camera url=\"#Camera-camera"<<index<<"\"/>\n";
     oss<<"      </node>\n";
+
+    std::cout<<"Cam "<<index<<": "<<cam->x<<","<<cam->y<<","<<cam->z;
+    std::cout<<"  ang: "<<cam->alpha<<","<<cam->beta<<","<<cam->gamma;
+    std::cout<<"  foc: "<<cam->focal1<<","<<cam->focal2<<","<<cam->focal3<<"\n";
     return oss.str();
 }
 
@@ -451,7 +455,7 @@ void AloneFloor::exportCollada()
     outFile<<"    <visual_scene id=\"Scene\" name=\"Scene\">\n";
 
     for(int i=0;i<expectedNumberOfCamera;i++)
-        outFile<<cam2collada_node(&globalCameraDataTable[i],i);
+        outFile<<cam2collada_node(&globalCameraDataTable[i],i,0,0,0);//TODO: determine room and give its center
 
     for (int i=0;i<expectedNumberOfRoom;i++)
     {

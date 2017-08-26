@@ -28,7 +28,7 @@ public:
     std::string hardCol2collada(ZVStruct* zvData, int index,float roomX,float roomY,float roomZ);
     std::string sceZone2collada(ZVStruct* zvData, int index,float roomX,float roomY,float roomZ);
     std::string cam2collada_lib(cameraDataStruct* cam, int index);
-    std::string cam2collada_node(cameraDataStruct* cam, int index);
+    std::string cam2collada_node(cameraDataStruct* cam, int index, float roomX, float roomY, float roomZ);
 
 };
 

@@ -35,7 +35,6 @@ public slots:
     bool savePAK();
     bool savePAKUncompressed();
     void exportAll();
-    bool exportAllAsBmp();
 
     bool importFile();
     bool exportSelectedFile();

@@ -77,7 +77,6 @@
     <addaction name="actionOverwrite_PAK_uncompressed"/>
     <addaction name="separator"/>
     <addaction name="actionExport_All"/>
-    <addaction name="actionExport_all_as_BMP"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>

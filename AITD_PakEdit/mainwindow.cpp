@@ -31,7 +31,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->ui->actionSavePAK,SIGNAL(triggered()),this,SLOT(savePAK()));
     connect(this->ui->actionOverwrite_PAK_uncompressed,SIGNAL(triggered()),this,SLOT(savePAKUncompressed()));
     connect(this->ui->actionExport_All,SIGNAL(triggered()),this,SLOT(exportAll()));
-    connect(this->ui->actionExport_all_as_BMP,SIGNAL(triggered()),this,SLOT(exportAllAsBmp()));
     connect(this->ui->action_Export,SIGNAL(triggered()),this,SLOT(exportSelectedFile()));
     connect(this->ui->action_Import,SIGNAL(triggered()),this,SLOT(importFile()));
     connect(this->ui->action_WriteDB,SIGNAL(triggered()),this,SLOT(writeDB()));
@@ -181,21 +180,6 @@ void MainWindow::exportAll()
     msgBox.exec();
 }
 
-bool MainWindow::exportAllAsBmp()
-{
-    /*    QString outDir;
-        outDir=QFileDialog::getExistingDirectory(this, tr("Output directory"),mPAKFilename);
-        if (outDir=="")
-            return false;*/
-
-    for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
-        mPakFile.getAllFiles().at(i).exportAsBMP(0,320,AloneFile::palette);
-
-    QMessageBox msgBox;
-    msgBox.setText("Done!");
-    msgBox.exec();
-    return true;
-}
 
 bool MainWindow::exportSelectedFile()
 {

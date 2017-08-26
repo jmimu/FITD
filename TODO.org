@@ -18,6 +18,7 @@
 
 ** Crashs
 
+*** 1st zombie appears
 
 *** Demo AITD1 64 bits
     Thread 1 "fitd" received signal SIGSEGV, Segmentation fault.
