@@ -51,6 +51,7 @@ Run the game with the new PAK.
 
 TODO
 ----
+  * check if picture import is ok with floppy version (where pics files have name)
   * text export: remove last char, convert to iso-8859-1 with dos2unix -850
   * text import: add last char, convert to dos page 850
   * import pal+pic
@@ -59,3 +60,16 @@ TODO
   * where are the musics?
   * export and import other types of files
   
+Changelog
+---------
+v0.02:
+  * split database between floppy and cd versions
+  * import/export VOX
+  * export pal+pic
+  * start export floors
+
+v0.01:
+  * database
+  * import/export pictures
+  * import/export text
+  * decompress data
