@@ -56,6 +56,7 @@ bool MainWindow::openDB()
         updateTable();
         ui->actionOpenPAK->setEnabled(true);
         ui->action_WriteDB->setEnabled(true);
+        ui->lineEditDBName->setText(tmpfilename);
         return true;
     }
     return false;
