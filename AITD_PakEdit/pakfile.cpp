@@ -91,13 +91,14 @@ bool PakFile::overwrite(bool forceUncompressed)
         }
         fwrite(&newInfo,sizeof(newInfo),1,fileHandle);
 
+        fwrite(mAllFiles[index].mNameBuffer,newInfo.offset,1,fileHandle);
+
         if ((forceUncompressed)||(mAllFiles[index].mInfo.compressionFlag==0))
             fwrite(mAllFiles[index].mDecomprData,newInfo.uncompressedSize,1,fileHandle);
         else
             fwrite(mAllFiles[index].mComprData,newInfo.discSize,1,fileHandle);
 
         //TODO: add AdditionalDescriptor?
-        fwrite(mAllFiles[index].mNameBuffer,newInfo.offset,1,fileHandle);
 
         fwrite(mAllFiles[index].mTailingBytes,sizeof(mAllFiles[index].mTailingBytes),1,fileHandle);
     }

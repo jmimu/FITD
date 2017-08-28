@@ -51,7 +51,7 @@ Run the game with the new PAK.
 
 TODO
 ----
-  * check if picture import is ok with floppy version (where pics files have name)
+  * what is the difference between versions with NameBuffer and without? (doesn't seem to be floppy/cd)
   * text export: remove last char, convert to iso-8859-1 with dos2unix -850
   * text import: add last char, convert to dos page 850
   * import pal+pic
