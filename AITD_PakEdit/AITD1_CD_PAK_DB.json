@@ -11830,631 +11830,607 @@
 			{
 				"default_compr" : 1,
 				"info" : "Open Cupboard (1)",
-				"type" : 5
+				"type" : 0
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
 				"info" : "Vase Shatter",
-				"type" : 5
+				"type" : 0
 			},
 			"10" : 
 			{
 				"default_compr" : 1,
 				"info" : "Edward (Flask)",
-				"type" : 5
+				"type" : 0
 			},
 			"100" : 
 			{
 				"default_compr" : 1,
-				"info" : "Library Monster (Attack)",
-				"type" : 5
-			},
-			"101" : 
-			{
-				"default_compr" : 1,
-				"info" : "Fireball (Explode)",
-				"type" : 5
-			},
-			"102" : 
-			{
-				"default_compr" : 1,
 				"info" : "Fireball (Fire)",
-				"type" : 5
-			},
-			"103" : 
-			{
-				"default_compr" : 1,
-				"info" : "?",
-				"type" : 5
-			},
-			"104" : 
-			{
-				"default_compr" : 1,
-				"info" : "?",
-				"type" : 5
+				"type" : 0
 			},
 			"11" : 
 			{
 				"default_compr" : 1,
 				"info" : "Emily (Flask)",
-				"type" : 5
+				"type" : 0
 			},
 			"12" : 
 			{
 				"default_compr" : 1,
 				"info" : "Edward (Cough)",
-				"type" : 5
+				"type" : 0
 			},
 			"13" : 
 			{
 				"default_compr" : 1,
 				"info" : "Emily (Cough)",
-				"type" : 5
+				"type" : 0
 			},
 			"14" : 
 			{
 				"default_compr" : 1,
 				"info" : "Slap (1)",
-				"type" : 5
+				"type" : 0
 			},
 			"15" : 
 			{
 				"default_compr" : 1,
 				"info" : "Slap (2)",
-				"type" : 5
+				"type" : 0
 			},
 			"16" : 
 			{
 				"default_compr" : 1,
 				"info" : "Edward (Attack 1)",
-				"type" : 5
+				"type" : 0
 			},
 			"17" : 
 			{
 				"default_compr" : 0,
 				"info" : "Emily (Attack 1)",
-				"type" : 5
+				"type" : 0
 			},
 			"18" : 
 			{
 				"default_compr" : 1,
 				"info" : "Edward (Attack 2)",
-				"type" : 5
+				"type" : 0
 			},
 			"19" : 
 			{
 				"default_compr" : 0,
 				"info" : "Emily (Attack 2)",
-				"type" : 5
+				"type" : 0
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
 				"info" : "Window Shatter",
-				"type" : 5
+				"type" : 0
 			},
 			"20" : 
 			{
 				"default_compr" : 1,
 				"info" : "Edward (Attack 3)",
-				"type" : 5
+				"type" : 0
 			},
 			"21" : 
 			{
 				"default_compr" : 0,
 				"info" : "Emily (Attack 3)",
-				"type" : 5
+				"type" : 0
 			},
 			"22" : 
 			{
 				"default_compr" : 1,
 				"info" : "Edward (Jump)",
-				"type" : 5
+				"type" : 0
 			},
 			"23" : 
 			{
 				"default_compr" : 1,
 				"info" : "Emily (Jump)",
-				"type" : 5
+				"type" : 0
 			},
 			"24" : 
 			{
 				"default_compr" : 0,
 				"info" : "Edward (Land)",
-				"type" : 5
+				"type" : 0
 			},
 			"25" : 
 			{
 				"default_compr" : 1,
 				"info" : "Emily (Land)",
-				"type" : 5
+				"type" : 0
 			},
 			"26" : 
 			{
 				"default_compr" : 1,
 				"info" : "Edward (Pain)",
-				"type" : 5
+				"type" : 0
 			},
 			"27" : 
 			{
 				"default_compr" : 1,
 				"info" : "Emily (Pain)",
-				"type" : 5
+				"type" : 0
 			},
 			"28" : 
 			{
 				"default_compr" : 1,
 				"info" : "Window Monster (Attack)",
-				"type" : 5
+				"type" : 0
 			},
 			"29" : 
 			{
 				"default_compr" : 1,
 				"info" : "Zombie",
-				"type" : 5
+				"type" : 0
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
 				"info" : "Unlock Chest / Door",
-				"type" : 5
+				"type" : 0
 			},
 			"30" : 
 			{
 				"default_compr" : 1,
 				"info" : "Step (Wood 1)",
-				"type" : 5
+				"type" : 0
 			},
 			"31" : 
 			{
 				"default_compr" : 1,
 				"info" : "Step (Wood 2)",
-				"type" : 5
+				"type" : 0
 			},
 			"32" : 
 			{
 				"default_compr" : 1,
 				"info" : "Step (Stone 1)",
-				"type" : 5
+				"type" : 0
 			},
 			"33" : 
 			{
 				"default_compr" : 1,
 				"info" : "Step (Stone 2)",
-				"type" : 5
+				"type" : 0
 			},
 			"34" : 
 			{
 				"default_compr" : 0,
 				"info" : "Edward (Die)",
-				"type" : 5
+				"type" : 0
 			},
 			"35" : 
 			{
 				"default_compr" : 1,
 				"info" : "Emily (Die)",
-				"type" : 5
+				"type" : 0
 			},
 			"36" : 
 			{
 				"default_compr" : 1,
 				"info" : "Trapdoor / Door Slam",
-				"type" : 5
+				"type" : 0
 			},
 			"37" : 
 			{
 				"default_compr" : 1,
 				"info" : "Chest Open",
-				"type" : 5
+				"type" : 0
 			},
 			"38" : 
 			{
 				"default_compr" : 1,
 				"info" : "Edward (Trap Door)",
-				"type" : 5
+				"type" : 0
 			},
 			"39" : 
 			{
 				"default_compr" : 1,
 				"info" : "Emily (Trap Door)",
-				"type" : 5
+				"type" : 0
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
 				"info" : "Door Open / Close",
-				"type" : 5
+				"type" : 0
 			},
 			"40" : 
 			{
 				"default_compr" : 1,
 				"info" : "Edward (Fall)",
-				"type" : 5
+				"type" : 0
 			},
 			"41" : 
 			{
 				"default_compr" : 1,
 				"info" : "Emily (Fall)",
-				"type" : 5
+				"type" : 0
 			},
 			"42" : 
 			{
 				"default_compr" : 1,
 				"info" : "Window Monster (Hop) / Object Fallen",
-				"type" : 5
+				"type" : 0
 			},
 			"43" : 
 			{
 				"default_compr" : 1,
 				"info" : "Window Monster (Hop) / Object Fallen",
-				"type" : 5
+				"type" : 0
 			},
 			"44" : 
 			{
 				"default_compr" : 1,
 				"info" : "Cthulu Monster (Pain)",
-				"type" : 5
+				"type" : 0
 			},
 			"45" : 
 			{
 				"default_compr" : 1,
 				"info" : "Cthulu Monster (Die)",
-				"type" : 5
+				"type" : 0
 			},
 			"46" : 
 			{
 				"default_compr" : 1,
 				"info" : "Step (Carpet 1)",
-				"type" : 5
+				"type" : 0
 			},
 			"47" : 
 			{
 				"default_compr" : 1,
 				"info" : "Step (Carpet 2)",
-				"type" : 5
+				"type" : 0
 			},
 			"48" : 
 			{
 				"default_compr" : 1,
 				"info" : "Object (Swing)",
-				"type" : 5
+				"type" : 0
 			},
 			"49" : 
 			{
 				"default_compr" : 1,
 				"info" : "Page",
-				"type" : 5
+				"type" : 0
 			},
 			"5" : 
 			{
 				"default_compr" : 1,
 				"info" : "Slide Furniture",
-				"type" : 5
+				"type" : 0
 			},
 			"50" : 
 			{
 				"default_compr" : 1,
 				"info" : "Object (Break)",
-				"type" : 5
+				"type" : 0
 			},
 			"51" : 
 			{
 				"default_compr" : 1,
 				"info" : "Step (Cave 1)",
-				"type" : 5
+				"type" : 0
 			},
 			"52" : 
 			{
 				"default_compr" : 1,
 				"info" : "Step (Cave 2)",
-				"type" : 5
+				"type" : 0
 			},
 			"53" : 
 			{
 				"default_compr" : 1,
 				"info" : "Drop In Cave 1",
-				"type" : 5
+				"type" : 0
 			},
 			"54" : 
 			{
 				"default_compr" : 1,
 				"info" : "Drop In Cave 2",
-				"type" : 5
+				"type" : 0
 			},
 			"55" : 
 			{
 				"default_compr" : 1,
 				"info" : "Drop In Cave 3",
-				"type" : 5
+				"type" : 0
 			},
 			"56" : 
 			{
 				"default_compr" : 1,
 				"info" : "Step (Cave 3)",
-				"type" : 5
+				"type" : 0
 			},
 			"57" : 
 			{
 				"default_compr" : 1,
 				"info" : "Step (Cave 4)",
-				"type" : 5
+				"type" : 0
 			},
 			"58" : 
 			{
 				"default_compr" : 1,
 				"info" : "Shrieking Manor Ambience",
-				"type" : 5
+				"type" : 0
 			},
 			"59" : 
 			{
 				"default_compr" : 1,
 				"info" : "Dog / Wolf Howl",
-				"type" : 5
+				"type" : 0
 			},
 			"6" : 
 			{
 				"default_compr" : 1,
 				"info" : "Thunder",
-				"type" : 5
+				"type" : 0
 			},
 			"60" : 
 			{
 				"default_compr" : 1,
 				"info" : "Shotgun (Fire)",
-				"type" : 5
+				"type" : 0
 			},
 			"61" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
-				"type" : 5
+				"info" : "Drink Flask",
+				"type" : 0
 			},
 			"62" : 
 			{
 				"default_compr" : 1,
-				"info" : "Drink Flask",
-				"type" : 5
+				"info" : "Secret Passage",
+				"type" : 0
 			},
 			"63" : 
 			{
 				"default_compr" : 1,
-				"info" : "Secret Passage",
-				"type" : 5
+				"info" : "Window Monster (Breathing)",
+				"type" : 0
 			},
 			"64" : 
 			{
 				"default_compr" : 1,
-				"info" : "Window Monster (Breathing)",
-				"type" : 5
+				"info" : "Bathtub Monster?",
+				"type" : 0
 			},
 			"65" : 
 			{
 				"default_compr" : 1,
-				"info" : "Bathtub Monster?",
-				"type" : 5
+				"info" : "Object (Throw 1)",
+				"type" : 0
 			},
 			"66" : 
 			{
 				"default_compr" : 1,
-				"info" : "Object (Throw 1)",
-				"type" : 5
+				"info" : "Pirate (Laugh 1)",
+				"type" : 0
 			},
 			"67" : 
 			{
 				"default_compr" : 1,
-				"info" : "Pirate (Laugh 1)",
-				"type" : 5
+				"info" : "Stair Laugh",
+				"type" : 0
 			},
 			"68" : 
 			{
 				"default_compr" : 1,
-				"info" : "Stair Laugh",
-				"type" : 5
+				"info" : "Pirate (Laugh 2)",
+				"type" : 0
 			},
 			"69" : 
 			{
 				"default_compr" : 1,
-				"info" : "Pirate (Laugh 2)",
-				"type" : 5
+				"info" : "Open Cupboard (2)",
+				"type" : 0
 			},
 			"7" : 
 			{
 				"default_compr" : 1,
 				"info" : "Rifle (Fire)",
-				"type" : 5
+				"type" : 0
 			},
 			"70" : 
 			{
 				"default_compr" : 1,
-				"info" : "Open Cupboard (2)",
-				"type" : 5
+				"info" : "Step (Water 1)",
+				"type" : 0
 			},
 			"71" : 
 			{
 				"default_compr" : 1,
-				"info" : "Step (Water 1)",
-				"type" : 5
+				"info" : "Step (Water 2)",
+				"type" : 0
 			},
 			"72" : 
 			{
 				"default_compr" : 1,
-				"info" : "Step (Water 2)",
-				"type" : 5
+				"info" : "Water Splash",
+				"type" : 0
 			},
 			"73" : 
 			{
 				"default_compr" : 1,
-				"info" : "Water Splash",
-				"type" : 5
+				"info" : "Rat Screech",
+				"type" : 0
 			},
 			"74" : 
 			{
 				"default_compr" : 1,
-				"info" : "Rat Screech",
-				"type" : 5
+				"info" : "Car (Engine Idle)",
+				"type" : 0
 			},
 			"75" : 
 			{
 				"default_compr" : 1,
-				"info" : "Car (Engine Idle)",
-				"type" : 5
+				"info" : "Car (Coming By)",
+				"type" : 0
 			},
 			"76" : 
 			{
 				"default_compr" : 1,
-				"info" : "Car (Coming By)",
-				"type" : 5
+				"info" : "Cricket And Frog Ambience",
+				"type" : 0
 			},
 			"77" : 
 			{
 				"default_compr" : 1,
-				"info" : "Cricket And Frog Ambience",
-				"type" : 5
+				"info" : "Car (Frog And Going Past)",
+				"type" : 0
 			},
 			"78" : 
 			{
 				"default_compr" : 1,
-				"info" : "Car (Frog And Going Past)",
-				"type" : 5
+				"info" : "Car (Pull Up)",
+				"type" : 0
 			},
 			"79" : 
 			{
 				"default_compr" : 1,
-				"info" : "Car (Pull Up)",
-				"type" : 5
+				"info" : "Car (Door Open)",
+				"type" : 0
 			},
 			"8" : 
 			{
 				"default_compr" : 1,
 				"info" : "Rifle (Cock)",
-				"type" : 5
+				"type" : 0
 			},
 			"80" : 
 			{
 				"default_compr" : 1,
-				"info" : "Car (Door Open)",
-				"type" : 5
+				"info" : "Car (Getting Out And Closing)",
+				"type" : 0
 			},
 			"81" : 
 			{
 				"default_compr" : 1,
-				"info" : "Car (Getting Out And Closing)",
-				"type" : 5
+				"info" : "Step (Dirt 1)",
+				"type" : 0
 			},
 			"82" : 
 			{
 				"default_compr" : 1,
-				"info" : "Step (Dirt 1)",
-				"type" : 5
+				"info" : "Step (Dirt 2)",
+				"type" : 0
 			},
 			"83" : 
 			{
-				"default_compr" : 1,
-				"info" : "Step (Dirt 2)",
-				"type" : 5
+				"default_compr" : 0,
+				"info" : "Bat Howl?",
+				"type" : 0
 			},
 			"84" : 
 			{
-				"default_compr" : 0,
-				"info" : "Bat Howl?",
-				"type" : 5
+				"default_compr" : 1,
+				"info" : "Bathtub Monster (Attack)",
+				"type" : 0
 			},
 			"85" : 
 			{
 				"default_compr" : 1,
-				"info" : "Bathtub Monster (Attack)",
-				"type" : 5
+				"info" : "Door Monster (Attack)",
+				"type" : 0
 			},
 			"86" : 
 			{
 				"default_compr" : 1,
-				"info" : "Door Monster (Attack)",
-				"type" : 5
+				"info" : "Sea Monster",
+				"type" : 0
 			},
 			"87" : 
 			{
 				"default_compr" : 1,
-				"info" : "Sea Monster",
-				"type" : 5
+				"info" : "Rainbow Spinning Spheres",
+				"type" : 0
 			},
 			"88" : 
 			{
 				"default_compr" : 1,
-				"info" : "Rainbow Spinning Spheres",
-				"type" : 5
+				"info" : "Whistle",
+				"type" : 0
 			},
 			"89" : 
 			{
 				"default_compr" : 1,
-				"info" : "Whistle",
-				"type" : 5
+				"info" : "Talisman Jingles",
+				"type" : 0
 			},
 			"9" : 
 			{
 				"default_compr" : 1,
 				"info" : "Rifle (Click)",
-				"type" : 5
+				"type" : 0
 			},
 			"90" : 
 			{
 				"default_compr" : 1,
-				"info" : "Talisman Jingles",
-				"type" : 5
+				"info" : "Bubbling",
+				"type" : 0
 			},
 			"91" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
-				"type" : 5
+				"info" : "Knight Falls",
+				"type" : 0
 			},
 			"92" : 
 			{
 				"default_compr" : 1,
-				"info" : "Bubbling",
-				"type" : 5
+				"info" : "Sea Monster (Attack)?",
+				"type" : 0
 			},
 			"93" : 
 			{
 				"default_compr" : 1,
-				"info" : "Knight Falls",
-				"type" : 5
+				"info" : "Giant Worm Monster",
+				"type" : 0
 			},
 			"94" : 
 			{
 				"default_compr" : 1,
-				"info" : "Sea Monster (Attack)?",
-				"type" : 5
+				"info" : "Being Lifted In Air",
+				"type" : 0
 			},
 			"95" : 
 			{
 				"default_compr" : 1,
-				"info" : "Giant Worm Monster",
-				"type" : 5
+				"info" : "Bird Chirping Ambience",
+				"type" : 0
 			},
 			"96" : 
 			{
 				"default_compr" : 1,
-				"info" : "Being Lifted In Air",
-				"type" : 5
+				"info" : "Skeleton Laugh (In Car)",
+				"type" : 0
 			},
 			"97" : 
 			{
 				"default_compr" : 1,
-				"info" : "Bird Chirping Ambience",
-				"type" : 5
+				"info" : "Object (Throw 2)",
+				"type" : 0
 			},
 			"98" : 
 			{
 				"default_compr" : 1,
-				"info" : "Skeleton Laugh (In Car)",
-				"type" : 5
+				"info" : "Library Monster (Attack)",
+				"type" : 0
 			},
 			"99" : 
 			{
 				"default_compr" : 1,
-				"info" : "Object (Throw 2)",
-				"type" : 5
+				"info" : "Fireball (Explode)",
+				"type" : 0
 			}
 		},
 		"LISTTRAK.PAK" : 
@@ -12735,90 +12711,96 @@
 			"0" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Demo pic",
 				"type" : 6
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Demo pic",
 				"type" : 6
 			},
 			"10" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Demo pic",
 				"type" : 6
 			},
 			"11" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Demo pic",
 				"type" : 6
 			},
 			"12" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Demo pic",
 				"type" : 6
 			},
 			"13" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Demo pic",
+				"type" : 6
+			},
+			"14" : 
+			{
+				"default_compr" : 1,
+				"info" : "Demo pic",
 				"type" : 6
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Demo pic",
 				"type" : 6
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Demo pic",
 				"type" : 6
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Demo pic",
 				"type" : 6
 			},
 			"5" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Demo pic",
 				"type" : 6
 			},
 			"6" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Demo pic",
 				"type" : 6
 			},
 			"7" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Demo pic",
 				"type" : 6
 			},
 			"8" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Demo pic",
 				"type" : 6
 			},
 			"9" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Demo pic",
 				"type" : 6
 			}
 		}
 	},
-	"date" : "2017/8/27",
+	"date" : "2017/8/29",
 	"file_types" : 
 	[
 		"Unknown",

@@ -189,9 +189,15 @@ bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
     printf("expectedNumberOfCamera: %u\n",expectedNumberOfCamera);
 
     globalCameraDataTable = (cameraDataStruct*)malloc(sizeof(cameraDataStruct)*expectedNumberOfCamera);
+    if (!globalCameraDataTable)
+    {
+        printf("Impossible to allocate globalCameraDataTable (%d bytes)!\n",sizeof(cameraDataStruct)*expectedNumberOfCamera);
+        return false;
+    }
 
     for(i=0;i<expectedNumberOfCamera;i++)
     {
+      printf("Camera %d\n",i);
       u32 k;
       u32 offset;
       u8* currentCameraData;
@@ -401,88 +407,99 @@ std::string AloneFloor::cam2collada_node(cameraDataStruct* cam, int index, float
 
 void AloneFloor::exportCollada()
 {
-    std::ofstream outFile;
+    printf("exportCollada\n");
     char filename[256];
     strcpy(filename,mRooms->mPAKFilename);
     strcat(filename,".dae");
-    outFile.open(filename);
+    std::cout<<"outname: "<<filename<<std::endl;
+    std::ostringstream oss;
 
-    outFile<<"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-    outFile<<"<COLLADA xmlns=\"http://www.collada.org/2005/11/COLLADASchema\" version=\"1.4.1\">\n";
-    outFile<<"  <asset>\n";
-    outFile<<"    <contributor>\n";
-    outFile<<"      <author>Blender User</author>\n";
-    outFile<<"      <authoring_tool>Blender 2.78.0 commit date:2017-02-24, commit time:14:33, hash:e92f2352830</authoring_tool>\n";
-    outFile<<"    </contributor>\n";
-    outFile<<"    <created>2017-08-21T17:33:59</created>\n";
-    outFile<<"    <modified>2017-08-21T17:33:59</modified>\n";
-    outFile<<"    <unit name=\"meter\" meter=\"1\"/>\n";
-    outFile<<"    <up_axis>Z_UP</up_axis>\n";
-    outFile<<"  </asset>\n";
-    outFile<<"  <library_cameras>\n";
-
-    for(int i=0;i<expectedNumberOfCamera;i++)
-        outFile<<cam2collada_lib(&globalCameraDataTable[i],i);
-
-    outFile<<"  </library_cameras>\n";
-    outFile<<"  <library_images/>\n";
-    outFile<<"  <library_geometries>\n";
-    outFile<<"    <geometry id=\"Cube-mesh\">\n";
-    outFile<<"      <mesh>\n";
-    outFile<<"        <source id=\"Cube-mesh-positions\">\n";
-    outFile<<"          <float_array id=\"Cube-mesh-positions-array\" count=\"24\">1 1 0 1 0 0 0 0 0 0 1 0 1 1 1 1 0 1 0 0 1 0 1 1</float_array>\n";
-    outFile<<"          <technique_common>\n";
-    outFile<<"            <accessor source=\"#Cube-mesh-positions-array\" count=\"8\" stride=\"3\">\n";
-    outFile<<"              <param name=\"X\" type=\"float\"/>\n";
-    outFile<<"              <param name=\"Y\" type=\"float\"/>\n";
-    outFile<<"              <param name=\"Z\" type=\"float\"/>\n";
-    outFile<<"            </accessor>\n";
-    outFile<<"          </technique_common>\n";
-    outFile<<"        </source>\n";
-    outFile<<"        <vertices id=\"Cube-mesh-vertices\">\n";
-    outFile<<"          <input semantic=\"POSITION\" source=\"#Cube-mesh-positions\"/>\n";
-    outFile<<"        </vertices>\n";
-    outFile<<"        <polylist count=\"6\">\n";
-    outFile<<"          <input semantic=\"VERTEX\" source=\"#Cube-mesh-vertices\" offset=\"0\"/>\n";
-    outFile<<"          <vcount>4 4 4 4 4 4 </vcount>\n";
-    outFile<<"          <p>0 1 2 3 4 7 6 5 0 4 5 1 1 5 6 2 2 6 7 3 4 0 3 7</p>\n";
-    outFile<<"        </polylist>\n";
-    outFile<<"      </mesh>\n";
-    outFile<<"    </geometry>\n";
-    outFile<<"  </library_geometries>\n";
-    outFile<<"  <library_controllers/>\n";
-    outFile<<"  <library_visual_scenes>\n";
-    outFile<<"    <visual_scene id=\"Scene\" name=\"Scene\">\n";
+    oss<<"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+    oss<<"<COLLADA xmlns=\"http://www.collada.org/2005/11/COLLADASchema\" version=\"1.4.1\">\n";
+    oss<<"  <asset>\n";
+    oss<<"    <contributor>\n";
+    oss<<"      <author>Blender User</author>\n";
+    oss<<"      <authoring_tool>Blender 2.78.0 commit date:2017-02-24, commit time:14:33, hash:e92f2352830</authoring_tool>\n";
+    oss<<"    </contributor>\n";
+    oss<<"    <created>2017-08-21T17:33:59</created>\n";
+    oss<<"    <modified>2017-08-21T17:33:59</modified>\n";
+    oss<<"    <unit name=\"meter\" meter=\"1\"/>\n";
+    oss<<"    <up_axis>Z_UP</up_axis>\n";
+    oss<<"  </asset>\n";
+    oss<<"  <library_cameras>\n";
 
     for(int i=0;i<expectedNumberOfCamera;i++)
-        outFile<<cam2collada_node(&globalCameraDataTable[i],i,0,0,0);//TODO: determine room and give its center
+        oss<<cam2collada_lib(&globalCameraDataTable[i],i);
+    printf("exportCollada cam assets\n");
+
+    oss<<"  </library_cameras>\n";
+    oss<<"  <library_images/>\n";
+    oss<<"  <library_geometries>\n";
+    oss<<"    <geometry id=\"Cube-mesh\">\n";
+    oss<<"      <mesh>\n";
+    oss<<"        <source id=\"Cube-mesh-positions\">\n";
+    oss<<"          <float_array id=\"Cube-mesh-positions-array\" count=\"24\">1 1 0 1 0 0 0 0 0 0 1 0 1 1 1 1 0 1 0 0 1 0 1 1</float_array>\n";
+    oss<<"          <technique_common>\n";
+    oss<<"            <accessor source=\"#Cube-mesh-positions-array\" count=\"8\" stride=\"3\">\n";
+    oss<<"              <param name=\"X\" type=\"float\"/>\n";
+    oss<<"              <param name=\"Y\" type=\"float\"/>\n";
+    oss<<"              <param name=\"Z\" type=\"float\"/>\n";
+    oss<<"            </accessor>\n";
+    oss<<"          </technique_common>\n";
+    oss<<"        </source>\n";
+    oss<<"        <vertices id=\"Cube-mesh-vertices\">\n";
+    oss<<"          <input semantic=\"POSITION\" source=\"#Cube-mesh-positions\"/>\n";
+    oss<<"        </vertices>\n";
+    oss<<"        <polylist count=\"6\">\n";
+    oss<<"          <input semantic=\"VERTEX\" source=\"#Cube-mesh-vertices\" offset=\"0\"/>\n";
+    oss<<"          <vcount>4 4 4 4 4 4 </vcount>\n";
+    oss<<"          <p>0 1 2 3 4 7 6 5 0 4 5 1 1 5 6 2 2 6 7 3 4 0 3 7</p>\n";
+    oss<<"        </polylist>\n";
+    oss<<"      </mesh>\n";
+    oss<<"    </geometry>\n";
+    oss<<"  </library_geometries>\n";
+    oss<<"  <library_controllers/>\n";
+    oss<<"  <library_visual_scenes>\n";
+    oss<<"    <visual_scene id=\"Scene\" name=\"Scene\">\n";
+
+    for(int i=0;i<expectedNumberOfCamera;i++)
+        oss<<cam2collada_node(&globalCameraDataTable[i],i,0,0,0);//TODO: determine room and give its center
+    printf("exportCollada cam nodes\n");
 
     for (int i=0;i<expectedNumberOfRoom;i++)
     {
+        printf("exportCollada room %d\n",i);
         roomDataStruct* currentRoomDataPtr = &roomDataTable[i];
         for (int j=0;j<currentRoomDataPtr->numHardCol;j++)
         {
             ZVStruct* zvData;
             zvData = &currentRoomDataPtr->hardColTable[j].zv;
-            outFile<<hardCol2collada(zvData,j,currentRoomDataPtr->worldX,currentRoomDataPtr->worldY,currentRoomDataPtr->worldZ);
+            oss<<hardCol2collada(zvData,j,currentRoomDataPtr->worldX,currentRoomDataPtr->worldY,currentRoomDataPtr->worldZ);
         }
         for (int j=0;j<currentRoomDataPtr->numSceZone;j++)
         {
             ZVStruct* zvData;
             zvData = &currentRoomDataPtr->sceZoneTable[j].zv;
-            outFile<<sceZone2collada(zvData,j,currentRoomDataPtr->worldX,currentRoomDataPtr->worldY,currentRoomDataPtr->worldZ);
+            oss<<sceZone2collada(zvData,j,currentRoomDataPtr->worldX,currentRoomDataPtr->worldY,currentRoomDataPtr->worldZ);
         }
     }
-    outFile<<"      <node id=\"Cube0\" name=\"Cube0\" type=\"NODE\">\n";
-    outFile<<"        <matrix sid=\"transform\">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>\n";
-    outFile<<"        <instance_geometry url=\"#Cube-mesh\"/>\n";
-    outFile<<"      </node>\n";
+    oss<<"      <node id=\"Cube0\" name=\"Cube0\" type=\"NODE\">\n";
+    oss<<"        <matrix sid=\"transform\">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>\n";
+    oss<<"        <instance_geometry url=\"#Cube-mesh\"/>\n";
+    oss<<"      </node>\n";
 
-    outFile<<"    </visual_scene>\n";
-    outFile<<"  </library_visual_scenes>\n";
-    outFile<<"  <scene>\n";
-    outFile<<"    <instance_visual_scene url=\"#Scene\"/>\n";
-    outFile<<"  </scene>\n";
-    outFile<<"</COLLADA>\n";
-    outFile.close();
+    oss<<"    </visual_scene>\n";
+    oss<<"  </library_visual_scenes>\n";
+    oss<<"  <scene>\n";
+    oss<<"    <instance_visual_scene url=\"#Scene\"/>\n";
+    oss<<"  </scene>\n";
+    oss<<"</COLLADA>\n";
+
+   FILE *F;
+   F=fopen(filename,"w");
+   fprintf(F,"%s",oss.str().c_str());
+   fclose(F);
+   //std::ofstream fileout; //crash on windows??
+   //fileout << oss.str()<<std::endl;
+   //fileout.close();
 }
