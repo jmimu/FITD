@@ -2,6 +2,9 @@
 
 #include <fstream>
 #include <sstream>
+#include <QGenericMatrix>
+
+extern s16 cosTable[];
 
 AloneFloor::AloneFloor():roomDataTable(0),mRooms(0),mCams(0)
 {
@@ -191,7 +194,7 @@ bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
     globalCameraDataTable = (cameraDataStruct*)malloc(sizeof(cameraDataStruct)*expectedNumberOfCamera);
     if (!globalCameraDataTable)
     {
-        printf("Impossible to allocate globalCameraDataTable (%d bytes)!\n",sizeof(cameraDataStruct)*expectedNumberOfCamera);
+        printf("Impossible to allocate globalCameraDataTable (%lu bytes)!\n",sizeof(cameraDataStruct)*expectedNumberOfCamera);
         return false;
     }
 
@@ -373,12 +376,14 @@ std::string AloneFloor::sceZone2collada(ZVStruct* zvData, int index, float roomX
 std::string AloneFloor::cam2collada_lib(cameraDataStruct* cam, int index)
 {
     std::ostringstream oss;
+    float fovX=2.0*atan(160.0/cam->focal2)*180.0/M_PI;
+    float fovY=2.0*atan(160.0/cam->focal3)*180.0/M_PI;
     oss<<"    <camera id=\"Camera-camera"<<index<<"\">\n";
     oss<<"      <optics>\n";
     oss<<"        <technique_common>\n";
     oss<<"          <perspective>\n";
-    oss<<"            <xfov sid=\"xfov\">49.13434</xfov>\n";
-    oss<<"            <aspect_ratio>1.777778</aspect_ratio>\n";
+    oss<<"            <xfov sid=\"xfov\">"<<fovX<<"</xfov>\n";
+    oss<<"            <yfov sid=\"yfov\">"<<fovY<<"</yfov>\n";
     oss<<"            <znear sid=\"znear\">0.1</znear>\n";
     oss<<"            <zfar sid=\"zfar\">100</zfar>\n";
     oss<<"          </perspective>\n";
@@ -391,11 +396,53 @@ std::string AloneFloor::cam2collada_lib(cameraDataStruct* cam, int index)
 std::string AloneFloor::cam2collada_node(cameraDataStruct* cam, int index, float roomX, float roomY, float roomZ)
 {
     std::ostringstream oss;
-    float x=(cam->x-roomX)/100.0;
-    float y=(roomY-cam->y)/100.0;
-    float z=(roomZ-cam->z)/100.0;
+
+/*  for collada:
+    a=alpha*pi/512
+    b=beta*pi/512
+    c=gamma*pi/512
+    rx=[-1 0 0;0 cos(a) -sin(a);0 sin(a) cos(a)]
+    ry=[cos(b) 0 -sin(b);0 1 0;sin(b) 0 cos(b)]
+    rz=[cos(c) -sin(c) 0;sin(c) cos(c) 0; 0 0 1]
+    r=(-rz*rx*ry)'
+
+    dcam=R*[0;0;1]*focal1/1000
+  */
+
+    float camX=(cam->x-roomX)/100.0;
+    float camY=(roomY-cam->y)/100.0;
+    float camZ=(roomZ-cam->z)/100.0;
+
+    double rotX_[]={
+        -1,0,0,
+        0,cosTable[(cam->alpha+0x100)&0x3FF]/32768.0,-cosTable[cam->alpha&0x3FF]/32768.0,
+        0,cosTable[cam->alpha&0x3FF]/32768.0,cosTable[(cam->alpha+0x100)&0x3FF]/32768.0
+    };
+    double rotY_[]={
+        cosTable[(cam->beta+0x100)&0x3FF]/32768.0,0,-cosTable[cam->beta&0x3FF]/32768.0,
+        0,1,0,
+        cosTable[cam->beta&0x3FF]/32768.0,0,cosTable[(cam->beta+0x100)&0x3FF]/32768.0
+    };
+    double rotZ_[]={
+        cosTable[(cam->gamma+0x100)&0x3FF]/32768.0,-cosTable[cam->gamma&0x3FF]/32768.0,0,
+        cosTable[cam->gamma&0x3FF]/32768.0,cosTable[(cam->gamma+0x100)&0x3FF]/32768.0,0,
+        0,0,1
+    };
+    QGenericMatrix<3,3,double> rotX(rotX_);
+    QGenericMatrix<3,3,double> rotY(rotY_);
+    QGenericMatrix<3,3,double> rotZ(rotZ_);
+
+    QGenericMatrix<3,3,double> rot=-(rotZ*rotX*rotY).transposed();
+
+    double dcamX=rot(0,2)*cam->focal1/1000.0;
+    double dcamY=rot(1,2)*cam->focal1/1000.0;
+    double dcamZ=rot(2,2)*cam->focal1/1000.0;
+
     oss<<"      <node id=\"Cam"<<index<<"\" name=\"Cam"<<index<<"\" type=\"NODE\">\n";
-    oss<<"        <matrix sid=\"transform\">1 0 0 "<<x<<" 0 1 0 "<<y<<" 0 0 1 "<<z<<" 0 0 0 1</matrix>\n";
+    oss<<"        <matrix sid=\"transform\">"<<rot(0,0)<<" "<<rot(0,1)<<" "<<rot(0,2)<<" " <<camX+dcamX
+       <<" "<<rot(1,0)<<" "<<rot(1,1)<<" "<<rot(1,2)<<" " <<camY+dcamY
+       <<" "<<rot(2,0)<<" "<<rot(2,1)<<" "<<rot(2,2)<<" " <<camZ+dcamZ
+       <<" 0 0 0 1</matrix>\n";
     oss<<"        <instance_camera url=\"#Camera-camera"<<index<<"\"/>\n";
     oss<<"      </node>\n";
 
@@ -428,7 +475,7 @@ void AloneFloor::exportCollada()
     oss<<"  </asset>\n";
     oss<<"  <library_cameras>\n";
 
-    for(int i=0;i<expectedNumberOfCamera;i++)
+    for(unsigned int i=0;i<expectedNumberOfCamera;i++)
         oss<<cam2collada_lib(&globalCameraDataTable[i],i);
     printf("exportCollada cam assets\n");
 
@@ -462,21 +509,21 @@ void AloneFloor::exportCollada()
     oss<<"  <library_visual_scenes>\n";
     oss<<"    <visual_scene id=\"Scene\" name=\"Scene\">\n";
 
-    for(int i=0;i<expectedNumberOfCamera;i++)
+    for(unsigned int i=0;i<expectedNumberOfCamera;i++)
         oss<<cam2collada_node(&globalCameraDataTable[i],i,0,0,0);//TODO: determine room and give its center
     printf("exportCollada cam nodes\n");
 
-    for (int i=0;i<expectedNumberOfRoom;i++)
+    for (unsigned int i=0;i<expectedNumberOfRoom;i++)
     {
         printf("exportCollada room %d\n",i);
         roomDataStruct* currentRoomDataPtr = &roomDataTable[i];
-        for (int j=0;j<currentRoomDataPtr->numHardCol;j++)
+        for (unsigned int j=0;j<currentRoomDataPtr->numHardCol;j++)
         {
             ZVStruct* zvData;
             zvData = &currentRoomDataPtr->hardColTable[j].zv;
             oss<<hardCol2collada(zvData,j,currentRoomDataPtr->worldX,currentRoomDataPtr->worldY,currentRoomDataPtr->worldZ);
         }
-        for (int j=0;j<currentRoomDataPtr->numSceZone;j++)
+        for (unsigned int j=0;j<currentRoomDataPtr->numSceZone;j++)
         {
             ZVStruct* zvData;
             zvData = &currentRoomDataPtr->sceZoneTable[j].zv;

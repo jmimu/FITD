@@ -29,7 +29,8 @@ SOURCES += main.cpp \
     ../src/floor.c \
     ../src/freezetime.c \
     ../src/hqr.c \
-    ../src/fileAccess.c
+    ../src/fileAccess.c \
+    ../src/cosTable.c
 
 HEADERS  += mainwindow.h \
         ../src/pak.h \
