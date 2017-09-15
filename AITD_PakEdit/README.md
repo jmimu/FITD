@@ -57,6 +57,8 @@ stretch them into 320*240.
 
 TODO
 ----
+  * crash on export ETAGE4 on windows
+  * why is camera export working whithout room coordinates?
   * text export: remove last char, convert to iso-8859-1 with dos2unix -850
   * text import: add last char, convert to dos page 850
   * import pal+pic

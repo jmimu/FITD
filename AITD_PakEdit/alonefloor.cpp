@@ -3,6 +3,8 @@
 #include <fstream>
 #include <sstream>
 #include <QGenericMatrix>
+#include <QMessageBox>
+
 
 extern s16 cosTable[];
 
@@ -252,7 +254,12 @@ bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
         globalCameraDataTable[i].focal2 = READ_LE_U16(currentCameraData+0x0E);
         globalCameraDataTable[i].focal3 = READ_LE_U16(currentCameraData+0x10);
 
+/*      //next part doesn't seem to work ok well...
         globalCameraDataTable[i].numCameraZoneDef = READ_LE_U16(currentCameraData+0x12);
+        printf("CAM: %hx %hx %hx %hx %hx %hx %hx %hx %hx %hx\n",globalCameraDataTable[i].alpha,globalCameraDataTable[i].beta,
+               globalCameraDataTable[i].gamma,globalCameraDataTable[i].x,globalCameraDataTable[i].y,globalCameraDataTable[i].z,
+               globalCameraDataTable[i].focal1,globalCameraDataTable[i].focal2,globalCameraDataTable[i].focal3,
+               globalCameraDataTable[i].numCameraZoneDef);
 
         currentCameraData+=0x14;
 
@@ -279,15 +286,16 @@ bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
             pCurrentCameraZoneDefEntry->dummy8 = READ_LE_U16(currentCameraData+0x0E);
          }
 
-          // load camera zone
+          // load camera zone : where camera change
           {
             unsigned char* pZoneData;
             int numZones;
             int j;
 
             pZoneData = backupDataPtr + globalCameraDataTable[i].cameraZoneDefTable[k].dummy3;
-            //pZoneData = currentCameraData;
+            //pZoneData = currentCameraData;//why is it a comment? one ETAGE00, it makes numZones=0, with currentCameraData+2 it would be 2
 
+            //TODO: how can numZones be 45567 on ETAGE4?
             pCurrentCameraZoneDefEntry->numZones = numZones =READ_LE_U16(pZoneData);
             pZoneData+=2;
 
@@ -300,6 +308,7 @@ bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
               int pointIdx;
               int numPoints;
 
+              //TODO: how can numPoints be 53970 on ETAGE4?
               pCurrentCameraZoneDefEntry->cameraZoneEntryTable[j].numPoints = numPoints = READ_LE_U16(pZoneData);
               pZoneData+=2;
 
@@ -307,6 +316,7 @@ bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
 
               for(pointIdx = 0; pointIdx < pCurrentCameraZoneDefEntry->cameraZoneEntryTable[j].numPoints; pointIdx++)
               {
+                //TODO: here is the crash on windows, pZoneData access forbidden
                 pCurrentCameraZoneDefEntry->cameraZoneEntryTable[j].pointTable[pointIdx].x = READ_LE_U16(pZoneData);
                 pZoneData+=2;
                 pCurrentCameraZoneDefEntry->cameraZoneEntryTable[j].pointTable[pointIdx].y = READ_LE_U16(pZoneData);
@@ -327,7 +337,7 @@ bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
           {
             currentCameraData+=4;
           }
-        }
+        }*/
       }
       else
       {
@@ -339,8 +349,15 @@ bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
     return true;
 }
 
-std::string AloneFloor::hardCol2collada(ZVStruct* zvData, int index, float roomX, float roomY, float roomZ)
+std::string AloneFloor::hardCol2collada(hardColStruct& hardcol, int index, int roomNum)
 {
+    printf("HardCol  type: %d  param: %d\n",hardcol.type,hardcol.parameter);
+    ZVStruct* zvData;
+    zvData = &hardcol.zv;
+    float roomX=roomDataTable[roomNum].worldX;
+    float roomY=roomDataTable[roomNum].worldY;
+    float roomZ=roomDataTable[roomNum].worldZ;
+
     std::ostringstream oss;
     float x=(zvData->ZVX1)/1000.0+roomX/100.0;
     float y=(zvData->ZVY1)/1000.0+roomY/100.0;
@@ -348,7 +365,7 @@ std::string AloneFloor::hardCol2collada(ZVStruct* zvData, int index, float roomX
     float sx=(zvData->ZVX2-zvData->ZVX1)/1000.0;
     float sy=(zvData->ZVY2-zvData->ZVY1)/1000.0;
     float sz=(zvData->ZVZ2-zvData->ZVZ1)/1000.0;
-    oss<<"      <node id=\"Col"<<index<<"\" name=\"Col"<<index<<"\" type=\"NODE\">\n";
+    oss<<"      <node id=\"Col"<<index<<"\" name=\"Col"<<index<<"_r"<<roomNum<<"_t"<<hardcol.type<<"_p"<<hardcol.parameter<<"\" type=\"NODE\">\n";
     oss<<"        <matrix sid=\"transform\">"<<sx<<" 0 0 "<<x<<" 0 "<<sy<<" 0 "<<y<<" 0 0 "<<sz<<" "<<z<<" 0 0 0 1</matrix>\n";
     oss<<"        <instance_geometry url=\"#Cube-mesh\"/>\n";
     oss<<"      </node>\n";
@@ -356,8 +373,15 @@ std::string AloneFloor::hardCol2collada(ZVStruct* zvData, int index, float roomX
     return oss.str();
 }
 
-std::string AloneFloor::sceZone2collada(ZVStruct* zvData, int index, float roomX, float roomY, float roomZ)
+std::string AloneFloor::sceZone2collada(sceZoneStruct &sceZone, int index, int roomNum)
 {
+    printf("SceZone  type: %d  param: %d\n",sceZone.type,sceZone.parameter);
+    ZVStruct* zvData;
+    zvData = &sceZone.zv;
+    float roomX=roomDataTable[roomNum].worldX;
+    float roomY=roomDataTable[roomNum].worldY;
+    float roomZ=roomDataTable[roomNum].worldZ;
+
     std::ostringstream oss;
     float x=(zvData->ZVX1)/1000.0+roomX/100.0;
     float y=(zvData->ZVY2)/1000.0+roomY/100.0;
@@ -365,7 +389,7 @@ std::string AloneFloor::sceZone2collada(ZVStruct* zvData, int index, float roomX
     float sx=(zvData->ZVX2-zvData->ZVX1)/1000.0;
     float sy=1;//(zvData->ZVY2-zvData->ZVY1)/100.0;
     float sz=(zvData->ZVZ2-zvData->ZVZ1)/1000.0;
-    oss<<"      <node id=\"Sce"<<index<<"\" name=\"Sce"<<index<<"\" type=\"NODE\">\n";
+    oss<<"      <node id=\"Sce"<<index<<"\" name=\"Sce"<<index<<"_r"<<roomNum<<"_t"<<sceZone.type<<"_p"<<sceZone.parameter<<"\" type=\"NODE\">\n";
     oss<<"        <matrix sid=\"transform\">"<<sx<<" 0 0 "<<x<<" 0 "<<sy<<" 0 "<<y<<" 0 0 "<<sz<<" "<<z<<" 0 0 0 1</matrix>\n";
     oss<<"        <instance_geometry url=\"#Cube-mesh\"/>\n";
     oss<<"      </node>\n";
@@ -384,8 +408,8 @@ std::string AloneFloor::cam2collada_lib(cameraDataStruct* cam, int index)
     oss<<"          <perspective>\n";
     oss<<"            <xfov sid=\"xfov\">"<<fovX<<"</xfov>\n";
     oss<<"            <yfov sid=\"yfov\">"<<fovY<<"</yfov>\n";
-    oss<<"            <znear sid=\"znear\">0.1</znear>\n";
-    oss<<"            <zfar sid=\"zfar\">100</zfar>\n";
+    oss<<"            <znear sid=\"znear\">2</znear>\n";
+    oss<<"            <zfar sid=\"zfar\">12</zfar>\n";
     oss<<"          </perspective>\n";
     oss<<"        </technique_common>\n";
     oss<<"      </optics>\n";
@@ -393,10 +417,12 @@ std::string AloneFloor::cam2collada_lib(cameraDataStruct* cam, int index)
     return oss.str();
 }
 
-std::string AloneFloor::cam2collada_node(cameraDataStruct* cam, int index, float roomX, float roomY, float roomZ)
+std::string AloneFloor::cam2collada_node(cameraDataStruct* cam, int index, int roomNum)
 {
     std::ostringstream oss;
-
+    float roomX=0;roomDataTable[roomNum].worldX;
+    float roomY=0;roomDataTable[roomNum].worldY;
+    float roomZ=0;roomDataTable[roomNum].worldZ;
 /*  for collada:
     a=alpha*pi/512
     b=beta*pi/512
@@ -438,7 +464,7 @@ std::string AloneFloor::cam2collada_node(cameraDataStruct* cam, int index, float
     double dcamY=rot(1,2)*cam->focal1/1000.0;
     double dcamZ=rot(2,2)*cam->focal1/1000.0;
 
-    oss<<"      <node id=\"Cam"<<index<<"\" name=\"Cam"<<index<<"\" type=\"NODE\">\n";
+    oss<<"      <node id=\"Cam"<<index<<"\" name=\"Cam"<<index<<"_r"<<roomNum<<"\" type=\"NODE\">\n";
     oss<<"        <matrix sid=\"transform\">"<<rot(0,0)<<" "<<rot(0,1)<<" "<<rot(0,2)<<" " <<camX+dcamX
        <<" "<<rot(1,0)<<" "<<rot(1,1)<<" "<<rot(1,2)<<" " <<camY+dcamY
        <<" "<<rot(2,0)<<" "<<rot(2,1)<<" "<<rot(2,2)<<" " <<camZ+dcamZ
@@ -471,7 +497,7 @@ void AloneFloor::exportCollada()
     oss<<"    <created>2017-08-21T17:33:59</created>\n";
     oss<<"    <modified>2017-08-21T17:33:59</modified>\n";
     oss<<"    <unit name=\"meter\" meter=\"1\"/>\n";
-    oss<<"    <up_axis>Z_UP</up_axis>\n";
+    oss<<"    <up_axis>Y_UP</up_axis>\n";
     oss<<"  </asset>\n";
     oss<<"  <library_cameras>\n";
 
@@ -510,24 +536,20 @@ void AloneFloor::exportCollada()
     oss<<"    <visual_scene id=\"Scene\" name=\"Scene\">\n";
 
     for(unsigned int i=0;i<expectedNumberOfCamera;i++)
-        oss<<cam2collada_node(&globalCameraDataTable[i],i,0,0,0);//TODO: determine room and give its center
+        oss<<cam2collada_node(&globalCameraDataTable[i],i,0);//TODO: determine room and give its center
     printf("exportCollada cam nodes\n");
 
     for (unsigned int i=0;i<expectedNumberOfRoom;i++)
     {
-        printf("exportCollada room %d\n",i);
         roomDataStruct* currentRoomDataPtr = &roomDataTable[i];
+        printf("exportCollada room %d: (%d,%d,%d)\n",i,currentRoomDataPtr->worldX,currentRoomDataPtr->worldY,currentRoomDataPtr->worldZ);
         for (unsigned int j=0;j<currentRoomDataPtr->numHardCol;j++)
         {
-            ZVStruct* zvData;
-            zvData = &currentRoomDataPtr->hardColTable[j].zv;
-            oss<<hardCol2collada(zvData,j,currentRoomDataPtr->worldX,currentRoomDataPtr->worldY,currentRoomDataPtr->worldZ);
+            oss<<hardCol2collada(currentRoomDataPtr->hardColTable[j],j,i);
         }
         for (unsigned int j=0;j<currentRoomDataPtr->numSceZone;j++)
         {
-            ZVStruct* zvData;
-            zvData = &currentRoomDataPtr->sceZoneTable[j].zv;
-            oss<<sceZone2collada(zvData,j,currentRoomDataPtr->worldX,currentRoomDataPtr->worldY,currentRoomDataPtr->worldZ);
+            oss<<sceZone2collada(currentRoomDataPtr->sceZoneTable[j],j,i);
         }
     }
     oss<<"      <node id=\"Cube0\" name=\"Cube0\" type=\"NODE\">\n";
@@ -549,4 +571,155 @@ void AloneFloor::exportCollada()
    //std::ofstream fileout; //crash on windows??
    //fileout << oss.str()<<std::endl;
    //fileout.close();
+}
+
+
+bool AloneFloor::importCollada(const char *filename)
+{
+    QDomDocument domDocument;
+    QFile file(filename);
+    if (!file.open(QIODevice::ReadOnly))
+    {
+        QMessageBox::information(0,"Error","Impossible to open Collada file!");
+        return false;
+    }
+    if (!domDocument.setContent(&file)) {
+        QMessageBox::information(0,"Error","Error in XML!");
+        return false;
+    }
+
+    QDomElement root = domDocument.documentElement();
+    std::cout<<root.tagName().toStdString()<<std::endl;
+    //COLLADA library_visual_scenes visual_scene node name
+
+    hardCols.clear();
+    sceZones.clear();
+
+    QDomNode n = root.firstChild();
+    while(!n.isNull()) {
+        QDomElement e = n.toElement(); // try to convert the node to an element.
+        if(!e.isNull()) {
+            //std::cout << qPrintable(e.tagName()) << std::endl; // the node really is an element.
+            if (e.tagName()=="library_visual_scenes")
+            {
+                QDomNode n2 = n.firstChild();
+                while(!n2.isNull()) {
+                    e = n2.toElement();
+                    if(!e.isNull()) {
+                        if (e.tagName()=="visual_scene")
+                        {
+                            QDomNode n3 = n2.firstChild();
+                            while(!n3.isNull()) {
+                                e = n3.toElement();
+                                std::cout << e.attribute("name").toStdString() << std::endl;
+                                xml2struct(e);
+                                n3 = n3.nextSibling();
+                            }
+                        }
+                    }
+                    n2 = n2.nextSibling();
+                }
+            }
+        }
+        n = n.nextSibling();
+    }
+
+    //TODO: fill data structure
+
+    //TODO: write file
+
+    return false;
+}
+
+bool AloneFloor::xml2struct(QDomNode &n)
+{
+    //Col0_r0_t1_p0   Sce0_r0_t10_p0
+    QRegularExpression reCol("Col\\d+_r(\\d+)_t(\\d+)_p(\\d+)");
+    QDomElement e = n.toElement();
+    QRegularExpressionMatch match = reCol.match(e.attribute("name"));
+    if (match.hasMatch()) {
+        std::cout<<"match !  r="<<match.captured(1).toStdString()<<" t="<<match.captured(2).toStdString()<<" p="<<match.captured(3).toStdString()<<std::endl;
+        QDomNode n2 = n.firstChild();
+        while(!n2.isNull()) {
+            QDomElement e2 = n2.toElement();
+            if(!e2.isNull()) {
+                if (e2.tagName()=="matrix")
+                {
+                    std::cout<<"matrix: "<<e2.text().toStdString()<<std::endl;
+                    QStringList matlist = e2.text().split(" ",QString::SkipEmptyParts);
+                    float scaleX=matlist[0].toFloat();
+                    float scaleY=matlist[5].toFloat();
+                    float scaleZ=matlist[10].toFloat();
+                    float posX=matlist[3].toFloat();
+                    float posY=matlist[7].toFloat();
+                    float posZ=matlist[11].toFloat();
+                    int roomNum=match.captured(1).toInt();
+                    hardColStruct *hardCol=new hardColStruct();
+                    hardCol->type=match.captured(2).toInt();
+                    hardCol->parameter=match.captured(3).toInt();
+
+                    float roomX=roomDataTable[roomNum].worldX;
+                    float roomY=roomDataTable[roomNum].worldY;
+                    float roomZ=roomDataTable[roomNum].worldZ;
+
+                    hardCol->zv.ZVX1=1000*posX-10*roomX;
+                    hardCol->zv.ZVY1=1000*posY-10*roomY;
+                    hardCol->zv.ZVZ1=1000*posZ+10*roomZ;
+                    hardCol->zv.ZVX2=1000*scaleX+hardCol->zv.ZVX1;
+                    hardCol->zv.ZVY2=1000*scaleY+hardCol->zv.ZVY1;
+                    hardCol->zv.ZVZ2=1000*scaleZ+hardCol->zv.ZVZ1;
+                    hardCols.push_back(hardCol);
+                }
+            }
+            n2 = n2.nextSibling();
+        }
+    }
+
+    QRegularExpression reSce("Sce\\d+_r(\\d+)_t(\\d+)_p(\\d+)");
+    e = n.toElement();
+    match = reSce.match(e.attribute("name"));
+    if (match.hasMatch()) {
+        std::cout<<"match !  r="<<match.captured(1).toStdString()<<" t="<<match.captured(2).toStdString()<<" p="<<match.captured(3).toStdString()<<std::endl;
+        QDomNode n2 = n.firstChild();
+        while(!n2.isNull()) {
+            QDomElement e2 = n2.toElement();
+            if(!e2.isNull()) {
+                if (e2.tagName()=="matrix")
+                {
+                    std::cout<<"matrix: "<<e2.text().toStdString()<<std::endl;
+                    QStringList matlist = e2.text().split(" ",QString::SkipEmptyParts);
+                    float scaleX=matlist[0].toFloat();
+                    float scaleY=matlist[5].toFloat();
+                    float scaleZ=matlist[10].toFloat();
+                    float posX=matlist[3].toFloat();
+                    float posY=matlist[7].toFloat();
+                    float posZ=matlist[11].toFloat();
+                    int roomNum=match.captured(1).toInt();
+                    sceZoneStruct *sceZone=new sceZoneStruct();
+                    sceZone->type=match.captured(2).toInt();
+                    sceZone->parameter=match.captured(3).toInt();
+
+                    float roomX=roomDataTable[roomNum].worldX;
+                    float roomY=roomDataTable[roomNum].worldY;
+                    float roomZ=roomDataTable[roomNum].worldZ;
+
+                    /*
+                    float x=(zvData->ZVX1)/1000.0+roomX/100.0;
+                    float y=(zvData->ZVY2)/1000.0+roomY/100.0;
+                    float z=(zvData->ZVZ1)/1000.0-roomZ/100.0;
+                    float sx=(zvData->ZVX2-zvData->ZVX1)/1000.0;
+                    float sy=1;//(zvData->ZVY2-zvData->ZVY1)/100.0;
+                    float sz=(zvData->ZVZ2-zvData->ZVZ1)/1000.0;*/
+                    sceZone->zv.ZVX1=1000*posX-10*roomX;
+                    sceZone->zv.ZVY1=1000*posY-10*roomY;
+                    sceZone->zv.ZVZ1=1000*posZ+10*roomZ;
+                    sceZone->zv.ZVX2=1000*scaleX+sceZone->zv.ZVX1;
+                    sceZone->zv.ZVY2=1000*scaleY+sceZone->zv.ZVY1;
+                    sceZone->zv.ZVZ2=1000*scaleZ+sceZone->zv.ZVZ1;
+                    sceZones.push_back(sceZone);
+                }
+            }
+            n2 = n2.nextSibling();
+        }
+    }
 }

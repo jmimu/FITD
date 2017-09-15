@@ -3,20 +3,22 @@
 ** Improvements
 
 *** High priority
+ - rename costable and dummies (cam.dummy1=DisplayedRoom?, cam.dummy3=strange offset?,cameraZoneDefTable.dummy1=room?)
+ - why do camera use room x,y,z ? (with 0 it works perfectly)
  - change all unsigned to uXX?
- - make types.h instead of redefining u8 in each h of PakEdit
 
 *** Low priority
+ - hardColStruct and sceZoneStruct are the same?
  - Detect BIG_ENDIAN
  - remove version.c and version.h
  - move many functions out of main.c
  - READ_LE_U32 is sometimes in ifdef, but there is already an ifdef in READ_LE_U32
  - loadPakToPtr and loadPak very similar?
- - harmonize and minimalize pak.c (files fullnames? handles?)
  - what are the 10 "tailing bytes" after each file in PAK? => seems to be just margin
- - why is the background not fully drawn when using uncompressed data?
 
 ** Crashs
+
+*** Reading floors seems strange (reading camera stuff in ETAGE04 crashes)
 
 *** 1st zombie appears
 

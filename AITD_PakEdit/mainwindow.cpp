@@ -82,119 +82,6 @@ void MainWindow::updateDB()
 bool MainWindow::writeDB()
 {
     updateDB();
-
-
-/*    std::string allnames[101]={"Open Cupboard (1)",
-    "Vase Shatter",
-    "Window Shatter",
-    "Unlock Chest / Door",
-    "Door Open / Close",
-    "Slide Furniture",
-    "Thunder",
-    "Rifle (Fire)",
-    "Rifle (Cock)",
-    "Rifle (Click)",
-    "Edward (Flask)",
-    "Emily (Flask)",
-    "Edward (Cough)",
-    "Emily (Cough)",
-    "Slap (1)",
-    "Slap (2)",
-    "Edward (Attack 1)",
-    "Emily (Attack 1)",
-    "Edward (Attack 2)",
-    "Emily (Attack 2)",
-    "Edward (Attack 3)",
-    "Emily (Attack 3)",
-    "Edward (Jump)",
-    "Emily (Jump)",
-    "Edward (Land)",
-    "Emily (Land)",
-    "Edward (Pain)",
-    "Emily (Pain)",
-    "Window Monster (Attack)",
-    "Zombie",
-    "Step (Wood 1)",
-    "Step (Wood 2)",
-    "Step (Stone 1)",
-    "Step (Stone 2)",
-    "Edward (Die)",
-    "Emily (Die)",
-    "Trapdoor / Door Slam",
-    "Chest Open",
-    "Edward (Trap Door)",
-    "Emily (Trap Door)",
-    "Edward (Fall)",
-    "Emily (Fall)",
-    "Window Monster (Hop) / Object Fallen",
-    "Window Monster (Hop) / Object Fallen",
-    "Cthulu Monster (Pain)",
-    "Cthulu Monster (Die)",
-    "Step (Carpet 1)",
-    "Step (Carpet 2)",
-    "Object (Swing)",
-    "Page",
-    "Object (Break)",
-    "Step (Cave 1)",
-    "Step (Cave 2)",
-    "Drop In Cave 1",
-    "Drop In Cave 2",
-    "Drop In Cave 3",
-    "Step (Cave 3)",
-    "Step (Cave 4)",
-    "Shrieking Manor Ambience",
-    "Dog / Wolf Howl",
-    "Shotgun (Fire)",
-//                               "?",
-    "Drink Flask",
-    "Secret Passage",
-    "Window Monster (Breathing)",
-    "Bathtub Monster?",
-    "Object (Throw 1)",
-    "Pirate (Laugh 1)",
-    "Stair Laugh",
-    "Pirate (Laugh 2)",
-    "Open Cupboard (2)",
-    "Step (Water 1)",
-    "Step (Water 2)",
-    "Water Splash",
-    "Rat Screech",
-    "Car (Engine Idle)",
-    "Car (Coming By)",
-    "Cricket And Frog Ambience",
-    "Car (Frog And Going Past)",
-    "Car (Pull Up)",
-    "Car (Door Open)",
-    "Car (Getting Out And Closing)",
-    "Step (Dirt 1)",
-    "Step (Dirt 2)",
-    "Bat Howl?",
-    "Bathtub Monster (Attack)",
-    "Door Monster (Attack)",
-    "Sea Monster",
-    "Rainbow Spinning Spheres",
-    "Whistle",
-    "Talisman Jingles",
-//                               "?",
-    "Bubbling",
-    "Knight Falls",
-    "Sea Monster (Attack)?",
-    "Giant Worm Monster",
-    "Being Lifted In Air",
-    "Bird Chirping Ambience",
-    "Skeleton Laugh (In Car)",
-    "Object (Throw 2)",
-    "Library Monster (Attack)",
-    "Fireball (Explode)",
-    "Fireball (Fire)",
-//                               "?","?"
-    };
-    for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
-    {
-        DBFile &file=mDB.get(mPAKname.toStdString(),i);
-        file.info=allnames[i];
-    }*/
-
     return mDB.overwrite();
 }
 
@@ -364,9 +251,7 @@ bool MainWindow::exportFile(int index)
             result=false;
         }else{
             AloneFloor floor;
-            floor.load(&mPakFile.getAllFiles().at(0),&mPakFile.getAllFiles().at(1));
-            //TODO: save COLLADA
-            result=true;
+            result=floor.load(&mPakFile.getAllFiles().at(0),&mPakFile.getAllFiles().at(1));
         }
         break;
     case FileType::sound:
@@ -414,6 +299,21 @@ bool MainWindow::importFile()
         //import bmp
         result=importBMP(index);
         break;
+    case FileType::rooms:
+    case FileType::cams:
+        //check that we have a rooms for file 0, and a cams for file 1
+        if ((mDB.get(mPAKname.toStdString(),0).type!=FileType::rooms)
+                ||(mDB.get(mPAKname.toStdString(),1).type!=FileType::cams))
+        {
+            QMessageBox msgBox;
+            msgBox.setText("ERROR! For a floor, file 0 must be a \"Rooms\", and file 1 a \"Cameras\"!");
+            msgBox.exec();
+            result=false;
+        }else{
+            result=importFloor();
+        }
+        break;
+
     default:
         QMessageBox msgBox;
         msgBox.setText(QString("File type %1 import not implemented!").arg(mDB.mFileTypes[(int)file.type].c_str()));
@@ -432,6 +332,25 @@ bool MainWindow::importFile()
 
     return true;
 }
+
+bool MainWindow::importFloor()
+{
+    printf("Import file\n");
+    QString filename;
+    filename=QFileDialog::getOpenFileName(this, tr("Select Collada file"),
+                                                 mPAKPath,
+                                                 tr("Collada (*.dae)"));
+    if (filename=="")
+        return false;
+
+    AloneFloor floor;
+    floor.load(&mPakFile.getAllFiles().at(0),&mPakFile.getAllFiles().at(1));
+    floor.importCollada(filename.toStdString().c_str());
+
+    printf("TODO\n");
+    //TODO
+}
+
 
 bool MainWindow::importBMP(int index)
 {

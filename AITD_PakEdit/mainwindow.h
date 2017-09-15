@@ -28,6 +28,7 @@ private:
     void updateTable();
     bool importBMP(int index);
     bool importRaw(int index);
+    bool importFloor();
     bool exportFile(int index);
 
 public slots:
