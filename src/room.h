@@ -6,8 +6,8 @@
 struct sceZoneStruct
 {
   ZVStruct zv;
-  u32 type;
-  u32 parameter;
+  u16 parameter;
+  u16 type;
 };
 
 typedef struct sceZoneStruct sceZoneStruct;

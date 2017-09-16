@@ -82,14 +82,14 @@ struct hqrEntryStruct
 
 typedef struct hqrEntryStruct hqrEntryStruct;
 
-struct ZVStruct
+struct ZVStruct //TODO: check that s16 is OK (original FIDT is s32)
 {
-	 s32 ZVX1;
-	 s32 ZVX2;
-	 s32 ZVY1;
-	 s32 ZVY2;
-	 s32 ZVZ1;
-	 s32 ZVZ2;
+     s16 ZVX1;
+     s16 ZVX2;
+     s16 ZVY1;
+     s16 ZVY2;
+     s16 ZVZ1;
+     s16 ZVZ2;
 };
 
 typedef struct ZVStruct ZVStruct;
@@ -97,8 +97,8 @@ typedef struct ZVStruct ZVStruct;
 struct hardColStruct
 {
   ZVStruct zv;
-  u32 type;
-  u32 parameter;
+  s16 parameter;
+  s16 type;
 };
 
 typedef struct hardColStruct hardColStruct;

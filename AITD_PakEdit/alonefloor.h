@@ -12,6 +12,17 @@ extern "C" {
 #include "../src/hqr.h"
 }
 
+struct AloneRoom
+{
+    s16 worldX;
+    s16 worldY;
+    s16 worldZ;
+    u16 numCameraInRoom;
+    std::vector<hardColStruct*> hardCols;
+    std::vector<sceZoneStruct*> sceZones;
+
+    u32 computeSize();
+};
 
 class AloneFloor
 {
@@ -21,7 +32,7 @@ public:
     bool load(AloneFile *rooms,AloneFile *cams);
     void exportCollada();
 
-    bool importCollada(const char *filename);
+    bool importCollada(const char *filename, AloneFile *roomsFile, AloneFile *camsFile);
     bool xml2struct(QDomNode &n);
 
     roomDataStruct* roomDataTable;
@@ -36,8 +47,7 @@ public:
     std::string cam2collada_node(cameraDataStruct* cam, int index, int roomNum);
 
     //for import
-    std::vector<hardColStruct*> hardCols;
-    std::vector<sceZoneStruct*> sceZones;
+    std::vector<AloneRoom> rooms;
 };
 
 #endif // ALONEFLOOR_H

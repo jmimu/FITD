@@ -8,6 +8,19 @@
 
 extern s16 cosTable[];
 
+u32 AloneRoom::computeSize()
+{
+    u32 sz=0;
+    sz+=2+2;//hardcol and scezone relative offset
+    sz+=sizeof(worldX)+sizeof(worldY)+sizeof(worldZ)+sizeof(numCameraInRoom);
+    sz+=numCameraInRoom*2;//camIdx
+    sz+=2;//nb hardcol
+    sz+=hardCols.size()*sizeof(hardColStruct);
+    sz+=2;//nb scezone
+    sz+=sceZones.size()*sizeof(sceZoneStruct);
+    return sz;
+}
+
 AloneFloor::AloneFloor():roomDataTable(0),mRooms(0),mCams(0)
 {
 
@@ -420,9 +433,9 @@ std::string AloneFloor::cam2collada_lib(cameraDataStruct* cam, int index)
 std::string AloneFloor::cam2collada_node(cameraDataStruct* cam, int index, int roomNum)
 {
     std::ostringstream oss;
-    float roomX=0;roomDataTable[roomNum].worldX;
-    float roomY=0;roomDataTable[roomNum].worldY;
-    float roomZ=0;roomDataTable[roomNum].worldZ;
+    float roomX=0;//roomDataTable[roomNum].worldX;
+    float roomY=0;//roomDataTable[roomNum].worldY;
+    float roomZ=0;//roomDataTable[roomNum].worldZ;
 /*  for collada:
     a=alpha*pi/512
     b=beta*pi/512
@@ -574,7 +587,7 @@ void AloneFloor::exportCollada()
 }
 
 
-bool AloneFloor::importCollada(const char *filename)
+bool AloneFloor::importCollada(const char *filename,AloneFile *roomsFile,AloneFile *camsFile)
 {
     QDomDocument domDocument;
     QFile file(filename);
@@ -592,8 +605,7 @@ bool AloneFloor::importCollada(const char *filename)
     std::cout<<root.tagName().toStdString()<<std::endl;
     //COLLADA library_visual_scenes visual_scene node name
 
-    hardCols.clear();
-    sceZones.clear();
+    rooms.clear();
 
     QDomNode n = root.firstChild();
     while(!n.isNull()) {
@@ -625,8 +637,100 @@ bool AloneFloor::importCollada(const char *filename)
     }
 
     //TODO: fill data structure
+    /*File0=rooms
+     * list offsets rooms 32b (1st=nb rooms*4)
+     * data room :
+     *   hardcol relative offset 16b
+     *   scezone relative offset  16b
+     *   x,y,z room 16b
+     *   nb cam 16b
+     *   liste cam idx 16b = cam counter
+     *   nb hardcol 16b
+     *   liste ZVX1 ZVX2... param type 8*16b
+     *   nb scezone 16b
+     *   liste ZVX1 ZVX2... param type 8*16b
+     *File1=cameras
+     * */
+    u32 nbHardCols=0;
+    u32 nbSceZones=0;
+    u32 nbCameras=0;
+    u32 roomsDataSz=4;//+4 to look like original file... why??
+    for (u16 i=0;i<rooms.size();i++)
+    {
+        rooms[i].worldX=roomDataTable[i].worldX;
+        rooms[i].worldY=roomDataTable[i].worldY;
+        rooms[i].worldZ=roomDataTable[i].worldZ;
 
-    //TODO: write file
+        rooms[i].numCameraInRoom=roomDataTable[i].numCameraInRoom;
+        nbCameras+=roomDataTable[i].numCameraInRoom;
+        nbHardCols+=rooms[i].hardCols.size();
+        nbSceZones+=rooms[i].sceZones.size();
+
+        roomsDataSz+=4;//room offset
+        roomsDataSz+=rooms[i].computeSize();
+    }
+    printf("Found %d cams, %d hardcols, %d scezones.\n",nbCameras,nbHardCols,nbSceZones);
+
+    u8 *roomsData = (u8*)malloc(roomsDataSz);
+
+    u8* roomsDataPtr=roomsData;
+    u32 currentOffset=rooms.size()*4+4;//+4 to look like original file... why??
+    for (u16 i=0;i<rooms.size();i++)
+    {
+        *(u32*)roomsDataPtr=currentOffset;
+        roomsDataPtr+=4;
+        currentOffset+=rooms[i].computeSize();
+    }
+    roomsDataPtr=roomsData+4*rooms.size()+4;//+4 to look like original file... why??
+    u16 camIdx=0;
+    for (u16 i=0;i<rooms.size();i++)
+    {
+        //hcoffset, szoffset, x,y,z,nbcam,camsidx
+        u16 hardColOffset=2+2+2*3+2+2*rooms[i].numCameraInRoom;
+        //hcoffset, szoffset, x,y,z,nbcam,camsidx,nbhc,hcs
+        u16 sceZoneOffset=2+2+2*3+2+2*rooms[i].numCameraInRoom+2+rooms[i].hardCols.size()*sizeof(hardColStruct);
+        *(u16*)roomsDataPtr=hardColOffset;roomsDataPtr+=2;
+        *(u16*)roomsDataPtr=sceZoneOffset;roomsDataPtr+=2;
+        *(s16*)roomsDataPtr=rooms[i].worldX;roomsDataPtr+=2;
+        *(s16*)roomsDataPtr=rooms[i].worldY;roomsDataPtr+=2;
+        *(s16*)roomsDataPtr=rooms[i].worldZ;roomsDataPtr+=2;
+        *(u16*)roomsDataPtr=rooms[i].numCameraInRoom;roomsDataPtr+=2;
+        for (u16 j=0;j<rooms[i].numCameraInRoom;j++)
+        {
+            *(u16*)roomsDataPtr=camIdx;roomsDataPtr+=2;
+            camIdx++;
+        }
+        *(u16*)roomsDataPtr=rooms[i].hardCols.size();roomsDataPtr+=2;
+        for (u16 j=0;j<rooms[i].hardCols.size();j++)
+        {
+            *(hardColStruct*)roomsDataPtr=*rooms[i].hardCols[j];roomsDataPtr+=sizeof(hardColStruct);
+        }
+        *(u16*)roomsDataPtr=rooms[i].sceZones.size();roomsDataPtr+=2;
+        for (u16 j=0;j<rooms[i].sceZones.size();j++)
+        {
+            *(sceZoneStruct*)roomsDataPtr=*rooms[i].sceZones[j];roomsDataPtr+=sizeof(sceZoneStruct);
+            printf("sceZoneStruct %hx %hx %hx %hx %hx %hx %hx %hx\n",
+                   rooms[i].sceZones[j]->zv.ZVX1,rooms[i].sceZones[j]->zv.ZVX2,
+                   rooms[i].sceZones[j]->zv.ZVY1,rooms[i].sceZones[j]->zv.ZVY2,
+                   rooms[i].sceZones[j]->zv.ZVZ1,rooms[i].sceZones[j]->zv.ZVZ2,
+                   rooms[i].sceZones[j]->parameter,rooms[i].sceZones[j]->type);
+        }
+    }
+
+    /*FILE* fileHandle;
+    fileHandle = fopen("tmp.dat","wb");
+    fwrite(roomsData,roomsDataSz,1,fileHandle);
+    fclose(fileHandle);*/
+
+    delete roomsFile->mDecomprData;
+    roomsFile->mInfo.uncompressedSize=roomsDataSz;
+    roomsFile->mDecomprData=roomsData;
+
+    delete roomsFile->mComprData;
+    roomsFile->mComprData = (u8*)malloc(roomsDataSz);
+    strncpy((char*)roomsFile->mComprData,(char*)roomsFile->mDecomprData,roomsDataSz);
+    roomsFile->mInfo.discSize=roomsFile->mInfo.uncompressedSize;
+    roomsFile->mInfo.compressionFlag=0;
 
     return false;
 }
@@ -639,6 +743,9 @@ bool AloneFloor::xml2struct(QDomNode &n)
     QRegularExpressionMatch match = reCol.match(e.attribute("name"));
     if (match.hasMatch()) {
         std::cout<<"match !  r="<<match.captured(1).toStdString()<<" t="<<match.captured(2).toStdString()<<" p="<<match.captured(3).toStdString()<<std::endl;
+        unsigned r=match.captured(1).toInt();
+        if (r+1>rooms.size())
+            rooms.resize(r+1);
         QDomNode n2 = n.firstChild();
         while(!n2.isNull()) {
             QDomElement e2 = n2.toElement();
@@ -668,7 +775,8 @@ bool AloneFloor::xml2struct(QDomNode &n)
                     hardCol->zv.ZVX2=1000*scaleX+hardCol->zv.ZVX1;
                     hardCol->zv.ZVY2=1000*scaleY+hardCol->zv.ZVY1;
                     hardCol->zv.ZVZ2=1000*scaleZ+hardCol->zv.ZVZ1;
-                    hardCols.push_back(hardCol);
+                    rooms[r].hardCols.push_back(hardCol);
+                    return true;
                 }
             }
             n2 = n2.nextSibling();
@@ -680,6 +788,9 @@ bool AloneFloor::xml2struct(QDomNode &n)
     match = reSce.match(e.attribute("name"));
     if (match.hasMatch()) {
         std::cout<<"match !  r="<<match.captured(1).toStdString()<<" t="<<match.captured(2).toStdString()<<" p="<<match.captured(3).toStdString()<<std::endl;
+        unsigned r=match.captured(1).toInt();
+        if (r+1>rooms.size())
+            rooms.resize(r+1);
         QDomNode n2 = n.firstChild();
         while(!n2.isNull()) {
             QDomElement e2 = n2.toElement();
@@ -716,10 +827,12 @@ bool AloneFloor::xml2struct(QDomNode &n)
                     sceZone->zv.ZVX2=1000*scaleX+sceZone->zv.ZVX1;
                     sceZone->zv.ZVY2=1000*scaleY+sceZone->zv.ZVY1;
                     sceZone->zv.ZVZ2=1000*scaleZ+sceZone->zv.ZVZ1;
-                    sceZones.push_back(sceZone);
+                    rooms[r].sceZones.push_back(sceZone);
+                    return true;
                 }
             }
             n2 = n2.nextSibling();
         }
     }
+    return false;
 }

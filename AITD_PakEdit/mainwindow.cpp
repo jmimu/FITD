@@ -345,7 +345,7 @@ bool MainWindow::importFloor()
 
     AloneFloor floor;
     floor.load(&mPakFile.getAllFiles().at(0),&mPakFile.getAllFiles().at(1));
-    floor.importCollada(filename.toStdString().c_str());
+    floor.importCollada(filename.toStdString().c_str(),&mPakFile.getAllFiles().at(0),&mPakFile.getAllFiles().at(1));
 
     printf("TODO\n");
     //TODO
