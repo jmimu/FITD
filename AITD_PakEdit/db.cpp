@@ -164,16 +164,16 @@ bool DB::read(std::string filename)
         for (size_t i=0; i<keys.size(); i++)
         {
             const std::string& key = keys[i];
-            std::cout<<"Reading DB for "<<key<<"..."<<std::endl;
+            //std::cout<<"Reading DB for "<<key<<"..."<<std::endl;
             Json::Value js_PAK=js_PAKs.get(key,json_NotFound);
-            std::cout<<"PAK "<<key<<" with "<<js_PAK.size()<<" files."<<std::endl;
+            //std::cout<<"PAK "<<key<<" with "<<js_PAK.size()<<" files."<<std::endl;
 
             std::vector<DBFile> files;
             std::vector<std::string> files_keys = js_PAK.getMemberNames();
             for (size_t j=0; j<files_keys.size(); j++)
             {
                 const std::string& file_key = files_keys[j];
-                std::cout<<"Reading DB for "<<key<<"/"<<file_key<<"..."<<std::endl;
+                //std::cout<<"Reading DB for "<<key<<"/"<<file_key<<"..."<<std::endl;
                 int file_key_int=atoi(file_key.c_str());
                 if (file_key_int+1>(int)files.size()) files.resize(file_key_int+1);
                 files[file_key_int].set(js_PAK.get(file_key,json_NotFound));

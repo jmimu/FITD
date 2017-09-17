@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>AITD PAK Editor v0.03</string>
+   <string>AITD PAK Editor v0.04</string>
   </property>
   <property name="windowIcon">
    <iconset resource="data.qrc">

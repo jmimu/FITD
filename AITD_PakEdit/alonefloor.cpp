@@ -510,7 +510,7 @@ void AloneFloor::exportCollada()
     oss<<"    <created>2017-08-21T17:33:59</created>\n";
     oss<<"    <modified>2017-08-21T17:33:59</modified>\n";
     oss<<"    <unit name=\"meter\" meter=\"1\"/>\n";
-    oss<<"    <up_axis>Y_UP</up_axis>\n";
+    oss<<"    <up_axis>Z_UP</up_axis>\n";
     oss<<"  </asset>\n";
     oss<<"  <library_cameras>\n";
 
@@ -744,7 +744,7 @@ bool AloneFloor::importCollada(const char *filename,AloneFile *roomsFile,AloneFi
     roomsFile->mInfo.discSize=roomsFile->mInfo.uncompressedSize;
     roomsFile->mInfo.compressionFlag=0;
 
-    return false;
+    return true;
 }
 
 bool AloneFloor::xml2struct(QDomNode &n)

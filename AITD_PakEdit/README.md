@@ -1,4 +1,4 @@
-AITD_PakEdit v0.03
+AITD_PakEdit v0.04
 ==================
 
 https://github.com/jmimu/FITD/tree/master/AITD_PakEdit
@@ -57,14 +57,13 @@ stretch them into 320*240.
 
 TODO
 ----
-  * crash on export ETAGE4 on windows
+  * what is the link between scezone meta and step sample?
   * why is camera export working whithout room coordinates?
-  * find room of each camera with cameraIdxTable, use it for import
   * make a scene for each room in collada
   * text export: remove last char, convert to iso-8859-1 with dos2unix -850
   * text import: add last char, convert to dos page 850
   * import pal+pic
-  * export floor: metadata...
+  * import floor's cameras
   * make camera render with perfect perspective
   * where are the FM musics?
   * export and import other types of files

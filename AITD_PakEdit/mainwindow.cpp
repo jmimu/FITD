@@ -344,11 +344,10 @@ bool MainWindow::importFloor()
         return false;
 
     AloneFloor floor;
-    floor.load(&mPakFile.getAllFiles().at(0),&mPakFile.getAllFiles().at(1));
-    floor.importCollada(filename.toStdString().c_str(),&mPakFile.getAllFiles().at(0),&mPakFile.getAllFiles().at(1));
-
-    printf("TODO\n");
-    //TODO
+    if (floor.load(&mPakFile.getAllFiles().at(0),&mPakFile.getAllFiles().at(1)))
+        return floor.importCollada(filename.toStdString().c_str(),&mPakFile.getAllFiles().at(0),&mPakFile.getAllFiles().at(1));
+    else
+        return false;
 }
 
 
