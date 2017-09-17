@@ -18,6 +18,7 @@ struct AloneRoom
     s16 worldY;
     s16 worldZ;
     u16 numCameraInRoom;
+    u16* cameraIdxTable;
     std::vector<hardColStruct*> hardCols;
     std::vector<sceZoneStruct*> sceZones;
 

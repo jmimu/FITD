@@ -63,7 +63,6 @@ bool PakFile::overwrite(bool forceUncompressed)
         else
             currentOffset+=mAllFiles[index].mInfo.discSize;
 
-        currentOffset+=mAllFiles[index].mAdditionalDescriptorSize;//TODO: how is it working?
         currentOffset+=mAllFiles[index].mInfo.offset;//TODO: how is it working?
 
         currentOffset+=sizeof(mAllFiles[index].mTailingBytes);//tailing bytes

@@ -514,8 +514,15 @@ void AloneFloor::exportCollada()
     oss<<"  </asset>\n";
     oss<<"  <library_cameras>\n";
 
-    for(unsigned int i=0;i<expectedNumberOfCamera;i++)
-        oss<<cam2collada_lib(&globalCameraDataTable[i],i);
+    for (unsigned int i=0;i<expectedNumberOfRoom;i++)
+    {
+        roomDataStruct* currentRoomDataPtr = &roomDataTable[i];
+        for (unsigned int j=0;j<currentRoomDataPtr->numCameraInRoom;j++)
+        {
+            u16 idx=currentRoomDataPtr->cameraIdxTable[j];
+            oss<<cam2collada_lib(&globalCameraDataTable[idx],idx);
+        }
+    }
     printf("exportCollada cam assets\n");
 
     oss<<"  </library_cameras>\n";
@@ -548,14 +555,20 @@ void AloneFloor::exportCollada()
     oss<<"  <library_visual_scenes>\n";
     oss<<"    <visual_scene id=\"Scene\" name=\"Scene\">\n";
 
-    for(unsigned int i=0;i<expectedNumberOfCamera;i++)
+    /*for(unsigned int i=0;i<expectedNumberOfCamera;i++)
         oss<<cam2collada_node(&globalCameraDataTable[i],i,0);//TODO: determine room and give its center
-    printf("exportCollada cam nodes\n");
+    printf("exportCollada cam nodes\n");*/
 
     for (unsigned int i=0;i<expectedNumberOfRoom;i++)
     {
         roomDataStruct* currentRoomDataPtr = &roomDataTable[i];
         printf("exportCollada room %d: (%d,%d,%d)\n",i,currentRoomDataPtr->worldX,currentRoomDataPtr->worldY,currentRoomDataPtr->worldZ);
+        for (unsigned int j=0;j<currentRoomDataPtr->numCameraInRoom;j++)
+        {
+            u16 idx=currentRoomDataPtr->cameraIdxTable[j];
+            oss<<cam2collada_node(&globalCameraDataTable[idx],idx,0);//TODO: room center not used?
+        }
+
         for (unsigned int j=0;j<currentRoomDataPtr->numHardCol;j++)
         {
             oss<<hardCol2collada(currentRoomDataPtr->hardColTable[j],j,i);
@@ -661,7 +674,8 @@ bool AloneFloor::importCollada(const char *filename,AloneFile *roomsFile,AloneFi
         rooms[i].worldY=roomDataTable[i].worldY;
         rooms[i].worldZ=roomDataTable[i].worldZ;
 
-        rooms[i].numCameraInRoom=roomDataTable[i].numCameraInRoom;
+        rooms[i].numCameraInRoom=roomDataTable[i].numCameraInRoom;//TODO: get it from cameras names
+        rooms[i].cameraIdxTable=roomDataTable[i].cameraIdxTable;
         nbCameras+=roomDataTable[i].numCameraInRoom;
         nbHardCols+=rooms[i].hardCols.size();
         nbSceZones+=rooms[i].sceZones.size();
@@ -682,7 +696,6 @@ bool AloneFloor::importCollada(const char *filename,AloneFile *roomsFile,AloneFi
         currentOffset+=rooms[i].computeSize();
     }
     roomsDataPtr=roomsData+4*rooms.size()+4;//+4 to look like original file... why??
-    u16 camIdx=0;
     for (u16 i=0;i<rooms.size();i++)
     {
         //hcoffset, szoffset, x,y,z,nbcam,camsidx
@@ -697,8 +710,7 @@ bool AloneFloor::importCollada(const char *filename,AloneFile *roomsFile,AloneFi
         *(u16*)roomsDataPtr=rooms[i].numCameraInRoom;roomsDataPtr+=2;
         for (u16 j=0;j<rooms[i].numCameraInRoom;j++)
         {
-            *(u16*)roomsDataPtr=camIdx;roomsDataPtr+=2;
-            camIdx++;
+            *(u16*)roomsDataPtr=rooms[i].cameraIdxTable[j];roomsDataPtr+=2;
         }
         *(u16*)roomsDataPtr=rooms[i].hardCols.size();roomsDataPtr+=2;
         for (u16 j=0;j<rooms[i].hardCols.size();j++)
@@ -717,10 +729,10 @@ bool AloneFloor::importCollada(const char *filename,AloneFile *roomsFile,AloneFi
         }
     }
 
-    /*FILE* fileHandle;
+    FILE* fileHandle;
     fileHandle = fopen("tmp.dat","wb");
     fwrite(roomsData,roomsDataSz,1,fileHandle);
-    fclose(fileHandle);*/
+    fclose(fileHandle);
 
     delete roomsFile->mDecomprData;
     roomsFile->mInfo.uncompressedSize=roomsDataSz;
