@@ -400,7 +400,7 @@ std::string AloneFloor::sceZone2collada(sceZoneStruct &sceZone, int index, int r
     float y=(zvData->ZVY2)/1000.0+roomY/100.0;
     float z=(zvData->ZVZ1)/1000.0-roomZ/100.0;
     float sx=(zvData->ZVX2-zvData->ZVX1)/1000.0;
-    float sy=1;//(zvData->ZVY2-zvData->ZVY1)/100.0;
+    float sy=(zvData->ZVY2-zvData->ZVY1)/1000.0;
     float sz=(zvData->ZVZ2-zvData->ZVZ1)/1000.0;
     oss<<"      <node id=\"Sce"<<index<<"\" name=\"Sce"<<index<<"_r"<<roomNum<<"_t"<<sceZone.type<<"_p"<<sceZone.parameter<<"\" type=\"NODE\">\n";
     oss<<"        <matrix sid=\"transform\">"<<sx<<" 0 0 "<<x<<" 0 "<<sy<<" 0 "<<y<<" 0 0 "<<sz<<" "<<z<<" 0 0 0 1</matrix>\n";
@@ -834,10 +834,10 @@ bool AloneFloor::xml2struct(QDomNode &n)
                     float sy=1;//(zvData->ZVY2-zvData->ZVY1)/100.0;
                     float sz=(zvData->ZVZ2-zvData->ZVZ1)/1000.0;*/
                     sceZone->zv.ZVX1=1000*posX-10*roomX;
-                    sceZone->zv.ZVY1=1000*posY-10*roomY;
+                    sceZone->zv.ZVY2=1000*posY-10*roomY;
                     sceZone->zv.ZVZ1=1000*posZ+10*roomZ;
                     sceZone->zv.ZVX2=1000*scaleX+sceZone->zv.ZVX1;
-                    sceZone->zv.ZVY2=1000*scaleY+sceZone->zv.ZVY1;
+                    sceZone->zv.ZVY1=-1000*scaleY+sceZone->zv.ZVY2;
                     sceZone->zv.ZVZ2=1000*scaleZ+sceZone->zv.ZVZ1;
                     rooms[r].sceZones.push_back(sceZone);
                     return true;

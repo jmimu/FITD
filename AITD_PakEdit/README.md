@@ -53,18 +53,20 @@ Floors are exported in Collada format.
 You can open it with meshlab or blender.
 To have a correct superposition with the background images, you must
 stretch them into 320*240.
+Objects names are : type_rX_tY_pZ, where X is room number, Y type and Z parameter.
+You have to change those names in order to change objects metadata.
+
 
 
 TODO
 ----
   * what is the link between scezone meta and step sample?
   * why is camera export working whithout room coordinates?
+  * import floor's cameras
   * make a scene for each room in collada
   * text export: remove last char, convert to iso-8859-1 with dos2unix -850
   * text import: add last char, convert to dos page 850
   * import pal+pic
-  * import floor's cameras
-  * make camera render with perfect perspective
   * where are the FM musics?
   * export and import other types of files
 
@@ -81,6 +83,13 @@ CD VS Floppy version
 
 Changelog
 ---------
+v???
+  * Fix SceZone export/import y
+v0.04:
+  * collada export with some metadata
+  * begin collada import (hardcol and scezones)
+  * fix collada export crash
+  * fix PAK export
 v0.03:
   * fix windows collada export
   * collada camera export ok
