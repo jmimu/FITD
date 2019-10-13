@@ -65,9 +65,10 @@ TODO
   * import floor's cameras
   * make a scene for each room in collada
   * text export: remove last char, convert to iso-8859-1 with dos2unix -850
+  * fix file name encoding "caméra"
   * text import: add last char, convert to dos page 850
   * import pal+pic
-  * where are the FM musics?
+  * export ADL music from LISTMUS.PAK
   * export and import other types of files
 
 CD VS Floppy version

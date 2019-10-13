@@ -3296,7 +3296,7 @@ void drawBgOverlay(actorStruct* actorPtr)
   int numEntry;
   int i;
   int numOverlayZone;
-  
+
   actorPtr->field_14 = BBox3D1;
   actorPtr->field_16 = BBox3D2;
   actorPtr->field_18 = BBox3D3;

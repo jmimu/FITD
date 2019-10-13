@@ -267,7 +267,11 @@ bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
         globalCameraDataTable[i].focal2 = READ_LE_U16(currentCameraData+0x0E);
         globalCameraDataTable[i].focal3 = READ_LE_U16(currentCameraData+0x10);
 
-/*      //next part doesn't seem to work ok well...
+        //printf("CAM: %hx %hx %hx %hx %hx %hx %hx %hx %hx\n",globalCameraDataTable[i].alpha,globalCameraDataTable[i].beta,
+        //       globalCameraDataTable[i].gamma,globalCameraDataTable[i].x,globalCameraDataTable[i].y,globalCameraDataTable[i].z,
+        //       globalCameraDataTable[i].focal1,globalCameraDataTable[i].focal2,globalCameraDataTable[i].focal3);
+
+      //next part doesn't seem to work ok well...
         globalCameraDataTable[i].numCameraZoneDef = READ_LE_U16(currentCameraData+0x12);
         printf("CAM: %hx %hx %hx %hx %hx %hx %hx %hx %hx %hx\n",globalCameraDataTable[i].alpha,globalCameraDataTable[i].beta,
                globalCameraDataTable[i].gamma,globalCameraDataTable[i].x,globalCameraDataTable[i].y,globalCameraDataTable[i].z,
@@ -297,7 +301,7 @@ bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
           {
             pCurrentCameraZoneDefEntry->dummy7 = READ_LE_U16(currentCameraData+0x0C);
             pCurrentCameraZoneDefEntry->dummy8 = READ_LE_U16(currentCameraData+0x0E);
-         }
+          }
 
           // load camera zone : where camera change
           {
@@ -334,6 +338,7 @@ bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
                 pZoneData+=2;
                 pCurrentCameraZoneDefEntry->cameraZoneEntryTable[j].pointTable[pointIdx].y = READ_LE_U16(pZoneData);
                 pZoneData+=2;
+                printf("X: %hx, Y: %hx\n",pCurrentCameraZoneDefEntry->cameraZoneEntryTable[j].pointTable[pointIdx].x,pCurrentCameraZoneDefEntry->cameraZoneEntryTable[j].pointTable[pointIdx].y);
               }
 
               pCurrentCameraZoneDefEntry->cameraZoneEntryTable[j].pointTable[numPoints].x = pCurrentCameraZoneDefEntry->cameraZoneEntryTable[j].pointTable[0].x; // copy first point to last position
@@ -350,7 +355,7 @@ bool AloneFloor::load(AloneFile *rooms,AloneFile *cams)
           {
             currentCameraData+=4;
           }
-        }*/
+        }
       }
       else
       {
