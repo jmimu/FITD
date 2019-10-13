@@ -9,6 +9,7 @@
 #include <cstdint>
 
 #include "alonefloor.h"
+#include "alonebody.h"
 
 extern "C" {
 #include "../src/pak.h"
@@ -259,6 +260,13 @@ bool MainWindow::exportFile(int index)
         sprintf(bufferNameOut,"%s_%d.VOX",mPAKPath.toStdString().c_str(),index);
         result=alonefile.exportUncompressed(bufferNameOut);
         break;
+    case FileType::body:
+	//export ply
+	{
+	    AloneBody body(&alonefile);
+	    result=body.load();
+	}
+	break;
     default:
         QMessageBox msgBox;
         msgBox.setText(QString("File type %1 export not implemented!").arg(mDB.mFileTypes[(int)file.type].c_str()));

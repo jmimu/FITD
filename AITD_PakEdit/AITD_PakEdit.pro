@@ -6,7 +6,7 @@
 
 QT       += core gui xml
 #CONFIG += debug
-CONFIG += console
+#CONFIG += console
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -30,7 +30,8 @@ SOURCES += main.cpp \
     ../src/freezetime.c \
     ../src/hqr.c \
     ../src/fileAccess.c \
-    ../src/cosTable.c
+    ../src/cosTable.c \
+    alonebody.cpp
 
 HEADERS  += mainwindow.h \
         ../src/pak.h \
@@ -48,7 +49,8 @@ HEADERS  += mainwindow.h \
     ../src/floor.h \
     ../src/freezetime.h \
     ../src/hqr.h \
-    ../src/fileAccess.h
+    ../src/fileAccess.h \
+    alonebody.h
 
 FORMS    += mainwindow.ui
 

@@ -33,7 +33,7 @@ public:
     char mNameBuffer[256];
 
     const char* mPAKFilename;
-    int mIndex;
+    long mIndex; //long to align
 
     u8* mComprData;
     u8* mDecomprData;

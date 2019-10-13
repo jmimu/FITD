@@ -11,6 +11,8 @@ struct pakInfoStruct // warning: allignement unsafe
   char compressionFlag;
   char info5;
   u16 offset;
+
+  u32 dummyFiller;//fix unsafe alignment
 };
 typedef struct pakInfoStruct pakInfoStruct;
 

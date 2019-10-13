@@ -19,7 +19,8 @@ enum class FileType
     rooms,
     cams,
     sound,
-    palimage
+    palimage,
+    body
 };
 
 struct DBFile
