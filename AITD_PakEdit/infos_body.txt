@@ -1,0 +1,52 @@
+modèles 3d :
+LISTBOD2.PAK_7.dat : trappe à 4+4+3+3 points
+attention, max 400 pts et 40 bones.
+voir fonctions renderModel puis computeModel
+utilité des flags ?
+bit 0 : ?
+bit 1 : has_bones
+
+Vient de FITD et ModelLoader.cs
+
+ - 0000: 2 octets = flags
+ - 0002: 12 octets = ???
+ - 000E: 2 octets = offset start par rapport à 0010 
+ - s+0000: 2 octets = nb points
+  - s+0002: liste des XYZ de chaque point (3x2 octets), copiés dans pointBuffer
+si bones :
+ - 2 octets = nb bones
+ - liste des bones (2 octets), copiés dans bonesBuffer
+   puis infos bones ?
+dans tous les cas : 
+ - 2 octets = nombre de primitives
+ - liste des primitives
+    - 1 octet : primtype
+      si 0 = ligne
+        - 1 octet : ?
+        - 1 octet : couleur
+        - 1 octet : ?
+        - 2 octets : pointIndexA*6 (offset du point dans le buffer des points)
+        - 2 octets : pointIndexB*6
+      si 1 = polygone
+        - 1 octet : polynbpts
+        - 1 octet : polytype ?
+        - 1 octet : couleur
+        pour chaque point
+          - 2 octets : pointIndex*6
+      si 3 = sphere :
+        - 1 octet : polytype ?
+        - 1 octet : couleur
+        - 1 octet : ?
+        - 2 octets : taille
+        - 2 octets : pointIndex*6
+      si 2 = 1x1 px
+      ou 6 = carre
+      ou 7
+        - 1 octet : ?
+        - 1 octet : couleur
+        - 1 octet : ?
+        - 2 octets : cubeIndex*6
+
+
+
+

@@ -21,6 +21,37 @@ struct Bone
 	s16 data;//?
 };
 
+struct Prim
+{
+	u8 primtype;
+	u8 color;
+};
+
+struct PrimLine: public Prim
+{
+	s16 ptA_index;
+	s16 ptB_index;
+};
+
+struct PrimPoly: public Prim
+{
+	u8 nbPts;
+	u8 polytype;
+	s16 * allPt_index;
+};
+
+struct PrimSphere: public Prim
+{
+	u8 type;
+	u8 nbPts;
+	s16 pt_index;
+};
+
+struct PrimSqr: public Prim
+{
+	s16 pt_index;
+};
+
 class AloneBody
 {
 public:
@@ -34,6 +65,8 @@ protected:
 	Pt3d * allPoints;
 	s16 numOfBones;
 	Bone * allBones;
+	s16 numOfPrim;
+	Prim ** allPrims;
 };
 
 #endif // ALONEBODY_H

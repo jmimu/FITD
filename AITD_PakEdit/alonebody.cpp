@@ -1,6 +1,7 @@
 #include "alonebody.h"
 
-AloneBody::AloneBody(AloneFile *file) : file(file),modelFlags(0),numOfPoints(0),allPoints(nullptr),numOfBones(0),allBones(nullptr)
+AloneBody::AloneBody(AloneFile *file) : file(file),modelFlags(0),numOfPoints(0),
+	allPoints(nullptr),numOfBones(0),allBones(nullptr),numOfPrim(0),allPrims(nullptr)
 {
 }
 
@@ -26,14 +27,57 @@ bool AloneBody::load()
 	memcpy(allPoints,ptr,numOfPoints*3*2);
 	ptr+=numOfPoints*3*2;
 
-	numOfBones = *(short int*)ptr;
+	if (modelFlags & 0x02)
+	{
+		numOfBones = *(short int*)ptr;
+		ptr+=2;
+
+		ASSERT(numOfBones<NUM_MAX_BONES);
+		allBones=new Bone[numOfBones];
+
+		memcpy(allBones,ptr,numOfBones*2);
+		ptr+=numOfBones*2;
+	}else{
+		numOfBones = 0;
+	}
+	numOfPrim = *(short int*)ptr;
 	ptr+=2;
+	allPrims=new Prim*[numOfPrim];
+	for (int i = 0;i<numOfPrim;i++)
+	{
+		u8 primType = *(u8*)ptr;
+		ptr++;
+		if (primType==0) {
+			PrimLine * prime = new PrimLine();
+			prime->primtype = primType;
+			ptr++;
+			prime->color = *(u8*)ptr;
+			ptr++;
+			prime->ptA_index = (*(s16*)ptr)/6;
+			ptr+=2;
+			prime->ptB_index = (*(s16*)ptr)/6;
+			ptr+=2;
+			allPrims[i] = prime;
+		}
+		if (primType==1) {
+			PrimPoly * prime = new PrimPoly();
+			prime->primtype = primType;
+			prime->nbPts = *(u8*)ptr;
+			ptr++;
+			prime->color = *(u8*)ptr;
+			ptr++;
+			prime->polytype = *(u8*)ptr;
+			ptr++;
+			prime->allPoints = new s16[prime->nbPts];
+			for (int j = 0;j<prime->nbPts;j++)
+			{
+				prime->allPoints[j] = (*(s16*)ptr)/6;
+				ptr+=2;
+			}
+			allPrims[i] = prime;
+		}
+	}
 
-	ASSERT(numOfBones<NUM_MAX_BONES);
-	allBones=new Bone[numOfBones];
-
-	memcpy(allBones,ptr,numOfBones*2);
-	ptr+=numOfBones*2;
 
 	char fname[256+9]="toto.ply";
 	sprintf(fname,"%s_%05d.ply",file->mPAKFilename,file->mIndex);
