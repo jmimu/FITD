@@ -68,10 +68,10 @@ bool AloneBody::load()
 			ptr++;
 			prime->polytype = *(u8*)ptr;
 			ptr++;
-			prime->allPoints = new s16[prime->nbPts];
+			prime->allPt_index = new s16[prime->nbPts];
 			for (int j = 0;j<prime->nbPts;j++)
 			{
-				prime->allPoints[j] = (*(s16*)ptr)/6;
+				prime->allPt_index[j] = (*(s16*)ptr)/6;
 				ptr+=2;
 			}
 			allPrims[i] = prime;

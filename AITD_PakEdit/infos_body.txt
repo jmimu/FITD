@@ -1,3 +1,6 @@
+Attention !
+Il semble que les modèles 3d ne sont pas lisibles par le jeu si non compressés.
+
 modèles 3d :
 LISTBOD2.PAK_7.dat : trappe à 4+4+3+3 points
 attention, max 400 pts et 40 bones.
