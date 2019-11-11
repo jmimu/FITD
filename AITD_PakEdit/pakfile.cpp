@@ -71,6 +71,11 @@ bool PakFile::overwrite(bool forceUncompressed)
     //write offsets
     FILE* fileHandle;
     fileHandle = fopen(mPAKPath,"wb");
+    if (!fileHandle)
+    {
+        std::cout<<"Error! Impossible to open "<<mPAKPath<<" for writing!"<<std::endl;
+        return false;
+    }
     u32 dummy=0;
     fwrite(&dummy,4,1,fileHandle);
     for (unsigned int index=0;index<mAllFiles.size();index++)
