@@ -86,7 +86,7 @@
      <x>0</x>
      <y>0</y>
      <width>586</width>
-     <height>27</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -97,7 +97,9 @@
     <addaction name="actionSavePAK"/>
     <addaction name="actionOverwrite_PAK_uncompressed"/>
     <addaction name="separator"/>
-    <addaction name="actionExport_All"/>
+    <addaction name="actionExport_All_Compressed"/>
+    <addaction name="actionExport_All_Decompressed"/>
+    <addaction name="actionExport_All_Interpreted"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
@@ -105,7 +107,9 @@
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <addaction name="action_Export"/>
+    <addaction name="actionExport_Compressed"/>
+    <addaction name="actionExport_Decompressed"/>
+    <addaction name="actionExport_Interpreted"/>
     <addaction name="action_Import"/>
    </widget>
    <widget class="QMenu" name="menuDataBAse">
@@ -165,14 +169,14 @@
     <string>Try to export all as &amp;picture</string>
    </property>
   </action>
-  <action name="action_Export">
+  <action name="actionExport_Compressed">
    <property name="text">
-    <string>&amp;Export</string>
+    <string>Export &amp;Compressed</string>
    </property>
   </action>
   <action name="action_Import">
    <property name="text">
-    <string>&amp;Import</string>
+    <string>&amp;Import </string>
    </property>
   </action>
   <action name="action_OpenDB">
@@ -188,12 +192,38 @@
     <string>Over&amp;writeDB</string>
    </property>
   </action>
-  <action name="actionExport_All">
+  <action name="actionExport_All_Compressed">
    <property name="enabled">
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Export &amp;All</string>
+    <string>Export All &amp;Compressed</string>
+   </property>
+  </action>
+  <action name="actionExport_Decompressed">
+   <property name="text">
+    <string>Export &amp;Decompressed</string>
+   </property>
+  </action>
+  <action name="actionExport_Interpreted">
+   <property name="text">
+    <string>Export &amp;Interpreted</string>
+   </property>
+  </action>
+  <action name="actionExport_All_Decompressed">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Export All &amp;Decompressed</string>
+   </property>
+  </action>
+  <action name="actionExport_All_Interpreted">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Export All &amp;Interpreted</string>
    </property>
   </action>
  </widget>

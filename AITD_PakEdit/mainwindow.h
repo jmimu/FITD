@@ -10,6 +10,13 @@ namespace Ui {
 class MainWindow;
 }
 
+enum IOType
+{
+    IO_COMPRESSED,
+    IO_DECOMPRESSED,
+    IO_INTERPRETED
+};
+
 
 class MainWindow : public QMainWindow
 {
@@ -29,16 +36,21 @@ private:
     bool importBMP(int index);
     bool importRaw(int index);
     bool importFloor();
-    bool exportFile(int index);
+    bool exportFile(int index, IOType type);
+    int getSelectedIndex();
 
 public slots:
     bool openPAK();
     bool savePAK();
     bool savePAKUncompressed();
-    void exportAll();
+    void exportAll_Compressed();
+    void exportAll_Decompressed();
+    void exportAll_Interpreted();
 
     bool importFile();
-    bool exportSelectedFile();
+    bool exportSelectedFile_Compressed();
+    bool exportSelectedFile_Decompressed();
+    bool exportSelectedFile_Interpreted();
 
     bool openDB();
     void updateDB();

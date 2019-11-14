@@ -31,8 +31,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->ui->actionOpenPAK,SIGNAL(triggered()),this,SLOT(openPAK()));
     connect(this->ui->actionSavePAK,SIGNAL(triggered()),this,SLOT(savePAK()));
     connect(this->ui->actionOverwrite_PAK_uncompressed,SIGNAL(triggered()),this,SLOT(savePAKUncompressed()));
-    connect(this->ui->actionExport_All,SIGNAL(triggered()),this,SLOT(exportAll()));
-    connect(this->ui->action_Export,SIGNAL(triggered()),this,SLOT(exportSelectedFile()));
+    connect(this->ui->actionExport_All_Compressed,SIGNAL(triggered()),this,SLOT(exportAll_Compressed()));
+    connect(this->ui->actionExport_All_Decompressed,SIGNAL(triggered()),this,SLOT(exportAll_Decompressed()));
+    connect(this->ui->actionExport_All_Interpreted,SIGNAL(triggered()),this,SLOT(exportAll_Interpreted()));
+    connect(this->ui->actionExport_Compressed,SIGNAL(triggered()),this,SLOT(exportSelectedFile_Compressed()));
+    connect(this->ui->actionExport_Decompressed,SIGNAL(triggered()),this,SLOT(exportSelectedFile_Decompressed()));
+    connect(this->ui->actionExport_Interpreted,SIGNAL(triggered()),this,SLOT(exportSelectedFile_Interpreted()));
     connect(this->ui->action_Import,SIGNAL(triggered()),this,SLOT(importFile()));
     connect(this->ui->action_WriteDB,SIGNAL(triggered()),this,SLOT(writeDB()));
     connect(this->ui->action_OpenDB,SIGNAL(triggered()),this,SLOT(openDB()));
@@ -152,7 +156,9 @@ bool MainWindow::openPAK()
     updateTable();
     ui->actionOverwrite_PAK_uncompressed->setEnabled(true);
     ui->actionSavePAK->setEnabled(true);
-    ui->actionExport_All->setEnabled(true);
+    ui->actionExport_All_Compressed->setEnabled(true);
+    ui->actionExport_All_Decompressed->setEnabled(true);
+    ui->actionExport_All_Interpreted->setEnabled(true);
     ui->actionExport_all_as_BMP->setEnabled(true);
 
     return true;
@@ -168,22 +174,46 @@ bool MainWindow::savePAKUncompressed()
     return mPakFile.overwrite(true);
 }
 
-void MainWindow::exportAll()
+void MainWindow::exportAll_Compressed()
 {
     for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
     {
         if (mDB.get(mPAKname.toStdString(),i).type==FileType::cams)
             continue;//export only rooms, cams will go with it
-        exportFile(i);
+        exportFile(i,IO_COMPRESSED);
     }
-
     QMessageBox msgBox;
     msgBox.setText("Done!");
     msgBox.exec();
 }
 
+void MainWindow::exportAll_Decompressed()
+{
+    for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
+    {
+        if (mDB.get(mPAKname.toStdString(),i).type==FileType::cams)
+            continue;//export only rooms, cams will go with it
+        exportFile(i,IO_DECOMPRESSED);
+    }
+    QMessageBox msgBox;
+    msgBox.setText("Done!");
+    msgBox.exec();
+}
 
-bool MainWindow::exportSelectedFile()
+void MainWindow::exportAll_Interpreted()
+{
+    for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
+    {
+        if (mDB.get(mPAKname.toStdString(),i).type==FileType::cams)
+            continue;//export only rooms, cams will go with it
+        exportFile(i,IO_INTERPRETED);
+    }
+    QMessageBox msgBox;
+    msgBox.setText("Done!");
+    msgBox.exec();
+}
+
+int MainWindow::getSelectedIndex()
 {
     QItemSelectionModel *select = ui->tableWidget->selectionModel();
 
@@ -192,12 +222,41 @@ bool MainWindow::exportSelectedFile()
         QMessageBox msgBox;
         msgBox.setText("Please select a row!");
         msgBox.exec();
-        return false;
+        return -1;
     }
 
     int index=select->selectedRows()[0].row();
+    return index;
+}
 
-    if (exportFile(index))
+bool MainWindow::exportSelectedFile_Compressed()
+{
+    int index=getSelectedIndex();
+    if (exportFile(index,IO_COMPRESSED))
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Done!");
+        msgBox.exec();
+        return true;
+    }
+    return false;
+}
+bool MainWindow::exportSelectedFile_Decompressed()
+{
+    int index=getSelectedIndex();
+    if (exportFile(index,IO_DECOMPRESSED))
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Done!");
+        msgBox.exec();
+        return true;
+    }
+    return false;
+}
+bool MainWindow::exportSelectedFile_Interpreted()
+{
+    int index=getSelectedIndex();
+    if (exportFile(index,IO_INTERPRETED))
     {
         QMessageBox msgBox;
         msgBox.setText("Done!");
@@ -207,7 +266,7 @@ bool MainWindow::exportSelectedFile()
     return false;
 }
 
-bool MainWindow::exportFile(int index)
+bool MainWindow::exportFile(int index, IOType type)
 {
     //use DB type
     DBFile &file=mDB.get(mPAKname.toStdString(),index);
@@ -219,64 +278,80 @@ bool MainWindow::exportFile(int index)
     bool result=true;
     AloneFile &alonefile=mPakFile.getAllFiles().at(index);
 
-    switch (file.type)
-    {
-    case FileType::unknown:
-        //export raw
+    switch (type) {
+    case IO_COMPRESSED:
+        sprintf(bufferNameOut,"%s_%d.arc",mPAKPath.toStdString().c_str(),index);
+        result=alonefile.exportCompressed(bufferNameOut);
+        break;
+    case IO_DECOMPRESSED:
         sprintf(bufferNameOut,"%s_%d.dat",mPAKPath.toStdString().c_str(),index);
         result=alonefile.exportUncompressed(bufferNameOut);
         break;
-    case FileType::text:
-        //export txt
-        sprintf(bufferNameOut,"%s_%d.txt",mPAKPath.toStdString().c_str(),index);
-        result=alonefile.exportUncompressed(bufferNameOut);
-        break;
-    case FileType::image:
-        //export bmp
-        result=alonefile.exportAsBMP(0,320,AloneFile::palette);
-        break;
-    case FileType::palimage:
-        //export bmp with own palette
-        printf("Two first bytes: %X %X\n",alonefile.mDecomprData[0],alonefile.mDecomprData[1]);
-        result=alonefile.exportAsBMP(770,320,alonefile.mDecomprData+2);
-        break;
-    case FileType::rooms:
-    case FileType::cams:
-        //check that we have a rooms for file 0, and a cams for file 1
-        if ((mDB.get(mPAKname.toStdString(),0).type!=FileType::rooms)
-                ||(mDB.get(mPAKname.toStdString(),1).type!=FileType::cams))
+    case IO_INTERPRETED:
+        switch (file.type)
         {
-            QMessageBox msgBox;
-            msgBox.setText("ERROR! For a floor, file 0 must be a \"Rooms\", and file 1 a \"Cameras\"!");
-            msgBox.exec();
-            result=false;
-        }else{
-            AloneFloor floor;
-            result=floor.load(&mPakFile.getAllFiles().at(0),&mPakFile.getAllFiles().at(1));
+        case FileType::unknown:
+            //export raw
+            sprintf(bufferNameOut,"%s_%d.dat",mPAKPath.toStdString().c_str(),index);
+            result=alonefile.exportUncompressed(bufferNameOut);
+            break;
+        case FileType::text:
+            //export txt
+            sprintf(bufferNameOut,"%s_%d.txt",mPAKPath.toStdString().c_str(),index);
+            result=alonefile.exportUncompressed(bufferNameOut);
+            break;
+        case FileType::image:
+            //export bmp
+            result=alonefile.exportAsBMP(0,320,AloneFile::palette);
+            break;
+        case FileType::palimage:
+            //export bmp with own palette
+            printf("Two first bytes: %X %X\n",alonefile.mDecomprData[0],alonefile.mDecomprData[1]);
+            result=alonefile.exportAsBMP(770,320,alonefile.mDecomprData+2);
+            break;
+        case FileType::rooms:
+        case FileType::cams:
+            //check that we have a rooms for file 0, and a cams for file 1
+            if ((mDB.get(mPAKname.toStdString(),0).type!=FileType::rooms)
+                    ||(mDB.get(mPAKname.toStdString(),1).type!=FileType::cams))
+            {
+                QMessageBox msgBox;
+                msgBox.setText("ERROR! For a floor, file 0 must be a \"Rooms\", and file 1 a \"Cameras\"!");
+                msgBox.exec();
+                result=false;
+            }else{
+                AloneFloor floor;
+                result=floor.load(&mPakFile.getAllFiles().at(0),&mPakFile.getAllFiles().at(1));
+            }
+            break;
+        case FileType::sound:
+            //export VOX
+            sprintf(bufferNameOut,"%s_%d.VOX",mPAKPath.toStdString().c_str(),index);
+            result=alonefile.exportUncompressed(bufferNameOut);
+            break;
+        case FileType::body:
+        //export ply
+        {
+            AloneBody body(&alonefile);
+            result=body.load();
         }
         break;
-    case FileType::sound:
-        //export VOX
-        sprintf(bufferNameOut,"%s_%d.VOX",mPAKPath.toStdString().c_str(),index);
-        result=alonefile.exportUncompressed(bufferNameOut);
-        break;
-    case FileType::body:
-	//export ply
-	{
-	    AloneBody body(&alonefile);
-	    result=body.load();
-	}
-	break;
-    default:
-        QMessageBox msgBox;
-        msgBox.setText(QString("File type %1 export not implemented!").arg(mDB.mFileTypes[(int)file.type].c_str()));
-        msgBox.exec();
-        result=false;
+        default:
+            QMessageBox msgBox;
+            msgBox.setText(QString("File type %1 export not implemented!").arg(mDB.mFileTypes[(int)file.type].c_str()));
+            msgBox.exec();
+            result=false;
+            break;
+        }
+
         break;
     }
 
+
     return result;
 }
+
+
 
 bool MainWindow::importFile()
 {

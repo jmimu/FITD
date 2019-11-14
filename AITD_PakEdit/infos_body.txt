@@ -1,5 +1,20 @@
 Attention !
 Il semble que les modèles 3d ne sont pas lisibles par le jeu si non compressés.
+Voir infos compression :
+http://aluigi.altervista.org/quickbms.htm
+Ca a l'air d'etre du implode, mais pas certain.
+Pas de compression open source ?
+https://kb.speeddemosarchive.com/Alone_in_the_Dark_(1-3)/Additional_Resources
+quickbms utilise les memes sources que fitd : UnPAK, PAK file unpacker   By Cyril VOILA (cvoila@free.fr)
+Alors qu'il y a deja zlib et co dans quickbms, c'est si particulier?
+C'est pas exactement : https://fr.wikipedia.org/wiki/Implode ?
+https://comp.compression.narkive.com/fPd1FYaX/how-to-explode-using-freeware-libs
+Voir si pkarc fonctionne ? Ca a l'air différent.
+Ajouter export en compressé, en decompressé brut et en interprété.
+Voir les sources de http://infozip.sourceforge.net/ ?
+le paquet nomarch doit peut extraire les .arc
+doc zip : https://www.x-ways.net/winhex/kb/ff/ZIP.txt et https://users.cs.jmu.edu/buchhofp/forensics/formats/pkzip.html
+est-ce qu'on a besoin de blast DCL : https://issues.apache.org/jira/browse/COMPRESS-487
 
 modèles 3d :
 LISTBOD2.PAK_7.dat : trappe à 4+4+3+3 points

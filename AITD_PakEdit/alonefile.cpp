@@ -190,3 +190,22 @@ bool AloneFile::exportUncompressed(const char *outfilename)
     fclose(fileHandle);
     return true;
 }
+
+
+bool AloneFile::exportCompressed(const char *outfilename)
+{
+    if (mComprData)
+    {
+        printf("Export into %s\n",outfilename);
+        FILE* fileHandle;
+        fileHandle = fopen(outfilename,"wb");
+
+        fwrite(mComprData,mInfo.discSize,1,fileHandle);
+
+        fclose(fileHandle);
+        return true;
+    }else{
+        printf("Error, file %l not compressed.\n",this->mIndex);
+        return true;
+    }
+}
