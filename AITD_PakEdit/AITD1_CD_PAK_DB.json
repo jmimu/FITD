@@ -6,31 +6,31 @@
 			"0" : 
 			{
 				"default_compr" : 1,
-				"info" : "???",
+				"info" : "Loft",
 				"type" : 2
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Loft (Crates)",
 				"type" : 2
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Loft (Trapdoor + Piano)",
 				"type" : 2
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Loft (Trapdoor + Crates)",
 				"type" : 2
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Loft (Exit)",
 				"type" : 2
 			}
 		},
@@ -39,91 +39,91 @@
 			"0" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "2nd Floor Storeroom (Stairwell)",
 				"type" : 2
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "2nd Floor Storeroom",
 				"type" : 2
 			},
 			"10" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "2nd Floor Study (Desk + Wardrobe)",
 				"type" : 2
 			},
 			"11" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "2nd Floor Bathroom (Sink)",
 				"type" : 2
 			},
 			"12" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "2nd Floor Bathroom (Shelves)",
 				"type" : 2
 			},
 			"13" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "2nd Floor Lobby (Right)",
 				"type" : 2
 			},
 			"14" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "2nd Floor Lobby (Left)",
 				"type" : 2
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "2nd Floor Hallway",
 				"type" : 2
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "2nd Floor Hallway",
 				"type" : 2
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Dressing Room (Wardrobe)",
 				"type" : 2
 			},
 			"5" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Dressing Room (Chaise Lounge)",
 				"type" : 2
 			},
 			"6" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "2nd Floor Bedroom (Bed)",
 				"type" : 2
 			},
 			"7" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "2nd Floor Bedroom (Dresser)",
 				"type" : 2
 			},
 			"8" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "2nd Floor Bedroom (Window)",
 				"type" : 2
 			},
 			"9" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "2nd Floor Study (Divan)",
 				"type" : 2
 			}
 		},
@@ -132,235 +132,235 @@
 			"0" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Corridor",
 				"type" : 2
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Corridor (Bathroom Doorway)",
 				"type" : 2
 			},
 			"10" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Gallery",
 				"type" : 2
 			},
 			"11" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Gallery",
 				"type" : 2
 			},
 			"12" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Gallery (Library Door)",
 				"type" : 2
 			},
 			"13" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Gallery",
 				"type" : 2
 			},
 			"14" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Gallery",
 				"type" : 2
 			},
 			"15" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Gallery",
 				"type" : 2
 			},
 			"16" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Gallery (Indian Painting)",
 				"type" : 2
 			},
 			"17" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Bedroom 2 (Chair)",
 				"type" : 2
 			},
 			"18" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Bedroom 2 (Bed)",
 				"type" : 2
 			},
 			"19" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Unused",
 				"type" : 2
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Corridor",
 				"type" : 2
 			},
 			"20" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Bedroom 2 (Window)",
 				"type" : 2
 			},
 			"21" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Bedroom 2 (Dark Corridor)",
 				"type" : 2
 			},
 			"22" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Living Room (Chair)",
 				"type" : 2
 			},
 			"23" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Living Room",
 				"type" : 2
 			},
 			"24" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Living Room",
 				"type" : 2
 			},
 			"25" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Library (Secret Room)",
 				"type" : 2
 			},
 			"26" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Library (Shelves)",
 				"type" : 2
 			},
 			"27" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Lobby (Stairs 2)",
 				"type" : 2
 			},
 			"28" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Lobby (Library Doorway)",
 				"type" : 2
 			},
 			"29" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Library (Gallery Doorway)",
 				"type" : 2
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Corridor",
 				"type" : 2
 			},
 			"30" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Library (Lobby Doorway)",
 				"type" : 2
 			},
 			"31" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Library (Shelves)",
 				"type" : 2
 			},
 			"32" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Library (Shelves)",
 				"type" : 2
 			},
 			"33" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Library (Shelves)",
 				"type" : 2
 			},
 			"34" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Library (Secret Door)",
 				"type" : 2
 			},
 			"35" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Library (Shelves)",
 				"type" : 2
 			},
 			"36" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Library (Shelves)",
 				"type" : 2
 			},
 			"37" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Lobby (Stairs 1)",
 				"type" : 2
 			},
 			"38" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Gallery",
 				"type" : 2
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Master Bedroom (Fireplace)",
 				"type" : 2
 			},
 			"5" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Master Bedroom (Curtains)",
 				"type" : 2
 			},
 			"6" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Bathroom",
 				"type" : 2
 			},
 			"7" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Jeremy's Bedroom (Bed)",
 				"type" : 2
 			},
 			"8" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Jeremy's Bedroom (Desk)",
 				"type" : 2
 			},
 			"9" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "1st Floor Gallery (Axe Painting)",
 				"type" : 2
 			}
 		},
@@ -369,151 +369,151 @@
 			"0" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Corridor",
 				"type" : 2
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Corridor",
 				"type" : 2
 			},
 			"10" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Kitchen (Table)",
 				"type" : 2
 			},
 			"11" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Kitchen (Sink)",
 				"type" : 2
 			},
 			"12" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Kitchen (Cabinet)",
 				"type" : 2
 			},
 			"13" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Kitchen (Larder)",
 				"type" : 2
 			},
 			"14" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Kitchen Storeroom (Coal)",
 				"type" : 2
 			},
 			"15" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Kitchen Storeroom",
 				"type" : 2
 			},
 			"16" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Smoking Room",
 				"type" : 2
 			},
 			"17" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Stairs",
 				"type" : 2
 			},
 			"18" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Stairs (Cellar Door)",
 				"type" : 2
 			},
 			"19" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Drawing Room",
 				"type" : 2
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Lobby",
 				"type" : 2
 			},
 			"20" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Drawing Room",
 				"type" : 2
 			},
 			"21" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Ballroom (Fireplace)",
 				"type" : 2
 			},
 			"22" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Ballroom (Courtyard Doorway)",
 				"type" : 2
 			},
 			"23" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Jeremy's Study (Coat Of Arms)",
 				"type" : 2
 			},
 			"24" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Jeremy's Study (Doorway)",
 				"type" : 2
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Lobby (Front Door)",
 				"type" : 2
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Courtyard (Ballroom Door)",
 				"type" : 2
 			},
 			"5" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Courtyard (Statue)",
 				"type" : 2
 			},
 			"6" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Dining Room (Shelves)",
 				"type" : 2
 			},
 			"7" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Dining Room (Table)",
 				"type" : 2
 			},
 			"8" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Smoking Room",
 				"type" : 2
 			},
 			"9" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ground Floor Corridor",
 				"type" : 2
 			}
 		},
@@ -522,31 +522,31 @@
 			"0" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cellar (Steps)",
 				"type" : 2
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cellar",
 				"type" : 2
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cellar",
 				"type" : 2
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cellar",
 				"type" : 2
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cellar (Hidden Passage)",
 				"type" : 2
 			}
 		},
@@ -555,205 +555,205 @@
 			"0" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 1 (To Cellar)",
 				"type" : 2
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 1",
 				"type" : 2
 			},
 			"10" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 1",
 				"type" : 2
 			},
 			"11" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 1",
 				"type" : 2
 			},
 			"12" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 1 (To Piers)",
 				"type" : 2
 			},
 			"13" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Underground Piers (Entrance)",
 				"type" : 2
 			},
 			"14" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Underground Piers (Collapsible)",
 				"type" : 2
 			},
 			"15" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Underground Piers (In The Water)",
 				"type" : 2
 			},
 			"16" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Underground Piers",
 				"type" : 2
 			},
 			"17" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Underground Piers Maze (Entrance)",
 				"type" : 2
 			},
 			"18" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Underground Piers Maze (Overview Left)",
 				"type" : 2
 			},
 			"19" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Underground Piers Maze (Exit)",
 				"type" : 2
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 1",
 				"type" : 2
 			},
 			"20" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Underground Pillars (Exit)",
 				"type" : 2
 			},
 			"21" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Underground Pillars ",
 				"type" : 2
 			},
 			"22" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Underground Pillars (Entrance)",
 				"type" : 2
 			},
 			"23" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cracked Cave Corridor (Exit)",
 				"type" : 2
 			},
 			"24" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Underground Piers (Exit)",
 				"type" : 2
 			},
 			"25" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Underground Corridor",
 				"type" : 2
 			},
 			"26" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Underground Corridor",
 				"type" : 2
 			},
 			"27" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 2 (Spider Hole)",
 				"type" : 2
 			},
 			"28" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 2",
 				"type" : 2
 			},
 			"29" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 2",
 				"type" : 2
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Chasm (Bridge)",
 				"type" : 2
 			},
 			"30" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 2",
 				"type" : 2
 			},
 			"31" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 2",
 				"type" : 2
 			},
 			"32" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Underground Piers Maze (Overview Right)",
 				"type" : 2
 			},
 			"33" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cracked Cave Corridor (Entrance)",
 				"type" : 2
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Chasm + Cthonian Tunnels",
 				"type" : 2
 			},
 			"5" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 1",
 				"type" : 2
 			},
 			"6" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 1",
 				"type" : 2
 			},
 			"7" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 1 (Boulder)",
 				"type" : 2
 			},
 			"8" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 1",
 				"type" : 2
 			},
 			"9" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cthonian Tunnels 1",
 				"type" : 2
 			}
 		},
@@ -762,85 +762,85 @@
 			"0" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pregzt's Tomb (Overview 2)",
 				"type" : 2
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Dark Maze",
 				"type" : 2
 			},
 			"10" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Stone Corridor",
 				"type" : 2
 			},
 			"11" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Stone Corridor",
 				"type" : 2
 			},
 			"12" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Stone Corridor",
 				"type" : 2
 			},
 			"13" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Stone Corridor (Game Over Screen 1)",
 				"type" : 2
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Dark Maze",
 				"type" : 2
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Dark Maze (Entrance)",
 				"type" : 2
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Dark Maze (Exit)",
 				"type" : 2
 			},
 			"5" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pregzt's Tomb (Overview 1)",
 				"type" : 2
 			},
 			"6" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pregzt's Tomb (Left Side Exit)",
 				"type" : 2
 			},
 			"7" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pregzt's Tomb (Closeup)",
 				"type" : 2
 			},
 			"8" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pregzt's Tomb (Altar) (Game Over Screen 2)",
 				"type" : 2
 			},
 			"9" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pregzt's Tomb (Right Corner)",
 				"type" : 2
 			}
 		},
@@ -849,44 +849,179 @@
 			"0" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Outside Road (Gates, Sunset)",
 				"type" : 2
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Outside (Derceto, Sunset)",
 				"type" : 2
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Outside (View From Window)",
 				"type" : 2
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Outside Road (Sunset)",
 				"type" : 2
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Outside Road (Closeup)",
 				"type" : 2
 			},
 			"5" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Outside Front Door",
 				"type" : 2
 			},
 			"6" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Outside Car (Driver)",
 				"type" : 2
+			}
+		},
+		"DEUTSCH.PAK" : 
+		{
+			"0" : 
+			{
+				"default_compr" : 1,
+				"info" : "Ingame messages (German)",
+				"type" : 1
+			},
+			"1" : 
+			{
+				"default_compr" : 1,
+				"info" : "Jeremy's Letter (German)",
+				"type" : 1
+			},
+			"10" : 
+			{
+				"default_compr" : 1,
+				"info" : "Reflections on the Power of the Verb (German)",
+				"type" : 1
+			},
+			"11" : 
+			{
+				"default_compr" : 1,
+				"info" : "Signs and Rituals (The Book of Yael) (German)",
+				"type" : 1
+			},
+			"12" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Sacrificial Dagger (German)",
+				"type" : 1
+			},
+			"13" : 
+			{
+				"default_compr" : 1,
+				"info" : "De Vermis Mysteriis (German)",
+				"type" : 1
+			},
+			"14" : 
+			{
+				"default_compr" : 1,
+				"info" : "Demonia Particularis (German)",
+				"type" : 1
+			},
+			"15" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Tale of Captain Norton (German)",
+				"type" : 1
+			},
+			"16" : 
+			{
+				"default_compr" : 1,
+				"info" : "Memories (German)",
+				"type" : 1
+			},
+			"17" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Trial of Captain Pregzt (German)",
+				"type" : 1
+			},
+			"18" : 
+			{
+				"default_compr" : 1,
+				"info" : "A Pirate's Log book (Memoirs of a Lost Soul) (German)",
+				"type" : 1
+			},
+			"19" : 
+			{
+				"default_compr" : 1,
+				"info" : "End Credits (German)",
+				"type" : 1
+			},
+			"2" : 
+			{
+				"default_compr" : 1,
+				"info" : "Extract from the Golden Fleece (German)",
+				"type" : 1
+			},
+			"20" : 
+			{
+				"default_compr" : 1,
+				"info" : "Edward Carnby’s introduction (German)",
+				"type" : 1
+			},
+			"21" : 
+			{
+				"default_compr" : 1,
+				"info" : "Emily Hartwood’s introduction (German)",
+				"type" : 1
+			},
+			"3" : 
+			{
+				"default_compr" : 1,
+				"info" : "Fragments of the Book of Abdul (German)",
+				"type" : 1
+			},
+			"4" : 
+			{
+				"default_compr" : 1,
+				"info" : "Story of a Louisana Plantation (German)",
+				"type" : 1
+			},
+			"5" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Sons of the Sun (German)",
+				"type" : 1
+			},
+			"6" : 
+			{
+				"default_compr" : 1,
+				"info" : "Terra Incognita (German)",
+				"type" : 1
+			},
+			"7" : 
+			{
+				"default_compr" : 1,
+				"info" : "Jeremy Hartwood's Notebook (German)",
+				"type" : 1
+			},
+			"8" : 
+			{
+				"default_compr" : 1,
+				"info" : "Diary of a journey (German)",
+				"type" : 1
+			},
+			"9" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Creatures of the Night (German)",
+				"type" : 1
 			}
 		},
 		"ENDSEQ.PAK" : 
@@ -894,7 +1029,7 @@
 			"0" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pregzt's Tree (Burning)",
 				"type" : 6
 			},
 			"1" : 
@@ -1082,6 +1217,141 @@
 				"default_compr" : 1,
 				"info" : "?",
 				"type" : 0
+			}
+		},
+		"ENGLISH.PAK" : 
+		{
+			"0" : 
+			{
+				"default_compr" : 1,
+				"info" : "Ingame messages (English)",
+				"type" : 1
+			},
+			"1" : 
+			{
+				"default_compr" : 1,
+				"info" : "Jeremy's Letter (English)",
+				"type" : 1
+			},
+			"10" : 
+			{
+				"default_compr" : 1,
+				"info" : "Reflections on the Power of the Verb (English)",
+				"type" : 1
+			},
+			"11" : 
+			{
+				"default_compr" : 1,
+				"info" : "Signs and Rituals (The Book of Yael) (English)",
+				"type" : 1
+			},
+			"12" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Sacrificial Dagger (English)",
+				"type" : 1
+			},
+			"13" : 
+			{
+				"default_compr" : 1,
+				"info" : "De Vermis Mysteriis (English)",
+				"type" : 1
+			},
+			"14" : 
+			{
+				"default_compr" : 1,
+				"info" : "Demonia Particularis (English)",
+				"type" : 1
+			},
+			"15" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Tale of Captain Norton (English)",
+				"type" : 1
+			},
+			"16" : 
+			{
+				"default_compr" : 1,
+				"info" : "Memories (English)",
+				"type" : 1
+			},
+			"17" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Trial of Captain Pregzt (English)",
+				"type" : 1
+			},
+			"18" : 
+			{
+				"default_compr" : 1,
+				"info" : "A Pirate's Log book (Memoirs of a Lost Soul) (English)",
+				"type" : 1
+			},
+			"19" : 
+			{
+				"default_compr" : 1,
+				"info" : "End Credits (English)",
+				"type" : 1
+			},
+			"2" : 
+			{
+				"default_compr" : 1,
+				"info" : "Extract from the Golden Fleece (English)",
+				"type" : 1
+			},
+			"20" : 
+			{
+				"default_compr" : 1,
+				"info" : "Edward Carnby’s introduction (English)",
+				"type" : 1
+			},
+			"21" : 
+			{
+				"default_compr" : 1,
+				"info" : "Emily Hartwood’s introduction (English)",
+				"type" : 1
+			},
+			"3" : 
+			{
+				"default_compr" : 1,
+				"info" : "Fragments of the Book of Abdul (English)",
+				"type" : 1
+			},
+			"4" : 
+			{
+				"default_compr" : 1,
+				"info" : "Story of a Louisana Plantation (English)",
+				"type" : 1
+			},
+			"5" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Sons of the Sun (English)",
+				"type" : 1
+			},
+			"6" : 
+			{
+				"default_compr" : 1,
+				"info" : "Terra Incognita (English)",
+				"type" : 1
+			},
+			"7" : 
+			{
+				"default_compr" : 1,
+				"info" : "Jeremy Hartwood's Notebook (English)",
+				"type" : 1
+			},
+			"8" : 
+			{
+				"default_compr" : 1,
+				"info" : "Diary of a journey (English)",
+				"type" : 1
+			},
+			"9" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Creatures of the Night (English)",
+				"type" : 1
 			}
 		},
 		"ETAGE00.PAK" : 
@@ -1209,133 +1479,268 @@
 			"0" : 
 			{
 				"default_compr" : 1,
-				"info" : "All French ingame messages",
+				"info" : "Ingame messages (French)",
 				"type" : 1
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Jeremy's Letter (French)",
 				"type" : 1
 			},
 			"10" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Reflections on the Power of the Verb (French)",
 				"type" : 1
 			},
 			"11" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Signs and Rituals (The Book of Yael) (French)",
 				"type" : 1
 			},
 			"12" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "The Sacrificial Dagger (French)",
 				"type" : 1
 			},
 			"13" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "De Vermis Mysteriis (French)",
 				"type" : 1
 			},
 			"14" : 
 			{
 				"default_compr" : 1,
-				"info" : "French Edward intro text",
+				"info" : "Demonia Particularis (French)",
 				"type" : 1
 			},
 			"15" : 
 			{
 				"default_compr" : 1,
-				"info" : "French Emily intro text",
+				"info" : "The Tale of Captain Norton (French)",
 				"type" : 1
 			},
 			"16" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Memories (French)",
 				"type" : 1
 			},
 			"17" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "The Trial of Captain Pregzt (French)",
 				"type" : 1
 			},
 			"18" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "A Pirate's Log book (Memoirs of a Lost Soul) (French)",
 				"type" : 1
 			},
 			"19" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "End Credits (French)",
 				"type" : 1
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Extract from the Golden Fleece (French)",
 				"type" : 1
 			},
 			"20" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Edward Carnby’s introduction (French)",
 				"type" : 1
 			},
 			"21" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Emily Hartwood’s introduction (French)",
 				"type" : 1
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Fragments of the Book of Abdul (French)",
 				"type" : 1
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Story of a Louisana Plantation (French)",
 				"type" : 1
 			},
 			"5" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "The Sons of the Sun (French)",
 				"type" : 1
 			},
 			"6" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Terra Incognita (French)",
 				"type" : 1
 			},
 			"7" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Jeremy Hartwood's Notebook (French)",
 				"type" : 1
 			},
 			"8" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Diary of a journey (French)",
 				"type" : 1
 			},
 			"9" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "The Creatures of the Night (French)",
+				"type" : 1
+			}
+		},
+		"ITALIANO.PAK" : 
+		{
+			"0" : 
+			{
+				"default_compr" : 1,
+				"info" : "Ingame messages (Italian)",
+				"type" : 1
+			},
+			"1" : 
+			{
+				"default_compr" : 1,
+				"info" : "Jeremy's Letter (Italian)",
+				"type" : 1
+			},
+			"10" : 
+			{
+				"default_compr" : 1,
+				"info" : "Reflections on the Power of the Verb (Italian)",
+				"type" : 1
+			},
+			"11" : 
+			{
+				"default_compr" : 1,
+				"info" : "Signs and Rituals (The Book of Yael) (Italian)",
+				"type" : 1
+			},
+			"12" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Sacrificial Dagger (Italian)",
+				"type" : 1
+			},
+			"13" : 
+			{
+				"default_compr" : 1,
+				"info" : "De Vermis Mysteriis (Italian)",
+				"type" : 1
+			},
+			"14" : 
+			{
+				"default_compr" : 1,
+				"info" : "Demonia Particularis (Italian)",
+				"type" : 1
+			},
+			"15" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Tale of Captain Norton (Italian)",
+				"type" : 1
+			},
+			"16" : 
+			{
+				"default_compr" : 1,
+				"info" : "Memories (Italian)",
+				"type" : 1
+			},
+			"17" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Trial of Captain Pregzt (Italian)",
+				"type" : 1
+			},
+			"18" : 
+			{
+				"default_compr" : 1,
+				"info" : "A Pirate's Log book (Memoirs of a Lost Soul) (Italian)",
+				"type" : 1
+			},
+			"19" : 
+			{
+				"default_compr" : 1,
+				"info" : "End Credits (Italian)",
+				"type" : 1
+			},
+			"2" : 
+			{
+				"default_compr" : 1,
+				"info" : "Extract from the Golden Fleece (Italian)",
+				"type" : 1
+			},
+			"20" : 
+			{
+				"default_compr" : 1,
+				"info" : "Edward Carnby’s introduction (Italian)",
+				"type" : 1
+			},
+			"21" : 
+			{
+				"default_compr" : 1,
+				"info" : "Emily Hartwood’s introduction (Italian)",
+				"type" : 1
+			},
+			"3" : 
+			{
+				"default_compr" : 1,
+				"info" : "Fragments of the Book of Abdul (Italian)",
+				"type" : 1
+			},
+			"4" : 
+			{
+				"default_compr" : 1,
+				"info" : "Story of a Louisana Plantation (Italian)",
+				"type" : 1
+			},
+			"5" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Sons of the Sun (Italian)",
+				"type" : 1
+			},
+			"6" : 
+			{
+				"default_compr" : 1,
+				"info" : "Terra Incognita (Italian)",
+				"type" : 1
+			},
+			"7" : 
+			{
+				"default_compr" : 1,
+				"info" : "Jeremy Hartwood's Notebook (Italian)",
+				"type" : 1
+			},
+			"8" : 
+			{
+				"default_compr" : 1,
+				"info" : "Diary of a journey (Italian)",
+				"type" : 1
+			},
+			"9" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Creatures of the Night (Italian)",
 				"type" : 1
 			}
 		},
@@ -1356,67 +1761,67 @@
 			"10" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Character Portraits (Emily + Edward)",
 				"type" : 2
 			},
 			"11" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Frog (Extreme Close Up)",
 				"type" : 2
 			},
 			"12" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Game Over Screen",
 				"type" : 2
 			},
 			"13" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Title Screen",
 				"type" : 6
 			},
 			"14" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Gradients",
 				"type" : 2
 			},
 			"15" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Outside Road (Gates, Sunrise)",
 				"type" : 2
 			},
 			"16" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Outside Road (Derceto, Sunrise)",
 				"type" : 2
 			},
 			"17" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pregzt's Tomb (Overview 2, Burning)",
 				"type" : 2
 			},
 			"18" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pregzt's Tomb (Overview 1, Burning)",
 				"type" : 2
 			},
 			"19" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pregzt's Tomb (Altar, Burning)",
 				"type" : 2
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Infogrames Company Logo",
 				"type" : 6
 			},
 			"3" : 
@@ -1440,19 +1845,19 @@
 			"6" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Parchment Background",
 				"type" : 2
 			},
 			"7" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Book Background",
 				"type" : 2
 			},
 			"8" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Notebook Background",
 				"type" : 2
 			},
 			"9" : 
@@ -5133,3268 +5538,3268 @@
 			"0" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Chest (Closed), Loft",
 				"type" : 7
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Chest (Open), Loft",
 				"type" : 7
 			},
 			"10" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Oil Lamp (Inventory)",
 				"type" : 7
 			},
 			"100" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Jug (Inventory)",
 				"type" : 7
 			},
 			"101" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bathtub Monster",
 				"type" : 7
 			},
 			"102" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bullets (World)",
 				"type" : 7
 			},
 			"103" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bullets (Inventory)",
 				"type" : 7
 			},
 			"104" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Very Heavy Statuette (World)",
 				"type" : 7
 			},
 			"105" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Very Heavy Statuette (Inventory)",
 				"type" : 7
 			},
 			"106" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"107" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"108" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Grandfather Clock",
 				"type" : 7
 			},
 			"109" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Gold Key (World)",
 				"type" : 7
 			},
 			"11" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Emily (Holding Lamp)",
 				"type" : 7
 			},
 			"110" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Gold Key (Inventory)",
 				"type" : 7
 			},
 			"111" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "False Book (World)",
 				"type" : 7
 			},
 			"112" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "False Book (Inventory)",
 				"type" : 7
 			},
 			"113" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Parchment (World)",
 				"type" : 7
 			},
 			"114" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Parchment (Inventory)",
 				"type" : 7
 			},
 			"115" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Talisman (World)",
 				"type" : 7
 			},
 			"116" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Sinusoidal Dagger (World)",
 				"type" : 7
 			},
 			"117" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Sinusoidal Dagger (Inventory)",
 				"type" : 7
 			},
 			"118" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Emily (Holding Knife)",
 				"type" : 7
 			},
 			"119" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Knife (World)",
 				"type" : 7
 			},
 			"12" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Emily",
 				"type" : 7
 			},
 			"120" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Knife (Inventory)",
 				"type" : 7
 			},
 			"121" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Dagger (World)",
 				"type" : 7
 			},
 			"122" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Dagger (Inventory)",
 				"type" : 7
 			},
 			"123" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Talisman (Inventory)",
 				"type" : 7
 			},
 			"124" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Talisman (Active)",
 				"type" : 7
 			},
 			"125" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"126" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"127" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Parchment (World)",
 				"type" : 7
 			},
 			"128" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Parchment (Inventory)",
 				"type" : 7
 			},
 			"129" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Parchment (World)",
 				"type" : 7
 			},
 			"13" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Rifle (Inventory)",
 				"type" : 7
 			},
 			"130" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Parchment (Inventory)",
 				"type" : 7
 			},
 			"131" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Book (World)",
 				"type" : 7
 			},
 			"132" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Book (Inventory)",
 				"type" : 7
 			},
 			"133" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Poker (World)",
 				"type" : 7
 			},
 			"134" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Poker (Inventory)",
 				"type" : 7
 			},
 			"135" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Box of Cartridges (World)",
 				"type" : 7
 			},
 			"136" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Box of Cartridges (Inventory)",
 				"type" : 7
 			},
 			"137" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Matchbox (World)",
 				"type" : 7
 			},
 			"138" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Matchbox (Inventory)",
 				"type" : 7
 			},
 			"139" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Gramophone (World)",
 				"type" : 7
 			},
 			"14" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Rifle (World)",
 				"type" : 7
 			},
 			"140" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Gramophone (Inventory)",
 				"type" : 7
 			},
 			"141" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Living Room Ghost",
 				"type" : 7
 			},
 			"142" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Living Room Ghost, Angry",
 				"type" : 7
 			},
 			"143" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Door (Right)",
 				"type" : 7
 			},
 			"144" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Door (Left)",
 				"type" : 7
 			},
 			"145" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Front Door Monster",
 				"type" : 7
 			},
 			"146" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Gold Key (Inventory)",
 				"type" : 7
 			},
 			"147" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Gold Key (World)",
 				"type" : 7
 			},
 			"148" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"149" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"15" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Emily (Holding Rifle)",
 				"type" : 7
 			},
 			"150" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ghost Pirate",
 				"type" : 7
 			},
 			"151" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pirate Chest Key (World)",
 				"type" : 7
 			},
 			"152" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pirate Chest Key (Inventory)",
 				"type" : 7
 			},
 			"153" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Purple Record (Strauss) (World)",
 				"type" : 7
 			},
 			"154" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Purple Record (Strauss) (Inventory)",
 				"type" : 7
 			},
 			"155" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ballroom Ghosts",
 				"type" : 7
 			},
 			"156" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ballroom Ghosts, Angry",
 				"type" : 7
 			},
 			"157" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ballroom Ghosts",
 				"type" : 7
 			},
 			"158" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ballroom Ghosts, Angry?",
 				"type" : 7
 			},
 			"159" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ballroom Ghosts",
 				"type" : 7
 			},
 			"16" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Jeremy's Letter? (Inventory)",
 				"type" : 7
 			},
 			"160" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ballroom Ghosts, Angry?",
 				"type" : 7
 			},
 			"161" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Arrow (Inventory)",
 				"type" : 7
 			},
 			"162" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Arrow (World)",
 				"type" : 7
 			},
 			"163" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Arrow (Inventory)",
 				"type" : 7
 			},
 			"164" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Arrow (Inventory)",
 				"type" : 7
 			},
 			"165" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Spider #1",
 				"type" : 7
 			},
 			"166" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Spider #2",
 				"type" : 7
 			},
 			"167" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Spider #3",
 				"type" : 7
 			},
 			"168" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Spider #4",
 				"type" : 7
 			},
 			"169" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Spider #5",
 				"type" : 7
 			},
 			"17" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Jeremy's Letter? (World)",
 				"type" : 7
 			},
 			"170" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Spider #6",
 				"type" : 7
 			},
 			"171" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Biscuit Box (Inventory)",
 				"type" : 7
 			},
 			"172" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Biscuit Box (World)",
 				"type" : 7
 			},
 			"173" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Biscuit Box, Empty (Inventory)",
 				"type" : 7
 			},
 			"174" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Biscuit Box, Empty (World)",
 				"type" : 7
 			},
 			"175" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Silver Cellar Key? (World)",
 				"type" : 7
 			},
 			"176" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Silver Cellar Key? (Inventory)",
 				"type" : 7
 			},
 			"177" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Door (Right)",
 				"type" : 7
 			},
 			"178" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Door (Left)",
 				"type" : 7
 			},
 			"179" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Matchbox (World)",
 				"type" : 7
 			},
 			"18" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Indian Cover (In World, Folded)",
 				"type" : 7
 			},
 			"180" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Matchbox (World)",
 				"type" : 7
 			},
 			"181" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pot of Soup (World)",
 				"type" : 7
 			},
 			"182" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pot of Soup (Inventory)",
 				"type" : 7
 			},
 			"183" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Knife (World)",
 				"type" : 7
 			},
 			"184" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Knife (Inventory)",
 				"type" : 7
 			},
 			"185" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Knife (World)",
 				"type" : 7
 			},
 			"186" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Knife (Inventory)",
 				"type" : 7
 			},
 			"187" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Oil Can (World)",
 				"type" : 7
 			},
 			"188" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Oil Can (Inventory)",
 				"type" : 7
 			},
 			"189" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Shoe Box (Inventory)",
 				"type" : 7
 			},
 			"19" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Indian Cover (In Inventory)",
 				"type" : 7
 			},
 			"190" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Shoe Box (World)",
 				"type" : 7
 			},
 			"191" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Revolver (Inventory)",
 				"type" : 7
 			},
 			"192" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Revolver (World)",
 				"type" : 7
 			},
 			"193" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Emily (Holding Revolver)",
 				"type" : 7
 			},
 			"194" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"195" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Desk",
 				"type" : 7
 			},
 			"196" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Coat Of Arms, With 1 Sabre",
 				"type" : 7
 			},
 			"197" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Record (World)",
 				"type" : 7
 			},
 			"198" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Record (Inventory)",
 				"type" : 7
 			},
 			"199" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wardrobe (Closed), Loft",
 				"type" : 7
 			},
 			"20" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Indian Cover (World, Hung)",
 				"type" : 7
 			},
 			"200" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"201" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Dining Chair",
 				"type" : 7
 			},
 			"202" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"203" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt) + Dining Chair",
 				"type" : 7
 			},
 			"204" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"205" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt) + Dining Chair",
 				"type" : 7
 			},
 			"206" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"207" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt) + Dining Chair",
 				"type" : 7
 			},
 			"208" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt) + Dining Chair",
 				"type" : 7
 			},
 			"209" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"21" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Fleece?) (Inventory)",
 				"type" : 7
 			},
 			"210" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt) + Dining Chair",
 				"type" : 7
 			},
 			"211" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"212" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cigar In Ashtray",
 				"type" : 7
 			},
 			"213" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Lighter (World)",
 				"type" : 7
 			},
 			"214" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Lighter (Inventory)",
 				"type" : 7
 			},
 			"215" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"216" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"217" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Red Record (Chopin) (World)",
 				"type" : 7
 			},
 			"218" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Red Record (Chopin) (Inventory)",
 				"type" : 7
 			},
 			"219" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Barrel #1",
 				"type" : 7
 			},
 			"22" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"220" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Barrel #2",
 				"type" : 7
 			},
 			"221" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Chock (World)",
 				"type" : 7
 			},
 			"222" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Chock (Inventory)",
 				"type" : 7
 			},
 			"223" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"224" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"225" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bullets (World)",
 				"type" : 7
 			},
 			"226" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bullets (Inventory)",
 				"type" : 7
 			},
 			"227" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Rat",
 				"type" : 7
 			},
 			"228" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Rat",
 				"type" : 7
 			},
 			"229" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Rat",
 				"type" : 7
 			},
 			"23" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"230" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bridge Section",
 				"type" : 7
 			},
 			"231" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Chthonian",
 				"type" : 7
 			},
 			"232" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Boulder #1",
 				"type" : 7
 			},
 			"233" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Boulder #2",
 				"type" : 7
 			},
 			"234" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Window Monster",
 				"type" : 7
 			},
 			"235" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Giant Spider",
 				"type" : 7
 			},
 			"236" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pier Planks",
 				"type" : 7
 			},
 			"237" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Deep One",
 				"type" : 7
 			},
 			"238" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Flying Creature #1",
 				"type" : 7
 			},
 			"239" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Grey Stone Tomb Door",
 				"type" : 7
 			},
 			"24" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Window Monster",
 				"type" : 7
 			},
 			"240" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Giant Spider-Wolf",
 				"type" : 7
 			},
 			"241" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Maze Wooden Floor Panel (Short)",
 				"type" : 7
 			},
 			"242" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Maze Wooden Floor Panel (Long/Wide)",
 				"type" : 7
 			},
 			"243" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Flying Creature #1",
 				"type" : 7
 			},
 			"244" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Grey Boulder",
 				"type" : 7
 			},
 			"245" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pirate Chest (Closed), Underground",
 				"type" : 7
 			},
 			"246" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pirate Chest (Open), Underground",
 				"type" : 7
 			},
 			"247" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Gem (World)",
 				"type" : 7
 			},
 			"248" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Gem (Inventory)",
 				"type" : 7
 			},
 			"249" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Tomb Door (With Gem)",
 				"type" : 7
 			},
 			"25" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Door (Left)",
 				"type" : 7
 			},
 			"250" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"251" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"252" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Grey Stone Tomb Door",
 				"type" : 7
 			},
 			"253" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Tomb Door (No Gem)",
 				"type" : 7
 			},
 			"254" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Grey Stone Tomb Door",
 				"type" : 7
 			},
 			"255" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Hook (World)",
 				"type" : 7
 			},
 			"256" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Hook (Inventory)",
 				"type" : 7
 			},
 			"257" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Deep One",
 				"type" : 7
 			},
 			"258" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Fireball #1",
 				"type" : 7
 			},
 			"259" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Fireball #1 (Impact)?",
 				"type" : 7
 			},
 			"26" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Oil Can (World)",
 				"type" : 7
 			},
 			"260" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Fireball #2",
 				"type" : 7
 			},
 			"261" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Fireball #2 (Impact)?",
 				"type" : 7
 			},
 			"262" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Falling Boulder?",
 				"type" : 7
 			},
 			"263" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Driver's Head",
 				"type" : 7
 			},
 			"264" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Emily (Inventory Portrait?)",
 				"type" : 7
 			},
 			"265" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Emily",
 				"type" : 7
 			},
 			"266" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Car",
 				"type" : 7
 			},
 			"267" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Frog",
 				"type" : 7
 			},
 			"268" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Emily (Holding Flask?)",
 				"type" : 7
 			},
 			"269" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Emily",
 				"type" : 7
 			},
 			"27" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Oil Can (Inventory)",
 				"type" : 7
 			},
 			"270" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Yellow Fireball?",
 				"type" : 7
 			},
 			"271" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"28" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bow (World)",
 				"type" : 7
 			},
 			"29" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bow (Inventory)",
 				"type" : 7
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wardrobe (Open), Loft",
 				"type" : 7
 			},
 			"30" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Emily (Holding Bow)",
 				"type" : 7
 			},
 			"31" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Emily (Holding Bow)",
 				"type" : 7
 			},
 			"32" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Breakaway Floorboards",
 				"type" : 7
 			},
 			"33" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Chair",
 				"type" : 7
 			},
 			"34" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Door (Right)",
 				"type" : 7
 			},
 			"35" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Chest (Closed), Study",
 				"type" : 7
 			},
 			"36" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Chest (Open), Study",
 				"type" : 7
 			},
 			"37" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Broken Sabre Blade (Inventory)",
 				"type" : 7
 			},
 			"38" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Broken Sabre Blade (World)",
 				"type" : 7
 			},
 			"39" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Coat Of Arms, With 2 Sabres",
 				"type" : 7
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Rocking Horse",
 				"type" : 7
 			},
 			"40" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Old Cavalry Sabre (Inventory)",
 				"type" : 7
 			},
 			"41" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Old Cavalry Sabre (World)",
 				"type" : 7
 			},
 			"42" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Broken Sabre Hilt (World)",
 				"type" : 7
 			},
 			"43" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Broken Sabre Hilt (Inventory)",
 				"type" : 7
 			},
 			"44" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Emily (Holding Sabre)",
 				"type" : 7
 			},
 			"45" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Emily (Holding Broken Sabre Hilt)",
 				"type" : 7
 			},
 			"46" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Silver Key (Inventory)",
 				"type" : 7
 			},
 			"47" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Silver Key (World)",
 				"type" : 7
 			},
 			"48" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Pink Shirt)",
 				"type" : 7
 			},
 			"49" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bathroom Cupboard Door",
 				"type" : 7
 			},
 			"5" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "4 Pane Window",
 				"type" : 7
 			},
 			"50" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "First Aid Kit (Inventory)",
 				"type" : 7
 			},
 			"51" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "First Aid Kit (World)",
 				"type" : 7
 			},
 			"52" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Flask (Inventory)",
 				"type" : 7
 			},
 			"53" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Flask (World)",
 				"type" : 7
 			},
 			"54" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cushioned Stool",
 				"type" : 7
 			},
 			"55" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "6 Pane Window",
 				"type" : 7
 			},
 			"56" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "6 Pane Window (Broken)",
 				"type" : 7
 			},
 			"57" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Vase (World)",
 				"type" : 7
 			},
 			"58" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Vase (Inventory)",
 				"type" : 7
 			},
 			"59" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Vase, Broken (World)",
 				"type" : 7
 			},
 			"6" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "4 Pane Window (Broken)",
 				"type" : 7
 			},
 			"60" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Vase, Broken (Inventory)",
 				"type" : 7
 			},
 			"61" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Dresser Key (Inventory)",
 				"type" : 7
 			},
 			"62" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Dresser Key (World)",
 				"type" : 7
 			},
 			"63" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror #1 (Inventory)",
 				"type" : 7
 			},
 			"64" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror #1 (World)",
 				"type" : 7
 			},
 			"65" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror #1, Broken (World)",
 				"type" : 7
 			},
 			"66" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror #1, Broken (Inventory)",
 				"type" : 7
 			},
 			"67" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror #2 (Inventory)",
 				"type" : 7
 			},
 			"68" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror #2 (World)",
 				"type" : 7
 			},
 			"69" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror #2, Broken (World)",
 				"type" : 7
 			},
 			"7" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Trap Door, Loft",
 				"type" : 7
 			},
 			"70" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror, Broken (Inventory)",
 				"type" : 7
 			},
 			"71" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Window Monster",
 				"type" : 7
 			},
 			"72" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Dressing Table",
 				"type" : 7
 			},
 			"73" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Yellow Shirt)",
 				"type" : 7
 			},
 			"74" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Nightgaunt #1",
 				"type" : 7
 			},
 			"75" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Nightgaunt #2",
 				"type" : 7
 			},
 			"76" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bookshelf (Secret Door)",
 				"type" : 7
 			},
 			"77" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Red Book (Book of Abdul) (World)",
 				"type" : 7
 			},
 			"78" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Red Book (Book of Abdul) (Inventory)",
 				"type" : 7
 			},
 			"79" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"8" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Stool",
 				"type" : 7
 			},
 			"80" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"81" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"82" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"83" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"84" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"85" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Vagabond",
 				"type" : 7
 			},
 			"86" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Arrow (World)",
 				"type" : 7
 			},
 			"87" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Axe (World)",
 				"type" : 7
 			},
 			"88" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Axe (Inventory)",
 				"type" : 7
 			},
 			"89" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Sword (Inventory)",
 				"type" : 7
 			},
 			"9" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Lamp (World)",
 				"type" : 7
 			},
 			"90" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Sword (World)",
 				"type" : 7
 			},
 			"91" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Suit Of Armor",
 				"type" : 7
 			},
 			"92" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Jeremy's Notebook (World)",
 				"type" : 7
 			},
 			"93" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Jeremy's Notebook (Inventory)",
 				"type" : 7
 			},
 			"94" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Window Monster",
 				"type" : 7
 			},
 			"95" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "First Aid Kit (Inventory)",
 				"type" : 7
 			},
 			"96" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "First Aid Kit (World)",
 				"type" : 7
 			},
 			"97" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Flask (Inventory)",
 				"type" : 7
 			},
 			"98" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Flask (World)",
 				"type" : 7
 			},
 			"99" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Jug (World)",
 				"type" : 7
 			}
 		},
-		"LISTBODY.PAK" : 
+				"LISTBODY.PAK" : 
 		{
 			"0" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Chest (Closed), Loft",
 				"type" : 7
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Chest (Open), Loft",
 				"type" : 7
 			},
 			"10" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Oil Lamp (Inventory)",
 				"type" : 7
 			},
 			"100" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Jug (Inventory)",
 				"type" : 7
 			},
 			"101" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bathtub Monster",
 				"type" : 7
 			},
 			"102" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bullets (World)",
 				"type" : 7
 			},
 			"103" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bullets (Inventory)",
 				"type" : 7
 			},
 			"104" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Very Heavy Statuette (World)",
 				"type" : 7
 			},
 			"105" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Very Heavy Statuette (Inventory)",
 				"type" : 7
 			},
 			"106" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"107" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"108" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Grandfather Clock",
 				"type" : 7
 			},
 			"109" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Gold Key (World)",
 				"type" : 7
 			},
 			"11" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Edward (Holding Lamp)",
 				"type" : 7
 			},
 			"110" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Gold Key (Inventory)",
 				"type" : 7
 			},
 			"111" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "False Book (World)",
 				"type" : 7
 			},
 			"112" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "False Book (Inventory)",
 				"type" : 7
 			},
 			"113" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Parchment (World)",
 				"type" : 7
 			},
 			"114" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Parchment (Inventory)",
 				"type" : 7
 			},
 			"115" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Talisman (World)",
 				"type" : 7
 			},
 			"116" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Sinusoidal Dagger (World)",
 				"type" : 7
 			},
 			"117" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Sinusoidal Dagger (Inventory)",
 				"type" : 7
 			},
 			"118" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Edward (Holding Knife)",
 				"type" : 7
 			},
 			"119" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Knife (World)",
 				"type" : 7
 			},
 			"12" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Edward",
 				"type" : 7
 			},
 			"120" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Knife (Inventory)",
 				"type" : 7
 			},
 			"121" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Dagger (World)",
 				"type" : 7
 			},
 			"122" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Dagger (Inventory)",
 				"type" : 7
 			},
 			"123" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Talisman (Inventory)",
 				"type" : 7
 			},
 			"124" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Talisman (Active)",
 				"type" : 7
 			},
 			"125" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"126" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"127" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Parchment (World)",
 				"type" : 7
 			},
 			"128" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Parchment (Inventory)",
 				"type" : 7
 			},
 			"129" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Parchment (World)",
 				"type" : 7
 			},
 			"13" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Rifle (Inventory)",
 				"type" : 7
 			},
 			"130" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Parchment (Inventory)",
 				"type" : 7
 			},
 			"131" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Book (World)",
 				"type" : 7
 			},
 			"132" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Book (Inventory)",
 				"type" : 7
 			},
 			"133" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Poker (World)",
 				"type" : 7
 			},
 			"134" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Poker (Inventory)",
 				"type" : 7
 			},
 			"135" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Box of Cartridges (World)",
 				"type" : 7
 			},
 			"136" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Box of Cartridges (Inventory)",
 				"type" : 7
 			},
 			"137" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Matchbox (World)",
 				"type" : 7
 			},
 			"138" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Matchbox (Inventory)",
 				"type" : 7
 			},
 			"139" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Gramophone (World)",
 				"type" : 7
 			},
 			"14" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Rifle (World)",
 				"type" : 7
 			},
 			"140" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Gramophone (Inventory)",
 				"type" : 7
 			},
 			"141" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Living Room Ghost",
 				"type" : 7
 			},
 			"142" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Living Room Ghost, Angry",
 				"type" : 7
 			},
 			"143" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Door (Right)",
 				"type" : 7
 			},
 			"144" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Door (Left)",
 				"type" : 7
 			},
 			"145" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Front Door Monster",
 				"type" : 7
 			},
 			"146" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Gold Key (Inventory)",
 				"type" : 7
 			},
 			"147" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Gold Key (World)",
 				"type" : 7
 			},
 			"148" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"149" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"15" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Edward (Holding Rifle)",
 				"type" : 7
 			},
 			"150" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ghost Pirate",
 				"type" : 7
 			},
 			"151" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pirate Chest Key (World)",
 				"type" : 7
 			},
 			"152" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pirate Chest Key (Inventory)",
 				"type" : 7
 			},
 			"153" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Purple Record (Strauss) (World)",
 				"type" : 7
 			},
 			"154" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Purple Record (Strauss) (Inventory)",
 				"type" : 7
 			},
 			"155" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ballroom Ghosts",
 				"type" : 7
 			},
 			"156" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ballroom Ghosts, Angry",
 				"type" : 7
 			},
 			"157" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ballroom Ghosts",
 				"type" : 7
 			},
 			"158" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ballroom Ghosts, Angry",
 				"type" : 7
 			},
 			"159" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ballroom Ghosts",
 				"type" : 7
 			},
 			"16" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Jeremy's Letter? (Inventory)",
 				"type" : 7
 			},
 			"160" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Ballroom Ghosts, Angry",
 				"type" : 7
 			},
 			"161" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Arrow (Inventory)",
 				"type" : 7
 			},
 			"162" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Arrow (World)",
 				"type" : 7
 			},
 			"163" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Arrow (Inventory)",
 				"type" : 7
 			},
 			"164" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Arrow (Inventory)",
 				"type" : 7
 			},
 			"165" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Spider #1",
 				"type" : 7
 			},
 			"166" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Spider #2",
 				"type" : 7
 			},
 			"167" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Spider #3",
 				"type" : 7
 			},
 			"168" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Spider #4",
 				"type" : 7
 			},
 			"169" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Spider #5",
 				"type" : 7
 			},
 			"17" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Jeremy's Letter? (World)",
 				"type" : 7
 			},
 			"170" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Spider #6",
 				"type" : 7
 			},
 			"171" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Biscuit Box (Inventory)",
 				"type" : 7
 			},
 			"172" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Biscuit Box (World)",
 				"type" : 7
 			},
 			"173" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Biscuit Box, Empty (Inventory)",
 				"type" : 7
 			},
 			"174" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Biscuit Box, Empty (World)",
 				"type" : 7
 			},
 			"175" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Silver Cellar Key? (World)",
 				"type" : 7
 			},
 			"176" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Silver Cellar Key? (Inventory)",
 				"type" : 7
 			},
 			"177" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Door (Right)",
 				"type" : 7
 			},
 			"178" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Door (Left)",
 				"type" : 7
 			},
 			"179" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Matchbox (World)",
 				"type" : 7
 			},
 			"18" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Indian Cover (In World, Folded)",
 				"type" : 7
 			},
 			"180" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Matchbox (World)",
 				"type" : 7
 			},
 			"181" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pot of Soup (World)",
 				"type" : 7
 			},
 			"182" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pot of Soup (Inventory)",
 				"type" : 7
 			},
 			"183" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Knife (World)",
 				"type" : 7
 			},
 			"184" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Knife (Inventory)",
 				"type" : 7
 			},
 			"185" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Knife (World)",
 				"type" : 7
 			},
 			"186" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Knife (Inventory)",
 				"type" : 7
 			},
 			"187" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Oil Can (World)",
 				"type" : 7
 			},
 			"188" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Oil Can (Inventory)",
 				"type" : 7
 			},
 			"189" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Shoe Box (Inventory)",
 				"type" : 7
 			},
 			"19" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Indian Cover (In Inventory)",
 				"type" : 7
 			},
 			"190" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Shoe Box (World)",
 				"type" : 7
 			},
 			"191" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Revolver (Inventory)",
 				"type" : 7
 			},
 			"192" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Revolver (World)",
 				"type" : 7
 			},
 			"193" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Edward (Holding Revolver)",
 				"type" : 7
 			},
 			"194" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"195" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Desk",
 				"type" : 7
 			},
 			"196" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Coat Of Arms, With 1 Sabre",
 				"type" : 7
 			},
 			"197" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Record (World)",
 				"type" : 7
 			},
 			"198" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Record (Inventory)",
 				"type" : 7
 			},
 			"199" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wardrobe (Closed), Loft",
 				"type" : 7
 			},
 			"20" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Indian Cover (World, Hung)",
 				"type" : 7
 			},
 			"200" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"201" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Dining Chair",
 				"type" : 7
 			},
 			"202" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"203" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt) + Dining Chair",
 				"type" : 7
 			},
 			"204" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"205" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt) + Dining Chair",
 				"type" : 7
 			},
 			"206" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"207" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt) + Dining Chair",
 				"type" : 7
 			},
 			"208" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt) + Dining Chair",
 				"type" : 7
 			},
 			"209" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"21" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Fleece?) (Inventory)",
 				"type" : 7
 			},
 			"210" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt) + Dining Chair",
 				"type" : 7
 			},
 			"211" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"212" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cigar In Ashtray",
 				"type" : 7
 			},
 			"213" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Lighter (World)",
 				"type" : 7
 			},
 			"214" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Lighter (Inventory)",
 				"type" : 7
 			},
 			"215" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"216" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"217" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Red Record (Chopin) (World)",
 				"type" : 7
 			},
 			"218" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Red Record (Chopin) (Inventory)",
 				"type" : 7
 			},
 			"219" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Barrel #1",
 				"type" : 7
 			},
 			"22" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"220" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Barrel #2",
 				"type" : 7
 			},
 			"221" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Chock (World)",
 				"type" : 7
 			},
 			"222" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Chock (Inventory)",
 				"type" : 7
 			},
 			"223" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"224" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"225" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bullets (World)",
 				"type" : 7
 			},
 			"226" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bullets (Inventory)",
 				"type" : 7
 			},
 			"227" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Rat",
 				"type" : 7
 			},
 			"228" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Rat",
 				"type" : 7
 			},
 			"229" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Rat",
 				"type" : 7
 			},
 			"23" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"230" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bridge Section",
 				"type" : 7
 			},
 			"231" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Chthonian",
 				"type" : 7
 			},
 			"232" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Boulder #1",
 				"type" : 7
 			},
 			"233" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Boulder #2",
 				"type" : 7
 			},
 			"234" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Window Monster",
 				"type" : 7
 			},
 			"235" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Giant Spider",
 				"type" : 7
 			},
 			"236" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pier Planks",
 				"type" : 7
 			},
 			"237" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Deep One",
 				"type" : 7
 			},
 			"238" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Flying Creature #1",
 				"type" : 7
 			},
 			"239" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Grey Stone Tomb Door",
 				"type" : 7
 			},
 			"24" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Window Monster",
 				"type" : 7
 			},
 			"240" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Giant Spider-Wolf",
 				"type" : 7
 			},
 			"241" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Maze Wooden Floor Panel (Short)",
 				"type" : 7
 			},
 			"242" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Maze Wooden Floor Panel (Long/Wide)",
 				"type" : 7
 			},
 			"243" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Flying Creature #1",
 				"type" : 7
 			},
 			"244" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Grey Boulder",
 				"type" : 7
 			},
 			"245" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pirate Chest (Closed), Underground",
 				"type" : 7
 			},
 			"246" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Pirate Chest (Open), Underground",
 				"type" : 7
 			},
 			"247" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Gem (World)",
 				"type" : 7
 			},
 			"248" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Gem (Inventory)",
 				"type" : 7
 			},
 			"249" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Tomb Door (With Gem)",
 				"type" : 7
 			},
 			"25" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Door (Left)",
 				"type" : 7
 			},
 			"250" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"251" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"252" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Grey Stone Tomb Door",
 				"type" : 7
 			},
 			"253" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Brown Tomb Door (No Gem)",
 				"type" : 7
 			},
 			"254" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Grey Stone Tomb Door",
 				"type" : 7
 			},
 			"255" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Hook (World)",
 				"type" : 7
 			},
 			"256" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Hook (Inventory)",
 				"type" : 7
 			},
 			"257" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Deep One",
 				"type" : 7
 			},
 			"258" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Fireball #1",
 				"type" : 7
 			},
 			"259" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Fireball #1 (Impact)?",
 				"type" : 7
 			},
 			"26" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Oil Can (World)",
 				"type" : 7
 			},
 			"260" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Fireball #2",
 				"type" : 7
 			},
 			"261" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Fireball #2 (Impact)?",
 				"type" : 7
 			},
 			"262" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Falling Boulder?",
 				"type" : 7
 			},
 			"263" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Driver's Head",
 				"type" : 7
 			},
 			"264" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Edward (Inventory Portrait?)",
 				"type" : 7
 			},
 			"265" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Edward",
 				"type" : 7
 			},
 			"266" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Car",
 				"type" : 7
 			},
 			"267" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Frog",
 				"type" : 7
 			},
 			"268" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Edward (Holding Flask?)",
 				"type" : 7
 			},
 			"269" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Edward",
 				"type" : 7
 			},
 			"27" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Oil Can (Inventory)",
 				"type" : 7
 			},
 			"270" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Yellow Fireball?",
 				"type" : 7
 			},
 			"271" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Red Shirt)",
 				"type" : 7
 			},
 			"28" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bow (World)",
 				"type" : 7
 			},
 			"29" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bow (Inventory)",
 				"type" : 7
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wardrobe (Open), Loft",
 				"type" : 7
 			},
 			"30" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Edward (Holding Bow)",
 				"type" : 7
 			},
 			"31" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Edward (Holding Bow)",
 				"type" : 7
 			},
 			"32" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Breakaway Floorboards",
 				"type" : 7
 			},
 			"33" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Chair",
 				"type" : 7
 			},
 			"34" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Door (Right)",
 				"type" : 7
 			},
 			"35" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Chest (Closed), Study",
 				"type" : 7
 			},
 			"36" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Chest (Open), Study",
 				"type" : 7
 			},
 			"37" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Broken Sabre Blade (Inventory)",
 				"type" : 7
 			},
 			"38" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Broken Sabre Blade (World)",
 				"type" : 7
 			},
 			"39" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Coat Of Arms, With 2 Sabres",
 				"type" : 7
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Rocking Horse",
 				"type" : 7
 			},
 			"40" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Old Cavalry Sabre (Inventory)",
 				"type" : 7
 			},
 			"41" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Old Cavalry Sabre (World)",
 				"type" : 7
 			},
 			"42" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Broken Sabre Hilt (World)",
 				"type" : 7
 			},
 			"43" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Broken Sabre Hilt (Inventory)",
 				"type" : 7
 			},
 			"44" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Edward (Holding Sabre)",
 				"type" : 7
 			},
 			"45" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Edward (Holding Broken Sabre Hilt)",
 				"type" : 7
 			},
 			"46" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Silver Key (Inventory)",
 				"type" : 7
 			},
 			"47" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Silver Key (World)",
 				"type" : 7
 			},
 			"48" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Pink Shirt)",
 				"type" : 7
 			},
 			"49" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bathroom Cupboard Door",
 				"type" : 7
 			},
 			"5" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "4 Panel Window",
 				"type" : 7
 			},
 			"50" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "First Aid Kit (Inventory)",
 				"type" : 7
 			},
 			"51" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "First Aid Kit (World)",
 				"type" : 7
 			},
 			"52" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Flask (Inventory)",
 				"type" : 7
 			},
 			"53" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Flask (World)",
 				"type" : 7
 			},
 			"54" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Cushioned Stool",
 				"type" : 7
 			},
 			"55" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "6 Pane Window",
 				"type" : 7
 			},
 			"56" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "6 Pane Window (Broken)",
 				"type" : 7
 			},
 			"57" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Vase (World)",
 				"type" : 7
 			},
 			"58" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Vase (Inventory)",
 				"type" : 7
 			},
 			"59" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Vase, Broken (World)",
 				"type" : 7
 			},
 			"6" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "4 Pane Window (Broken)",
 				"type" : 7
 			},
 			"60" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Vase, Broken (Inventory)",
 				"type" : 7
 			},
 			"61" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Dresser Key (Inventory)",
 				"type" : 7
 			},
 			"62" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Dresser Key (World)",
 				"type" : 7
 			},
 			"63" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror #1 (Inventory)",
 				"type" : 7
 			},
 			"64" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror #1 (World)",
 				"type" : 7
 			},
 			"65" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror #1, Broken (World)",
 				"type" : 7
 			},
 			"66" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror #1, Broken (Inventory)",
 				"type" : 7
 			},
 			"67" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror #2 (Inventory)",
 				"type" : 7
 			},
 			"68" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror #2 (World)",
 				"type" : 7
 			},
 			"69" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror #2, Broken (World)",
 				"type" : 7
 			},
 			"7" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Trap Door, Loft",
 				"type" : 7
 			},
 			"70" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Small Mirror, Broken (Inventory)",
 				"type" : 7
 			},
 			"71" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Window Monster",
 				"type" : 7
 			},
 			"72" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Dressing Table",
 				"type" : 7
 			},
 			"73" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Zombie (Yellow Shirt)",
 				"type" : 7
 			},
 			"74" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Nightgaunt #1",
 				"type" : 7
 			},
 			"75" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Nightgaunt #2",
 				"type" : 7
 			},
 			"76" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Bookshelf (Secret Door)",
 				"type" : 7
 			},
 			"77" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Red Book (Book of Abdul) (World)",
 				"type" : 7
 			},
 			"78" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Red Book (Book of Abdul) (Inventory)",
 				"type" : 7
 			},
 			"79" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"8" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Wooden Stool",
 				"type" : 7
 			},
 			"80" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"81" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"82" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"83" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (World)",
 				"type" : 7
 			},
 			"84" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Green Book (Inventory)",
 				"type" : 7
 			},
 			"85" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Vagabond",
 				"type" : 7
 			},
 			"86" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Arrow (World)",
 				"type" : 7
 			},
 			"87" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Axe (World)",
 				"type" : 7
 			},
 			"88" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Axe (Inventory)",
 				"type" : 7
 			},
 			"89" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Sword (Inventory)",
 				"type" : 7
 			},
 			"9" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Lamp (World)",
 				"type" : 7
 			},
 			"90" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Sword (World)",
 				"type" : 7
 			},
 			"91" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Suit Of Armor",
 				"type" : 7
 			},
 			"92" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Jeremy's Notebook (World)",
 				"type" : 7
 			},
 			"93" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Jeremy's Notebook (Inventory)",
 				"type" : 7
 			},
 			"94" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Window Monster",
 				"type" : 7
 			},
 			"95" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "First Aid Kit (Inventory)",
 				"type" : 7
 			},
 			"96" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "First Aid Kit (World)",
 				"type" : 7
 			},
 			"97" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Flask (Inventory)",
 				"type" : 7
 			},
 			"98" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Flask (World)",
 				"type" : 7
 			},
 			"99" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Jug (World)",
 				"type" : 7
 			}
 		},
@@ -11778,49 +12183,49 @@
 			"0" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Music in ADL format",
 				"type" : 0
 			},
 			"1" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Music in ADL format",
 				"type" : 0
 			},
 			"2" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Music in ADL format",
 				"type" : 0
 			},
 			"3" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Music in ADL format",
 				"type" : 0
 			},
 			"4" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Music in ADL format",
 				"type" : 0
 			},
 			"5" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Music in ADL format",
 				"type" : 0
 			},
 			"6" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Music in ADL format",
 				"type" : 0
 			},
 			"7" : 
 			{
 				"default_compr" : 1,
-				"info" : "?",
+				"info" : "Music in ADL format",
 				"type" : 0
 			}
 		},
@@ -12099,7 +12504,7 @@
 			"49" : 
 			{
 				"default_compr" : 1,
-				"info" : "Page",
+				"info" : "Page Turn",
 				"type" : 0
 			},
 			"5" : 
@@ -12797,6 +13202,141 @@
 				"default_compr" : 1,
 				"info" : "Demo pic",
 				"type" : 6
+			}
+		},
+			"USA.PAK" : 
+		{
+			"0" : 
+			{
+				"default_compr" : 1,
+				"info" : "Ingame messages (U.S. English)",
+				"type" : 1
+			},
+			"1" : 
+			{
+				"default_compr" : 1,
+				"info" : "Jeremy's Letter (U.S. English)",
+				"type" : 1
+			},
+			"10" : 
+			{
+				"default_compr" : 1,
+				"info" : "Reflections on the Power of the Verb (U.S. English)",
+				"type" : 1
+			},
+			"11" : 
+			{
+				"default_compr" : 1,
+				"info" : "Signs and Rituals (The Book of Yael) (U.S. English)",
+				"type" : 1
+			},
+			"12" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Sacrificial Dagger (U.S. English)",
+				"type" : 1
+			},
+			"13" : 
+			{
+				"default_compr" : 1,
+				"info" : "De Vermis Mysteriis (U.S. English)",
+				"type" : 1
+			},
+			"14" : 
+			{
+				"default_compr" : 1,
+				"info" : "Demonia Particularis (U.S. English)",
+				"type" : 1
+			},
+			"15" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Tale of Captain Norton (U.S. English)",
+				"type" : 1
+			},
+			"16" : 
+			{
+				"default_compr" : 1,
+				"info" : "Memories (U.S. English)",
+				"type" : 1
+			},
+			"17" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Trial of Captain Pregzt (U.S. English)",
+				"type" : 1
+			},
+			"18" : 
+			{
+				"default_compr" : 1,
+				"info" : "A Pirate's Log book (Memoirs of a Lost Soul) (U.S. English)",
+				"type" : 1
+			},
+			"19" : 
+			{
+				"default_compr" : 1,
+				"info" : "End Credits (U.S. English)",
+				"type" : 1
+			},
+			"2" : 
+			{
+				"default_compr" : 1,
+				"info" : "Extract from the Golden Fleece (U.S. English)",
+				"type" : 1
+			},
+			"20" : 
+			{
+				"default_compr" : 1,
+				"info" : "Edward Carnby’s introduction (U.S. English)",
+				"type" : 1
+			},
+			"21" : 
+			{
+				"default_compr" : 1,
+				"info" : "Emily Hartwood’s introduction (U.S. English)",
+				"type" : 1
+			},
+			"3" : 
+			{
+				"default_compr" : 1,
+				"info" : "Fragments of the Book of Abdul (U.S. English)",
+				"type" : 1
+			},
+			"4" : 
+			{
+				"default_compr" : 1,
+				"info" : "Story of a Louisana Plantation (U.S. English)",
+				"type" : 1
+			},
+			"5" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Sons of the Sun (U.S. English)",
+				"type" : 1
+			},
+			"6" : 
+			{
+				"default_compr" : 1,
+				"info" : "Terra Incognita (U.S. English)",
+				"type" : 1
+			},
+			"7" : 
+			{
+				"default_compr" : 1,
+				"info" : "Jeremy Hartwood's Notebook (U.S. English)",
+				"type" : 1
+			},
+			"8" : 
+			{
+				"default_compr" : 1,
+				"info" : "Diary of a journey (U.S. English)",
+				"type" : 1
+			},
+			"9" : 
+			{
+				"default_compr" : 1,
+				"info" : "The Creatures of the Night (U.S. English)",
+				"type" : 1
 			}
 		}
 	},
