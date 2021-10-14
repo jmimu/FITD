@@ -55,6 +55,7 @@ bool PakFile::overwrite(bool forceUncompressed)
     for (unsigned int index=0;index<mAllFiles.size();index++)
     {
         mAllFiles[index].mFileOffset=currentOffset;
+        mAllFiles[index].print();
         currentOffset+=sizeof(mAllFiles[index].mAdditionalDescriptorSize);
         currentOffset+=sizeof(mAllFiles[index].mInfo);
 

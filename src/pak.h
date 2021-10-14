@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include "types.h"
 
-struct pakInfoStruct // warning: allignement unsafe
+struct pakInfoStruct // warning: alignement unsafe
 {
   u32 discSize;
   u32 uncompressedSize;
@@ -12,7 +12,7 @@ struct pakInfoStruct // warning: allignement unsafe
   char info5;
   u16 offset;
 
-  u32 dummyFiller;//fix unsafe alignment
+  //u32 dummyFiller;//fix unsafe alignment
 };
 typedef struct pakInfoStruct pakInfoStruct;
 

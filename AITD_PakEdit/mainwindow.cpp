@@ -489,7 +489,7 @@ bool MainWindow::importBMP(int index)
 
     delete file.mComprData;
     file.mComprData = (u8*)malloc(info.uncompressedSize);
-    strncpy((char*)file.mComprData,(char*)file.mDecomprData,info.uncompressedSize);
+    memcpy((char*)file.mComprData,(char*)file.mDecomprData,info.uncompressedSize);
     info.discSize=info.uncompressedSize;
     info.compressionFlag=0;
 

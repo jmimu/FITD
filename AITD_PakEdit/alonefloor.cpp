@@ -745,7 +745,7 @@ bool AloneFloor::importCollada(const char *filename,AloneFile *roomsFile,AloneFi
 
     delete roomsFile->mComprData;
     roomsFile->mComprData = (u8*)malloc(roomsDataSz);
-    strncpy((char*)roomsFile->mComprData,(char*)roomsFile->mDecomprData,roomsDataSz);
+    memcpy((char*)roomsFile->mComprData,(char*)roomsFile->mDecomprData,roomsDataSz);
     roomsFile->mInfo.discSize=roomsFile->mInfo.uncompressedSize;
     roomsFile->mInfo.compressionFlag=0;
 
