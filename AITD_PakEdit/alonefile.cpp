@@ -2,6 +2,7 @@
 
 #include <cstring>
 
+#include "settings.h"
 
 u8 AloneFile::palette[]={0x00, 0x00, 0x00, 0xff, 0xff, 0xff, 0x33, 0x33, 0x3b, 0xc3, 0xbf, 0xff, 0x8f, 0xb3, 0x8f, 0xab,
               0x77, 0xab, 0xab, 0x87, 0x63, 0xff, 0x17, 0xab, 0x4b, 0x53, 0x63, 0xc7, 0x57, 0x5f, 0x57, 0x97,
@@ -213,6 +214,14 @@ bool AloneFile::exportCompressed(const char *outfilename)
 
 bool AloneFile::compress_dosbox_pkzip()
 {
+    //create tmp file for pkzip
+    FILE *tmp_file;
+    tmp_file = fopen((Settings::current.pkzipDir+"/tmp.dat").toStdString().c_str(),"wb");
+    fwrite(mDecomprData, mInfo.uncompressedSize,1,tmp_file);
+    fclose(tmp_file);
+
+    system((Settings::current.dosboxEXE+" -conf "+DOSBOX_CONF_FILE).toStdString().c_str());
+
     int cbOutBuffer = mInfo.uncompressedSize+0x100; //size of compressed data
     unsigned char * pvOutBuffer = (u8*)malloc(cbOutBuffer); //pointer to compressed data
     free(pvOutBuffer);

@@ -56,6 +56,9 @@ public slots:
     bool openDB(bool init=false);
     void updateDB();
     bool writeDB();
+
+    bool setDosboxPath();
+    bool setPkZipPath();
 };
 
 #endif // MAINWINDOW_H

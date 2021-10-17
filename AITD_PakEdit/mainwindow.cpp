@@ -43,6 +43,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->ui->action_WriteDB,SIGNAL(triggered()),this,SLOT(writeDB()));
     connect(this->ui->action_OpenDB,SIGNAL(triggered()),this,SLOT(openDB()));
 
+    connect(this->ui->actionSet_Dosbox_path,SIGNAL(triggered()),this,SLOT(setDosboxPath()));
+    connect(this->ui->actionSet_PKZip_path,SIGNAL(triggered()),this,SLOT(setPkZipPath()));
+
     if (openDB(true))
         openPAK(true);
 }
@@ -50,6 +53,41 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+bool MainWindow::setDosboxPath()
+{
+    QString tmpfilename;
+    tmpfilename=QFileDialog::getOpenFileName(this, tr("Dosbox executable"),
+                                                 Settings::current.dosboxEXE,
+                                                 tr("executable (*)"));
+    if (tmpfilename=="")
+        return false;
+    Settings::current.dosboxEXE = tmpfilename;
+    return true;
+}
+
+bool MainWindow::setPkZipPath()
+{
+    QString tmpfilename;
+    tmpfilename=QFileDialog::getExistingDirectory(this, tr("PKZip directory"),
+                                                 Settings::current.pkzipDir);
+    if (tmpfilename=="")
+        return false;
+    Settings::current.pkzipDir = tmpfilename;
+
+    //create dosbox config
+    QFile tmp(DOSBOX_CONF_FILE);
+    tmp.setPermissions((QFileDevice::Permission)0x6666);
+    QFile::remove(DOSBOX_CONF_FILE);
+    QFile::copy("dosbox_pakedit_template.conf", DOSBOX_CONF_FILE);
+    QFile tmp2(DOSBOX_CONF_FILE);
+    if (tmp2.open(QIODevice::WriteOnly | QIODevice::Append)) {
+        QString toAdd = QString("mount c %1\nc:\ndel tmp.zip\npkzip -ei tmp.zip tmp.dat\nexit\n").arg(Settings::current.pkzipDir);
+        tmp2.write(toAdd.toUtf8());
+        tmp2.close();
+    }
+    return true;
 }
 
 bool MainWindow::openDB(bool init)

@@ -120,9 +120,17 @@
     <addaction name="action_OpenDB"/>
     <addaction name="action_WriteDB"/>
    </widget>
+   <widget class="QMenu" name="menu_Settings">
+    <property name="title">
+     <string>&amp;Settings</string>
+    </property>
+    <addaction name="actionSet_Dosbox_path"/>
+    <addaction name="actionSet_PKZip_path"/>
+   </widget>
    <addaction name="menu_File"/>
    <addaction name="menuFile"/>
    <addaction name="menuDataBAse"/>
+   <addaction name="menu_Settings"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -230,6 +238,16 @@
   <action name="action_ImportRaw">
    <property name="text">
     <string>Import &amp;Raw</string>
+   </property>
+  </action>
+  <action name="actionSet_Dosbox_path">
+   <property name="text">
+    <string>Set &amp;Dosbox path</string>
+   </property>
+  </action>
+  <action name="actionSet_PKZip_path">
+   <property name="text">
+    <string>Set &amp;PKZip path</string>
    </property>
   </action>
  </widget>

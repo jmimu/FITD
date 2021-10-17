@@ -4,6 +4,8 @@
 #include <QSettings>
 #include <QString>
 
+#define DOSBOX_CONF_FILE "dosbox_pakedit.conf"
+
 class Settings
 {
 public:
@@ -13,6 +15,8 @@ public:
     //data
     QString currentDB;
     QString currentPAK;
+    QString dosboxEXE;
+    QString pkzipDir;
 };
 
 #endif // SETTINGS_H

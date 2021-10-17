@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>logo.png</file>
+        <file>dosbox_pakedit_template.conf</file>
     </qresource>
 </RCC>
