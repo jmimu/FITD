@@ -31,7 +31,8 @@ SOURCES += main.cpp \
     ../src/hqr.c \
     ../src/fileAccess.c \
     ../src/cosTable.c \
-    alonebody.cpp
+    alonebody.cpp \
+	settings.cpp
 
 HEADERS  += mainwindow.h \
         ../src/pak.h \
@@ -50,7 +51,8 @@ HEADERS  += mainwindow.h \
     ../src/freezetime.h \
     ../src/hqr.h \
     ../src/fileAccess.h \
-    alonebody.h
+    alonebody.h \
+	settings.h
 
 FORMS    += mainwindow.ui
 

@@ -16,6 +16,7 @@ extern "C" {
 #include "../src/types.h"
 }
 
+#include "settings.h"
 
 u8 palette[256*3];
 
@@ -41,6 +42,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->ui->action_ImportRaw,SIGNAL(triggered()),this,SLOT(importRawFile()));
     connect(this->ui->action_WriteDB,SIGNAL(triggered()),this,SLOT(writeDB()));
     connect(this->ui->action_OpenDB,SIGNAL(triggered()),this,SLOT(openDB()));
+
+    if (openDB(true))
+        openPAK(true);
 }
 
 MainWindow::~MainWindow()
@@ -48,12 +52,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-bool MainWindow::openDB()
+bool MainWindow::openDB(bool init)
 {
     QString tmpfilename;
-    tmpfilename=QFileDialog::getOpenFileName(this, tr("Open database file"),
+    if (!init) {
+        tmpfilename=QFileDialog::getOpenFileName(this, tr("Open database file"),
                                                  "",
                                                  tr("json (*.json)"));
+    } else {
+         tmpfilename = Settings::current.currentDB;
+    }
     if (tmpfilename=="")
         return false;
 
@@ -63,6 +71,7 @@ bool MainWindow::openDB()
         ui->actionOpenPAK->setEnabled(true);
         ui->action_WriteDB->setEnabled(true);
         ui->lineEditDBName->setText(tmpfilename);
+        Settings::current.currentDB = tmpfilename;
         return true;
     }
     return false;
@@ -135,12 +144,17 @@ void MainWindow::updateTable()
     ui->tableWidget->horizontalHeader()->setStretchLastSection(true);
 }
 
-bool MainWindow::openPAK()
+bool MainWindow::openPAK(bool init)
 {
     QString tmpfilename;
-    tmpfilename=QFileDialog::getOpenFileName(this, tr("Open PAK file"),
-                                                 mPAKPath,
-                                                 tr("PAK (*.PAK)"));
+    if (!init) {
+        tmpfilename=QFileDialog::getOpenFileName(this, tr("Open PAK file"),
+                                                     mPAKPath,
+                                                     tr("PAK (*.PAK)"));
+    } else {
+         tmpfilename = Settings::current.currentPAK;
+    }
+
     if (tmpfilename=="")
         return false;
 
@@ -163,6 +177,8 @@ bool MainWindow::openPAK()
     ui->actionExport_All_Interpreted->setEnabled(true);
     ui->actionExport_all_as_BMP->setEnabled(true);
 
+
+    Settings::current.currentPAK = tmpfilename;
     return true;
 }
 
