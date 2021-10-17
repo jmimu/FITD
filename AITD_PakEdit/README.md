@@ -5,7 +5,7 @@ https://github.com/jmimu/FITD/tree/master/AITD_PakEdit
 
 
 Alone in the Dark PakEdit allows to modify PAK file for AITD and FITD.
-It is based on yaz0r's FITD PAK reading implementation.
+It is based on yaz0r's FITD PAK reading implementation, and using original PKZip 1.1 compressor.
 
 
 License
@@ -48,6 +48,10 @@ For now only pictures, texts, sound samples and raw files can be re-imported.
 You can then modify the exported files, and re-import them.
 Overwrite the PAK file (a .PAK.BAK file will be created to save previous version).
 Run the game with the new PAK.
+
+To be able to re-import compressed files (mandatory for bodies), you have
+to install Dosbox emulator and set dosbox executable path (if it is not in system's PATH).
+You also have to get PKZip 1.1 executable
 
 Floors are exported in Collada format.
 You can open it with meshlab or blender.

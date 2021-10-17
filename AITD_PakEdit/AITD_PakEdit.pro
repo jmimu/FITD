@@ -59,6 +59,8 @@ FORMS    += mainwindow.ui
 win32:INCLUDEPATH = C:\libs\
 win32:LIBS =        C:\libs\
 
+INCLUDEPATH += .\
+	       ../src
 
 LIBS += -lz
 QMAKE_CXXFLAGS += -std=gnu++11

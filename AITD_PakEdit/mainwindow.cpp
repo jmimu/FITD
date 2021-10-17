@@ -596,7 +596,14 @@ bool MainWindow::importRaw(int index)
     DBFile &dbfile=mDB.get(mPAKname.toStdString(),index);
     AloneFile &file=mPakFile.getAllFiles().at(index);
     pakInfoStruct &info=file.mInfo;
+
     bool compress=(dbfile.default_compr==1);
+    if (compress)
+    {
+        QMessageBox::StandardButton reply = QMessageBox::question(this, "Compress?", "Do you want to compress file?",
+                                    QMessageBox::Yes|QMessageBox::No);
+        if (reply == QMessageBox::No) compress = false;
+    }
 
     FILE* fileHandle=fopen(filename.toStdString().c_str(),"rb");
     fseek(fileHandle,0L,SEEK_END);
@@ -627,9 +634,33 @@ bool MainWindow::importRaw(int index)
 
     if (compress)
     {
-        if (!file.compress_dosbox_pkzip()) {
-            QMessageBox msgBox;
-            msgBox.setText("Data compression failed!");
+        compress_status res = file.compress_dosbox_pkzip();
+        QMessageBox msgBox;
+        switch (res) {
+        case ok:
+        //    msgBox.setText("Data compression successful!");
+        //    msgBox.exec();
+            break;
+        case nodosbox:
+            msgBox.setText("Dosbox not found. Please set dosbox path.");
+            msgBox.exec();
+            free(data);
+            return false;
+            break;
+        case nozip:
+            msgBox.setText("No zip file created. Please check PKZip path.");
+            msgBox.exec();
+            free(data);
+            return false;
+            break;
+        case notimplode:
+            msgBox.setText("Wrong zip file compression (file too small?).");
+            msgBox.exec();
+            free(data);
+            return false;
+            break;
+        default:
+            msgBox.setText("Data compression: unknown error");
             msgBox.exec();
             free(data);
             return false;

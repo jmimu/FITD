@@ -10,7 +10,14 @@ extern "C" {
 #include "../src/bmp.h"
 }
 
-
+enum compress_status
+{
+    ok=0,
+    nodosbox,
+    nozip,
+    notimplode,
+    unknown
+};
 
 class AloneFile
 {
@@ -23,7 +30,7 @@ public:
     bool exportAsBMP(u32 offset, u32 width, u8* palette);
     bool exportUncompressed(const char *outfilename);
     bool exportCompressed(const char *outfilename);
-    bool compress_dosbox_pkzip();
+    compress_status compress_dosbox_pkzip();
 
     static u8 palette[];
 

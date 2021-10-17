@@ -212,7 +212,7 @@ bool AloneFile::exportCompressed(const char *outfilename)
     }
 }
 
-bool AloneFile::compress_dosbox_pkzip()
+compress_status AloneFile::compress_dosbox_pkzip()
 {
     //create tmp file for pkzip
     FILE *tmp_file;
@@ -220,37 +220,68 @@ bool AloneFile::compress_dosbox_pkzip()
     fwrite(mDecomprData, mInfo.uncompressedSize,1,tmp_file);
     fclose(tmp_file);
 
-    system((Settings::current.dosboxEXE+" -conf "+DOSBOX_CONF_FILE).toStdString().c_str());
+    //call dosbox
+    int ret = system((Settings::current.dosboxEXE+" -conf "+DOSBOX_CONF_FILE).toStdString().c_str());
+    if (ret) {
+        printf("Impossible to run dosbox. Please check Dosbox path.");
+        return nodosbox;
+    }
 
-    int cbOutBuffer = mInfo.uncompressedSize+0x100; //size of compressed data
-    unsigned char * pvOutBuffer = (u8*)malloc(cbOutBuffer); //pointer to compressed data
-    free(pvOutBuffer);
-    return false;
+    //read zip file
+    tmp_file = fopen((Settings::current.pkzipDir+"/TMP.ZIP").toStdString().c_str(),"rb");
+    u16 comprType;
+    u32 comprSize;
+    u32 decomprSize;
+    u16 nameSize;
+    u16 extraSize;
+    fseek(tmp_file , 0x08 , SEEK_SET);
+    fread(&comprType, 2, 1, tmp_file);
+    if (comprType!=6) {
+        printf("Compression method is not implode!");
+        fclose(tmp_file);
+        return notimplode;
+    }
+    fseek(tmp_file , 0x12 , SEEK_SET);
+    fread(&comprSize, 4, 1, tmp_file);
+    fread(&decomprSize, 4, 1, tmp_file);
+    fread(&nameSize, 2, 1, tmp_file);
+    fread(&extraSize, 2, 1, tmp_file);
+    fseek(tmp_file, nameSize+extraSize, SEEK_CUR);
+    printf("In zip: %u %u %u\n", comprSize, decomprSize, nameSize);
+    if (decomprSize!=mInfo.uncompressedSize) {
+        printf("Decompressed size is not correct in zip. Not up to date?");
+        fclose(tmp_file);
+        return nozip;
+    }
+    u8 * comprData = (u8*)malloc(comprSize); //pointer to compressed data
+    fread(comprData, 1, comprSize, tmp_file);
+    fclose(tmp_file);
 
-    //for later...
-    /*//test explode
-    memset(pvOutBuffer, 0, cbOutBuffer);//fill with 0
-    cbOutBuffer = info.uncompressedSize+0x100;
-    ok = SCompExplode(pvOutBuffer, &cbOutBuffer, file.mComprData, info.discSize);
-    printf("first decompr: "<<ok<<"\n");
-    for (int i=0;i<cbOutBuffer;i++)
-        printf("%02X ", pvOutBuffer[i]);
-    std::cout<<std::endl;*/
+    u8 comprSign[] = {0x0F, 0x00, 0x12, 0x03, 0x24, 0x15, 0x36, 0x27, 0x38, 0x39, 0x6A, 0x7B,
+                      0x4C, 0x9D, 0x6E, 0x1F, 0x09, 0x06, 0x01, 0x13, 0x34, 0xE5, 0xF6, 0x96, 0xF7};
+    ret = memcmp(comprData, comprSign, sizeof(comprData));
+    if (ret) {
+        printf("Error checking implode signature...");
+        free(comprData);
+        return notimplode;
+    }
 
+    //copy compressed data to this
     delete mComprData;
-    mComprData = (u8*)malloc(cbOutBuffer);
-    mInfo.discSize=cbOutBuffer;
-    memcpy((char*)mComprData,(char*)pvOutBuffer,mInfo.discSize);
+    mComprData = (u8*)malloc(comprSize);
+    mInfo.discSize=comprSize;
+    memcpy((char*)mComprData,(char*)comprData,mInfo.discSize);
     mInfo.compressionFlag=1;
 
-    /*printf("orig:\n");
-    for (int i=0;i<info.uncompressedSize;i++)
-        printf("%02X ", file.mDecomprData[i]);
+    printf("orig:\n");
+    for (int i=0;i<mInfo.uncompressedSize;i++)
+        printf("%02X ", mDecomprData[i]);
     std::cout<<std::endl;
     printf("compr:\n");
-    for (int i=0;i<info.discSize;i++)
-        printf("%02X ", file.mComprData[i]);
-    std::cout<<std::endl;*/
+    for (int i=0;i<mInfo.discSize;i++)
+        printf("%02X ", mComprData[i]);
+    std::cout<<std::endl;
 
-    free(pvOutBuffer);
+    free(comprData);
+    return ok;
 }
