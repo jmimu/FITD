@@ -130,6 +130,7 @@ bool AloneFile::read(FILE* pakfile,const char* filename,unsigned int index)
       }
     case 1:
       {
+        std::cout<<"----------- decompress file "<<index<<" -----------"<<std::endl;
         mDecomprData = (u8 *) malloc(mInfo.uncompressedSize);
         PAK_explode(mComprData, mDecomprData, mInfo.discSize, mInfo.uncompressedSize, mInfo.info5);
         break;
@@ -208,4 +209,39 @@ bool AloneFile::exportCompressed(const char *outfilename)
         printf("Error, file %l not compressed.\n",this->mIndex);
         return true;
     }
+}
+
+bool AloneFile::compress_dosbox_pkzip()
+{
+    int cbOutBuffer = mInfo.uncompressedSize+0x100; //size of compressed data
+    unsigned char * pvOutBuffer = (u8*)malloc(cbOutBuffer); //pointer to compressed data
+    free(pvOutBuffer);
+    return false;
+
+    //for later...
+    /*//test explode
+    memset(pvOutBuffer, 0, cbOutBuffer);//fill with 0
+    cbOutBuffer = info.uncompressedSize+0x100;
+    ok = SCompExplode(pvOutBuffer, &cbOutBuffer, file.mComprData, info.discSize);
+    printf("first decompr: "<<ok<<"\n");
+    for (int i=0;i<cbOutBuffer;i++)
+        printf("%02X ", pvOutBuffer[i]);
+    std::cout<<std::endl;*/
+
+    delete mComprData;
+    mComprData = (u8*)malloc(cbOutBuffer);
+    mInfo.discSize=cbOutBuffer;
+    memcpy((char*)mComprData,(char*)pvOutBuffer,mInfo.discSize);
+    mInfo.compressionFlag=1;
+
+    /*printf("orig:\n");
+    for (int i=0;i<info.uncompressedSize;i++)
+        printf("%02X ", file.mDecomprData[i]);
+    std::cout<<std::endl;
+    printf("compr:\n");
+    for (int i=0;i<info.discSize;i++)
+        printf("%02X ", file.mComprData[i]);
+    std::cout<<std::endl;*/
+
+    free(pvOutBuffer);
 }

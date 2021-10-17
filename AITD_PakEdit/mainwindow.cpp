@@ -38,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->ui->actionExport_Decompressed,SIGNAL(triggered()),this,SLOT(exportSelectedFile_Decompressed()));
     connect(this->ui->actionExport_Interpreted,SIGNAL(triggered()),this,SLOT(exportSelectedFile_Interpreted()));
     connect(this->ui->action_Import,SIGNAL(triggered()),this,SLOT(importFile()));
+    connect(this->ui->action_ImportRaw,SIGNAL(triggered()),this,SLOT(importRawFile()));
     connect(this->ui->action_WriteDB,SIGNAL(triggered()),this,SLOT(writeDB()));
     connect(this->ui->action_OpenDB,SIGNAL(triggered()),this,SLOT(openDB()));
 }
@@ -99,6 +100,7 @@ void MainWindow::updateTable()
     QStringList vertlabels;
     for (unsigned int i=0;i<mPakFile.getAllFiles().size();i++)
     {
+        std::cout<<"updateTable file "<<i<<std::endl;
         mDB.setDefaultCompr(mPAKname.toStdString(),i,mPakFile.getAllFiles()[i].mInfo.compressionFlag);
 
         ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(mPakFile.getAllFiles()[i].mFileOffset, 16)));
@@ -353,6 +355,34 @@ bool MainWindow::exportFile(int index, IOType type)
 
 
 
+bool MainWindow::importRawFile()
+{
+    bool result;
+    QItemSelectionModel *select = ui->tableWidget->selectionModel();
+
+    if (select->selectedRows().size()==0)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Please select a row!");
+        msgBox.exec();
+        return false;
+    }
+
+    int index=select->selectedRows()[0].row();
+    result=importRaw(index);
+
+    if (!result) return false;
+
+    QMessageBox msgBox;
+    msgBox.setText("Done!");
+    msgBox.exec();
+
+    updateTable();
+
+    return true;
+}
+
+
 bool MainWindow::importFile()
 {
     bool result;
@@ -512,6 +542,7 @@ bool MainWindow::importRaw(int index)
     DBFile &dbfile=mDB.get(mPAKname.toStdString(),index);
     AloneFile &file=mPakFile.getAllFiles().at(index);
     pakInfoStruct &info=file.mInfo;
+    bool compress=(dbfile.default_compr==1);
 
     FILE* fileHandle=fopen(filename.toStdString().c_str(),"rb");
     fseek(fileHandle,0L,SEEK_END);
@@ -521,7 +552,6 @@ bool MainWindow::importRaw(int index)
     char* data=(char*)malloc(size);
     fread(data,size,1,fileHandle);
     fclose(fileHandle);
-
 
     if (dbfile.type==FileType::sound)
     {
@@ -536,19 +566,28 @@ bool MainWindow::importRaw(int index)
         }
     }
 
-
     delete file.mDecomprData;
     info.uncompressedSize=size;
     file.mDecomprData = (u8*)malloc(info.uncompressedSize);
     memcpy(file.mDecomprData,(u8*)data,size);
 
-    //tell to use decompressed data
-
-    delete file.mComprData;
-    file.mComprData = (u8*)malloc(info.uncompressedSize);
-    strncpy((char*)file.mComprData,(char*)file.mDecomprData,info.uncompressedSize);
-    info.discSize=info.uncompressedSize;
-    info.compressionFlag=0;
+    if (compress)
+    {
+        if (!file.compress_dosbox_pkzip()) {
+            QMessageBox msgBox;
+            msgBox.setText("Data compression failed!");
+            msgBox.exec();
+            free(data);
+            return false;
+        }
+    } else {
+        //tell to use decompressed data
+        delete file.mComprData;
+        file.mComprData = (u8*)malloc(info.uncompressedSize);
+        memcpy((char*)file.mComprData,(char*)file.mDecomprData,info.uncompressedSize);
+        info.discSize=info.uncompressedSize;
+        info.compressionFlag=0;
+    }
 
     free(data);
     return true;

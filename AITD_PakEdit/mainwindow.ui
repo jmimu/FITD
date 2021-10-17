@@ -111,6 +111,7 @@
     <addaction name="actionExport_Decompressed"/>
     <addaction name="actionExport_Interpreted"/>
     <addaction name="action_Import"/>
+    <addaction name="action_ImportRaw"/>
    </widget>
    <widget class="QMenu" name="menuDataBAse">
     <property name="title">
@@ -224,6 +225,11 @@
    </property>
    <property name="text">
     <string>Export All &amp;Interpreted</string>
+   </property>
+  </action>
+  <action name="action_ImportRaw">
+   <property name="text">
+    <string>Import &amp;Raw</string>
    </property>
   </action>
  </widget>

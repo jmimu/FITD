@@ -47,6 +47,7 @@ public slots:
     void exportAll_Decompressed();
     void exportAll_Interpreted();
 
+    bool importRawFile();
     bool importFile();
     bool exportSelectedFile_Compressed();
     bool exportSelectedFile_Decompressed();

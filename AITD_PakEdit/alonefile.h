@@ -23,7 +23,7 @@ public:
     bool exportAsBMP(u32 offset, u32 width, u8* palette);
     bool exportUncompressed(const char *outfilename);
     bool exportCompressed(const char *outfilename);
-
+    bool compress_dosbox_pkzip();
 
     static u8 palette[];
 
