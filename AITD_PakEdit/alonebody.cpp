@@ -142,7 +142,7 @@ bool AloneBody::exportPly(char* filename)
 	}
     for (int i=0;i<numOfPrim;i++)
     {
-        fprintf(fileHandle,"%d %d %d\n", allPoints[i].x, allPoints[i].y, allPoints[i].z);
+        allPrims[i]->toPly(fileHandle);
     }
 	fclose(fileHandle);
 	return true;
