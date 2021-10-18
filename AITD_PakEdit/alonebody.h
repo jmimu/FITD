@@ -25,12 +25,14 @@ struct Prim
 {
 	u8 primtype;
 	u8 color;
+    virtual void toPly(FILE* f);
 };
 
 struct PrimLine: public Prim
 {
 	s16 ptA_index;
 	s16 ptB_index;
+    virtual void toPly(FILE* f);
 };
 
 struct PrimPoly: public Prim
@@ -38,6 +40,7 @@ struct PrimPoly: public Prim
 	u8 nbPts;
 	u8 polytype;
 	s16 * allPt_index;
+    virtual void toPly(FILE* f);
 };
 
 struct PrimSphere: public Prim
@@ -45,11 +48,13 @@ struct PrimSphere: public Prim
 	u8 type;
 	u8 nbPts;
 	s16 pt_index;
+    //virtual void toPly(FILE* f);
 };
 
 struct PrimSqr: public Prim
 {
 	s16 pt_index;
+    //virtual void toPly(FILE* f);
 };
 
 class AloneBody

@@ -1,5 +1,38 @@
 #include "alonebody.h"
 
+void Prim::toPly(FILE* f)
+{
+    fprintf(f,"%d %d %d %d\n",
+            AloneFile::palette[color*3],
+            AloneFile::palette[color*3+1],
+            AloneFile::palette[color*3+2],
+            0);
+}
+
+void PrimLine::toPly(FILE* f)
+{
+    fprintf(f,"%d %d %d %d %d %d %d\n",
+            AloneFile::palette[color*3],
+            AloneFile::palette[color*3+1],
+            AloneFile::palette[color*3+2],
+            2, ptA_index, ptB_index);
+}
+
+void PrimPoly::toPly(FILE* f)
+{
+    fprintf(f,"%d %d %d %d ",
+            AloneFile::palette[color*3],
+            AloneFile::palette[color*3+1],
+            AloneFile::palette[color*3+2],
+            nbPts);
+    for (int i=0;i<nbPts;i++)
+    {
+        fprintf(f,"%d ",allPt_index[i]);
+    }
+    fprintf(f,"\n");
+}
+
+
 AloneBody::AloneBody(AloneFile *file) : file(file),modelFlags(0),numOfPoints(0),
 	allPoints(nullptr),numOfBones(0),allBones(nullptr),numOfPrim(0),allPrims(nullptr)
 {
@@ -7,7 +40,7 @@ AloneBody::AloneBody(AloneFile *file) : file(file),modelFlags(0),numOfPoints(0),
 
 bool AloneBody::load()
 {
-	printf("Load ing file %s\n",file->mPAKFilename);
+    printf("Loading file %s\n",file->mPAKFilename?file->mPAKFilename:"?");
 	u8 * ptr = file->mDecomprData;
 
 	//from renderModel
@@ -97,12 +130,20 @@ bool AloneBody::exportPly(char* filename)
 	fprintf(fileHandle,"property float32 x\n");
 	fprintf(fileHandle,"property float32 y\n");
 	fprintf(fileHandle,"property float32 z\n");
-	fprintf(fileHandle,"element face 0\n");
+    fprintf(fileHandle,"element face %d\n", numOfPrim);
+    fprintf(fileHandle,"property uchar red\n");
+    fprintf(fileHandle,"property uchar green\n");
+    fprintf(fileHandle,"property uchar blue\n");
+    fprintf(fileHandle,"property list uchar int vertex_index\n");
 	fprintf(fileHandle,"end_header\n");
 	for (int i=0;i<numOfPoints;i++)
 	{
 		fprintf(fileHandle,"%d %d %d\n", allPoints[i].x, allPoints[i].y, allPoints[i].z);
 	}
+    for (int i=0;i<numOfPrim;i++)
+    {
+        fprintf(fileHandle,"%d %d %d\n", allPoints[i].x, allPoints[i].y, allPoints[i].z);
+    }
 	fclose(fileHandle);
 	return true;
 }
