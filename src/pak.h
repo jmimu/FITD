@@ -4,15 +4,13 @@
 #include <stdio.h>
 #include "types.h"
 
-struct pakInfoStruct // warning: alignement unsafe
+struct pakInfoStruct
 {
   u32 discSize;
   u32 uncompressedSize;
   char compressionFlag;
   char info5;
   u16 offset;
-
-  //u32 dummyFiller;//fix unsafe alignment
 };
 typedef struct pakInfoStruct pakInfoStruct;
 

@@ -36,6 +36,8 @@ public:
 
 //protected:
     pakInfoStruct mInfo;
+    u32 dummyFiller;//fix unsafe alignment
+
     u32 mFileOffset;
     u32 mAdditionalDescriptorSize;
     char mNameBuffer[256];
