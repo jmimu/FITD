@@ -2,34 +2,34 @@
 
 void Prim::toPly(FILE* f)
 {
-    fprintf(f,"%d %d %d %d\n",
-            AloneFile::palette[color*3],
-            AloneFile::palette[color*3+1],
-            AloneFile::palette[color*3+2],
-            0);
+	fprintf(f,"%d %d %d %d\n",
+			AloneFile::palette[color*3],
+			AloneFile::palette[color*3+1],
+			AloneFile::palette[color*3+2],
+			0);
 }
 
 void PrimLine::toPly(FILE* f)
 {
-    fprintf(f,"%d %d %d %d %d %d %d\n",
-            AloneFile::palette[color*3],
-            AloneFile::palette[color*3+1],
-            AloneFile::palette[color*3+2],
-            2, ptA_index, ptB_index);
+	fprintf(f,"%d %d %d %d %d %d %d\n",
+			AloneFile::palette[color*3],
+			AloneFile::palette[color*3+1],
+			AloneFile::palette[color*3+2],
+			2, ptA_index, ptB_index);
 }
 
 void PrimPoly::toPly(FILE* f)
 {
-    fprintf(f,"%d %d %d %d ",
-            AloneFile::palette[color*3],
-            AloneFile::palette[color*3+1],
-            AloneFile::palette[color*3+2],
-            nbPts);
-    for (int i=0;i<nbPts;i++)
-    {
-        fprintf(f,"%d ",allPt_index[i]);
-    }
-    fprintf(f,"\n");
+	fprintf(f,"%d %d %d %d ",
+			AloneFile::palette[color*3],
+			AloneFile::palette[color*3+1],
+			AloneFile::palette[color*3+2],
+			nbPts);
+	for (int i=0;i<nbPts;i++)
+	{
+		fprintf(f,"%d ",allPt_index[i]);
+	}
+	fprintf(f,"\n");
 }
 
 
@@ -40,7 +40,7 @@ AloneBody::AloneBody(AloneFile *file) : file(file),modelFlags(0),numOfPoints(0),
 
 bool AloneBody::load()
 {
-    printf("Loading file %s\n",file->mPAKFilename?file->mPAKFilename:"?");
+	printf("Loading file %s\n",file->mPAKFilename);
 	u8 * ptr = file->mDecomprData;
 
 	//from renderModel
@@ -64,12 +64,20 @@ bool AloneBody::load()
 	{
 		numOfBones = *(short int*)ptr;
 		ptr+=2;
+		ptr+=2*numOfBones;
 
-		ASSERT(numOfBones<NUM_MAX_BONES);
+		/*ASSERT(numOfBones<NUM_MAX_BONES);
 		allBones=new Bone[numOfBones];
 
 		memcpy(allBones,ptr,numOfBones*2);
-		ptr+=numOfBones*2;
+		ptr+=numOfBones*2;*/
+
+		//just skip bones for now
+		if (modelFlags & 8)
+			ptr+=0x18*numOfBones;
+		else
+			ptr+=0x10*numOfBones;
+		numOfBones = 0;
 	}else{
 		numOfBones = 0;
 	}
@@ -91,15 +99,14 @@ bool AloneBody::load()
 			prime->ptB_index = (*(s16*)ptr)/6;
 			ptr+=2;
 			allPrims[i] = prime;
-		}
-		if (primType==1) {
+		} else if (primType==1) {
 			PrimPoly * prime = new PrimPoly();
 			prime->primtype = primType;
 			prime->nbPts = *(u8*)ptr;
 			ptr++;
-			prime->color = *(u8*)ptr;
-			ptr++;
 			prime->polytype = *(u8*)ptr;
+			ptr++;
+			prime->color = *(u8*)ptr;
 			ptr++;
 			prime->allPt_index = new s16[prime->nbPts];
 			for (int j = 0;j<prime->nbPts;j++)
@@ -108,6 +115,10 @@ bool AloneBody::load()
 				ptr+=2;
 			}
 			allPrims[i] = prime;
+		} else {
+			std::cout<<"Primitive type "<<primType<<"not supported for now, ending export..."<<std::endl;
+			numOfPrim=i; //stop for now...
+			break;
 		}
 	}
 
@@ -130,20 +141,20 @@ bool AloneBody::exportPly(char* filename)
 	fprintf(fileHandle,"property float32 x\n");
 	fprintf(fileHandle,"property float32 y\n");
 	fprintf(fileHandle,"property float32 z\n");
-    fprintf(fileHandle,"element face %d\n", numOfPrim);
-    fprintf(fileHandle,"property uchar red\n");
-    fprintf(fileHandle,"property uchar green\n");
-    fprintf(fileHandle,"property uchar blue\n");
-    fprintf(fileHandle,"property list uchar int vertex_index\n");
+	fprintf(fileHandle,"element face %d\n", numOfPrim);
+	fprintf(fileHandle,"property uchar red\n");
+	fprintf(fileHandle,"property uchar green\n");
+	fprintf(fileHandle,"property uchar blue\n");
+	fprintf(fileHandle,"property list uchar int vertex_index\n");
 	fprintf(fileHandle,"end_header\n");
 	for (int i=0;i<numOfPoints;i++)
 	{
 		fprintf(fileHandle,"%d %d %d\n", allPoints[i].x, allPoints[i].y, allPoints[i].z);
 	}
-    for (int i=0;i<numOfPrim;i++)
-    {
-        allPrims[i]->toPly(fileHandle);
-    }
+	for (int i=0;i<numOfPrim;i++)
+	{
+		allPrims[i]->toPly(fileHandle);
+	}
 	fclose(fileHandle);
 	return true;
 }
