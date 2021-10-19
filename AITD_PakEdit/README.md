@@ -35,10 +35,14 @@ make
 
 Getting Started
 ---------------
+Copy io_alone/ to bender/2.9x/scripts/addons/
+
 Make a copy of your original PAK files.
+
 Run AITD_PakEdit.
 Open a database corresponding to the game (AITD1_PAK_DB.json for AITD1).
 Open a PAK.
+
 You see every file in the PAK, with there description and type from the database.
 You can modify them and overwrite database (and send it to me for next release!).
 When selecting a file, you can export it depending of its type.
