@@ -1,4 +1,5 @@
 #include "alonebody.h"
+#include <clocale>
 
 void Prim::toPly(FILE* f)
 {
@@ -132,6 +133,7 @@ bool AloneBody::load()
 
 bool AloneBody::exportPly(char* filename)
 {
+	setlocale(LC_ALL,"C");
 	printf("Export ply into %s\n",filename);
 	FILE* fileHandle;
 	fileHandle = fopen(filename,"w");
@@ -149,7 +151,7 @@ bool AloneBody::exportPly(char* filename)
 	fprintf(fileHandle,"end_header\n");
 	for (int i=0;i<numOfPoints;i++)
 	{
-		fprintf(fileHandle,"%d %d %d\n", allPoints[i].x, allPoints[i].y, allPoints[i].z);
+		fprintf(fileHandle,"%f %f %f\n", allPoints[i].x/1000.0, -allPoints[i].z/1000.0, -allPoints[i].y/1000.0);
 	}
 	for (int i=0;i<numOfPrim;i++)
 	{
