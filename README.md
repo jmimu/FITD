@@ -3,6 +3,15 @@ FITD
 
 https://github.com/jmimu/FITD
 
+To be able to compile in 32 bits from 64 bit Ubuntu 20.04:
+
+    sudo apt install libsdl1.2-dev:i386 libsdl-mixer1.2-dev:i386 libglu1-mesa-dev:i386 libzzip-dev:i386 libgc-dev:i386 libstdc++-dev:i386
+    sudo apt-get install gcc-multilib g++-multilib
+
+
+Original Readme from yaz0r
+==========================
+
 What is FITD
 ------------
 

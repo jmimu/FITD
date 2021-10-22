@@ -95,5 +95,8 @@ HEADERS += \
     src/actorList.h \
     src/types.h
 
-LIBS += -lSDL -lSDL_mixer -lGL -lGLU -lz
+LIBS +=  -lSDL -lSDL_mixer -lGL -lGLU -lz -L/usr/lib/i386-linux-gnu
 INCLUDEPATH += "/usr/include/SDL"
+
+QMAKE_LFLAGS += -m32
+QMAKE_CFLAGS += -m32
