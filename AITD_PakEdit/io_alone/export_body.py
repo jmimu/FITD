@@ -120,7 +120,7 @@ def save(
     bm = bmesh.new()
 
     bbox = [0,0,0,0,0,0]
-
+# TODO: apply transform to bbox, compute min max after
     for ob in obs:
         try:
             me = ob.to_mesh()

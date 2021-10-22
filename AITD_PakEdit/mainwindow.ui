@@ -180,12 +180,12 @@
   </action>
   <action name="actionExport_Compressed">
    <property name="text">
-    <string>Export &amp;Compressed</string>
+    <string>Export Raw &amp;Compressed</string>
    </property>
   </action>
   <action name="action_Import">
    <property name="text">
-    <string>&amp;Import </string>
+    <string>Import &amp;Interpreted</string>
    </property>
   </action>
   <action name="action_OpenDB">
@@ -211,12 +211,12 @@
   </action>
   <action name="actionExport_Decompressed">
    <property name="text">
-    <string>Export &amp;Decompressed</string>
+    <string>Export Raw &amp;Decompressed</string>
    </property>
   </action>
   <action name="actionExport_Interpreted">
    <property name="text">
-    <string>Export &amp;Interpreted</string>
+    <string>$Export Interpreted</string>
    </property>
   </action>
   <action name="actionExport_All_Decompressed">

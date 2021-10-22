@@ -53,7 +53,7 @@ from bpy_extras.io_utils import (
     orientation_helper,
 )
 
-
+# Todo Import Alone palette : 256 materials with different base color 
 class ImportBody(bpy.types.Operator, ImportHelper):
     """Load a Body geometry file"""
     bl_idname = "import_mesh.dat"
