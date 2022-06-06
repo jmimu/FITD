@@ -33,6 +33,11 @@ sudo apt install qtcreator zlib
 qmake
 make
 
+Automatic cross compilation from linux
+--------------------------------------
+docker pull crossqt1804
+docker run --rm --device /dev/fuse --privileged -v $(pwd)/..:/src crossqt1804 /src/AITD_PakEdit/compile_all.sh
+
 Getting Started
 ---------------
 Copy io_alone/ to bender/2.9x/scripts/addons/

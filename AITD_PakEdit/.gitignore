@@ -1,0 +1,4 @@
+*.pro.user
+autobuild
+autobuild-mxe
+distrib/tmp

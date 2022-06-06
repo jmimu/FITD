@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui xml
-CONFIG += debug
+#CONFIG += debug
 #CONFIG += console
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -67,3 +67,8 @@ QMAKE_CXXFLAGS += -std=gnu++11
 
 RESOURCES += \
     data.qrc
+
+unix {
+    target.path = /usr/bin/
+    INSTALLS += target
+}
