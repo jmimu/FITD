@@ -8,7 +8,7 @@ then
   exit $E_BADARGS
 fi
 
-version=`cat version`
+version=`cat version.h | grep "VERSION" | sed 's/.*VERSION "//' | sed 's/[^0-9.a-zA-Z_].*//'`
 echo "version : $version"
 
 echo "[Desktop Entry]" > distrib/AITD_PakEdit.desktop

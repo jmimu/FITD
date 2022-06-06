@@ -16,7 +16,7 @@ fi
 
 base=$(pwd)
 echo "base dir: $base"
-version=`cat version`
+version=`cat version.h | grep "VERSION" | sed 's/.*VERSION "//' | sed 's/[^0-9.a-zA-Z_].*//'`
 echo "version : $version"
 distrib/make_shortcut.sh
 
@@ -33,6 +33,8 @@ cd -
 cd -
   cp $base/LICENSE.txt $base/README.md $dir_name
   cp $base/*.json $dir_name
+  rm -Rf $base/io_alone/__pycache__
+  cp -R $base/io_alone/ $dir_name
   tar zcvf $base/${dir_name}.tgz $dir_name
 cd -
 

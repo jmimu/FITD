@@ -65,7 +65,7 @@ You also have to get PKZip 1.1 executable
 Floors are exported in Collada format.
 You can open it with meshlab or blender.
 To have a correct superposition with the background images, you must
-stretch them into 320*240.
+stretch them into 320*240 or set blender's output Y aspect to 1.2.
 Objects names are : type_rX_tY_pZ, where X is room number, Y type and Z parameter.
 You have to change those names in order to change objects metadata.
 
@@ -97,7 +97,7 @@ CD VS Floppy version
 
 Changelog
 ---------
-v???
+v0.05
   * Fix SceZone export/import y
 v0.04:
   * collada export with some metadata

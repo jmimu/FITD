@@ -5,7 +5,7 @@ set -x
 umask 0000
 export PATH=/usr/lib/mxe/usr/bin/:$PATH
 
-version=`cat /src/AITD_PakEdit/version`
+version=`cat /src/AITD_PakEdit/version.h | grep "VERSION" | sed 's/.*VERSION "//' | sed 's/[^0-9.a-zA-Z_].*//'`
 
 NBRP=$(cat /proc/cpuinfo | grep processor | wc -l)
 GREEN='\033[0;32m'

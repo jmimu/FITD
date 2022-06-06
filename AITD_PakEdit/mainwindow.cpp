@@ -17,6 +17,7 @@ extern "C" {
 }
 
 #include "settings.h"
+#include "version.h"
 
 u8 palette[256*3];
 
@@ -28,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     setbuf(stdout, NULL);
     ui->setupUi(this);
+    setWindowTitle("AITD PAK Editor v" EDITOR_VERSION );
     connect(this->ui->actionExit,SIGNAL(triggered()),this,SLOT(close()));
     connect(this->ui->actionOpenPAK,SIGNAL(triggered()),this,SLOT(openPAK()));
     connect(this->ui->actionSavePAK,SIGNAL(triggered()),this,SLOT(savePAK()));

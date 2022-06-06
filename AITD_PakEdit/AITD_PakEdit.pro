@@ -32,7 +32,7 @@ SOURCES += main.cpp \
     ../src/fileAccess.c \
     ../src/cosTable.c \
     alonebody.cpp \
-	settings.cpp
+    settings.cpp
 
 HEADERS  += mainwindow.h \
         ../src/pak.h \
@@ -52,7 +52,8 @@ HEADERS  += mainwindow.h \
     ../src/hqr.h \
     ../src/fileAccess.h \
     alonebody.h \
-	settings.h
+    settings.h \
+    version.h
 
 FORMS    += mainwindow.ui
 

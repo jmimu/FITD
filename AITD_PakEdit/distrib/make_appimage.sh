@@ -17,7 +17,7 @@ fi
 
 base=$(pwd)
 echo "base dir: $base"
-version=`cat version`
+version=`cat version.h | grep "VERSION" | sed 's/.*VERSION "//' | sed 's/[^0-9.a-zA-Z_].*//'`
 echo "version : $version"
 distrib/make_shortcut.sh
 
