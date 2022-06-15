@@ -35,7 +35,7 @@ void saveBMP(char* name, u8* pix, u8* pal, u32 w, u32 h)
         palBMP[i*4+3]=0;
     }
     
-    u8 *pixBMP=malloc(w*h);
+    u8 *pixBMP=(u8 *)malloc(w*h);
     for (i=0;i<h;i++)
         memcpy(pixBMP+i*w,pix+(h-i-1)*w,w);
 

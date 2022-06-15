@@ -37,7 +37,7 @@ echo -e "${GREEN}Windows cross-compilation${STOP}"
 cd /src/AITD_PakEdit/
 mkdir -p autobuild-mxe/
 cd autobuild-mxe/
-x86_64-w64-mingw32.static-qmake-qt5 ../AITD_PakEdit.pro CONFIG+=release
+x86_64-w64-mingw32.static-qmake-qt5 ../AITD_PakEdit.pro
 make clean
 make -j$NBRP
 

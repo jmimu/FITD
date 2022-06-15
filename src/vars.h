@@ -4,7 +4,7 @@
 #include "common.h"
 #include "osystem.h"
 
-#pragma pack(1)
+#pragma pack(1) //very bad, need to load structs without it (needs -O0)
 
 extern u8 scaledScreen[640*400];
 

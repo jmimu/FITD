@@ -13,6 +13,12 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = AITD_PakEdit
 TEMPLATE = app
 
+QMAKE_CCFLAGS_RELEASE -= -O1
+QMAKE_CCFLAGS_RELEASE -= -O2
+QMAKE_CCFLAGS_RELEASE *= -O0
+QMAKE_CXXFLAGS_RELEASE -= -O1
+QMAKE_CXXFLAGS_RELEASE -= -O2
+QMAKE_CXXFLAGS_RELEASE *= -O0
 
 SOURCES += main.cpp \
         ../src/pak.c \
@@ -64,7 +70,7 @@ INCLUDEPATH += .\
 	       ../src
 
 LIBS += -lz
-QMAKE_CXXFLAGS += -std=gnu++11
+QMAKE_CXXFLAGS += -std=gnu++11 -g
 
 RESOURCES += \
     data.qrc
