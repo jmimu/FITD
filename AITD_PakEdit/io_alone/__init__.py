@@ -240,7 +240,7 @@ def register():
     for cls in classes:
         bpy.utils.register_class(cls)
 
-    bpy.types.TOPBAR_MT_file_import.append(menu_func_import)
+    #bpy.types.TOPBAR_MT_file_import.append(menu_func_import) #import does not work for now
     bpy.types.TOPBAR_MT_file_export.append(menu_func_export)
 
 
@@ -248,7 +248,7 @@ def unregister():
     for cls in classes:
         bpy.utils.unregister_class(cls)
 
-    bpy.types.TOPBAR_MT_file_import.remove(menu_func_import)
+    #bpy.types.TOPBAR_MT_file_import.remove(menu_func_import) #import does not work for now
     bpy.types.TOPBAR_MT_file_export.remove(menu_func_export)
 
 

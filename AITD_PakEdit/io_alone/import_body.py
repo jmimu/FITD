@@ -430,11 +430,14 @@ def load_body_mesh(filepath, ply_name):
 def load_ply(filepath):
     import time
     import bpy
+    import sys
+    sys.path.insert(0,'..')
+    from io_mesh_ply import import_ply
 
     t = time.time()
     ply_name = bpy.path.display_name_from_filepath(filepath)
 
-    mesh = load_ply_mesh(filepath, ply_name)
+    mesh = import_ply.load_ply_mesh(filepath, ply_name)
     if not mesh:
         return {'CANCELLED'}
 
