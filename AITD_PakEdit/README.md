@@ -73,6 +73,7 @@ You have to change those names in order to change objects metadata.
 
 TODO
 ----
+  * crash with bus error when loading listbod2.pak
   * what is the link between scezone meta and step sample?
   * why is camera export working whithout room coordinates?
   * import floor's cameras
@@ -99,6 +100,8 @@ Changelog
 ---------
 v0.05
   * Fix SceZone export/import y
+  * cross compilation script
+  * able to compress at import
 v0.04:
   * collada export with some metadata
   * begin collada import (hardcol and scezones)
