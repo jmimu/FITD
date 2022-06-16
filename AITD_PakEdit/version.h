@@ -1,1 +1,1 @@
-#define EDITOR_VERSION "0.05alpha"
+#define EDITOR_VERSION "0.05"
