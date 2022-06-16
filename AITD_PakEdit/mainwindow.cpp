@@ -113,6 +113,7 @@ bool MainWindow::openDB(bool init)
     }
     return false;
 }
+
 void MainWindow::updateDB()
 {
     //read data from tableWidget
@@ -287,6 +288,7 @@ int MainWindow::getSelectedIndex()
 bool MainWindow::exportSelectedFile_Compressed()
 {
     int index=getSelectedIndex();
+    if (index<0) return false;
     if (exportFile(index,IO_COMPRESSED))
     {
         QMessageBox msgBox;
@@ -299,6 +301,7 @@ bool MainWindow::exportSelectedFile_Compressed()
 bool MainWindow::exportSelectedFile_Decompressed()
 {
     int index=getSelectedIndex();
+    if (index<0) return false;
     if (exportFile(index,IO_DECOMPRESSED))
     {
         QMessageBox msgBox;
@@ -311,6 +314,7 @@ bool MainWindow::exportSelectedFile_Decompressed()
 bool MainWindow::exportSelectedFile_Interpreted()
 {
     int index=getSelectedIndex();
+    if (index<0) return false;
     if (exportFile(index,IO_INTERPRETED))
     {
         QMessageBox msgBox;
@@ -323,6 +327,8 @@ bool MainWindow::exportSelectedFile_Interpreted()
 
 bool MainWindow::exportFile(int index, IOType type)
 {
+    if (index<0) return false;
+
     //use DB type
     DBFile &file=mDB.get(mPAKname.toStdString(),index);
     std::cout<<"Export "<<mPAKname.toStdString()<<":"<<index

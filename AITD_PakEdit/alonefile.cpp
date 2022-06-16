@@ -64,8 +64,16 @@ AloneFile::AloneFile():
 
 AloneFile::~AloneFile()
 {
-    if (mComprData) delete mComprData;
-    if (mDecomprData) delete mDecomprData;
+    if (mComprData)
+    {
+        delete mComprData;
+        mComprData = 0;
+    }
+    if (mDecomprData)
+    {
+        delete mDecomprData;
+        mDecomprData = 0;
+    }
 }
 
 bool AloneFile::read(FILE* pakfile,const char* filename,unsigned int index)
@@ -73,8 +81,16 @@ bool AloneFile::read(FILE* pakfile,const char* filename,unsigned int index)
     mPAKFilename=filename;
     mIndex=index;
 
-    if (mComprData) delete mComprData;
-    if (mDecomprData) delete mDecomprData;
+    if (mComprData)
+    {
+        delete mComprData;
+        mComprData = 0;
+    }
+    if (mDecomprData)
+    {
+        delete mDecomprData;
+        mDecomprData = 0;
+    }
 
     rewind(pakfile);
     fseek(pakfile,(index+1)*4,SEEK_SET);
