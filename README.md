@@ -1,5 +1,16 @@
+This repository is deprecated
+=============================
+
+Please use up-to-date repositories:
+
+ - for Free in the Dark: https://github.com/yaz0r/FITD
+ - for Alone in the Dark PAK Editor: https://github.com/jmimu/AITD_PakEdit
+
+__________________________________
+
 FITD
 ====
+
 
 https://github.com/jmimu/FITD
 
